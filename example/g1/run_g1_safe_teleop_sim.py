@@ -188,6 +188,3 @@ if __name__ == "__main__":
         agent_cfg = "G1MujocoRightArmAgent",
         safe_algo = "rssa",
         safety_index = "si1")
-    
-    
-    

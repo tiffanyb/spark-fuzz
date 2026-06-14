@@ -84,7 +84,7 @@ class G1MobileBaseKinematics(G1FixedBaseKinematics):
             self.init_data = sol_q
 
             sol_tauff = pin.rnea(self.reduced_fixed_base_model, self.reduced_fixed_base_data, sol_q, v, np.zeros(self.reduced_fixed_base_model.nv))
-            import ipdb; ipdb.set_trace()
+            # import ipdb; ipdb.set_trace()
             sol_tauff = np.concatenate([sol_tauff, np.zeros(len(self.robot_cfg.DoFs) - sol_tauff.shape[0])], axis=0)
 
             print(f"sol_q:{sol_q} \nmotorstate: \n{current_lr_arm_motor_q} \nleft_pose: \n{left_wrist} \nright_pose: \n{right_wrist}")
