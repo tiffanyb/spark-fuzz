@@ -86,6 +86,8 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
     frames, records = [], []
     from spark_utils import compute_masked_distance_matrix
 
+    collided_at = None
+    tail_after_event = 25   # keep rendering a few frames past a collision, then stop
     for step in range(max_steps):
         agent_feedback, task_info = h.env.step(u_safe, action_info)
         u_safe, action_info = h.algo.act(agent_feedback, task_info)
@@ -110,14 +112,19 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
                                   trigger_safe=bool(action_info.get("trigger_safe", False)),
                                   collided=(min_dist_env < 0.0)))
 
+        in_collision = min_dist_env < 0.0
+        if in_collision and collided_at is None:
+            collided_at = step
+
         # --- render this frame ---
         mujoco.mj_forward(agent.model, agent.data)
         renderer.update_scene(agent.data, camera=cam)
         scene = renderer.scene
-        # obstacles (red, semi-transparent)
+        # obstacles: dim red normally, bright opaque red once a collision is active
+        obs_rgba = (1.0, 0.05, 0.05, 0.95) if in_collision else (0.85, 0.15, 0.15, 0.55)
         for of, og in zip(obs_frames, obs_geom):
             rad = og.attributes.get("radius", 0.05)
-            _add_sphere(scene, of[:3, 3], rad, (0.85, 0.15, 0.15, 0.55))
+            _add_sphere(scene, of[:3, 3], rad, obs_rgba)
         # active right goal (green) and final G1 (cyan, faint)
         cur_world = (task.robot_base_frame @ _xyz_to_frame(task._current_goal_base()))[:3, 3]
         _add_sphere(scene, G1_world, 0.035, (0.1, 0.8, 0.9, 0.35))
@@ -127,12 +134,17 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
         _add_sphere(scene, ee, 0.022, (1.0, 0.9, 0.1, 0.95))
 
         img = renderer.render()
-        # HUD text
+        # HUD text (black; img is RGB until write time)
         txt = f"seed {seed}  step {step+1}/{max_steps}  d(EE->G1)={task.dist_to_final:.3f}  wp {task.wp_idx}"
         cv2.putText(img, txt, (16, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (20, 20, 20), 2, cv2.LINE_AA)
+        if in_collision:
+            cv2.putText(img, "COLLISION", (16, 64), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
+                        (230, 50, 50), 3, cv2.LINE_AA)
         frames.append(img)
 
         if task.reached_final:
+            break
+        if collided_at is not None and step - collided_at >= tail_after_event:
             break
 
     outcome = classify_trial(records, schedule=schedule_base)
