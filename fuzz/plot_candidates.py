@@ -36,6 +36,21 @@ _OUTCOME_RGBA = {
 }
 
 
+def load_candidates_from_json(paths):
+    """Load already-simulated candidates from one or more run_search JSON files
+    (no re-simulation). Returns [(G1'_base, label, infeasible), ...]."""
+    import json
+    out = []
+    for p in paths:
+        d = json.load(open(p))
+        for r in d.get("all_results", []):
+            if r is None:
+                continue
+            out.append((np.asarray(r["candidate"], dtype=float),
+                        r["label"], r.get("infeasible_QP", 0)))
+    return out
+
+
 def collect_candidates(harness, scene, n_candidates, max_steps, search_seed=0, verbose=True):
     """Run the random-admissible search, returning the list of
     (G1'_base, outcome_label, infeasible_QP) for every screened candidate."""
@@ -123,6 +138,9 @@ def main():
     ap.add_argument("--n-candidates", type=int, default=120)
     ap.add_argument("--max-steps", type=int, default=300)
     ap.add_argument("--search-seed", type=int, default=0)
+    ap.add_argument("--from-json", default=None,
+                    help="comma-separated run_search JSON(s) to load candidates from "
+                         "(skips re-simulation -> renders in seconds)")
     ap.add_argument("--out", default="/tmp/candidates.png")
     ap.add_argument("--azimuth", type=float, default=135.0)
     ap.add_argument("--elevation", type=float, default=-20.0)
@@ -133,8 +151,12 @@ def main():
                                   max_steps=a.max_steps, d_min_env=a.d_min)
     h = SingleArmHarness(cfg); instrument_infeasibility(h)
     scene = h.scene_info()
-    print(f"[setup] seed={a.seed} d_min={a.d_min} collecting {a.n_candidates} candidates...", flush=True)
-    cands = collect_candidates(h, scene, a.n_candidates, a.max_steps, a.search_seed)
+    if a.from_json:
+        cands = load_candidates_from_json(a.from_json.split(","))
+        print(f"[setup] seed={a.seed} loaded {len(cands)} candidates from json (no re-sim)", flush=True)
+    else:
+        print(f"[setup] seed={a.seed} d_min={a.d_min} collecting {a.n_candidates} candidates...", flush=True)
+        cands = collect_candidates(h, scene, a.n_candidates, a.max_steps, a.search_seed)
     render(h, scene, cands, a.out, azimuth=a.azimuth, elevation=a.elevation, distance=a.distance)
 
 
