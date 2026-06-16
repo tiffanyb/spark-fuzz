@@ -79,9 +79,19 @@ def build_single_arm_config(test_case: str = "G1FixedBase_D1_AG_SO_v0",
                             seed: int = 0,
                             max_steps: int = 400,   # full horizon; deadlock needs a full-length attempt
                             reach_eps: float = 0.05,
+                            d_min_env: float = None,
                             use_sim_dynamics: bool = False,
                             enable_viewer: bool = False):
-    """Build a G1BenchmarkPipelineConfig wired for single-arm goal insertion."""
+    """Build a G1BenchmarkPipelineConfig wired for single-arm goal insertion.
+
+    d_min_env: override the safety-index environment keep-out distance (phi =
+    d_min - d). The benchmark default is 0.10, which is LARGER than the gap
+    between the benchmark's center-keepout goals and obstacle surfaces (~0.02),
+    so the SSA QP is infeasible near goals and the filter is inert. Set this
+    smaller (e.g. 0.02) so the goals sit outside the keep-out shell and the
+    safety filter is genuinely active+feasible -- the only regime in which an
+    attack against the FILTER (rather than the inert fallback) is meaningful.
+    """
     from spark_pipeline import G1BenchmarkPipelineConfig, generate_benchmark_test_case
 
     cfg = G1BenchmarkPipelineConfig()
@@ -108,6 +118,8 @@ def build_single_arm_config(test_case: str = "G1FixedBase_D1_AG_SO_v0",
 
     # --- safety controller ---
     _config_safety(cfg, safe_algo)
+    if d_min_env is not None:
+        cfg.algo.safe_controller.safety_index.min_distance['environment'] = d_min_env
 
     # --- pipeline-level ---
     cfg.max_num_steps = max_steps
