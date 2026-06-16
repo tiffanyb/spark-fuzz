@@ -29,10 +29,11 @@ def main():
     ap = argparse.ArgumentParser(description="Phase-A single-arm goal-insertion fuzzer")
     ap.add_argument("--test-case", default="G1FixedBase_D1_AG_SO_v0")
     ap.add_argument("--safe-algo", default="rssa",
-                    choices=["ssa", "rssa", "cbf", "rcbf", "sss"])
+                    choices=["ssa", "rssa", "pssa", "cbf", "rcbf", "sss"])
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--candidates", type=int, default=50)
-    ap.add_argument("--max-steps", type=int, default=400)
+    ap.add_argument("--max-steps", type=int, default=400,
+                    help="full horizon; DEADLOCK requires a full-length attempt")
     ap.add_argument("--reach-eps", type=float, default=0.05)
     ap.add_argument("--ik-check", action="store_true",
                     help="require IK-solvable candidates (slower, stronger admissibility)")
@@ -69,8 +70,10 @@ def main():
     print(f"one-hop skipped   : {report.get('n_one_hop_skipped', 0)} "
           "(G1' not individually reachable -> trivial)")
     print(f"sequence attacks  : {len(results)} two-hop candidates evaluated")
-    print(f"attacks found     : {n_attack}/{len(results)} "
-          f"(DEADLOCK/COLLISION/TIMEOUT)")
+    n_timeout = sum(1 for r in results if r["outcome"].label == "TIMEOUT")
+    print(f"attacks found     : {n_attack}/{len(results)} (DEADLOCK/COLLISION; "
+          f"confirmed only)")
+    print(f"inconclusive      : {n_timeout} TIMEOUT (did not reach, not a confirmed trap)")
     if results:
         best = results[0]
         bo = best["outcome"]

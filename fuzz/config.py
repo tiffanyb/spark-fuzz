@@ -15,8 +15,9 @@ graded slack signal (action_info["violation"]); SSA/CBF only report slack on
 infeasibility.
 """
 
-# importing the task module registers SingleArmGoalInsertionTask into spark_task
-from . import goal_insertion_task  # noqa: F401
+# importing these registers the custom task / controller into the spark namespaces
+from . import goal_insertion_task  # noqa: F401  (-> spark_task)
+from . import projected_ssa        # noqa: F401  (-> spark_policy.ProjectedSafeSetAlgorithm)
 
 
 # 20-length control weights (waist 3 + left arm 7 + right arm 7 + base 3); the
@@ -35,12 +36,18 @@ def _config_safety(cfg, safe_algo: str):
 
     if safe_algo == "ssa":
         sa.class_name = "BasicSafeSetAlgorithm"
-        sa.eta_ssa = 0.1
+        sa.eta_ssa = 0.5                     # paper (ssa.pdf): eta = 0.5 for every phi_i
         sa.control_weight = weight
     elif safe_algo == "rssa":
         sa.class_name = "RelaxedSafeSetAlgorithm"
-        sa.eta_ssa = 0.1
+        sa.eta_ssa = 0.5
         sa.slack_weight = 1e3
+        sa.control_weight = weight
+    elif safe_algo == "pssa":
+        # p-SSA: the paper's tuning-free headline controller (Q = Q_s = I, p = 2).
+        sa.class_name = "ProjectedSafeSetAlgorithm"
+        sa.eta_ssa = 0.5
+        sa.slack_weight = 1.0                # Q_s = I (NOT tuned -- p-SSA decouples it away)
         sa.control_weight = weight
     elif safe_algo == "cbf":
         sa.class_name = "BasicControlBarrierFunction"
@@ -70,7 +77,7 @@ def _config_safety(cfg, safe_algo: str):
 def build_single_arm_config(test_case: str = "G1FixedBase_D1_AG_SO_v0",
                             safe_algo: str = "rssa",
                             seed: int = 0,
-                            max_steps: int = 400,
+                            max_steps: int = 400,   # full horizon; deadlock needs a full-length attempt
                             reach_eps: float = 0.05,
                             use_sim_dynamics: bool = False,
                             enable_viewer: bool = False):
