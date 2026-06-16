@@ -10,9 +10,16 @@ operationally (RESEARCH_PLAN_0611.md §15) as:
   3. (optional) inverse-kinematics solvable from the current configuration.
 
 The clearance check mirrors SPARK's own goal-sampling check in
-BenchmarkTask._init_goal (it rejects goals within arm_goal_keepout of an
-obstacle), so an admissible G1' is indistinguishable from a goal the benchmark
-itself would have sampled.
+BenchmarkTask._init_goal (benchmark_task.py:232):
+
+    norm(goal_world_center - obstacle_frame_center) < arm_goal_keepout  -> reject
+
+VERIFIED: SPARK measures goal-CENTER to obstacle-CENTER and is geometry-agnostic
+(it does NOT subtract the obstacle radius / use the surface). We replicate that
+center-to-center convention exactly, so an admissible G1' is indistinguishable
+from a goal the benchmark itself would have sampled. (A surface-based clearance
+would be physically stricter but would make G1' distinguishable from a real
+benchmark goal, which we explicitly do not want.)
 
 QP-feasibility / phi>=0-at-issue is a stronger admissibility notion noted in the
 plan; it is left as a hook (`ik_check` here is the kinematic stand-in) and can be

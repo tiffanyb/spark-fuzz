@@ -49,8 +49,16 @@ Key flags: `--safe-algo {ssa,rssa,cbf,rcbf,sss}`, `--test-case`, `--seed`,
 
 - **Fixed scene across trials** via `seed_list=[seed]`, so baseline and every
   candidate share the same obstacles/start/`G1`.
-- **`G1` = the benchmark's own sampled right goal** — guaranteed a legitimate,
-  reach-checked target; we only insert `G1'` before it.
+- **`G1` = the benchmark's own sampled right goal.** A **hard baseline gate**
+  runs `[G1]` first and aborts the whole search if `G0->G1` is not reached
+  (an invalid scene would make any "attack" meaningless). See `TODO.md` item 1
+  for making `G1` reachable-by-construction instead.
+- **Two-hop only — one-hop traps are rejected.** Each candidate `G1'` must first
+  pass a screen (`[G1']` alone reaches safely from `G0`); only then is the attack
+  `[G1', G1]` evaluated. This rules out trivial traps where `G1'` itself is the
+  problem (e.g. a goal placed where reaching it alone already fails). The
+  contribution is purely **sequence-induced** loss of controllability: each goal
+  is individually safe, the order is not.
 - **r-SSA is the default controller** because its QP exposes a graded slack
   signal (`action_info["violation"]`); `ssa`/`cbf` only report slack on
   infeasibility.

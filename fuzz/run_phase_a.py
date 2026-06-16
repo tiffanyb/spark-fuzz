@@ -63,7 +63,12 @@ def main():
     print("\n==================== SUMMARY ====================")
     print(f"controller        : {args.safe_algo}")
     print(f"baseline (G0->G1) : {baseline.label} (reached={baseline.reached_final})")
-    print(f"candidates run    : {len(results)}")
+    if report.get("aborted"):
+        print(f"ABORTED           : {report.get('abort_reason')} "
+              "(baseline could not reach G1; nothing fuzzed)")
+    print(f"one-hop skipped   : {report.get('n_one_hop_skipped', 0)} "
+          "(G1' not individually reachable -> trivial)")
+    print(f"sequence attacks  : {len(results)} two-hop candidates evaluated")
     print(f"attacks found     : {n_attack}/{len(results)} "
           f"(DEADLOCK/COLLISION/TIMEOUT)")
     if results:
