@@ -36,11 +36,24 @@ The module touches **no core SPARK file**: the custom task is registered into th
 
 ## Run
 
-From the spark repo root, inside the SPARK conda env (MuJoCo required):
+From the spark repo root, inside the SPARK conda env (MuJoCo required).
+**Single-threaded env vars are REQUIRED on macOS** — MuJoCo, pinocchio and casadi
+each link an OpenMP runtime, and the duplicate runtimes segfault (exit 139)
+unless threading is pinned to 1:
 
 ```bash
-mjpython -m fuzz.run_phase_a --safe-algo rssa --seed 0 --candidates 50
+export KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+python -m fuzz.run_phase_a --safe-algo rssa --seed 4 --candidates 50
 ```
+
+Headless (`--viewer` off) runs with plain `python`; only the on-screen MuJoCo
+viewer needs `mjpython`.
+
+Pick a seed whose baseline `G0->G1` actually reaches (the hard gate aborts
+otherwise). With the cluttered 5-obstacle `*_SO_v0` scene many seeds deadlock the
+baseline (r-SSA method-infeasibility); **seed 4 is a known-good non-trivial
+baseline**, seed 2 reaches trivially (G0 already within `arm_goal_size` of G1).
+See `TODO.md` item 1 for fixing this by construction.
 
 Key flags: `--safe-algo {ssa,rssa,cbf,rcbf,sss}`, `--test-case`, `--seed`,
 `--candidates`, `--max-steps`, `--ik-check`, `--viewer`, `--out report.json`.

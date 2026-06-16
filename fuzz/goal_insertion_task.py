@@ -3,10 +3,13 @@ SingleArmGoalInsertionTask — a BenchmarkTask variant that drives the RIGHT-arm
 tracking goal along a scripted waypoint schedule [G1', ..., G1] instead of the
 default Brownian/Velocity motion.
 
-Single-arm experiment (use_dual_arm=False): the left arm and base goals are left
-untouched; only the right wrist is steered. The task self-advances along the
-schedule once the end-effector reaches each waypoint, and exposes the quantities
-the harness needs (distance to current/final goal, reached flag, waypoint index).
+Single-arm ATTACK (use_dual_arm=True, but only the right goal is adversarial):
+both wrist goals stay enabled because the G1FixedBase IK is a dual-wrist solver,
+but this task overrides _update_robot_goal and never moves the LEFT goal, so the
+left wrist holds its initial reachable target while only the right wrist is
+steered along the schedule. The task self-advances once the end-effector reaches
+each waypoint, and exposes the quantities the harness needs (distance to
+current/final goal, reached flag, waypoint index).
 
 Integration note: at import time this module registers the class into the
 `spark_task` namespace so SPARK's `initialize_class` can resolve
@@ -94,8 +97,9 @@ class SingleArmGoalInsertionTask(BenchmarkTask):
             self.reached_final = True
 
     # Left/base intentionally untouched in the single-arm experiment. The base is
-    # disabled by the FixedBase test case; the left goal is created but not emitted
-    # because get_info() only sends "left" when use_dual_arm is True.
+    # disabled by the FixedBase test case; the left goal IS emitted (use_dual_arm=
+    # True, required by the dual-wrist IK) but stays frozen at its initial sampled,
+    # reachable pose because this override never calls robot_goal_left.move().
 
 
 # Register into spark_task so initialize_class("SingleArmGoalInsertionTask") resolves

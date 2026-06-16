@@ -80,9 +80,15 @@ def build_single_arm_config(test_case: str = "G1FixedBase_D1_AG_SO_v0",
     cfg = G1BenchmarkPipelineConfig()
     cfg = generate_benchmark_test_case(cfg, test_case)
 
-    # --- task: single arm, scripted goals, fixed scene ---
+    # --- task: single-arm ATTACK, scripted goals, fixed scene ---
     cfg.env.task.class_name = "SingleArmGoalInsertionTask"
-    cfg.env.task.use_dual_arm = False
+    # Keep BOTH arm goals enabled. The G1FixedBase IK is a dual-wrist solver
+    # (g1_fixed_base_kinematics.py:226 unpacks T[0],T[1]); with use_dual_arm=False
+    # the policy passes a single IK target and the solver IndexErrors. We instead
+    # FREEZE the left goal (the task overrides _update_robot_goal and never moves
+    # the left goal) and fuzz only the right -> a single-arm attack on the intact
+    # two-hand robot.
+    cfg.env.task.use_dual_arm = True
     cfg.env.task.arm_goal_reach_done = False     # harness controls termination
     cfg.env.task.max_episode_length = max_steps
     cfg.env.task.reach_eps = reach_eps
