@@ -53,6 +53,10 @@ def main():
     ap.add_argument("--iterations", type=int, default=12, help="(targeted) CEM rounds")
     ap.add_argument("--pop", type=int, default=12, help="(targeted) candidates per round")
     ap.add_argument("--search-seed", type=int, default=0, help="RNG seed for the search itself")
+    ap.add_argument("--save-all", action="store_true",
+                    help="save EVERY evaluated candidate to the JSON (not just the top 50)")
+    ap.add_argument("--keep-going", action="store_true",
+                    help="run the full budget even after the first hit (collect all candidates)")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -65,12 +69,13 @@ def main():
           f"strategy={args.strategy} infeasibility_instrumented={feas}", flush=True)
 
     fz = GoalInsertionFuzzer(h, sc, seed=args.search_seed)
+    stop = not args.keep_going
     if args.strategy == "random":
         rep = fz.run(n_candidates=args.max_candidates, max_steps=args.max_steps,
-                     stop_on_first_hit=True)
+                     stop_on_first_hit=stop)
     else:
         rep = fz.run_targeted(iterations=args.iterations, pop=args.pop,
-                              max_steps=args.max_steps, stop_on_first_hit=True)
+                              max_steps=args.max_steps, stop_on_first_hit=stop)
 
     hit = rep.get("first_hit")
     print("\n==================== SEARCH RESULT ====================")
@@ -86,12 +91,16 @@ def main():
 
     if args.out:
         os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+        all_recs = rep.get("results", [])
+        saved = [_serialize(r) for r in all_recs] if args.save_all else \
+                [_serialize(r) for r in all_recs][:50]
         out = {"args": vars(args),
                "baseline": {"label": rep["baseline"].label,
                             "infeasible_QP": rep.get("baseline_infeasible")},
                "n_screened": rep.get("n_screened"),
+               "n_saved": len(saved),
                "first_hit": _serialize(hit),
-               "all_results": [_serialize(r) for r in rep.get("results", [])][:50]}
+               "all_results": saved}
         with open(args.out, "w") as f:
             json.dump(out, f, indent=2)
         print(f"\nwrote {args.out}")
