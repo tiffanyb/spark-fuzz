@@ -51,12 +51,14 @@ def _add_sphere(scene, pos, radius, rgba):
 
 def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
                  max_steps=400, width=1280, height=720, fps=30,
-                 azimuth=135.0, elevation=-20.0, distance=1.2, lookat=None):
+                 azimuth=135.0, elevation=-20.0, distance=1.2, lookat=None,
+                 d_min_env=None):
     """Run one trial and write an MP4. schedule_base: list of 3-D base-frame goals
     (last = legitimate G1). Returns (out_path, n_frames, label)."""
     from .metrics import StepRecord, classify_trial
 
-    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps)
+    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps,
+                                  d_min_env=d_min_env)
     h = SingleArmHarness(cfg)
     sc = h.scene_info()
     agent = h.env.agent
@@ -181,6 +183,8 @@ def main():
                     help="';'-separated base-frame goals; 'G1' = benchmark goal. "
                          "e.g. '0.314,-0.191,0.065 ; G1'")
     ap.add_argument("--max-steps", type=int, default=400)
+    ap.add_argument("--d-min", type=float, default=None,
+                    help="override safety-index keep-out distance (e.g. 0.02 for a feasible filter)")
     ap.add_argument("--out", default="/tmp/trial.mp4")
     ap.add_argument("--fps", type=int, default=30)
     ap.add_argument("--azimuth", type=float, default=135.0)
@@ -189,13 +193,14 @@ def main():
     args = ap.parse_args()
 
     # need G1 to resolve the schedule -> build a throwaway harness for the scene
-    cfg = build_single_arm_config(seed=args.seed, safe_algo=args.safe_algo, max_steps=args.max_steps)
+    cfg = build_single_arm_config(seed=args.seed, safe_algo=args.safe_algo,
+                                  max_steps=args.max_steps, d_min_env=args.d_min)
     G1 = SingleArmHarness(cfg).scene_info()["G1_base"]
     schedule = _parse_schedule(args.schedule, G1)
     print(f"[record] seed={args.seed} schedule={[np.round(w,3).tolist() for w in schedule]}")
 
     out, n, label = record_trial(args.seed, schedule, args.out, safe_algo=args.safe_algo,
-                                 max_steps=args.max_steps, fps=args.fps,
+                                 max_steps=args.max_steps, fps=args.fps, d_min_env=args.d_min,
                                  azimuth=args.azimuth, elevation=args.elevation, distance=args.distance)
     print(f"[record] wrote {out}  frames={n}  outcome={label}")
 
