@@ -131,8 +131,8 @@ def rrt_connect(clearance, q_start, q_goal, plan_idx, margin,
 
 
 # ----------------------------------------------------------------------------- #
-def check(seed, safe_algo, G1p, max_steps=400, margins=(0.0, 0.05), rrt_iter=3000):
-    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps)
+def check(seed, safe_algo, G1p, max_steps=400, margins=(0.0, 0.05), rrt_iter=3000, d_min_env=None):
+    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps, d_min_env=d_min_env)
     h = SingleArmHarness(cfg)
     sc = h.scene_info()
     G1 = sc["G1_base"]
@@ -180,14 +180,14 @@ def check(seed, safe_algo, G1p, max_steps=400, margins=(0.0, 0.05), rrt_iter=300
 
 def record_path(seed, safe_algo, G1p, out_path, n_interp=160, max_steps=400,
                 fps=30, width=1280, height=720,
-                azimuth=135.0, elevation=-20.0, distance=1.2):
+                azimuth=135.0, elevation=-20.0, distance=1.2, d_min_env=None):
     """Render the robot following the collision-free STRAIGHT-LINE joint-space path
     q'(G1') -> q1(G1) -- the feasible path the reactive controller failed to take."""
     import mujoco
     import cv2
     from .record import _add_sphere, _xyz_to_frame
 
-    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps)
+    cfg = build_single_arm_config(seed=seed, safe_algo=safe_algo, max_steps=max_steps, d_min_env=d_min_env)
     h = SingleArmHarness(cfg)
     sc = h.scene_info()
     G1 = sc["G1_base"]
