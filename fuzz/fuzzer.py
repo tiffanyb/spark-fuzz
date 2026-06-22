@@ -222,6 +222,7 @@ class GoalInsertionFuzzer:
             scored = []
             for c in cands:
                 screen, _ = _trial(self.harness, [c], max_steps)
+                # G0 -> c should be reachable, therefore reached_final should be True
                 if not screen.reached_final:
                     scored.append((c, -1.0))                 # not individually reachable -> drop
                     continue

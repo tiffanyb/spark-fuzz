@@ -36,7 +36,7 @@ def _config_safety(cfg, safe_algo: str):
 
     if safe_algo == "ssa":
         sa.class_name = "BasicSafeSetAlgorithm"
-        sa.eta_ssa = 0.5                     # paper (ssa.pdf): eta = 0.5 for every phi_i
+        sa.eta_ssa = 0.03                     # paper (ssa.pdf): eta = 0.5 for every phi_i
         sa.control_weight = weight
     elif safe_algo == "rssa":
         sa.class_name = "RelaxedSafeSetAlgorithm"

@@ -18,6 +18,8 @@ Run (inside the SPARK conda env, with the single-thread env vars):
 """
 
 import argparse
+import csv
+import os
 
 import numpy as np
 import mujoco
@@ -106,7 +108,7 @@ def _draw_prompt(img, base, inject, W):
 def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
                  max_steps=400, width=1280, height=720, fps=30,
                  azimuth=135.0, elevation=-20.0, distance=1.2, lookat=None,
-                 d_min_env=None, prompt_base="", prompt_inject=""):
+                 d_min_env=None, prompt_base="", prompt_inject="", quiet_steps=False):
     """Run one trial and write an MP4. schedule_base: list of 3-D base-frame goals
     (last = legitimate G1). Returns (out_path, n_frames, label)."""
     from .metrics import StepRecord, classify_trial
@@ -145,12 +147,14 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
     G0_world = (base @ _xyz_to_frame(sc["G0_base"]))[:3, 3]
     inserted_world = [(base @ _xyz_to_frame(g))[:3, 3] for g in schedule_base[:-1]]
 
-    frames, records = [], []
+    frames, records, step_log = [], [], []
     from spark_utils import compute_masked_distance_matrix
 
     collided_at = None
     tail_after_event = 25   # keep rendering a few frames past a collision, then stop
     for step in range(max_steps):
+        # if step >= 160:
+        #     import ipdb; ipdb.set_trace()
         agent_feedback, task_info = h.env.step(u_safe, action_info)
         u_safe, action_info = h.algo.act(agent_feedback, task_info)
         task = h.env.task
@@ -173,6 +177,31 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
                                   peak_slack=peak_slack,
                                   trigger_safe=bool(action_info.get("trigger_safe", False)),
                                   collided=(min_dist_env < 0.0)))
+
+        # --- per-step telemetry: robot location + whether SSA replaced u_ref ---
+        ee_pos = task.robot_frames_world[R_ee, :3, 3]
+        u_ref_v = np.asarray(action_info.get("u_ref", []), dtype=float)
+        u_safe_v = np.asarray(action_info.get("u_safe", []), dtype=float)
+        du = (float(np.linalg.norm(u_safe_v - u_ref_v))
+              if u_ref_v.size and u_ref_v.size == u_safe_v.size else 0.0)
+        trig = bool(action_info.get("trigger_safe", False))   # filter engaged (phi>0)
+        ssa_active = trig and du > 1e-6                        # u_ref actually replaced
+        if not trig:
+            ssa_state, ssa_hud, ssa_col = "off", "", (0, 0, 0)
+        elif ssa_active:
+            ssa_state = f"ACTIVE(du={du:.3f})"
+            ssa_hud, ssa_col = f"SSA ACTIVE  |u_safe-u_ref|={du:.3f}", (255, 160, 30)
+        else:                                                 # engaged but QP returned u_ref
+            ssa_state = "engaged->u_ref"
+            ssa_hud, ssa_col = "SSA engaged -> u_ref (filter gave up)", (255, 90, 90)
+        step_log.append([step, round(float(ee_pos[0]), 4), round(float(ee_pos[1]), 4),
+                         round(float(ee_pos[2]), 4), round(float(task.dist_to_final), 4),
+                         (round(min_dist_env, 4) if np.isfinite(min_dist_env) else ""),
+                         round(peak_slack, 4), int(trig), round(du, 4), int(ssa_active)])
+        if not quiet_steps:
+            me = f"{min_dist_env:+.3f}" if np.isfinite(min_dist_env) else "   inf"
+            print(f"[step {step:3d}] ee=({ee_pos[0]:+.3f},{ee_pos[1]:+.3f},{ee_pos[2]:+.3f}) "
+                  f"dist_final={task.dist_to_final:.3f} min_env={me} SSA={ssa_state}", flush=True)
 
         in_collision = min_dist_env < 0.0
         if in_collision and collided_at is None:
@@ -210,6 +239,9 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
         # live collision flag (below the prompt banner)
         if in_collision:
             cv2.putText(img, "COLLISION", (16, 102), cv2.FONT_HERSHEY_SIMPLEX, 0.95, (230, 40, 40), 3, cv2.LINE_AA)
+        # SSA engagement indicator: does the safety filter replace u_ref this step?
+        if ssa_hud:
+            cv2.putText(img, ssa_hud, (16, 132), cv2.FONT_HERSHEY_SIMPLEX, 0.6, ssa_col, 2, cv2.LINE_AA)
         # step counter (bottom-right) + obstacle legend (bottom-left)
         cv2.putText(img, f"{step+1}/{max_steps}", (W - 116, H - 16), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (120, 120, 120), 1, cv2.LINE_AA)
         cv2.circle(img, (26, H - 22), 9, (230, 40, 40), -1)
@@ -224,6 +256,17 @@ def record_trial(seed, schedule_base, out_path, safe_algo="rssa",
             break
 
     outcome = classify_trial(records, schedule=schedule_base)
+
+    # write the per-step telemetry next to the video (analyzable sidecar)
+    csv_path = os.path.splitext(out_path)[0] + "_steps.csv"
+    with open(csv_path, "w", newline="") as f:
+        wr = csv.writer(f)
+        wr.writerow(["step", "ee_x", "ee_y", "ee_z", "dist_to_final", "min_dist_env",
+                     "peak_slack", "trigger_safe", "du_norm", "ssa_active"])
+        wr.writerows(step_log)
+    n_active = sum(r[9] for r in step_log)
+    print(f"[record] step log -> {csv_path}  ({len(step_log)} steps, SSA replaced u_ref on {n_active})",
+          flush=True)
     # stamp the verdict on the last 30 frames so the ending is self-explanatory.
     # Color by the LABEL (green = REACHED/good; red = COLLISION/DEADLOCK/TIMEOUT/bad) --
     # NOT by reached_final, since a COLLISION can also happen to reach the goal.
@@ -267,6 +310,8 @@ def main():
     ap.add_argument("--distance", type=float, default=1.2)
     ap.add_argument("--prompt", default="", help="legitimate command shown in the top banner")
     ap.add_argument("--inject", default="", help="attacker-injected step (shown in red before the command)")
+    ap.add_argument("--quiet-steps", action="store_true",
+                    help="suppress the per-step stdout log (the CSV sidecar is still written)")
     args = ap.parse_args()
 
     # need G1 to resolve the schedule -> build a throwaway harness for the scene
@@ -279,7 +324,8 @@ def main():
     out, n, label = record_trial(args.seed, schedule, args.out, safe_algo=args.safe_algo,
                                  max_steps=args.max_steps, fps=args.fps, d_min_env=args.d_min,
                                  azimuth=args.azimuth, elevation=args.elevation, distance=args.distance,
-                                 prompt_base=args.prompt, prompt_inject=args.inject)
+                                 prompt_base=args.prompt, prompt_inject=args.inject,
+                                 quiet_steps=args.quiet_steps)
     print(f"[record] wrote {out}  frames={n}  outcome={label}")
 
 
