@@ -141,6 +141,9 @@ def main():
     ap.add_argument("--from-json", default=None,
                     help="comma-separated run_search JSON(s) to load candidates from "
                          "(skips re-simulation -> renders in seconds)")
+    ap.add_argument("--exclude", default="",
+                    help="comma-separated outcome labels to drop before rendering "
+                         "(e.g. TIMEOUT to hide soft failures)")
     ap.add_argument("--out", default="/tmp/candidates.png")
     ap.add_argument("--azimuth", type=float, default=135.0)
     ap.add_argument("--elevation", type=float, default=-20.0)
@@ -157,6 +160,11 @@ def main():
     else:
         print(f"[setup] seed={a.seed} d_min={a.d_min} collecting {a.n_candidates} candidates...", flush=True)
         cands = collect_candidates(h, scene, a.n_candidates, a.max_steps, a.search_seed)
+    if a.exclude:
+        drop = {s.strip().upper() for s in a.exclude.split(",") if s.strip()}
+        before = len(cands)
+        cands = [c for c in cands if c[1].upper() not in drop]
+        print(f"[filter] dropped {before - len(cands)} candidates with label in {sorted(drop)}", flush=True)
     render(h, scene, cands, a.out, azimuth=a.azimuth, elevation=a.elevation, distance=a.distance)
 
 

@@ -126,3 +126,48 @@ FRAMING TO BAKE IN: no jailbreak needed (benign input); two impact classes
 (collision=integrity, deadlock=DoS); attack target is deployed on real commercial
 humanoid hardware (Unitree G1) and is the safety-filter family being adopted for
 next-gen human-facing robots; preemptive disclosure before it ships/certifies.
+
+## 7. [NEXT ITERATION] Attacks under reduced attacker knowledge (gray-box + black-box)
+
+Full write-up: `NEXT_reduced_knowledge_attacks.md` (PDF in
+`docs/NEXT_reduced_knowledge_attacks.pdf`).
+
+Threat-model upgrade in two stages, both anchored on the fact that the ruler
+`c(x)` (worst-blend `C(x)=min_y c_y(x)`) is a physical property of the
+robot+obstacle — agnostic to both the demand coefficient AND the algorithm.
+
+TIER 1 — GRAY-BOX (know algorithm, not coefficient). The attacker's objective is
+**coefficient-free**: `C(x)` depends only on actuator limits, kinematics `J`, and
+safety-index geometry `n` — never on `eta`/`lambda`. Fuzz `min_t C(x_t)` lower; the
+missing coefficient only sets where the failure threshold sits, and the robot's
+own give-up (hard QP infeasible -> `u_ref`; soft -> slack>0) is the oracle. The
+per-seed attackability threshold `c_min* = min_t C(x_t)` is environment-intrinsic;
+the attack succeeds iff `eta > c_min*`. Collapses to essentially the white-box
+attack at a more realistic knowledge level.
+
+TIER 2 — BLACK-BOX (don't even know the algorithm). `C(x)` still transfers
+(algorithm-agnostic), but two things degrade: (Loss 1) the demand *shape* is
+unknown — constant `eta` is defeated at a GRAZING boundary contact, proportional
+`lambda*phi` only by a DEEP one (`phi > c/lambda`) — the 6-8-seeds vs 2-seeds gap.
+So "minimize C" alone is insufficient; the robust hedge is to steer to states that
+are simultaneously LOW-authority (`C` small) AND DEEP/fast-closing (`phi` large),
+the universal worst case for any demand model (scalarize `min_t (C - kappa*phi)`,
+sweep `kappa`, or a 2-objective frontier). (Loss 2) the payload isn't predictable
+— hard->COLLISION, relaxed->DEADLOCK/push-through, heuristic->underbrake — but the
+behavioral oracle still fires and EITHER outcome is a success (integrity vs DoS).
+Boundary condition: premise needs a MYOPIC one-step value-based/heuristic filter; a
+predictive/recursively-feasible filter with a real control-invariant set would
+never enter `C<d` and wouldn't bite. Algorithm-agnostic across the myopic family,
+not across all safety layers — which is fine, that family is what humanoids deploy.
+
+Build deltas: (a) coefficient-free scorer `min_t C(x_t)` (reuse
+`authority_policies.py`, split off the C-only path, no demand term read);
+(b) black-box depth/closing term `phi(x)` + scalarization weight `kappa`;
+(c) behavioral oracle labeling COLLISION vs DEADLOCK (hard-filter infeasibility
+flag alongside `action_info["violation"]`); (d) report `c_min*` + whether/which
+failure fired; (e) pairs with the coverage-guided engine in item 5. Soundness is
+one-directional (all tiers): a failure **confirms** vulnerability, but bottoming
+out `C`/depth with none does NOT certify safety — report "couldn't within budget,"
+never "can't." Scoping: Tier 1 needs the safety index `phi` known (only the rate
+unknown); if index-shaping coefficients were also unknown, fall back to purely
+behavioral fuzzing.
