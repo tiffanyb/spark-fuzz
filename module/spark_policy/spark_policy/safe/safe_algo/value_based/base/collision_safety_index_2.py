@@ -34,7 +34,7 @@ class SecondOrderCollisionSafetyIndex(BasicCollisionSafetyIndex):
 
         # General implementation of the time derivative of the first-order safety index
         self._phi_dot = lambda d, v, a, normal, curv: (
-            - self.n * (np.sum(- d * normal, axis=1) + eps)**(self.n - 1) * np.sum(v * normal, axis=1)
+            + self.n * (np.sum(- d * normal, axis=1) + eps)**(self.n - 1) * np.sum(v * normal, axis=1)
             + self.k * np.sum(a * normal, axis=1)
             - self.k * np.sum(v * (curv @ v[..., None]).squeeze(-1), axis=1)
         )
@@ -43,7 +43,7 @@ class SecondOrderCollisionSafetyIndex(BasicCollisionSafetyIndex):
         self.Cartesian_Lg = lambda normal: self.k * normal
 
         self.Cartesian_Lf = lambda d, v, normal, curv: (
-            - self.n * (np.sum(- d * normal, axis=1) + eps)**(self.n - 1) * np.sum(v * normal, axis=1)
+            + self.n * (np.sum(- d * normal, axis=1) + eps)**(self.n - 1) * np.sum(v * normal, axis=1)
             - self.k * np.sum(v * (curv @ v[..., None]).squeeze(-1), axis=1)
         )
         
