@@ -32,8 +32,9 @@ from typing import Callable, List, Optional
 
 import numpy as np
 
-from ..world.types import (FilterSpec, gray_ensemble, real_filter,
-                           strict_black_ensemble, weak_black_ensemble)
+from ..world.types import (DEFAULT_ETA_REF, FilterSpec, gray_ensemble,
+                           real_filter, strict_black_ensemble,
+                           weak_black_ensemble)
 
 
 # ---------------------------------------------------------------------------- #
@@ -137,6 +138,11 @@ _OBSERVABLE = frozenset({
     "n_gave_up",          # the robot visibly reverted to the reference control
     "first_deviation",    # onset of dodging — the speed-sweep primitive
     "is_attack_success", "brief", "filter_spec",
+    # Geometry and visible behaviour. Clearance and the handover configuration
+    # follow from the room and the published robot model, and "is it dodging"
+    # is watchable from outside, so these are legal for EVERY tier — including
+    # strict black-box, which knows no filter at all.
+    "handover", "min_clearance_final_leg", "n_engaged", "frac_engaged",
 })
 
 
@@ -157,7 +163,8 @@ class RecordView:
 class WhiteView(RecordView):
     """Knows the filter and its coefficient: the exact certificate is available."""
     ALLOWED = _OBSERVABLE | {"min_g", "demand", "phi", "min_C_phi", "min_C_d",
-                             "n_predicted_infeasible"}
+                             "n_predicted_infeasible", "exposure",
+                             "max_phi_engaged"}
 
 
 class GrayView(RecordView):
@@ -268,6 +275,66 @@ class MarginProxyObjective(Objective):
         return s
 
 
+class ProximityObjective(Objective):
+    """Handover-anchored guidance — the replacement for the margin objective.
+
+    Why not the margin. Measurement showed `min g` over a trajectory cannot rank
+    candidates: with a demand above the authority available where the filter
+    engages, g is a saturated constant (-0.44 everywhere), and even restricted to
+    engaged steps it separated attacks from non-attacks by 0.0004 and ranked 0 of
+    6 attacks into the top 6 -- worse than chance.
+
+    What this uses instead, in order of measured discriminative power (effect
+    size on a labelled set of 6 attacks / 14 non-attacks):
+
+      clearance at handover   2.13   attacks hand the robot over at 1.4 cm of
+                                     clearance, non-attacks at 5.4 cm. This is
+                                     the one state an inserted goal controls,
+                                     and it is causally UPSTREAM of the failure
+                                     rather than a restatement of it.
+      fraction engaged        1.63   how long the robot spends inside the
+                                     keep-out shell -- extent, not depth.
+      exposure                1.39   depth x time, once the margin is real.
+
+    Deliberately NOT used: penetration depth and negative final clearance both
+    rank 6/6, but only because they ARE the collision -- scoring by them is
+    circular and teaches the search nothing it did not already observe.
+
+    Falls back to the trajectory-wide minimum clearance for a single-leg
+    (modification) run, which has no handover.
+    """
+
+    #  w_engaged: measured, not assumed.
+    #
+    #  It was originally +1.0, on the reasoning that time spent inside the
+    #  keep-out shell means a strained filter. The late-activation measurement
+    #  contradicted that: attacks averaged 14 engaged steps against 39.5 for
+    #  non-attacks, because an attack blows THROUGH the thin shell while a safe
+    #  run lingers inside it and gets handled. The raw count is confounded
+    #  though -- a collision ends its run immediately, so attacks have shorter
+    #  runs and fewer engaged steps whatever the mechanism -- which is why this
+    #  uses the FRACTION and why the weight is set by ablation rather than
+    #  argument. See SIREN_W_ENGAGED.
+    def __init__(self, w_engaged=None, w_exposure=0.0, view_class=BlackView):
+        self.w_engaged = (W_ENGAGED if w_engaged is None else w_engaged)
+        self.w_exposure = w_exposure
+        self.view_class = view_class
+
+    def guidance(self, v) -> float:
+        h = v.handover
+        clear = (h.clearance if h is not None and np.isfinite(h.clearance)
+                 else v.min_clearance_final_leg)
+        s = 0.0
+        if np.isfinite(clear):
+            s += -float(clear)                       # closer handover = better
+        s += self.w_engaged * float(v.frac_engaged)
+        if self.w_exposure:
+            e = v.exposure
+            if np.isfinite(e):
+                s += self.w_exposure * float(e)
+        return s
+
+
 class RandomObjective(Objective):
     """The baseline: no guidance at all, only the outcome."""
     view_class = BlackView
@@ -287,26 +354,62 @@ def view_for(cap: AttackerCapability):
     return BlackView
 
 
-def objective_for(cap: AttackerCapability, beta: float = 1.0) -> Objective:
-    if cap.can_compute_g:
-        return CertificateObjective()
-    return MarginProxyObjective(ruler=cap.ruler,
-                                hedge=cap.needs_penetration_hedge,
-                                beta=beta,
-                                view_class=view_for(cap))
+#  Which guidance family to use.
+#    "proximity"   the measured-good one: handover clearance + engagement extent
+#    "margin"      the original c(x)/g(x) family, kept so the two can be compared
+#                  and so the negative result stays reproducible
+GUIDANCE = os.environ.get("SIREN_GUIDANCE", "proximity")
+
+#  Weight on the engagement-fraction term of the proximity objective. Set by
+#  ablation on seed 5 (see ProximityObjective); override to re-measure.
+W_ENGAGED = float(os.environ.get("SIREN_W_ENGAGED", "0.0"))
+
+
+def objective_for(cap: AttackerCapability, beta: float = 1.0,
+                  guidance: str = None) -> Objective:
+    guidance = guidance or GUIDANCE
+
+    if guidance == "margin":
+        if cap.can_compute_g:
+            return CertificateObjective()
+        return MarginProxyObjective(ruler=cap.ruler,
+                                    hedge=cap.needs_penetration_hedge,
+                                    beta=beta,
+                                    view_class=view_for(cap))
+
+    # Proximity guidance. White-box may additionally use exposure, which needs
+    # the margin; every other tier gets the geometric terms only, which they can
+    # compute from the room and the published robot model.
+    return ProximityObjective(w_engaged=None,          # -> W_ENGAGED (ablated)
+                              w_exposure=(0.01 if cap.can_compute_g else 0.0),
+                              view_class=view_for(cap))
 
 
 def specs_for(cap: AttackerCapability, d_min: float,
-              index: str = "distance", real: FilterSpec = None) -> List[FilterSpec]:
+              index: str = "distance", real: FilterSpec = None,
+              eta_ref: float = None) -> List[FilterSpec]:
     """The surrogate ensemble. White/gray get one member, so the ensemble is the
-    general case rather than a black-box-only branch."""
+    general case rather than a black-box-only branch.
+
+    `eta_ref` anchors the resistance levels. Left absolute, they can all sit
+    above the authority the robot can actually muster, in which case every
+    surrogate models a filter that cannot satisfy its own demand — the whole
+    ensemble would be broken, and the demand guard rejects it. Anchoring to the
+    deployed rate (or a scene measurement) keeps the surrogates in the regime the
+    real filter occupies.
+    """
+    if eta_ref is None:
+        eta_ref = (real.eta if (real is not None and real.eta is not None)
+                   else DEFAULT_ETA_REF)
+
     if cap.can_compute_demand:
-        return [real or real_filter(d_min=d_min, index=index, eta=0.5)]
+        return [real or real_filter(d_min=d_min, index=index, eta=eta_ref)]
     if cap.demand_shape is not DemandShape.UNKNOWN:
-        return gray_ensemble(cap.demand_shape.value, index=index, d_min=d_min)
+        return gray_ensemble(cap.demand_shape.value, index=index, d_min=d_min,
+                             eta_ref=eta_ref)
     if cap.can_compute_phi:
-        return weak_black_ensemble(index=index, d_min=d_min)
-    return strict_black_ensemble(d_min=d_min)
+        return weak_black_ensemble(index=index, d_min=d_min, eta_ref=eta_ref)
+    return strict_black_ensemble(d_min=d_min, eta_ref=eta_ref)
 
 
 @dataclass
@@ -317,6 +420,14 @@ class ThreatModel:
     specs: List[FilterSpec]
     observability: ObservabilityModel
     aggregate: Callable = min          # WORST-CASE across the ensemble
+    #: The filter actually running on the robot. The surrogate ensemble models
+    #: what the ATTACKER BELIEVES and is used only to SCORE candidates; whether
+    #: an attack SUCCEEDED is a fact about the deployed system and must be judged
+    #: against this one spec alone. Conflating the two (BUG-3) let a blackbox
+    #: tier count a win whenever any of its 3 surrogates failed, which is a
+    #: strictly easier event than defeating the real filter and made the tiers
+    #: incomparable.
+    deployed: FilterSpec = None
 
     def describe(self) -> str:
         return (f"[{self.name}] {self.capability.describe()} "
@@ -362,7 +473,8 @@ PRESETS = {
 
 def threat_model(name: str, d_min: float = 0.02, index: str = "distance",
                  real: FilterSpec = None, beta: float = 1.0,
-                 observability: str = None, aggregate: Callable = min) -> ThreatModel:
+                 observability: str = None, aggregate: Callable = min,
+                 eta_ref: float = None) -> ThreatModel:
     if name not in PRESETS:
         raise ValueError(f"unknown threat '{name}'; choose from {sorted(PRESETS)}")
     cap = PRESETS[name]
@@ -373,6 +485,7 @@ def threat_model(name: str, d_min: float = 0.02, index: str = "distance",
            else CoarseMotion())
     obj = RandomObjective() if name == "random" else objective_for(cap, beta=beta)
 
-    return ThreatModel(name=name, capability=cap, objective=obj,
-                       specs=specs_for(cap, d_min, index=index, real=real),
-                       observability=obs, aggregate=aggregate)
+    specs = specs_for(cap, d_min, index=index, real=real, eta_ref=eta_ref)
+    deployed = real if real is not None else (specs[0] if specs else None)
+    return ThreatModel(name=name, capability=cap, objective=obj, specs=specs,
+                       observability=obs, aggregate=aggregate, deployed=deployed)

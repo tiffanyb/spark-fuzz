@@ -125,7 +125,16 @@ class FilterSpec:
 #  ensemble spans resistance, and — when the index is unknown — the index family
 #  too. Hard-vs-soft fallback is deliberately NOT an ensemble axis: it changes
 #  the symptom at failure (collide vs stall), not the path leading there.
-_RESISTANCE = {"weak": 0.1, "med": 0.5, "strong": 1.0}
+#
+#  Resistance is expressed as a FRACTION of a reference demand, not as absolute
+#  numbers. Absolute levels are a trap: they were once hard-coded at
+#  {0.1, 0.5, 1.0}, and on the G1 the authority available where the filter
+#  engages is about 0.064, so every member of the ensemble was a filter that
+#  could never satisfy its own demand. The whole ensemble modelled broken
+#  filters, and the demand guard rejected it. Scaling to the deployed rate keeps
+#  the surrogates in the regime the real filter occupies.
+_RESISTANCE_FRAC = {"weak": 0.25, "med": 1.0, "strong": 2.0}
+DEFAULT_ETA_REF = 0.02          # sane for the G1 benchmark; override per scene
 
 
 def real_filter(algo="ssa", index="distance", d_min=0.02,
@@ -135,29 +144,35 @@ def real_filter(algo="ssa", index="distance", d_min=0.02,
                       label="real")
 
 
-def gray_ensemble(demand_shape="constant", index="distance", d_min=0.02) -> list:
+def gray_ensemble(demand_shape="constant", index="distance", d_min=0.02,
+                  eta_ref=None, lam_ref=10.0) -> list:
     """Gray-box: family known, coefficient guessed. One member — the guess."""
+    eta_ref = DEFAULT_ETA_REF if eta_ref is None else eta_ref
     if demand_shape == "constant":
         return [FilterSpec(algo="ssa", index=index, d_min=d_min,
-                           eta=_RESISTANCE["med"], k=0.1, label="gray/guess")]
+                           eta=eta_ref * _RESISTANCE_FRAC["med"], k=0.1,
+                           label="gray/guess")]
     return [FilterSpec(algo="cbf", index=index, d_min=d_min,
-                       lam=10.0, k=0.1, label="gray/guess")]
+                       lam=lam_ref, k=0.1, label="gray/guess")]
 
 
-def weak_black_ensemble(index="distance", d_min=0.02) -> list:
+def weak_black_ensemble(index="distance", d_min=0.02, eta_ref=None) -> list:
     """Weak black-box: the index family has been identified by the speed sweep,
-    so only resistance is unknown. 3 members."""
-    return [FilterSpec(algo="ssa", index=index, d_min=d_min, eta=v, k=0.1,
-                       label=f"{index}/{name}")
-            for name, v in _RESISTANCE.items()]
+    so only resistance is unknown. 3 members, spanning the deployed rate."""
+    eta_ref = DEFAULT_ETA_REF if eta_ref is None else eta_ref
+    return [FilterSpec(algo="ssa", index=index, d_min=d_min,
+                       eta=eta_ref * f, k=0.1, label=f"{index}/{name}")
+            for name, f in _RESISTANCE_FRAC.items()]
 
 
-def strict_black_ensemble(d_min=0.02) -> list:
+def strict_black_ensemble(d_min=0.02, eta_ref=None) -> list:
     """Strict black-box: neither the index family nor the resistance is known.
     6 members = resistance {weak, med, strong} x index {distance, velocity}."""
+    eta_ref = DEFAULT_ETA_REF if eta_ref is None else eta_ref
     out = []
     for index in ("distance", "velocity"):
-        for name, v in _RESISTANCE.items():
-            out.append(FilterSpec(algo="ssa", index=index, d_min=d_min, eta=v,
-                                  k=0.1, label=f"{index}/{name}"))
+        for name, f in _RESISTANCE_FRAC.items():
+            out.append(FilterSpec(algo="ssa", index=index, d_min=d_min,
+                                  eta=eta_ref * f, k=0.1,
+                                  label=f"{index}/{name}"))
     return out

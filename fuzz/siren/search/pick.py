@@ -78,17 +78,71 @@ class RandomPicker(Picker):
 
     name = "random"
 
-    def __init__(self, scene, seed=0):
+    def __init__(self, scene, seed=0, n_init=0):
         self.scene = scene
         self.rng = np.random.RandomState(seed)
+        # n_init > 0 => start on the obstacle anchors, then revert to uniform.
+        # Random ignores feedback, so this isolates the VALUE OF THE ANCHORS
+        # themselves from any optimiser's ability to exploit them.
+        self._pending = list(initial_design(
+            np.random.RandomState(seed), scene, n_init,
+            obstacle_anchored=True)) if n_init else []
 
     def ask(self, n: int) -> list:
         out = []
-        for _ in range(n):
+        if self._pending:
+            out, self._pending = self._pending[:n], self._pending[n:]
+        for _ in range(n - len(out)):
             c = sample_admissible(self.rng, self.scene)
             if c is not None:
                 out.append(c)
         return out
+
+
+def initial_design(rng, scene, n, jitter=0.05, obstacle_anchored=True):
+    """Initial design anchored to the obstacles, then padded with random draws.
+
+    The modes of the objective sit near obstacles, and obstacle locations are
+    known to the attacker in every threat tier, so this is informed prior
+    placement rather than a trick. It is factored out here so that every picker
+    can be given the SAME first batch -- otherwise a comparison between them
+    measures the seeding, not the optimiser.
+
+    With obstacle_anchored=False the same number of evaluations is spent on
+    uniform admissible draws instead. That is the control arm for "is anchoring
+    the initial design to the obstacles worth anything?", a question that cannot
+    be answered while every arm is anchored.
+    """
+    if not obstacle_anchored:
+        out = []
+        while len(out) < n:
+            p = sample_admissible(rng, scene)
+            if p is None:
+                break
+            out.append(p)
+        return out
+
+    lo = np.array([b[0] for b in scene.bounds], dtype=float)
+    hi = np.array([b[1] for b in scene.bounds], dtype=float)
+    pts = []
+    obs = getattr(scene, "obstacles_world", None)
+    if obs is not None and len(obs):
+        inv = np.linalg.inv(scene.base_frame)
+        for o in obs:
+            c_base = (inv @ np.append(np.asarray(o)[:3, 3], 1.0))[:3]
+            for _ in range(30):                     # jitter until admissible
+                p = np.clip(c_base + rng.normal(0, jitter, 3), lo, hi)
+                if is_admissible(p, scene)[0]:
+                    pts.append(p)
+                    break
+            if len(pts) >= n:
+                break
+    while len(pts) < n:
+        p = sample_admissible(rng, scene)
+        if p is None:
+            break
+        pts.append(p)
+    return pts[:n]
 
 
 class CEMPicker(Picker):
@@ -99,7 +153,7 @@ class CEMPicker(Picker):
     name = "cem"
 
     def __init__(self, scene, seed=0, elite_frac=0.34, init_std_frac=0.25,
-                 std_floor=1e-3):
+                 std_floor=1e-3, n_init=0, obstacle_anchored=True):
         self.scene = scene
         self.rng = np.random.RandomState(seed)
         self.elite_frac = elite_frac
@@ -110,8 +164,18 @@ class CEMPicker(Picker):
         start = sample_admissible(self.rng, scene)
         self.mean = start if start is not None else 0.5 * (self.lo + self.hi)
         self.std = (self.hi - self.lo) * init_std_frac
+        # n_init > 0 => emit the shared obstacle-seeded design first, then fit
+        # the Gaussian to its elites. Drawn from a DEDICATED stream keyed only on
+        # `seed`, so that every picker built with the same seed gets a
+        # bit-identical initial design regardless of what else it drew first.
+        self._pending = list(initial_design(
+            np.random.RandomState(seed), scene, n_init,
+            obstacle_anchored=obstacle_anchored)) if n_init else []
 
     def ask(self, n: int) -> list:
+        if self._pending:
+            take, self._pending = self._pending[:n], self._pending[n:]
+            return take
         out = []
         tries = 0
         while len(out) < n and tries < n * 50:
@@ -133,10 +197,28 @@ class CEMPicker(Picker):
         self.std = elites.std(axis=0) + self.std_floor
 
 
-_PICKERS = {"random": RandomPicker, "cem": CEMPicker}
+#: Every optimiser spends its first _N_INIT evaluations on an initial design.
+#: "*_seeded" anchors that design to the obstacles; the plain name spends the
+#: same budget on uniform draws. Holding the SIZE fixed across both is what makes
+#: the seeded/unseeded pair a clean test of anchoring rather than of head start.
+_N_INIT = 8
+
+ARMS = ("random", "random_seeded", "cem", "cem_seeded", "bo", "bo_seeded")
 
 
 def make_picker(name: str, scene, seed=0) -> Picker:
-    if name not in _PICKERS:
-        raise ValueError(f"unknown picker '{name}'; choose from {sorted(_PICKERS)}")
-    return _PICKERS[name](scene, seed=seed)
+    if name not in ARMS:
+        raise ValueError(f"unknown picker '{name}'; choose from {list(ARMS)}")
+    anchored = name.endswith("_seeded")
+    base = name[:-len("_seeded")] if anchored else name
+
+    if base == "random":
+        # uniform sampling either way; the seeded arm just starts on the anchors
+        return RandomPicker(scene, seed=seed,
+                            n_init=(_N_INIT if anchored else 0))
+    if base == "cem":
+        return CEMPicker(scene, seed=seed, n_init=_N_INIT,
+                         obstacle_anchored=anchored)
+    from .bo import BOPicker                   # lazy: bo.py imports from here
+    return BOPicker(scene, seed=seed, n_init=_N_INIT,
+                    obstacle_anchored=anchored)

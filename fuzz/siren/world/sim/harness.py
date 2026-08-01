@@ -106,8 +106,26 @@ class Harness:
                      seed=self.seed, test_case=self.test_case)
 
     # ------------------------------------------------------------------ #
-    def clearance(self, task_info) -> float:
-        """Min robot-obstacle distance, using SPARK's own distance computation."""
+    def clearance(self, task_info, guarded_only: bool = True) -> float:
+        """Min robot-obstacle distance, using SPARK's own distance computation.
+
+        BUG-1 FIX. SPARK deliberately excludes some robot volumes from
+        ENVIRONMENT collision checking via `env_collision_vol_ignore` -- on the
+        G1 those are the three waist joints and the three pelvis links, which sit
+        near the base and would otherwise trip constantly. The safety index does
+        not watch them, so the filter is not accountable for them.
+
+        Measuring over ALL volumes therefore reports "collisions" the filter was
+        never asked to prevent: every collision examined during the Kind-0
+        investigation was `pelvis_link_3`, while phi simultaneously read -0.066
+        ("safe") because it was describing the guarded pairs. Two numbers meant
+        to describe the same event were describing different pairs.
+
+        With guarded_only=True the two views are aligned: this measures exactly
+        the pairs the filter monitors. Pass False to see raw geometric contact
+        (useful for reporting that the robot touched something at all, but NOT
+        for attributing the failure to the filter).
+        """
         from spark_utils import compute_masked_distance_matrix
 
         obs_frames = task_info["obstacle"]["frames_world"]
@@ -118,4 +136,14 @@ class Harness:
             frame_list_1=self.env.task.robot_frames_world,
             geom_list_1=self.robot_cfg.CollisionVol.values(),
             frame_list_2=obs_frames, geom_list_2=obs_geom)
-        return float(dmat.min()) if dmat is not None else np.inf
+        if dmat is None:
+            return np.inf
+        dmat = np.asarray(dmat, dtype=float)
+
+        if guarded_only:
+            si = self.algo.safe_controller.safe_algo.safety_index
+            mask = getattr(si, "env_collision_mask", None)
+            if mask is not None and np.shape(mask) == dmat.shape:
+                # ignored pairs pushed to +inf so they cannot set the minimum
+                dmat = np.where(np.asarray(mask, dtype=bool), dmat, np.inf)
+        return float(dmat.min())

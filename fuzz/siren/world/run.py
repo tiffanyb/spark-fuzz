@@ -23,6 +23,13 @@ from . import derived
 from .measure import StepMeasurement, RunRecord
 from .types import FilterSpec, Scene
 
+#: Calibrated on 77 escape-search labels (see fuzz/siren/braking_test.py): the
+#: authority C_phi over-states the deceleration actually available along the
+#: closing direction, so the stopping distance is scaled up by 1/0.25 = 4x.
+#: FITTED, not derived — chosen from a grid of 10 on those same 77 points, so
+#: treat 83% agreement as an optimistic estimate until it is cross-validated.
+BRAKE_SCALE = 0.25
+
 
 class World:
     """A SPARK-backed world the attacker can question."""
@@ -32,6 +39,7 @@ class World:
         self.harness = harness
         self._giveup_counter = install_probe(harness)
         self._scene = None
+        self._warned_mismatch = False      # BUG-1 guard fires at most once
 
     # ------------------------------------------------------------------ #
     @classmethod
@@ -81,6 +89,9 @@ class World:
 
         steps = []
         prev_giveups = 0
+        prev_clearance = None
+        # the control is HELD for this long; braking distance is measured in it
+        interval = float(h.env.agent.dt * h.env.agent.control_decimation)
 
         for t in range(max_steps):
             agent_feedback, task_info = h.env.step(u_safe, action_info)
@@ -90,6 +101,11 @@ class World:
 
             # --- what SPARK reports directly ---------------------------- #
             clearance = h.clearance(task_info)
+            # closing speed by finite difference: model-free on purpose, so the
+            # braking test does not inherit the linearisation that made mu wrong
+            v_close = (0.0 if prev_clearance is None
+                       else (prev_clearance - clearance) / interval)
+            prev_clearance = clearance
 
             # --- raw ingredients -> authority + margin ------------------ #
             raw = probe.read_raw(h)
@@ -118,6 +134,29 @@ class World:
             else:
                 deviation = slack
 
+            # BUG-1 regression guard. `clearance` and `phi` are two views of the
+            # same event, so a contact on a guarded pair MUST show up as phi > 0.
+            # They silently disagreed for several rounds of conclusions before
+            # anything checked. Report rather than raise: a violation means the
+            # two views have drifted apart again, which is a measurement fault,
+            # not a reason to abort a long search.
+            if (clearance < 0.0 and d and np.isfinite(d.get("phi", -np.inf))
+                    and d.get("phi", -np.inf) <= 0.0 and not self._warned_mismatch):
+                self._warned_mismatch = True
+                print(f"[measurement warning] step {t}: clearance="
+                      f"{clearance:.5f} < 0 (contact) but phi="
+                      f"{d.get('phi'):.5f} <= 0 (safe). The collision check and "
+                      f"the safety index are describing different pairs — see "
+                      f"BUG-1.", flush=True)
+
+            # --- braking margin (see StepMeasurement.brake_margin) --------- #
+            C_brake = d.get("C_phi", np.inf)
+            if v_close > 0.0 and np.isfinite(C_brake) and C_brake > 0.0:
+                brake_margin = clearance - (v_close * v_close) / (
+                    2.0 * BRAKE_SCALE * C_brake)
+            else:
+                brake_margin = np.inf        # receding, or nothing enforced
+
             steps.append(StepMeasurement(
                 step=t,
                 wp_idx=int(getattr(task, "wp_idx", 0)),
@@ -129,6 +168,9 @@ class World:
                 phi=d.get("phi", -np.inf),
                 demand=d.get("demand", np.nan),
                 g=d.get("g", np.inf),
+                mu=d.get("mu", np.nan),      # only set when exact_margin=True
+                brake_margin=brake_margin,
+                engaged=bool(d.get("engaged", False)),
                 trigger_safe=bool(action_info.get("trigger_safe", False)),
                 deviation=deviation,
                 gave_up=gave_up,

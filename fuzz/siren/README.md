@@ -122,12 +122,31 @@ plausible filter.
 
 ---
 
-## Two things to know before trusting a result
+## Three things to know before trusting a result
 
-**The demand parameter matters enormously.** `eta` (or `lambda`) sets how hard
-the filter resists, and therefore how large the attack surface is. Seed 20's
-collisions reproduce at `eta=0.5` and vanish entirely at `eta=0.03` — 0/354
-candidates. If attacks disappear, check this first.
+**The demand must be physically achievable, and this is now enforced.** `g = C −
+demand`. If the demanded retreat rate exceeds the authority available where the
+filter engages, the filter is infeasible every time it activates: it never
+operates, "attack" degenerates to "get close enough to engage", and the margin
+is a saturated constant that can rank nothing. Measured on seed 20 with
+`d_min=0.02`: at **η=0.5 the filter found a safe control at only 4%** of engaged
+steps; at **η=0.02, 100%**. `search()` therefore probes the demand up front and
+**aborts with `demand_not_met`** below 50%, unless you pass
+`allow_infeasible_demand=True` to study that regime deliberately. This is the
+same failure as the old `d_min=0.10` inert filter, reached by a different route.
+
+**Two guidance families, selectable via `SIREN_GUIDANCE`.**
+
+| | reads | status |
+|---|---|---|
+| `proximity` *(default)* | clearance at handover, fraction engaged, exposure | effect size **2.13** on a labelled set |
+| `margin` | `min g` / `min C` over the trajectory | effect size **0.0004** — ranked 0/6 attacks in the top 6, worse than chance |
+
+The margin family is kept so the negative result stays reproducible and the two
+can be compared directly. Note that `min g` is now taken over **engaged steps
+only** — reporting a margin for a constraint the filter is not enforcing is
+meaningless and was *inverted* (candidates that never engaged scored as the most
+dangerous of all).
 
 **Soundness is one-directional.** A realized failure confirms a vulnerability.
 Finding nothing within budget does **not** certify safety — the search may

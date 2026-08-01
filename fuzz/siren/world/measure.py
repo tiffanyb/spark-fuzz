@@ -40,7 +40,25 @@ class StepMeasurement:
     demand: float = np.nan            # what the filter insists on
     g: float = np.inf                 # C_phi - demand - L_f phi ; <0 => void
 
+    # The EXACT multi-constraint LP margin, populated only when a run is made
+    # with exact_margin=True (it costs an LP per step). Sign is the OPPOSITE of
+    # g by construction: mu = min_u max_i (L_f phi_i + L_g phi_i . u + demand_i),
+    # so mu <= 0 means some u satisfies EVERY active constraint, and mu > 0 means
+    # none does. g only ever looks at the single binding constraint, so it can
+    # read "safe" while several constraints are jointly unsatisfiable -- which is
+    # exactly the pincer case the Kind-1/Kind-2 split has to get right.
+    mu: float = np.nan
+
+    #: BRAKING MARGIN: clearance - v_closing^2 / (2 * BRAKE_SCALE * C_phi).
+    #: Negative means the pair is already inside its stopping distance, i.e. no
+    #: control can arrest the approach in time. This is the second-order,
+    #: INTEGRATED quantity that mu (a first-order rate condition) cannot express,
+    #: and it is what actually predicts collisions here: validated at 83% kind
+    #: agreement against the brute-force escape search on 77 labelled runs.
+    brake_margin: float = np.inf
+
     # --- what the filter visibly did ----------------------------------- #
+    engaged: bool = False             # a constraint is actually being enforced
     trigger_safe: bool = False        # the filter intervened this step
     deviation: float = 0.0            # ||u_safe - u_ref||  (the observable signal)
     gave_up: bool = False             # QP infeasible -> u_ref   OBSERVED
@@ -122,6 +140,25 @@ class DeviationEvent:
 
 
 @dataclass
+class HandoverState:
+    """The configuration at the moment the robot switches to the FINAL goal.
+
+    For an insertion attack this is the one state the inserted goal actually
+    controls: after it, every candidate flies the same last leg to the same
+    fixed G1. Statistics taken over the whole trajectory are therefore dominated
+    by that shared approach and cannot tell candidates apart -- the handover can.
+    Undefined for a single-leg (modification) run, where there is no switch.
+    """
+    step: int
+    clearance: float
+    phi: float
+    C_d: float
+    C_phi: float
+    g: float
+    dist_final: float
+
+
+@dataclass
 class RunRecord:
     label: str
     schedule: List
@@ -131,7 +168,7 @@ class RunRecord:
     # --- summary scalars (what the attacker scores on) ------------------ #
     min_C_d: float = np.inf
     min_C_phi: float = np.inf
-    min_g: float = np.inf
+    min_g: float = np.inf                  # over ENGAGED steps only
     max_penetration: float = 0.0
     min_clearance: float = np.inf
     final_dist: float = np.inf
@@ -141,6 +178,15 @@ class RunRecord:
     reached: bool = False
     collided: bool = False
     n_steps: int = 0
+
+    # --- engagement extent: how LONG the filter struggled, not how deep -- #
+    n_engaged: int = 0
+    frac_engaged: float = 0.0
+    exposure: float = 0.0                  # sum of (-g)+ over engaged steps
+    # --- the handover, and the leg the attack actually happens on -------- #
+    handover: Optional[HandoverState] = None
+    min_clearance_final_leg: float = np.inf
+    max_phi_engaged: float = -np.inf
 
     def is_attack_success(self) -> bool:
         """Only a confirmed unsafe outcome counts. TIMEOUT is inconclusive."""
@@ -163,14 +209,33 @@ class RunRecord:
                                            approach_speed=float("nan"))
                 break
 
+        # Margin statistics are meaningful only where the filter is enforcing.
+        engaged = [s for s in steps if s.engaged]
+
+        def _min_over(seq, attr, default=np.inf):
+            vals = [getattr(s, attr) for s in seq
+                    if getattr(s, attr) is not None and np.isfinite(getattr(s, attr))]
+            return float(min(vals)) if vals else default
+
+        # The handover: first step on the last leg. Only meaningful when there
+        # IS an earlier leg (i.e. an inserted goal); a single-goal run has none.
+        n_wp = len(schedule) if schedule is not None else 1
+        handover = None
+        final_leg = [s for s in steps if s.wp_idx >= n_wp - 1]
+        if n_wp > 1 and final_leg:
+            h = final_leg[0]
+            handover = HandoverState(step=h.step, clearance=h.clearance, phi=h.phi,
+                                     C_d=h.C_d, C_phi=h.C_phi, g=h.g,
+                                     dist_final=h.dist_final)
+
         return cls(
             label=label,
             schedule=list(schedule) if schedule is not None else [],
             filter_spec=filter_spec,
             steps=steps,
             min_C_d=_min("C_d"),
-            min_C_phi=_min("C_phi"),
-            min_g=_min("g"),
+            min_C_phi=_min_over(engaged, "C_phi"),
+            min_g=_min_over(engaged, "g"),          # ENGAGED steps only
             max_penetration=max((s.penetration for s in steps), default=0.0),
             min_clearance=_min("clearance"),
             final_dist=float(steps[-1].dist_final) if steps else np.inf,
@@ -180,6 +245,14 @@ class RunRecord:
             reached=any(s.reached_final for s in steps),
             collided=(label == "COLLISION"),
             n_steps=len(steps),
+            n_engaged=len(engaged),
+            frac_engaged=(len(engaged) / len(steps)) if steps else 0.0,
+            exposure=float(sum(max(0.0, -s.g) for s in engaged
+                               if np.isfinite(s.g))),
+            handover=handover,
+            min_clearance_final_leg=_min_over(final_leg, "clearance"),
+            max_phi_engaged=float(max((s.phi for s in engaged
+                                       if np.isfinite(s.phi)), default=-np.inf)),
             **kw,
         )
 

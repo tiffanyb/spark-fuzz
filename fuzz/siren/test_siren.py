@@ -137,25 +137,29 @@ def test_layer1():
         assert mu > 0, mu                                   # infeasible together
     check("exact LP detects a conflicting pair", t_exact_lp_conflict)
 
-    def t_guidance_when_not_engaged():
-        # Nothing active (phi < 0), but the attacker still needs a gradient:
-        # authority must be reported, while "infeasible" must stay False.
+    def t_margin_undefined_when_not_engaged():
+        # Nothing enforced (phi < 0). The MARGIN must be undefined: reporting
+        # C - demand for a constraint the filter is not enforcing is meaningless,
+        # and worse, it is INVERTED -- candidates that never engage would score
+        # as the most dangerous of all. Proximity stays defined.
         out = derived.evaluate(Lg=np.array([[1.0, 0.0]]), Lf=np.array([0.0]),
                                phi=np.array([-0.5]), phi_mask=np.array([1.0]),
                                u_lim=np.array([0.3, 0.3]),
                                demand_shape="constant", eta=0.5)
-        assert np.isfinite(out["C_phi"]), "no guidance signal on a safe candidate"
-        approx(out["C_phi"], 0.3)
         assert not out["engaged"]
-        assert not out["predicted_infeasible"], "inactive constraint reported violated"
-    check("guidance is finite even when the filter never engages",
-          t_guidance_when_not_engaged)
+        assert out["g"] == np.inf, "margin reported for an unenforced constraint"
+        assert out["C_phi"] == np.inf, "binding authority reported when nothing binds"
+        assert np.isfinite(out["C_d"]), "proximity authority should stay defined"
+        approx(out["C_d"], 0.3)
+        approx(out["phi"], -0.5)
+        assert not out["predicted_infeasible"]
+    check("margin is UNDEFINED when nothing is engaged (proximity survives)",
+          t_margin_undefined_when_not_engaged)
 
-    def t_guidance_uses_nearest_not_weakest():
-        # Two obstacles, neither active. Pair 0 is far away and the arm barely
-        # affects it (tiny authority); pair 1 is nearly touching. The guidance
-        # must describe pair 1 -- reporting the far pair's tiny authority would
-        # be a near-constant, uninformative score.
+    def t_proximity_uses_nearest_not_weakest():
+        # Two dormant pairs. Pair 0 is distant with almost no leverage; pair 1 is
+        # nearly touching. Proximity must describe pair 1 -- reporting the far
+        # pair's tiny authority gives a near-constant, uninformative score.
         out = derived.evaluate(
             Lg=np.array([[0.01, 0.0],     # far obstacle, almost no leverage
                          [1.00, 0.0]]),   # near obstacle, good leverage
@@ -163,10 +167,28 @@ def test_layer1():
             phi=np.array([-5.0, -0.01]),  # pair 1 is the one nearly engaged
             phi_mask=np.ones(2), u_lim=np.array([1.0, 1.0]),
             demand_shape="constant", eta=0.5)
-        approx(out["C_phi"], 1.0)         # the NEAR pair, not the weak far one
+        approx(out["C_d"], 1.0)           # the NEAR pair, not the weak far one
         approx(out["phi"], -0.01)
-    check("guidance describes the nearest constraint, not the weakest",
-          t_guidance_uses_nearest_not_weakest)
+    check("proximity describes the nearest constraint, not the weakest",
+          t_proximity_uses_nearest_not_weakest)
+
+    def t_demand_achievability():
+        # The root cause the diagnosis found: a demand above the authority
+        # available where the filter engages makes it infeasible every time it
+        # activates, so the margin saturates and can rank nothing.
+        c_engaged = [0.063, 0.064, 0.065]
+        # judged from the FRACTION of engaged steps that were actually feasible
+        never = derived.demand_achievable(c_engaged, [-0.44, -0.44, -0.43], 0.5)
+        assert never["verdict"] == "never_feasible", never
+        assert never["frac_feasible_when_engaged"] == 0.0
+        ok = derived.demand_achievable(c_engaged, [0.04, 0.04, 0.05], 0.02)
+        assert ok["verdict"] == "achievable", ok
+        mostly = derived.demand_achievable(c_engaged, [-0.1, -0.1, 0.05], 0.1)
+        assert mostly["verdict"] == "mostly_infeasible", mostly
+        assert derived.demand_achievable([], [], 0.5)["verdict"] == "never_engaged"
+        assert abs(never["ratio_to_worst"] - 0.5 / 0.063) < 1e-6
+    check("demand-achievability verdict (the root-cause guard)",
+          t_demand_achievability)
 
     def t_engaged_flag():
         out = derived.evaluate(Lg=np.array([[1.0, 0.0]]), Lf=np.array([0.0]),
@@ -232,13 +254,54 @@ def test_layer1():
     def t_record_summary():
         s = mk(120, dist=1.0)
         s[5].C_d = 0.2; s[5].g = -0.3; s[5].gave_up = True; s[5].clearance = -0.002
+        s[5].engaged = True
         rec = RunRecord.summarize(s, [0], FilterSpec())
         approx(rec.min_C_d, 0.2)
         approx(rec.min_g, -0.3)
         assert rec.n_gave_up == 1
         approx(rec.max_penetration, 0.002)
         assert rec.label == "COLLISION" and rec.is_attack_success()
+        assert rec.n_engaged == 1
+        approx(rec.exposure, 0.3)          # (-g)+ summed over engaged steps
     check("RunRecord.summarize rolls up correctly", t_record_summary)
+
+    def t_min_g_ignores_unengaged_steps():
+        # A step that is not engaged must not contribute to the margin summary,
+        # however negative its (meaningless) g happens to be.
+        s = mk(120, dist=1.0)
+        s[3].g = -99.0; s[3].engaged = False        # dormant: must be ignored
+        s[7].g = -0.2;  s[7].engaged = True         # enforced: counts
+        rec = RunRecord.summarize(s, [0], FilterSpec())
+        approx(rec.min_g, -0.2)
+        assert rec.n_engaged == 1
+    check("min_g ignores steps where nothing was enforced",
+          t_min_g_ignores_unengaged_steps)
+
+    def t_min_g_infinite_if_never_engaged():
+        rec = RunRecord.summarize(mk(50), [0], FilterSpec())
+        assert rec.min_g == np.inf and rec.n_engaged == 0
+        approx(rec.frac_engaged, 0.0)
+    check("min_g is +inf when the filter never engaged",
+          t_min_g_infinite_if_never_engaged)
+
+    def t_handover_recorded():
+        # Two waypoints: the handover is the first step on the final leg -- the
+        # one state an inserted goal controls.
+        s = mk(60, wp=0)
+        for st in s[30:]:
+            st.wp_idx = 1
+        s[30].clearance = 0.014
+        rec = RunRecord.summarize(s, [0, 1], FilterSpec())
+        assert rec.handover is not None and rec.handover.step == 30
+        approx(rec.handover.clearance, 0.014)
+    check("handover state is captured (first step of the final leg)",
+          t_handover_recorded)
+
+    def t_no_handover_for_single_leg():
+        # A modification attack is one leg; there is no switch, so no handover.
+        rec = RunRecord.summarize(mk(40), [0], FilterSpec())
+        assert rec.handover is None
+    check("single-leg run has no handover", t_no_handover_for_single_leg)
 
     # ---- ensembles -------------------------------------------------------- #
     def t_ensembles():
@@ -282,11 +345,14 @@ class FakeWorld:
         from fuzz.siren.world.measure import RunRecord, StepMeasurement
         self.calls.append((len(schedule), getattr(spec, "label", "")))
         label, over = self.script(schedule, spec)
-        steps = [StepMeasurement(step=i, wp_idx=len(schedule) - 1, dist_final=1.0,
+        steps = [StepMeasurement(step=i, wp_idx=(0 if i < 5 else len(schedule) - 1),
+                                 dist_final=1.0,
                                  reached_final=(label == "REACHED" and i == 9),
-                                 clearance=(-1e-4 if label == "COLLISION" and i == 5 else 0.05),
+                                 clearance=over.get("clearance",
+                                     (-1e-4 if label == "COLLISION" and i == 5 else 0.05)),
                                  C_d=over.get("C_d", 0.5), C_phi=over.get("C_phi", 0.5),
                                  g=over.get("g", 0.2), phi=0.0,
+                                 engaged=over.get("engaged", True),
                                  deviation=over.get("deviation", 0.0))
                  for i in range(10)]
         rec = RunRecord.summarize(steps, schedule, spec)
@@ -449,13 +515,24 @@ def test_layer2():
     check("ensemble size follows the tier", t_ensemble_sizes_by_tier)
 
     def t_objective_choice():
-        from fuzz.siren.search.threat import CertificateObjective, MarginProxyObjective
-        assert isinstance(threat_model("white").objective, CertificateObjective)
-        o = threat_model("strict-black").objective
+        from fuzz.siren.search.threat import (CertificateObjective,
+                                              MarginProxyObjective,
+                                              ProximityObjective, objective_for,
+                                              PRESETS)
+        # default family is the measured-good proximity guidance
+        assert isinstance(threat_model("white").objective, ProximityObjective)
+        assert isinstance(threat_model("strict-black").objective, ProximityObjective)
+        # only white-box may use exposure, which needs the margin
+        assert threat_model("white").objective.w_exposure > 0
+        assert threat_model("strict-black").objective.w_exposure == 0
+        # the old margin family is still selectable, so the negative result
+        # stays reproducible and the two can be compared
+        assert isinstance(objective_for(PRESETS["white"], guidance="margin"),
+                          CertificateObjective)
+        o = objective_for(PRESETS["strict-black"], guidance="margin")
         assert isinstance(o, MarginProxyObjective) and o.ruler == "min_C_d" and o.hedge
-        g = threat_model("gray").objective
-        assert g.ruler == "min_C_phi" and not g.hedge
-    check("objective is derived, not hand-picked", t_objective_choice)
+    check("objective is derived, and both guidance families are selectable",
+          t_objective_choice)
 
     def t_scores_prefer_failure():
         w = FakeWorld(scene)
@@ -466,13 +543,53 @@ def test_layer2():
         assert bad > good, (bad, good)
     check("a collision scores above a clean reach", t_scores_prefer_failure)
 
-    def t_lower_authority_scores_higher():
+    def t_closer_handover_scores_higher():
+        # The proximity gradient: a candidate that hands the robot over CLOSER to
+        # an obstacle must score higher. This is the signal that measured an
+        # effect size of 2.13 where the margin measured 0.0004.
         obj = threat_model("strict-black").objective
-        hi = FakeWorld(scene, lambda s, sp: ("REACHED", {"C_d": 2.0}))
-        lo = FakeWorld(scene, lambda s, sp: ("REACHED", {"C_d": 0.1}))
-        assert (obj.score(lo.run([scene.G1], FilterSpec()))
-                > obj.score(hi.run([scene.G1], FilterSpec())))
-    check("lower authority scores higher (the guidance gradient)", t_lower_authority_scores_higher)
+        far = FakeWorld(scene, lambda s, sp: ("REACHED", {"clearance": 0.054}))
+        near = FakeWorld(scene, lambda s, sp: ("REACHED", {"clearance": 0.014}))
+        s_far = obj.score(far.run([scene.G1, scene.G1], FilterSpec()))
+        s_near = obj.score(near.run([scene.G1, scene.G1], FilterSpec()))
+        assert s_near > s_far, (s_near, s_far)
+    check("closer handover scores higher (the proximity gradient)",
+          t_closer_handover_scores_higher)
+
+    def t_engagement_weight_is_a_knob():
+        # The sign of this term is an EMPIRICAL question, not an assumption:
+        # attacks had fewer engaged steps than non-attacks (14 vs 39.5), but the
+        # raw count is confounded with run length, so the weight is ablated. The
+        # objective must honour whichever weight it is given, including zero.
+        from fuzz.siren.search.threat import ProximityObjective, BlackView
+        lots = FakeWorld(scene, lambda s, sp: ("REACHED", {"engaged": True}))
+        none = FakeWorld(scene, lambda s, sp: ("REACHED", {"engaged": False}))
+        r_lots = lots.run([scene.G1, scene.G1], FilterSpec())
+        r_none = none.run([scene.G1, scene.G1], FilterSpec())
+
+        pos = ProximityObjective(w_engaged=1.0, view_class=BlackView)
+        assert pos.score(r_lots) > pos.score(r_none)
+        neg = ProximityObjective(w_engaged=-1.0, view_class=BlackView)
+        assert neg.score(r_lots) < neg.score(r_none)
+        off = ProximityObjective(w_engaged=0.0, view_class=BlackView)
+        assert abs(off.score(r_lots) - off.score(r_none)) < 1e-12
+    check("engagement weight is an ablated knob, honoured in both signs",
+          t_engagement_weight_is_a_knob)
+
+    def t_black_may_read_geometry_not_margin():
+        # Proximity terms are geometric + observable, so legal for every tier;
+        # the margin family stays white-box only.
+        rec = FakeWorld(scene).run([scene.G1, scene.G1], FilterSpec())
+        v = BlackView(rec)
+        _ = v.handover, v.frac_engaged, v.min_clearance_final_leg
+        for forbidden in ("min_g", "exposure", "min_C_phi"):
+            try:
+                getattr(v, forbidden)
+            except KnowledgeError:
+                continue
+            raise AssertionError(f"strict black-box read '{forbidden}'")
+    check("proximity terms legal for all tiers; margin terms are not",
+          t_black_may_read_geometry_not_margin)
 
     def t_coarse_motion_delays_onset():
         from fuzz.siren.world.measure import StepMeasurement, RunRecord
@@ -690,7 +807,12 @@ def test_layer3(all_cases=False, budget=6):
 
     # ---- the probe actually measures something ---------------------------- #
     def t_probe_measures():
-        spec = real_filter(algo="ssa", d_min=0.02, eta=0.5)
+        # d_min must exceed the closest approach on this path (~0.023) or the
+        # filter never engages, and margin is inf BY DESIGN (see the P3 rule in
+        # derived.evaluate: a margin is only defined where a constraint is
+        # actually enforced). This test is about the probe reporting numbers,
+        # not about whether the scene happens to engage.
+        spec = real_filter(algo="ssa", d_min=0.05, eta=0.02)
         w = World.build(seed=20, spec=spec, max_steps=60)
         rec = w.run([w.scene().G1], spec, max_steps=50)
         assert np.isfinite(rec.min_C_phi), "C never computed"
@@ -727,11 +849,11 @@ def test_layer3(all_cases=False, budget=6):
 
     # ---- retuning changes behaviour --------------------------------------- #
     def t_retune_changes_demand():
-        w = World.build(seed=20, spec=real_filter(algo="ssa", d_min=0.02, eta=0.5),
+        w = World.build(seed=20, spec=real_filter(algo="ssa", d_min=0.05, eta=0.02),
                         max_steps=40)
-        lo = w.run([w.scene().G1], FilterSpec(algo="ssa", d_min=0.02, eta=0.05),
+        lo = w.run([w.scene().G1], FilterSpec(algo="ssa", d_min=0.05, eta=0.05),
                    max_steps=30)
-        hi = w.run([w.scene().G1], FilterSpec(algo="ssa", d_min=0.02, eta=2.0),
+        hi = w.run([w.scene().G1], FilterSpec(algo="ssa", d_min=0.05, eta=2.0),
                    max_steps=30)
         assert lo.min_g != hi.min_g, "retune had no effect on the margin"
     check("retuning the demand changes the margin", t_retune_changes_demand)
@@ -747,7 +869,9 @@ def test_layer3(all_cases=False, budget=6):
     # ---- end-to-end searches ---------------------------------------------- #
     for threat in ("white", "gray", "weak-black", "strict-black", "random"):
         def t_search(threat=threat):
-            spec = real_filter(algo="ssa", index="distance", d_min=0.02, eta=0.5)
+            # eta must be achievable here or the demand guard aborts the search
+            # by design (measured: eta=0.5 is ~8x over-demanded on this scene).
+            spec = real_filter(algo="ssa", index="distance", d_min=0.02, eta=0.02)
             w = World.build(seed=20, spec=spec, max_steps=200)
             tm = threat_model(threat, d_min=0.02, index="distance", real=spec)
             r = search(w, make_attack("insertion"),
@@ -760,7 +884,7 @@ def test_layer3(all_cases=False, budget=6):
         check(f"end-to-end insertion search: threat={threat}", t_search)
 
     def t_modification_search():
-        spec = real_filter(algo="ssa", index="distance", d_min=0.02, eta=0.5)
+        spec = real_filter(algo="ssa", index="distance", d_min=0.02, eta=0.02)
         w = World.build(seed=20, spec=spec, max_steps=200)
         r = search(w, make_attack("modification"),
                    make_picker("cem", w.scene(), seed=0),
