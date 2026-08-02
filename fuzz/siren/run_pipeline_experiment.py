@@ -77,7 +77,13 @@ def max_steps_for(case, override=None):
     """
     if override is not None:
         return override
-    return 300 if "_D2_" in case else 500
+    # Raised 3x (was 300/500). Measured: of 129 leg-2 timeouts re-run at 2500
+    # steps, 127 REACHED with a median of 555 steps -- they were slow, not
+    # trapped. And 828 D1 candidates were discarded as leg-1 timeouts, never
+    # reaching the inserted goal at all, which silently capped how FAR an
+    # inserted goal could be placed and still count. A longer horizon widens the
+    # admissible-goal set rather than changing any outcome.
+    return 900 if "_D2_" in case else 1500
 
 
 def gate(world, scene, spec, max_steps):

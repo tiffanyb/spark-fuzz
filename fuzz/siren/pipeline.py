@@ -51,6 +51,7 @@ separate runs would settle the arm at G1' first and measure a different system.
 It is also half the simulation cost.
 """
 
+import os
 from dataclasses import dataclass, field, asdict
 from typing import Optional, List
 
@@ -62,6 +63,21 @@ from .world.types import Scene
 #: any engaged candidate outranks any unengaged one; the offset just encodes
 #: that ordering in the single float the pickers consume.
 _ENGAGED_OFFSET = 1000.0
+
+#: Which quantity the ENGAGED branch of the lexicographic score minimises.
+#: See SCORING_HISTORY.md for every objective tried and why.
+#:
+#:   "brake"  clearance - v^2/(2 s C)   relative-degree-2 momentum commitment.
+#:            L_f-free by construction. Monotone with collisions (corr -0.59),
+#:            but blind to D1, which has no braking distance.
+#:   "g"      C - demand - L_f phi      the EXACT feasibility test: g < 0 iff the
+#:            QP has no solution. Rearranged, C >= eta + L_f phi -- the authority
+#:            condition, in both families. The only lever in D1.
+#:
+#: `g` was refuted early and that refutation is void: L_f carried a sign error
+#: that inflated g by 2x the closing speed, largest exactly when approaching
+#: fastest, which is why it "never went negative" across ~18k candidates.
+SCORE_MODE = os.environ.get("SIREN_SCORE", "brake").strip().lower()
 
 KINDS = ("KIND_1", "KIND_2", "NO_INFEASIBILITY", "NEVER_ENGAGED")
 STAGES = ("inadmissible", "leg1_timeout", "modification_hit", "evaluated")
@@ -86,6 +102,7 @@ class Evaluation:
     mu_t0: Optional[float] = None
     max_mu_leg2: Optional[float] = None
     min_brake_margin: Optional[float] = None
+    min_g_leg2: Optional[float] = None
     min_clearance_leg2: Optional[float] = None
     n_engaged_leg2: int = 0
     n_steps_leg2: int = 0
@@ -182,6 +199,12 @@ def evaluate(world, scene: Scene, cand, max_steps=None) -> Evaluation:
         min_brake = min(bm)
     ev.min_brake_margin = min_brake
 
+    # g is only defined where a constraint is actually enforced (the P3 rule in
+    # derived.evaluate returns inf otherwise), so restrict to engaged steps.
+    gs = [float(s.g) for s in leg2 if s.engaged and np.isfinite(s.g)]
+    min_g_l2 = min(gs) if gs else None
+    ev.min_g_leg2 = min_g_l2
+
     mu_t0 = None
     max_mu = None
     max_mu_after = None
@@ -199,11 +222,13 @@ def evaluate(world, scene: Scene, cand, max_steps=None) -> Evaluation:
 
     # -- step 4: lexicographic score ------------------------------------- #
     if ev.engaged:
-        # smaller braking margin = deeper inside the stopping distance = closer
-        # to unavoidable contact, so the attacker MINIMISES it. Falls back to 0
-        # when it is never finite (nothing ever closing), which still leaves an
-        # engaged candidate above every unengaged one -- the lexicographic rule.
-        ev.score = _ENGAGED_OFFSET - (min_brake if min_brake is not None else 0.0)
+        # Both branches MINIMISE their quantity: smaller braking margin = deeper
+        # inside the stopping distance; smaller g = closer to the QP having no
+        # solution at all. Falling back to 0 when the quantity is never finite
+        # still leaves an engaged candidate above every unengaged one, which is
+        # the lexicographic rule.
+        key = min_g_l2 if SCORE_MODE == "g" else min_brake
+        ev.score = _ENGAGED_OFFSET - (key if key is not None else 0.0)
     else:
         mc = ev.min_clearance_leg2
         ev.score = -float(mc) if mc is not None else 0.0
