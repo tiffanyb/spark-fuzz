@@ -72,11 +72,28 @@ def failing_leg(rec):
             return int(s.wp_idx)
     return None
 
+def parse_seeds(spec):
+    out = []
+    for part in spec.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if "-" in part.lstrip("-"):
+            lo, hi = part.split("-", 1)
+            out.extend(range(int(lo), int(hi) + 1))
+        else:
+            out.append(int(part))
+    return out
 
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--algo", default="sss")
-    p.add_argument("--seeds", default="0,1,2")
+    p.add_argument("--seeds", default="0,1,2",
+                   help="seeds to SCAN, e.g. '1-20' or '0,1,2'. Seeds whose "
+                        "gate fails are skipped and the next is tried.")
+    p.add_argument("--n-worlds", type=int, default=3,
+                   help="how many gate-PASSING worlds to actually search per "
+                        "scenario before moving on")
     p.add_argument("--scenes", default=None)
     p.add_argument("--grid", type=int, default=6)
     p.add_argument("--lam", type=float, default=1.0)
@@ -98,7 +115,7 @@ def main(argv=None):
         # follows the D1/D2 naming, so no lookup table is needed
         scenes = [(c.strip(), "velocity" if "_D2_" in c else "distance")
                   for c in a.scenes.split(",") if c.strip()]
-    seeds = [int(x) for x in a.seeds.split(",") if x.strip()]
+    seeds = parse_seeds(a.seeds)
     ok_attack = ("COLLISION", "DEADLOCK") if a.relax else ("COLLISION",)
 
     print(f"{len(scenes)} scenarios x {len(seeds)} seeds = "
@@ -108,7 +125,16 @@ def main(argv=None):
     summary = []
     for case, index in scenes:
         steps = 900 if "_D2_" in case else 1500
+        # Scan seeds until n_worlds of them PASS the gate. A failing gate means
+        # this seed's layout has no known collision to relabel, so it is not a
+        # world we can build an attack in -- move to the next seed rather than
+        # burning the quota on it. The seeds that passed are recorded in the
+        # output so a result can be traced back to its exact world.
+        n_passed = 0
+        gate_log = []
         for sd in seeds:
+            if n_passed >= a.n_worlds:
+                break
             spec = real_filter(algo=a.algo, index=index, d_min=0.02, eta=0.02,
                                lam=a.lam, k=0.1)
             tag = f"{case}_{a.algo}_s{sd}_lam{a.lam}"
@@ -128,12 +154,14 @@ def main(argv=None):
             gate = w.run([G1], max_steps=steps)
             print(f"\n{case} s{sd}: gate home->G1 = {gate.label} "
                   f"({gate.min_clearance:+.6f})", flush=True)
+            gate_log.append({"seed": sd, "gate": gate.label,
+                             "min_clearance": float(gate.min_clearance)})
             if gate.label not in ("COLLISION", "DEADLOCK"):
-                print("   no raw material — skipping", flush=True)
-                summary.append({"case": case, "seed": sd, "gate": gate.label,
-                                "n_insertion": 0, "n_modification": 0,
-                                "n_confirmed": 0})
+                print(f"   no raw material — trying next seed "
+                      f"({n_passed}/{a.n_worlds} worlds so far)", flush=True)
                 continue
+            n_passed += 1
+            print(f"   gate PASSED — world {n_passed}/{a.n_worlds}", flush=True)
 
             lo = [b[0] for b in sc.bounds]
             hi = [b[1] for b in sc.bounds]
@@ -150,10 +178,19 @@ def main(argv=None):
                     af, ti = h.reset()
                     h.env.task.set_goal_schedule([g0, G1])
                     u, ai = h.algo.act(af, ti)
-                    s0, ok_reach = None, False
+                    # C1 must mean "arrived SAFELY", not merely "arrived".
+                    # reached_final alone let a rollout that penetrated an
+                    # obstacle and then still reached G1 pass the check, while
+                    # measure.classify_run would have called it COLLISION --
+                    # collision is tested BEFORE reached there, with
+                    # collision_margin = 0.0. That mislabelled 18 of 73 controls,
+                    # including every cbf one: their baselines collide, so the
+                    # inserted goal was not what broke the task.
+                    s0, ok_reach, base_min_clear = None, False, np.inf
                     for t in range(steps):
                         af, ti = h.env.step(u, ai)
                         u, ai = h.algo.act(af, ti)
+                        base_min_clear = min(base_min_clear, h.clearance(ti))
                         if s0 is None and int(getattr(h.env.task, "wp_idx", 0)) >= 1:
                             s0 = capture_world(h)
                             clr0 = h.clearance(ti)
@@ -170,7 +207,7 @@ def main(argv=None):
                         if h.env.task.reached_final:
                             ok_reach = True
                             break
-                    if s0 is None or not ok_reach:
+                    if s0 is None or not ok_reach or base_min_clear < 0.0:
                         continue
                     # ---- C1b: the handover itself must be legitimate ------ #
                     if clr0 <= 0.0 or (np.isfinite(mu0) and mu0 > 1e-9):
@@ -227,6 +264,9 @@ def main(argv=None):
                        "obstacles_world": [list(map(float, np.asarray(o)[:3, 3]))
                                            for o in sc.obstacles_world],
                        "n_G0_swept": len(g0s),
+                       "seeds_scanned": [g["seed"] for g in gate_log],
+                       "gate_log": gate_log,
+                       "world_index": n_passed,
                        "controls": confirmed,
                        "insertion_unconfirmed": [x for x in ins
                                                  if not x["confirmed"]],
