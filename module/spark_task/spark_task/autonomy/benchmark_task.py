@@ -13,6 +13,13 @@ class TaskObject3D():
         self.smooth_weight = kwargs.get("smooth_weight", 1.0)
         self.direction = kwargs.get("direction", np.array([0.0,0.0,0.0]))
         self.last_direction = self.direction
+        # SIREN FIX (2026-08-03). `last_direction` is the INTENDED step and is
+        # motion-model state (read below at the direction-hold and smoothing
+        # lines). It over-reports whenever a bound clips the move, because it is
+        # written before the clamp. Anything needing a VELOCITY must use
+        # `last_displacement`, which is measured after the clamp.
+        self.last_frame = self.frame.copy()
+        self.last_displacement = np.zeros(3)
         self.step_counter = 0
         self.keep_direction_step = kwargs.get("keep_direction_step", 1)
         self.dt = kwargs.get("dt", 0.01)
@@ -20,15 +27,24 @@ class TaskObject3D():
         self.rs = np.random.RandomState(self._seed)
     
     def move(self, mode):
+        # SIREN FIX (2026-08-03). Snapshot BEFORE the mode branch. It used to be
+        # taken inside the Brownian branch only, so the Velocity branch never
+        # refreshed it -- and setup mutates frame[:3,3] AFTER construction (both
+        # the Velocity and Brownian init paths), which would leave it stale from
+        # the first step. Hoisting is behaviourally identical for Brownian: the
+        # direction-selection lines below do not touch `frame`.
+        self.last_frame = self.frame.copy()
         if mode == "Brownian":
             if self.step_counter % self.keep_direction_step == 0:
                 direction = self.rs.normal(loc=0.0, size=3)
                 direction = self.velocity * direction / np.linalg.norm(direction)
             else:
                 direction = self.last_direction
-            self.last_frame = self.frame.copy()
             update_step = (1 - self.smooth_weight) * self.last_direction + self.smooth_weight * direction
             self.frame[:3, 3] += update_step
+            # unchanged on purpose: this is motion-model state, fed back into the
+            # direction hold and the smoothing term. Touching it would change
+            # every obstacle trajectory.
             self.last_direction = self.frame[:3, 3] - self.last_frame[:3, 3]
         elif mode == "Velocity":
             update_step = self.velocity * self.last_direction * self.dt
@@ -39,7 +55,12 @@ class TaskObject3D():
                 self.frame[dim, 3] = self.bound[dim][0]
             elif self.frame[dim, 3] > self.bound[dim][1]:
                 self.frame[dim, 3] = self.bound[dim][1]
-            
+
+        # SIREN FIX (2026-08-03). Measured AFTER the clamp, so an object pinned
+        # against a wall reports zero motion along the clamped axis instead of
+        # the displacement it wanted. This is what get_info() publishes as the
+        # obstacle velocity the safety index consumes.
+        self.last_displacement = self.frame[:3, 3] - self.last_frame[:3, 3]
         self.step_counter += 1
 
 class ResamplingError(AssertionError):
@@ -401,7 +422,38 @@ class BenchmarkTask(BaseTask):
         
         self.info["obstacle_task"]["frames_world"]  = [obstacle.frame for obstacle in self.obstacle_task] if len(self.obstacle_task) > 0 else np.empty((0, 4, 4))
         self.info["obstacle_task"]["geom"]          = self.obstacle_task_geom
-        self.info["obstacle_task"]["velocity"]      = [obstacle.velocity * np.concatenate((obstacle.direction, np.zeros(3))) for obstacle in self.obstacle_task] if len(self.obstacle_task) > 0 else np.empty((0, 6))
+        # SIREN FIX (2026-08-01). This is the obstacle velocity the safety filter
+        # consumes: phi carries a k*(v.normal) term, and v must be a RATE in m/s
+        # because the robot's side of that inner product arrives as dof_vel
+        # through the Jacobian.
+        #
+        # It was `obstacle.velocity * obstacle.direction`, which was wrong twice:
+        #   1. `self.direction` is assigned once in TaskObject3D.__init__ and
+        #      never updated (only `last_direction` tracks motion), so the value
+        #      reported was a CONSTANT that ignored where the obstacle was
+        #      actually going;
+        #   2. `velocity` is a per-STEP displacement in metres -- move() does
+        #      `frame[:3,3] += update_step` with no dt -- so it was handed to the
+        #      filter as though it were m/s.
+        #
+        # Measured on G1FixedBase_D1_AG_DO_v1 seed 5: the filter was told the
+        # obstacle moved at 0.0075 m/s while it actually moved at 0.4000 m/s, a
+        # factor of 53. The obstacle crosses the entire 20 mm keep-out in five
+        # control steps while the filter believes it is nearly stationary.
+        #
+        # last_direction IS the realised per-step displacement (set in move() as
+        # frame - last_frame), so dividing by the step interval gives the true
+        # rate.
+        # SIREN FIX (2026-08-03), superseding the note above: `last_direction` is
+        # the INTENDED displacement, written before the bound clamp, so a
+        # wall-pinned obstacle reported motion it never performed (measured:
+        # v_y = -0.375 m/s while pinned at y = -0.4). That phantom velocity is
+        # large enough to cancel the whole keep-out margin in phi -- at k = 0.1 a
+        # contact reads as SAFE for any closing speed below -d_min/k = -0.2 m/s --
+        # so the filter never engaged (0 of 217 steps) and the robot drove into
+        # the obstacle. `last_displacement` is the REALISED step, measured after
+        # the clamp.
+        self.info["obstacle_task"]["velocity"]      = [np.concatenate((np.asarray(obstacle.last_displacement, dtype=float) / obstacle.dt, np.zeros(3))) for obstacle in self.obstacle_task] if len(self.obstacle_task) > 0 else np.empty((0, 6))
         self.info["obstacle_debug"]["frames_world"] = feedback.get("obstacle_debug_frame", np.empty((0, 4, 4)))
         self.info["obstacle_debug"]["geom"]         = feedback.get("obstacle_debug_geom", [])
         self.info["obstacle_debug"]["velocity"]     = feedback.get("obstacle_debug_velocity", np.empty((0, 6)))
