@@ -1,0 +1,4069 @@
+{
+  "target": "G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0",
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "algo": "rcbf",
+  "seed": 1,
+  "kind": "INSERTION",
+  "hit_leg": 2,
+  "budget": 24,
+  "batch": 6,
+  "G1_prime_truth": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min_clearance": 0.00011112828158188481,
+  "results": [
+    {
+      "picker": "random",
+      "search_seed": 0,
+      "n_eval": 24,
+      "n_attacks": 6,
+      "first_hit": 1,
+      "best_dist_to_truth": 0.08133756946209393,
+      "n_inadmissible": 0,
+      "n_rounds": 4,
+      "elapsed_s": 71.7,
+      "evaluations": [
+        {
+          "id": "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 4.1893250942230225,
+          "parent_ids": [],
+          "cand": [
+            0.26464405117819745,
+            -0.18544319008827415,
+            0.18082901282149316
+          ],
+          "score": 1000.0000063676773,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.9932587393977084e-06,
+          "n_steps": 601,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08133756946209393,
+          "from_initial_design": true
+        },
+        {
+          "id": "9a007a25-a80a-4841-b827-41dbadd1c43a",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 9.099024772644043,
+          "parent_ids": [],
+          "cand": [
+            0.26346495489906907,
+            -0.27290356019832857,
+            0.19376823391999684
+          ],
+          "score": 999.9989660489905,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 710,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.07915539196155434,
+          "from_initial_design": true
+        },
+        {
+          "id": "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 15.028144836425781,
+          "parent_ids": [],
+          "cand": [
+            0.23127616337880777,
+            -0.13246809976537605,
+            0.2890988281503088
+          ],
+          "score": 999.9974274374712,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 826,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.19914215282521797,
+          "from_initial_design": true
+        },
+        {
+          "id": "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 16.355210065841675,
+          "parent_ids": [],
+          "cand": [
+            0.27041336832817975,
+            -0.12232100851220166,
+            0.021310817459366083
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012689523361372745,
+          "n_steps": 178,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.15717940203995684,
+          "from_initial_design": true
+        },
+        {
+          "id": "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 21.619425058364868,
+          "parent_ids": [],
+          "cand": [
+            0.12613878991046223,
+            -0.39393448076790233,
+            0.2497859536643814
+          ],
+          "score": 999.9972093019842,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 731,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.23439390164929846,
+          "from_initial_design": true
+        },
+        {
+          "id": "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 26.920972108840942,
+          "parent_ids": [],
+          "cand": [
+            0.3334470252849552,
+            -0.13899635552595424,
+            0.2935855026698292
+          ],
+          "score": 999.9956079351405,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 749,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.21553761266704713,
+          "from_initial_design": true
+        },
+        {
+          "id": "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 28.02933979034424,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.33974756926501715,
+            -0.26155619132412045,
+            0.23415875288593663
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00011526169578046641,
+          "n_steps": 144,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.14465382055501966,
+          "from_initial_design": false
+        },
+        {
+          "id": "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 30.6147358417511,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.13548232776067998,
+            -0.20802369360174286,
+            0.04300598622271392
+          ],
+          "score": 1000.0000446555746,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.44755335915281e-06,
+          "n_steps": 350,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14316935344649703,
+          "from_initial_design": false
+        },
+        {
+          "id": "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 9,
+          "t": 31.62119770050049,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.3834006751148752,
+            -0.2434455034749785,
+            0.12439858199715707
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00013239257187411257,
+          "n_steps": 134,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.13364833864980824,
+          "from_initial_design": false
+        },
+        {
+          "id": "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 10,
+          "t": 35.108778953552246,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.1793666836313881,
+            -0.167729893169735,
+            0.13684509966496455
+          ],
+          "score": 1000.0002927425008,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -3.366338399313218e-06,
+          "n_steps": 493,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.10224516506444135,
+          "from_initial_design": false
+        },
+        {
+          "id": "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 11,
+          "t": 36.197505950927734,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.2705301846605946,
+            -0.3943630598690935,
+            0.1852906491227631
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -9.608025338248005e-05,
+          "n_steps": 143,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16732422738307398,
+          "from_initial_design": false
+        },
+        {
+          "id": "5f6a010e-c2d6-469d-afff-ad5f7a613cdc",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 12,
+          "t": 41.29162287712097,
+          "parent_ids": [
+            "d45fa4e8-2f1f-471b-bf01-a9886d48c6ba",
+            "9a007a25-a80a-4841-b827-41dbadd1c43a",
+            "81a6fd52-a83f-407b-a952-251bf8f9dd9b",
+            "fd2109a6-6433-43f3-9034-ac6f2bda30c5",
+            "6524d1a5-b1e7-4009-894c-6cdac5ea82f2",
+            "b9e1f6ad-fa3a-46e8-8645-42c3deb41aac"
+          ],
+          "cand": [
+            0.28362871681672647,
+            -0.21491980093757293,
+            0.2831244235543872
+          ],
+          "score": 999.9940797458827,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 732,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1657983891461447,
+          "from_initial_design": false
+        },
+        {
+          "id": "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 42.65164494514465,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.3045460897310451,
+            -0.2921476298278642,
+            0.13110958613980242
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00010120839694036099,
+          "n_steps": 185,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.07570794077296081,
+          "from_initial_design": false
+        },
+        {
+          "id": "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 43.67302203178406,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.3092893587781795,
+            -0.3819323585112191,
+            0.2000300146337003
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00015422948584020713,
+          "n_steps": 139,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.17174080630937838,
+          "from_initial_design": false
+        },
+        {
+          "id": "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 15,
+          "t": 44.703701972961426,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.30119136088544785,
+            -0.33688523167784773,
+            0.03867788929645599
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -7.348233961385064e-05,
+          "n_steps": 136,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.1378863800807958,
+          "from_initial_design": false
+        },
+        {
+          "id": "28bb0425-1a3d-482a-a383-1dfe47be4873",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 16,
+          "t": 49.73907780647278,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.19462850527725517,
+            -0.29088676871721325,
+            0.1710590311253639
+          ],
+          "score": 999.9982326171717,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 712,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08890758562219744,
+          "from_initial_design": false
+        },
+        {
+          "id": "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 17,
+          "t": 52.603033781051636,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.23158045403869612,
+            -0.10348784858223212,
+            0.03061344322440842
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -2.4313163844075225e-05,
+          "n_steps": 398,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16618089093742436,
+          "from_initial_design": false
+        },
+        {
+          "id": "97607976-1475-47f7-a6b8-565f8567acba",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 18,
+          "t": 57.261048793792725,
+          "parent_ids": [
+            "f4dc0ad9-cbb1-477b-9b30-54d8c0de8080",
+            "afeb1f9e-aa08-4eea-a3f1-730a0e45ce98",
+            "9732fb73-2d6c-423c-9ac0-190020f08fb1",
+            "15dfbf4d-69d1-4c0a-8a56-467f2517a785",
+            "522f70b2-763a-442d-ae7a-c7131f1ebd3c",
+            "5f6a010e-c2d6-469d-afff-ad5f7a613cdc"
+          ],
+          "cand": [
+            0.16266302682845044,
+            -0.35160714463450116,
+            0.19593249763961954
+          ],
+          "score": 999.9995465406911,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 669,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15897773406100937,
+          "from_initial_design": false
+        },
+        {
+          "id": "7ed06b65-bd10-4418-bef9-34ca5bd9da84",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 59.30172276496887,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.17598748076193466,
+            -0.2601067681431081,
+            0.07332767760048083
+          ],
+          "score": 1000.0009684478761,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -7.981858247496643e-05,
+          "n_steps": 280,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09101173182900778,
+          "from_initial_design": false
+        },
+        {
+          "id": "ce5dda13-3e70-4f7a-a6ef-32e24159ca44",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 63.93322396278381,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.14769087509365592,
+            -0.36688745765070846,
+            0.19689887683958202
+          ],
+          "score": 999.9995445105367,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 669,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.17854343736412925,
+          "from_initial_design": false
+        },
+        {
+          "id": "da982fdd-5b7a-4bee-a6b0-2f9039cd3346",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 21,
+          "t": 65.62616300582886,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.14145488540458415,
+            -0.341025291495984,
+            0.11061755119828923
+          ],
+          "score": 1000.0002636422695,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -4.0398902243971024e-05,
+          "n_steps": 229,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1482848049429015,
+          "from_initial_design": false
+        },
+        {
+          "id": "dde9e6db-d88e-4b50-94f8-d3f840627801",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 22,
+          "t": 66.67293000221252,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.3462979689543806,
+            -0.3708696172620816,
+            0.25138347224964114
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.0001192654148739758,
+          "n_steps": 134,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.20694504325014934,
+          "from_initial_design": false
+        },
+        {
+          "id": "033a7c62-a314-4e5a-b767-8a8110fd71b8",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 23,
+          "t": 70.63093090057373,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.12882952236818893,
+            -0.10706216049598125,
+            0.14059536049431046
+          ],
+          "score": 1000.0002900359951,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -4.205857435907179e-06,
+          "n_steps": 546,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.180991422297426,
+          "from_initial_design": false
+        },
+        {
+          "id": "b4f449ec-40ed-41a8-8bc5-183c8987309d",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 24,
+          "t": 71.67903900146484,
+          "parent_ids": [
+            "de1b7dbf-41f0-41bf-a607-afcd90a81e1e",
+            "7c3d5752-0044-4c9b-89c1-7e2990aa1a14",
+            "4ef1f4b0-3920-4004-9ece-215189d78d1c",
+            "28bb0425-1a3d-482a-a383-1dfe47be4873",
+            "1b402074-b2be-41ed-a8f3-c429ea207cf1",
+            "97607976-1475-47f7-a6b8-565f8567acba"
+          ],
+          "cand": [
+            0.3930283264571012,
+            -0.2185463440764862,
+            0.2217790738194905
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -8.216776128425196e-05,
+          "n_steps": 137,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.17546126658801386,
+          "from_initial_design": false
+        }
+      ]
+    },
+    {
+      "picker": "random",
+      "search_seed": 1,
+      "n_eval": 24,
+      "n_attacks": 4,
+      "first_hit": 3,
+      "best_dist_to_truth": 0.10931500041039095,
+      "n_inadmissible": 0,
+      "n_rounds": 4,
+      "elapsed_s": 71.4,
+      "evaluations": [
+        {
+          "id": "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 73.94025301933289,
+          "parent_ids": [],
+          "cand": [
+            0.2251066014107722,
+            -0.18390265196735256,
+            3.431244520346599e-05
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012607712382997627,
+          "n_steps": 314,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.13746876034525157,
+          "from_initial_design": true
+        },
+        {
+          "id": "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 75.00700187683105,
+          "parent_ids": [],
+          "cand": [
+            0.19069977178955194,
+            -0.3559732327548661,
+            0.027701578430639338
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.8544197933199076e-05,
+          "n_steps": 142,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16085524490508193,
+          "from_initial_design": true
+        },
+        {
+          "id": "43375602-a724-4040-b6a8-1f1395d93cf2",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 76.70245671272278,
+          "parent_ids": [],
+          "cand": [
+            0.1558780634133013,
+            -0.2963317818870857,
+            0.11903024226920098
+          ],
+          "score": 1000.0007660656079,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.3033468847355465e-05,
+          "n_steps": 233,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.10931500041039095,
+          "from_initial_design": true
+        },
+        {
+          "id": "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 81.54059481620789,
+          "parent_ids": [],
+          "cand": [
+            0.2616450202010071,
+            -0.27424164567901155,
+            0.20556585011902784
+          ],
+          "score": 999.9983892606742,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 709,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09011204093938803,
+          "from_initial_design": true
+        },
+        {
+          "id": "189a0238-3431-42ac-9333-06f74928893d",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 87.04100584983826,
+          "parent_ids": [],
+          "cand": [
+            0.16133567491945525,
+            -0.13656476908271636,
+            0.008216277959377849
+          ],
+          "score": 999.998032067875,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 771,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.17824498838459413,
+          "from_initial_design": true
+        },
+        {
+          "id": "fc82d584-801a-476e-a0ad-0a5d75f5f708",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 88.7692289352417,
+          "parent_ids": [],
+          "cand": [
+            0.3011402530535207,
+            -0.2748085592898619,
+            0.16760694853372549
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -2.8373083453769876e-05,
+          "n_steps": 240,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.07626132825155255,
+          "from_initial_design": true
+        },
+        {
+          "id": "fa4da8a0-6428-4feb-b1da-1631663a0033",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 93.84315085411072,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.14211608157857014,
+            -0.34056955327453636,
+            0.240223370602661
+          ],
+          "score": 999.9972041248446,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 726,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1881007941390875,
+          "from_initial_design": false
+        },
+        {
+          "id": "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 94.87745690345764,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.3904784727158193,
+            -0.30597274655222717,
+            0.20769678470079422
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -4.126024439018994e-05,
+          "n_steps": 133,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.17685047340191312,
+          "from_initial_design": false
+        },
+        {
+          "id": "5341dc65-3681-4274-ae09-76dc39ea4673",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 9,
+          "t": 95.90851473808289,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.36291674568881155,
+            -0.1316180009488458,
+            0.025513263410933372
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00013613034391227186,
+          "n_steps": 135,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.18474307945323692,
+          "from_initial_design": false
+        },
+        {
+          "id": "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 10,
+          "t": 100.94846796989441,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.11171643496986472,
+            -0.34905087413062935,
+            0.2634427510288239
+          ],
+          "score": 999.997849151214,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 731,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.2249706320434664,
+          "from_initial_design": false
+        },
+        {
+          "id": "54870d88-d974-4f8f-bf59-320e7e0816ee",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 11,
+          "t": 106.73359894752502,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.12950405014991503,
+            -0.2736677124984844,
+            0.2873668590451506
+          ],
+          "score": 999.9960421810453,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 801,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.20648319179562158,
+          "from_initial_design": false
+        },
+        {
+          "id": "f70fd56f-5274-401e-bb02-788583f91a3d",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 12,
+          "t": 109.47086691856384,
+          "parent_ids": [
+            "50027dbf-f600-4e27-a0ab-f8e3b055c8b8",
+            "20fdca9a-4093-4fab-bee3-d53279c55b9b",
+            "43375602-a724-4040-b6a8-1f1395d93cf2",
+            "5e2c7856-81c2-4925-b85c-a93ad00d234b",
+            "189a0238-3431-42ac-9333-06f74928893d",
+            "fc82d584-801a-476e-a0ad-0a5d75f5f708"
+          ],
+          "cand": [
+            0.25994958549190517,
+            -0.19243686581485797,
+            0.09465468930181888
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -4.508529912228276e-05,
+          "n_steps": 382,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.056654948710603295,
+          "from_initial_design": false
+        },
+        {
+          "id": "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 110.5284538269043,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.30595027830447513,
+            -0.1496122984307881,
+            0.005486483203257541
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -2.948668647795305e-05,
+          "n_steps": 138,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.1587165527370931,
+          "from_initial_design": false
+        },
+        {
+          "id": "52058f16-1445-4e58-a74d-8417bd5f7f95",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 115.27073383331299,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.3250432944834903,
+            -0.10334167332805157,
+            0.2244496963139518
+          ],
+          "score": 1000.0,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 668,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1865562607212872,
+          "from_initial_design": false
+        },
+        {
+          "id": "930bff64-df77-484d-9865-89cecbe5c501",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 15,
+          "t": 119.59304785728455,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.18413319761932156,
+            -0.16321620146455343,
+            0.030967801973292606
+          ],
+          "score": 1000.0001768357049,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -7.360397750344472e-06,
+          "n_steps": 610,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13685260088958254,
+          "from_initial_design": false
+        },
+        {
+          "id": "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 16,
+          "t": 120.64009404182434,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.18633260157590464,
+            -0.3609914283645167,
+            0.005810087361089122
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -4.0164955280030945e-05,
+          "n_steps": 137,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.1795509022702345,
+          "from_initial_design": false
+        },
+        {
+          "id": "eb850151-4557-4287-867f-8ac008da74ae",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 17,
+          "t": 121.71234893798828,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.3036506598819673,
+            -0.3365115651999823,
+            0.07966399781166786
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.0001053337805228538,
+          "n_steps": 139,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.11823702710748664,
+          "from_initial_design": false
+        },
+        {
+          "id": "c2721452-ef0e-4a74-89f8-83bb73eefe59",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 18,
+          "t": 122.82372188568115,
+          "parent_ids": [
+            "fa4da8a0-6428-4feb-b1da-1631663a0033",
+            "b3106df4-10e4-4c06-8b3e-dc669791fae2",
+            "5341dc65-3681-4274-ae09-76dc39ea4673",
+            "2a3b0b6e-0081-44ca-ab0b-3d7530df822f",
+            "54870d88-d974-4f8f-bf59-320e7e0816ee",
+            "f70fd56f-5274-401e-bb02-788583f91a3d"
+          ],
+          "cand": [
+            0.2474719477841015,
+            -0.38399123646487593,
+            0.1722352816476039
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -9.258913556772774e-05,
+          "n_steps": 149,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.1517532009065805,
+          "from_initial_design": false
+        },
+        {
+          "id": "67a30f86-e797-4027-8083-69848e76741e",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 126.42263197898865,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.14401857247174304,
+            -0.22320833892901473,
+            0.20992750800627935
+          ],
+          "score": 1000.00011752122,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.6510951382192607e-05,
+          "n_steps": 507,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13809794911082884,
+          "from_initial_design": false
+        },
+        {
+          "id": "2a77d85f-6475-4e02-8573-07cd2d5f1111",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 131.7965750694275,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.13070032864834777,
+            -0.2757832036541295,
+            0.20832004731832351
+          ],
+          "score": 999.9983973131182,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 761,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15077288904877723,
+          "from_initial_design": false
+        },
+        {
+          "id": "171be5d5-62bf-46cb-a1ab-59bfbcf4c9e0",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 21,
+          "t": 132.96369886398315,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.22425378085807082,
+            -0.38501396231617385,
+            0.16076892177465346
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -6.826782156424405e-05,
+          "n_steps": 156,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.15155622785460848,
+          "from_initial_design": false
+        },
+        {
+          "id": "fe216eef-7abc-47b2-8f29-28ccb827b70b",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 22,
+          "t": 138.11959791183472,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.2991383935659367,
+            -0.24553326638250744,
+            0.283378426797244
+          ],
+          "score": 999.9955059710406,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 746,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16801946831644238,
+          "from_initial_design": false
+        },
+        {
+          "id": "d998aceb-3c21-4036-a669-f819dda07ff9",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 23,
+          "t": 139.4593369960785,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.2759665121505979,
+            -0.12897942541363494,
+            0.041242411243871256
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -7.743930580650371e-05,
+          "n_steps": 179,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.14066008169012081,
+          "from_initial_design": false
+        },
+        {
+          "id": "0f02b36a-27a8-49f9-af2a-d7da43530b5b",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 24,
+          "t": 143.12119674682617,
+          "parent_ids": [
+            "0abdc7ca-12b5-41f3-ab6b-baacdce62275",
+            "52058f16-1445-4e58-a74d-8417bd5f7f95",
+            "930bff64-df77-484d-9865-89cecbe5c501",
+            "d3c2e824-3d07-4fe7-a713-35799e9b7867",
+            "eb850151-4557-4287-867f-8ac008da74ae",
+            "c2721452-ef0e-4a74-89f8-83bb73eefe59"
+          ],
+          "cand": [
+            0.14178290417522757,
+            -0.15778261338714283,
+            0.11930305109566007
+          ],
+          "score": 1000.0001668361136,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.2636647330616091e-05,
+          "n_steps": 512,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13610314094596754,
+          "from_initial_design": false
+        }
+      ]
+    },
+    {
+      "picker": "cem",
+      "search_seed": 0,
+      "n_eval": 24,
+      "n_attacks": 12,
+      "first_hit": 1,
+      "best_dist_to_truth": 0.07832511779035321,
+      "n_inadmissible": 0,
+      "n_rounds": 5,
+      "elapsed_s": 78.9,
+      "evaluations": [
+        {
+          "id": "28edd78f-151c-4b04-939e-ce56ef88b227",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 147.2811017036438,
+          "parent_ids": [],
+          "cand": [
+            0.26464405117819745,
+            -0.18544319008827415,
+            0.18082901282149316
+          ],
+          "score": 1000.0000063676773,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.9932587393977084e-06,
+          "n_steps": 601,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08133756946209393,
+          "from_initial_design": true
+        },
+        {
+          "id": "56a8289d-c09f-4f2c-a529-cd7c5a960b5b",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 152.2624809741974,
+          "parent_ids": [],
+          "cand": [
+            0.26346495489906907,
+            -0.27290356019832857,
+            0.19376823391999684
+          ],
+          "score": 999.9989660489905,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 710,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.07915539196155434,
+          "from_initial_design": true
+        },
+        {
+          "id": "a288a414-c9c4-4bf5-b991-c4ac9693a171",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 158.10208201408386,
+          "parent_ids": [],
+          "cand": [
+            0.23127616337880777,
+            -0.13246809976537605,
+            0.2890988281503088
+          ],
+          "score": 999.9974274374712,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 826,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.19914215282521797,
+          "from_initial_design": true
+        },
+        {
+          "id": "7d8db043-d47a-4870-a04b-8d6edaf93a70",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 159.42483401298523,
+          "parent_ids": [],
+          "cand": [
+            0.27041336832817975,
+            -0.12232100851220166,
+            0.021310817459366083
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012689523361372745,
+          "n_steps": 178,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.15717940203995684,
+          "from_initial_design": true
+        },
+        {
+          "id": "a5b6aed0-0bfb-4bbc-8e69-fdfd39744c12",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 164.55854177474976,
+          "parent_ids": [],
+          "cand": [
+            0.12613878991046223,
+            -0.39393448076790233,
+            0.2497859536643814
+          ],
+          "score": 999.9972093019842,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 731,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.23439390164929846,
+          "from_initial_design": true
+        },
+        {
+          "id": "4eb918c0-1938-417e-964c-32c6711bb443",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 169.79580688476562,
+          "parent_ids": [],
+          "cand": [
+            0.3334470252849552,
+            -0.13899635552595424,
+            0.2935855026698292
+          ],
+          "score": 999.9956079351405,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 749,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.21553761266704713,
+          "from_initial_design": true
+        },
+        {
+          "id": "3012342b-110e-48f3-afb6-da2f4b8bb619",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 170.88359594345093,
+          "parent_ids": [
+            "28edd78f-151c-4b04-939e-ce56ef88b227",
+            "56a8289d-c09f-4f2c-a529-cd7c5a960b5b",
+            "a288a414-c9c4-4bf5-b991-c4ac9693a171",
+            "7d8db043-d47a-4870-a04b-8d6edaf93a70",
+            "a5b6aed0-0bfb-4bbc-8e69-fdfd39744c12",
+            "4eb918c0-1938-417e-964c-32c6711bb443"
+          ],
+          "cand": [
+            0.33974756926501715,
+            -0.26155619132412045,
+            0.23415875288593663
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00011526169578046641,
+          "n_steps": 144,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.14465382055501966,
+          "from_initial_design": false
+        },
+        {
+          "id": "7a57020a-b1a3-42dc-8371-9490086bcb74",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 173.40174174308777,
+          "parent_ids": [
+            "28edd78f-151c-4b04-939e-ce56ef88b227",
+            "56a8289d-c09f-4f2c-a529-cd7c5a960b5b",
+            "a288a414-c9c4-4bf5-b991-c4ac9693a171",
+            "7d8db043-d47a-4870-a04b-8d6edaf93a70",
+            "a5b6aed0-0bfb-4bbc-8e69-fdfd39744c12",
+            "4eb918c0-1938-417e-964c-32c6711bb443"
+          ],
+          "cand": [
+            0.13548232776067998,
+            -0.20802369360174286,
+            0.04300598622271392
+          ],
+          "score": 1000.0000446555746,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.44755335915281e-06,
+          "n_steps": 350,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14316935344649703,
+          "from_initial_design": false
+        },
+        {
+          "id": "b35d9fd6-391b-4017-bbce-d03300bacb32",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 9,
+          "t": 176.2111029624939,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.1,
+            -0.1977623895291291,
+            0.05719512828893854
+          ],
+          "score": 1000.0006304517723,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.3757947569886797e-05,
+          "n_steps": 398,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1690451766156183,
+          "from_initial_design": false
+        },
+        {
+          "id": "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 10,
+          "t": 177.22630882263184,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.4,
+            -0.19963458027513808,
+            0.08972664293194495
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.0069642192709356e-05,
+          "n_steps": 133,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.15915544171220222,
+          "from_initial_design": false
+        },
+        {
+          "id": "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 11,
+          "t": 178.2398509979248,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.4,
+            -0.20477984991289663,
+            0.18535548580284103
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00011556905900575454,
+          "n_steps": 136,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16657322359240964,
+          "from_initial_design": false
+        },
+        {
+          "id": "dfd35562-571c-4078-af3c-8a183a67dcb4",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 12,
+          "t": 183.32327389717102,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.29734322386553896,
+            -0.23983180936624096,
+            0.274774832586467
+          ],
+          "score": 999.995522672548,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 738,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15919687234066182,
+          "from_initial_design": false
+        },
+        {
+          "id": "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 186.02237010002136,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.19899470162456367,
+            -0.2271487175464596,
+            0.045796163883909516
+          ],
+          "score": 1000.0000230586373,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.8399479234941793e-06,
+          "n_steps": 384,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09325251444286874,
+          "from_initial_design": false
+        },
+        {
+          "id": "e76954dc-9169-431d-b604-e4f7fe7be405",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 191.03829884529114,
+          "parent_ids": [
+            "3012342b-110e-48f3-afb6-da2f4b8bb619",
+            "7a57020a-b1a3-42dc-8371-9490086bcb74"
+          ],
+          "cand": [
+            0.2764884152762992,
+            -0.23386146885230957,
+            0.20430909262810382
+          ],
+          "score": 999.9982406300954,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 725,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08598301038739815,
+          "from_initial_design": false
+        },
+        {
+          "id": "c4ea28a6-e4dc-45f8-8cd2-fff2d291acce",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 15,
+          "t": 194.1987268924713,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.1,
+            -0.2213488322385534,
+            0.04987336972540817
+          ],
+          "score": 1000.000034507695,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -5.370476697047488e-06,
+          "n_steps": 451,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16772190012493224,
+          "from_initial_design": false
+        },
+        {
+          "id": "abea9b3d-4ba3-41fd-8bdf-730c822f9bac",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 16,
+          "t": 198.00176882743835,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.22597009873355509,
+            -0.21768227796291292,
+            0.05181296583688574
+          ],
+          "score": 1000.0000537050448,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.5297357185473093e-05,
+          "n_steps": 539,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.07832511779035321,
+          "from_initial_design": false
+        },
+        {
+          "id": "365cf5f8-5b00-42f9-bbbc-f3489e6781bc",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 17,
+          "t": 203.7377417087555,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.22336186833439803,
+            -0.18836608965644844,
+            0.055290501039993084
+          ],
+          "score": 999.9991654941398,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 812,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08934391495830164,
+          "from_initial_design": false
+        },
+        {
+          "id": "a3fa5dcf-961f-41d7-be77-b0e5546b221a",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 18,
+          "t": 205.9434108734131,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.157034842512507,
+            -0.22937714707926676,
+            0.060844587725442024
+          ],
+          "score": 1000.0010390813297,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -5.1694458261253295e-06,
+          "n_steps": 308,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.11212730296062033,
+          "from_initial_design": false
+        },
+        {
+          "id": "b605de32-06d7-40a5-bb35-1a29be6bc634",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 208.3987889289856,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.23976055973243354,
+            -0.22139308136579808,
+            0.05267064504060214
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.6190224717708164e-05,
+          "n_steps": 337,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.0734241625347873,
+          "from_initial_design": false
+        },
+        {
+          "id": "d746fad7-af6f-4cc9-acbe-ef5b3dbb31f9",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 211.39575290679932,
+          "parent_ids": [
+            "b35d9fd6-391b-4017-bbce-d03300bacb32",
+            "3b46935e-c144-4143-a5f2-9b30710bdf1c",
+            "dd7c9e77-76ce-4367-84a3-8a4ef36a1717",
+            "dfd35562-571c-4078-af3c-8a183a67dcb4",
+            "e2247f2d-ff47-4a06-ba35-5483df22c4fa",
+            "e76954dc-9169-431d-b604-e4f7fe7be405"
+          ],
+          "cand": [
+            0.12614204633475484,
+            -0.22949520036329976,
+            0.05578154599880214
+          ],
+          "score": 1000.0001261929757,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -7.60417181067119e-06,
+          "n_steps": 414,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14109888351113453,
+          "from_initial_design": false
+        },
+        {
+          "id": "94a3a8fe-113c-4510-a0d2-b40abc8b6352",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 21,
+          "t": 213.60393977165222,
+          "parent_ids": [
+            "c4ea28a6-e4dc-45f8-8cd2-fff2d291acce",
+            "abea9b3d-4ba3-41fd-8bdf-730c822f9bac",
+            "365cf5f8-5b00-42f9-bbbc-f3489e6781bc",
+            "a3fa5dcf-961f-41d7-be77-b0e5546b221a",
+            "b605de32-06d7-40a5-bb35-1a29be6bc634",
+            "d746fad7-af6f-4cc9-acbe-ef5b3dbb31f9"
+          ],
+          "cand": [
+            0.13524238238458589,
+            -0.23025772672137984,
+            0.0618294422637136
+          ],
+          "score": 1000.0008756788283,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.594120615642681e-05,
+          "n_steps": 315,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13019337725930208,
+          "from_initial_design": false
+        },
+        {
+          "id": "95004afd-e3c1-45f9-a8fa-234dea734b58",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 22,
+          "t": 216.72827196121216,
+          "parent_ids": [
+            "c4ea28a6-e4dc-45f8-8cd2-fff2d291acce",
+            "abea9b3d-4ba3-41fd-8bdf-730c822f9bac",
+            "365cf5f8-5b00-42f9-bbbc-f3489e6781bc",
+            "a3fa5dcf-961f-41d7-be77-b0e5546b221a",
+            "b605de32-06d7-40a5-bb35-1a29be6bc634",
+            "d746fad7-af6f-4cc9-acbe-ef5b3dbb31f9"
+          ],
+          "cand": [
+            0.10979418903418363,
+            -0.22917297316547816,
+            0.058202723308190964
+          ],
+          "score": 1000.0001813006537,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.1654952506767735e-05,
+          "n_steps": 438,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15461996661402375,
+          "from_initial_design": false
+        },
+        {
+          "id": "40f1176a-0be8-4966-9d69-74a3ccc51734",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 23,
+          "t": 218.9765110015869,
+          "parent_ids": [
+            "c4ea28a6-e4dc-45f8-8cd2-fff2d291acce",
+            "abea9b3d-4ba3-41fd-8bdf-730c822f9bac",
+            "365cf5f8-5b00-42f9-bbbc-f3489e6781bc",
+            "a3fa5dcf-961f-41d7-be77-b0e5546b221a",
+            "b605de32-06d7-40a5-bb35-1a29be6bc634",
+            "d746fad7-af6f-4cc9-acbe-ef5b3dbb31f9"
+          ],
+          "cand": [
+            0.1392946001134928,
+            -0.2296380834827292,
+            0.05989743965052319
+          ],
+          "score": 1000.0008365138082,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -8.179903499827557e-06,
+          "n_steps": 313,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.12763607618361422,
+          "from_initial_design": false
+        },
+        {
+          "id": "451aa2eb-a67e-4de8-a111-0c9cdaa505a9",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 24,
+          "t": 221.98290586471558,
+          "parent_ids": [
+            "c4ea28a6-e4dc-45f8-8cd2-fff2d291acce",
+            "abea9b3d-4ba3-41fd-8bdf-730c822f9bac",
+            "365cf5f8-5b00-42f9-bbbc-f3489e6781bc",
+            "a3fa5dcf-961f-41d7-be77-b0e5546b221a",
+            "b605de32-06d7-40a5-bb35-1a29be6bc634",
+            "d746fad7-af6f-4cc9-acbe-ef5b3dbb31f9"
+          ],
+          "cand": [
+            0.12526654932368145,
+            -0.22967544983614854,
+            0.05246991568034488
+          ],
+          "score": 1000.0000452974157,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -7.189552046760195e-06,
+          "n_steps": 419,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1434482102630085,
+          "from_initial_design": false
+        }
+      ]
+    },
+    {
+      "picker": "cem",
+      "search_seed": 1,
+      "n_eval": 24,
+      "n_attacks": 6,
+      "first_hit": 3,
+      "best_dist_to_truth": 0.10931500041039095,
+      "n_inadmissible": 0,
+      "n_rounds": 5,
+      "elapsed_s": 75.7,
+      "evaluations": [
+        {
+          "id": "af3bf33e-4796-47b2-ab66-1cc8bebe2e8d",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 224.24594473838806,
+          "parent_ids": [],
+          "cand": [
+            0.2251066014107722,
+            -0.18390265196735256,
+            3.431244520346599e-05
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012607712382997627,
+          "n_steps": 314,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.13746876034525157,
+          "from_initial_design": true
+        },
+        {
+          "id": "6af7d9f0-e86e-4f7a-a592-d88f974299e9",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 225.27809190750122,
+          "parent_ids": [],
+          "cand": [
+            0.19069977178955194,
+            -0.3559732327548661,
+            0.027701578430639338
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.8544197933199076e-05,
+          "n_steps": 142,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16085524490508193,
+          "from_initial_design": true
+        },
+        {
+          "id": "a3d47143-0574-417d-a7dd-1c284ca45fa4",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 227.00866794586182,
+          "parent_ids": [],
+          "cand": [
+            0.1558780634133013,
+            -0.2963317818870857,
+            0.11903024226920098
+          ],
+          "score": 1000.0007660656079,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.3033468847355465e-05,
+          "n_steps": 233,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.10931500041039095,
+          "from_initial_design": true
+        },
+        {
+          "id": "9f5f509f-b3cf-46b3-86d2-925ea5d1676a",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 231.89557671546936,
+          "parent_ids": [],
+          "cand": [
+            0.2616450202010071,
+            -0.27424164567901155,
+            0.20556585011902784
+          ],
+          "score": 999.9983892606742,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 709,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09011204093938803,
+          "from_initial_design": true
+        },
+        {
+          "id": "26b5be80-935b-4641-bdfa-0ed1d5d2ebae",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 237.39213395118713,
+          "parent_ids": [],
+          "cand": [
+            0.16133567491945525,
+            -0.13656476908271636,
+            0.008216277959377849
+          ],
+          "score": 999.998032067875,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 771,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.17824498838459413,
+          "from_initial_design": true
+        },
+        {
+          "id": "0da34ab6-f577-47c7-b920-19be6fc8d9b6",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 239.2169690132141,
+          "parent_ids": [],
+          "cand": [
+            0.3011402530535207,
+            -0.2748085592898619,
+            0.16760694853372549
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -2.8373083453769876e-05,
+          "n_steps": 240,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.07626132825155255,
+          "from_initial_design": true
+        },
+        {
+          "id": "6241697e-ecae-4a91-bb18-7b579fe9f324",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 244.2654128074646,
+          "parent_ids": [
+            "af3bf33e-4796-47b2-ab66-1cc8bebe2e8d",
+            "6af7d9f0-e86e-4f7a-a592-d88f974299e9",
+            "a3d47143-0574-417d-a7dd-1c284ca45fa4",
+            "9f5f509f-b3cf-46b3-86d2-925ea5d1676a",
+            "26b5be80-935b-4641-bdfa-0ed1d5d2ebae",
+            "0da34ab6-f577-47c7-b920-19be6fc8d9b6"
+          ],
+          "cand": [
+            0.14211608157857014,
+            -0.34056955327453636,
+            0.240223370602661
+          ],
+          "score": 999.9972041248446,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 726,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1881007941390875,
+          "from_initial_design": false
+        },
+        {
+          "id": "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 245.29137682914734,
+          "parent_ids": [
+            "af3bf33e-4796-47b2-ab66-1cc8bebe2e8d",
+            "6af7d9f0-e86e-4f7a-a592-d88f974299e9",
+            "a3d47143-0574-417d-a7dd-1c284ca45fa4",
+            "9f5f509f-b3cf-46b3-86d2-925ea5d1676a",
+            "26b5be80-935b-4641-bdfa-0ed1d5d2ebae",
+            "0da34ab6-f577-47c7-b920-19be6fc8d9b6"
+          ],
+          "cand": [
+            0.3904784727158193,
+            -0.30597274655222717,
+            0.20769678470079422
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -4.126024439018994e-05,
+          "n_steps": 133,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.17685047340191312,
+          "from_initial_design": false
+        },
+        {
+          "id": "49239d82-9921-441c-862b-b232176afaf1",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 9,
+          "t": 250.24900794029236,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.16588032215248025,
+            -0.3314848970989273,
+            0.20486799644988327
+          ],
+          "score": 999.9986184126226,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 699,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14847149644083282,
+          "from_initial_design": false
+        },
+        {
+          "id": "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 10,
+          "t": 255.41527676582336,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.1,
+            -0.3665188517750717,
+            0.24355987699300707
+          ],
+          "score": 999.9975750282607,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 732,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.22996918719966153,
+          "from_initial_design": false
+        },
+        {
+          "id": "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 11,
+          "t": 257.25775694847107,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.1389862316340608,
+            -0.31160844635269047,
+            0.20911525798923455
+          ],
+          "score": 1000.0004010616136,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.199599257152185e-06,
+          "n_steps": 251,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15739847362417989,
+          "from_initial_design": false
+        },
+        {
+          "id": "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 12,
+          "t": 258.2363829612732,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.4,
+            -0.3435890209662706,
+            0.227088432623543
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -9.193329170220643e-05,
+          "n_steps": 132,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.20988543658116843,
+          "from_initial_design": false
+        },
+        {
+          "id": "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 259.26566195487976,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.33694264213332065,
+            -0.3336373825973104,
+            0.23656186021965211
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -6.271106231706125e-05,
+          "n_steps": 137,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.1708720603207201,
+          "from_initial_design": false
+        },
+        {
+          "id": "2b55398d-56bf-4d14-97d0-ffc47117023c",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 260.6553018093109,
+          "parent_ids": [
+            "6241697e-ecae-4a91-bb18-7b579fe9f324",
+            "f5d46d2a-9a3a-41f9-a7eb-d2101013db5e"
+          ],
+          "cand": [
+            0.3129890856017619,
+            -0.31350326252184957,
+            0.2223723156473254
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.849061126326436e-05,
+          "n_steps": 193,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.13865722368317543,
+          "from_initial_design": false
+        },
+        {
+          "id": "2ea8c32a-b179-4a49-97e3-db3ff3cbbf38",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 15,
+          "t": 265.7668926715851,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.1800823266504788,
+            -0.3179283381688849,
+            0.21055863401029215
+          ],
+          "score": 999.9965190293636,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 734,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13618114948123416,
+          "from_initial_design": false
+        },
+        {
+          "id": "aa5514ff-12a0-46f9-bdc7-45eb69517fb7",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 16,
+          "t": 270.69803380966187,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.13611396450220878,
+            -0.33084473620650345,
+            0.20999287414846332
+          ],
+          "score": 999.9993223685823,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 704,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16934078705307012,
+          "from_initial_design": false
+        },
+        {
+          "id": "1bdd5f6a-04d3-445e-bab4-9e8165265d98",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 17,
+          "t": 275.6385278701782,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.1492922266776471,
+            -0.3198128001957612,
+            0.20971986329177011
+          ],
+          "score": 999.9990446913483,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 713,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1547094808868325,
+          "from_initial_design": false
+        },
+        {
+          "id": "bacba335-e3a7-4167-a16d-e125b43d9b71",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 18,
+          "t": 280.5328960418701,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.1508241162960587,
+            -0.3329009736784116,
+            0.20383838497127668
+          ],
+          "score": 999.9990798151912,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 699,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15776278216283524,
+          "from_initial_design": false
+        },
+        {
+          "id": "6cf490d2-5a68-42be-a411-cde5544205fd",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 282.34368801116943,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.13714459644751814,
+            -0.31436808856335624,
+            0.20679642655587904
+          ],
+          "score": 1000.0004452872535,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -3.990937844178255e-05,
+          "n_steps": 247,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15871697058126558,
+          "from_initial_design": false
+        },
+        {
+          "id": "ceb65275-d275-4d2a-aaa9-23782e8666a8",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 284.08382177352905,
+          "parent_ids": [
+            "49239d82-9921-441c-862b-b232176afaf1",
+            "587abcb5-cbe0-49f9-95c3-ce39c4e09cfa",
+            "5742a703-5359-45f9-b4d6-5fb6a8054a84",
+            "21b8c3f3-eef1-4ba2-8bed-0bbc3eccc25c",
+            "a9f82d9d-54a6-47ab-b27d-ac83b517a93d",
+            "2b55398d-56bf-4d14-97d0-ffc47117023c"
+          ],
+          "cand": [
+            0.12731485960335281,
+            -0.32041825162058224,
+            0.20504976952547996
+          ],
+          "score": 1000.0003983742325,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -6.005831806038531e-05,
+          "n_steps": 234,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1677567049791581,
+          "from_initial_design": false
+        },
+        {
+          "id": "e1a927d7-3262-4a0a-91aa-b8b92c2b3ae0",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 21,
+          "t": 289.1683859825134,
+          "parent_ids": [
+            "2ea8c32a-b179-4a49-97e3-db3ff3cbbf38",
+            "aa5514ff-12a0-46f9-bdc7-45eb69517fb7",
+            "1bdd5f6a-04d3-445e-bab4-9e8165265d98",
+            "bacba335-e3a7-4167-a16d-e125b43d9b71",
+            "6cf490d2-5a68-42be-a411-cde5544205fd",
+            "ceb65275-d275-4d2a-aaa9-23782e8666a8"
+          ],
+          "cand": [
+            0.1338605639774882,
+            -0.32178322543197885,
+            0.2047803952707697
+          ],
+          "score": 1000.0000615910243,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 708,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16357723687934608,
+          "from_initial_design": false
+        },
+        {
+          "id": "0e8f1f30-52ed-4438-9cbe-68294c8fc674",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 22,
+          "t": 290.96019887924194,
+          "parent_ids": [
+            "2ea8c32a-b179-4a49-97e3-db3ff3cbbf38",
+            "aa5514ff-12a0-46f9-bdc7-45eb69517fb7",
+            "1bdd5f6a-04d3-445e-bab4-9e8165265d98",
+            "bacba335-e3a7-4167-a16d-e125b43d9b71",
+            "6cf490d2-5a68-42be-a411-cde5544205fd",
+            "ceb65275-d275-4d2a-aaa9-23782e8666a8"
+          ],
+          "cand": [
+            0.13404211693367338,
+            -0.3105834319962496,
+            0.20452193496872878
+          ],
+          "score": 1000.0005467593952,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -7.212180544341473e-05,
+          "n_steps": 247,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15804525905090416,
+          "from_initial_design": false
+        },
+        {
+          "id": "9cf87939-e39a-4770-8c2e-7f7459bdb245",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 23,
+          "t": 295.87005591392517,
+          "parent_ids": [
+            "2ea8c32a-b179-4a49-97e3-db3ff3cbbf38",
+            "aa5514ff-12a0-46f9-bdc7-45eb69517fb7",
+            "1bdd5f6a-04d3-445e-bab4-9e8165265d98",
+            "bacba335-e3a7-4167-a16d-e125b43d9b71",
+            "6cf490d2-5a68-42be-a411-cde5544205fd",
+            "ceb65275-d275-4d2a-aaa9-23782e8666a8"
+          ],
+          "cand": [
+            0.12879438886996178,
+            -0.3178389638584402,
+            0.20974848872128987
+          ],
+          "score": 1000.0000562519185,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 712,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16784260867212714,
+          "from_initial_design": false
+        },
+        {
+          "id": "f8476dfc-87af-4d9e-a25c-cb806a000456",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 24,
+          "t": 297.66688895225525,
+          "parent_ids": [
+            "2ea8c32a-b179-4a49-97e3-db3ff3cbbf38",
+            "aa5514ff-12a0-46f9-bdc7-45eb69517fb7",
+            "1bdd5f6a-04d3-445e-bab4-9e8165265d98",
+            "bacba335-e3a7-4167-a16d-e125b43d9b71",
+            "6cf490d2-5a68-42be-a411-cde5544205fd",
+            "ceb65275-d275-4d2a-aaa9-23782e8666a8"
+          ],
+          "cand": [
+            0.13487675402823018,
+            -0.31464249284845713,
+            0.20596597098989738
+          ],
+          "score": 1000.0004433169651,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -3.619976037985695e-05,
+          "n_steps": 245,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16002818610489614,
+          "from_initial_design": false
+        }
+      ]
+    },
+    {
+      "picker": "bo",
+      "search_seed": 0,
+      "n_eval": 24,
+      "n_attacks": 2,
+      "first_hit": 1,
+      "best_dist_to_truth": 0.08133756946209393,
+      "n_inadmissible": 0,
+      "n_rounds": 5,
+      "elapsed_s": 111.5,
+      "evaluations": [
+        {
+          "id": "0c6a7f1c-b5e5-446b-8f12-7ba2678a8bac",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 301.7312469482422,
+          "parent_ids": [],
+          "cand": [
+            0.26464405117819745,
+            -0.18544319008827415,
+            0.18082901282149316
+          ],
+          "score": 1000.0000063676773,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.9932587393977084e-06,
+          "n_steps": 601,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.08133756946209393,
+          "from_initial_design": true
+        },
+        {
+          "id": "62193e67-f89c-4d21-b0b8-765ac4a4f695",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 306.46704483032227,
+          "parent_ids": [],
+          "cand": [
+            0.26346495489906907,
+            -0.27290356019832857,
+            0.19376823391999684
+          ],
+          "score": 999.9989660489905,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 710,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.07915539196155434,
+          "from_initial_design": true
+        },
+        {
+          "id": "a9bcdfa1-644b-4697-9c34-7851f8acead8",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 312.2239718437195,
+          "parent_ids": [],
+          "cand": [
+            0.23127616337880777,
+            -0.13246809976537605,
+            0.2890988281503088
+          ],
+          "score": 999.9974274374712,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 826,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.19914215282521797,
+          "from_initial_design": true
+        },
+        {
+          "id": "75c67b9f-7a51-4f62-9c99-d69a8894cad9",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 313.4812250137329,
+          "parent_ids": [],
+          "cand": [
+            0.27041336832817975,
+            -0.12232100851220166,
+            0.021310817459366083
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012689523361372745,
+          "n_steps": 178,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.15717940203995684,
+          "from_initial_design": true
+        },
+        {
+          "id": "59983025-60f7-4d05-9708-1cda68007e87",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 318.5392038822174,
+          "parent_ids": [],
+          "cand": [
+            0.12613878991046223,
+            -0.39393448076790233,
+            0.2497859536643814
+          ],
+          "score": 999.9972093019842,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 731,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.23439390164929846,
+          "from_initial_design": true
+        },
+        {
+          "id": "b70a5060-a192-4c44-9b7a-0719b90b46e1",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 323.6818308830261,
+          "parent_ids": [],
+          "cand": [
+            0.3334470252849552,
+            -0.13899635552595424,
+            0.2935855026698292
+          ],
+          "score": 999.9956079351405,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 749,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.21553761266704713,
+          "from_initial_design": true
+        },
+        {
+          "id": "322c892d-3323-4c64-9335-1fd507d6bd83",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 324.72324204444885,
+          "parent_ids": [
+            "0c6a7f1c-b5e5-446b-8f12-7ba2678a8bac",
+            "62193e67-f89c-4d21-b0b8-765ac4a4f695",
+            "a9bcdfa1-644b-4697-9c34-7851f8acead8",
+            "75c67b9f-7a51-4f62-9c99-d69a8894cad9",
+            "59983025-60f7-4d05-9708-1cda68007e87",
+            "b70a5060-a192-4c44-9b7a-0719b90b46e1"
+          ],
+          "cand": [
+            0.33974756926501715,
+            -0.26155619132412045,
+            0.23415875288593663
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00011526169578046641,
+          "n_steps": 144,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.14465382055501966,
+          "from_initial_design": false
+        },
+        {
+          "id": "73a5509c-a14c-4645-87ae-28938b9e705d",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 327.1796088218689,
+          "parent_ids": [
+            "0c6a7f1c-b5e5-446b-8f12-7ba2678a8bac",
+            "62193e67-f89c-4d21-b0b8-765ac4a4f695",
+            "a9bcdfa1-644b-4697-9c34-7851f8acead8",
+            "75c67b9f-7a51-4f62-9c99-d69a8894cad9",
+            "59983025-60f7-4d05-9708-1cda68007e87",
+            "b70a5060-a192-4c44-9b7a-0719b90b46e1"
+          ],
+          "cand": [
+            0.13548232776067998,
+            -0.20802369360174286,
+            0.04300598622271392
+          ],
+          "score": 1000.0000446555746,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.44755335915281e-06,
+          "n_steps": 350,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14316935344649703,
+          "from_initial_design": false
+        },
+        {
+          "id": "d9f7b679-94ad-4500-960b-850ca313fa9f",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 9,
+          "t": 332.1754570007324,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.25410676495784473,
+            -0.22362703042657897,
+            0.1818576802827781
+          ],
+          "score": 999.9995186898927,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 724,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.06153240482023406,
+          "from_initial_design": false
+        },
+        {
+          "id": "af687544-8a05-4d38-b220-42c9b778904f",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 10,
+          "t": 337.0270209312439,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.24893198420081197,
+            -0.22017606465466225,
+            0.19046391168875415
+          ],
+          "score": 999.9990335438692,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 727,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.0706162905423681,
+          "from_initial_design": false
+        },
+        {
+          "id": "53babb09-49c8-40f0-a791-51517a24b064",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 11,
+          "t": 342.135666847229,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.2728472003253511,
+            -0.2223874206184483,
+            0.171675571737262
+          ],
+          "score": 999.9999296362527,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 7.036415180364242e-05,
+          "n_steps": 743,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.05696037844302135,
+          "from_initial_design": false
+        },
+        {
+          "id": "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 12,
+          "t": 347.1578140258789,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.25678289406466004,
+            -0.21235335848228779,
+            0.185301007301194
+          ],
+          "score": 999.9991010802802,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 742,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.06886715736995183,
+          "from_initial_design": false
+        },
+        {
+          "id": "c9597075-e073-4479-81e2-119f96d07eb7",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 352.1673159599304,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.277261828374452,
+            -0.22770242534512636,
+            0.1959602459571401
+          ],
+          "score": 999.9986763468714,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 727,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.0791477923589067,
+          "from_initial_design": false
+        },
+        {
+          "id": "482568ef-04f3-4199-8106-935143252a66",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 356.9205849170685,
+          "parent_ids": [
+            "322c892d-3323-4c64-9335-1fd507d6bd83",
+            "73a5509c-a14c-4645-87ae-28938b9e705d"
+          ],
+          "cand": [
+            0.26010432294948965,
+            -0.2518798109588109,
+            0.17736958401130556
+          ],
+          "score": 999.9996386522009,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 715,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.056640516849411904,
+          "from_initial_design": false
+        },
+        {
+          "id": "c3b322f0-ce5b-4d4f-b4ad-8098efe289d5",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 15,
+          "t": 362.1940438747406,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.28818958008059525,
+            -0.13533100536147666,
+            0.24360751171519138
+          ],
+          "score": 999.9966657055677,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 751,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16468724723182845,
+          "from_initial_design": false
+        },
+        {
+          "id": "af76b6d4-bcfe-4bd7-92de-a671968566b3",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 16,
+          "t": 367.418212890625,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.29283105923416547,
+            -0.11736588378571548,
+            0.24094617523191278
+          ],
+          "score": 999.9969688176292,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 748,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.17597254171660995,
+          "from_initial_design": false
+        },
+        {
+          "id": "67c747d0-9aab-4a72-a6c3-534a207d349c",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 17,
+          "t": 372.9372317790985,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.29100862202826533,
+            -0.12998632896585546,
+            0.23218582221956893
+          ],
+          "score": 999.997076465185,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 752,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16084507356751174,
+          "from_initial_design": false
+        },
+        {
+          "id": "70f10b0a-9cae-483d-920f-3da937c5b905",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 18,
+          "t": 378.31722688674927,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.3002332622242455,
+            -0.12003161631563014,
+            0.22734438089211503
+          ],
+          "score": 999.9970542232595,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 736,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1672754417349795,
+          "from_initial_design": false
+        },
+        {
+          "id": "c8c8838e-6027-4fa7-9dc2-bc1fe7c836a5",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 383.5705499649048,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.2951323526560596,
+            -0.10238695778752971,
+            0.23130802549986354
+          ],
+          "score": 999.9975065434107,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 736,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.18138314585277704,
+          "from_initial_design": false
+        },
+        {
+          "id": "6b7b1d19-054f-4194-89f5-c061e12e2255",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 388.5926809310913,
+          "parent_ids": [
+            "d9f7b679-94ad-4500-960b-850ca313fa9f",
+            "af687544-8a05-4d38-b220-42c9b778904f",
+            "53babb09-49c8-40f0-a791-51517a24b064",
+            "a7113cb9-6289-4b32-bdbf-23002377e0c0",
+            "c9597075-e073-4479-81e2-119f96d07eb7",
+            "482568ef-04f3-4199-8106-935143252a66"
+          ],
+          "cand": [
+            0.3112445612850556,
+            -0.11656364229005999,
+            0.2457915255508842
+          ],
+          "score": 1000.0,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 709,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.18508518424282502,
+          "from_initial_design": false
+        },
+        {
+          "id": "0c229d7f-4245-4f4a-bff8-7c64691425a1",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 21,
+          "t": 393.7422888278961,
+          "parent_ids": [
+            "c3b322f0-ce5b-4d4f-b4ad-8098efe289d5",
+            "af76b6d4-bcfe-4bd7-92de-a671968566b3",
+            "67c747d0-9aab-4a72-a6c3-534a207d349c",
+            "70f10b0a-9cae-483d-920f-3da937c5b905",
+            "c8c8838e-6027-4fa7-9dc2-bc1fe7c836a5",
+            "6b7b1d19-054f-4194-89f5-c061e12e2255"
+          ],
+          "cand": [
+            0.19838019106629518,
+            -0.31348998015670254,
+            0.22547252143801388
+          ],
+          "score": 999.9965428143689,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 723,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.13601552479081622,
+          "from_initial_design": false
+        },
+        {
+          "id": "288e8ffd-5bf4-4751-9744-d01307fc920c",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 22,
+          "t": 398.9045240879059,
+          "parent_ids": [
+            "c3b322f0-ce5b-4d4f-b4ad-8098efe289d5",
+            "af76b6d4-bcfe-4bd7-92de-a671968566b3",
+            "67c747d0-9aab-4a72-a6c3-534a207d349c",
+            "70f10b0a-9cae-483d-920f-3da937c5b905",
+            "c8c8838e-6027-4fa7-9dc2-bc1fe7c836a5",
+            "6b7b1d19-054f-4194-89f5-c061e12e2255"
+          ],
+          "cand": [
+            0.21055911438340852,
+            -0.3344216558500018,
+            0.23293808698866492
+          ],
+          "score": 999.9969546967374,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 713,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14992415462924738,
+          "from_initial_design": false
+        },
+        {
+          "id": "ee34f372-f613-4df8-95bd-cfe7830560e6",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 23,
+          "t": 403.9216959476471,
+          "parent_ids": [
+            "c3b322f0-ce5b-4d4f-b4ad-8098efe289d5",
+            "af76b6d4-bcfe-4bd7-92de-a671968566b3",
+            "67c747d0-9aab-4a72-a6c3-534a207d349c",
+            "70f10b0a-9cae-483d-920f-3da937c5b905",
+            "c8c8838e-6027-4fa7-9dc2-bc1fe7c836a5",
+            "6b7b1d19-054f-4194-89f5-c061e12e2255"
+          ],
+          "cand": [
+            0.2191525911927102,
+            -0.3394557129716158,
+            0.20111434010835677
+          ],
+          "score": 999.9983262606621,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 702,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.12982008504893272,
+          "from_initial_design": false
+        },
+        {
+          "id": "66678ed2-2313-4bce-85d2-8ceb9697570e",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 24,
+          "t": 409.12760972976685,
+          "parent_ids": [
+            "c3b322f0-ce5b-4d4f-b4ad-8098efe289d5",
+            "af76b6d4-bcfe-4bd7-92de-a671968566b3",
+            "67c747d0-9aab-4a72-a6c3-534a207d349c",
+            "70f10b0a-9cae-483d-920f-3da937c5b905",
+            "c8c8838e-6027-4fa7-9dc2-bc1fe7c836a5",
+            "6b7b1d19-054f-4194-89f5-c061e12e2255"
+          ],
+          "cand": [
+            0.1961136861371936,
+            -0.2996408425167272,
+            0.23888774903504484
+          ],
+          "score": 999.9969080793645,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 722,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1408634152847658,
+          "from_initial_design": false
+        }
+      ]
+    },
+    {
+      "picker": "bo",
+      "search_seed": 1,
+      "n_eval": 24,
+      "n_attacks": 10,
+      "first_hit": 3,
+      "best_dist_to_truth": 0.06522777040578186,
+      "n_inadmissible": 0,
+      "n_rounds": 5,
+      "elapsed_s": 80.8,
+      "evaluations": [
+        {
+          "id": "029769ac-1a28-4b31-8b5b-500e01e77227",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 1,
+          "t": 411.48256492614746,
+          "parent_ids": [],
+          "cand": [
+            0.2251066014107722,
+            -0.18390265196735256,
+            3.431244520346599e-05
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -0.00012607712382997627,
+          "n_steps": 314,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.13746876034525157,
+          "from_initial_design": true
+        },
+        {
+          "id": "a170530f-f166-4c58-a0b6-d5aad906bbd4",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 2,
+          "t": 412.5599627494812,
+          "parent_ids": [],
+          "cand": [
+            0.19069977178955194,
+            -0.3559732327548661,
+            0.027701578430639338
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -3.8544197933199076e-05,
+          "n_steps": 142,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.16085524490508193,
+          "from_initial_design": true
+        },
+        {
+          "id": "f312c544-8f45-4212-a8c1-803a376b4fe9",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 3,
+          "t": 414.3014190196991,
+          "parent_ids": [],
+          "cand": [
+            0.1558780634133013,
+            -0.2963317818870857,
+            0.11903024226920098
+          ],
+          "score": 1000.0007660656079,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -2.3033468847355465e-05,
+          "n_steps": 233,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.10931500041039095,
+          "from_initial_design": true
+        },
+        {
+          "id": "74231517-27f2-49de-8bf5-64a375784c6b",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 4,
+          "t": 419.27892088890076,
+          "parent_ids": [],
+          "cand": [
+            0.2616450202010071,
+            -0.27424164567901155,
+            0.20556585011902784
+          ],
+          "score": 999.9983892606742,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 709,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09011204093938803,
+          "from_initial_design": true
+        },
+        {
+          "id": "57638f7e-288d-4129-af44-6be04b68a034",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 5,
+          "t": 424.80168771743774,
+          "parent_ids": [],
+          "cand": [
+            0.16133567491945525,
+            -0.13656476908271636,
+            0.008216277959377849
+          ],
+          "score": 999.998032067875,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 771,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.17824498838459413,
+          "from_initial_design": true
+        },
+        {
+          "id": "22dc6b9c-f215-4b24-9732-8bd841112b32",
+          "stage": "evaluated",
+          "round": 0,
+          "eval": 6,
+          "t": 426.6285607814789,
+          "parent_ids": [],
+          "cand": [
+            0.3011402530535207,
+            -0.2748085592898619,
+            0.16760694853372549
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -2.8373083453769876e-05,
+          "n_steps": 240,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.07626132825155255,
+          "from_initial_design": true
+        },
+        {
+          "id": "0077de3b-f404-468c-b517-19866fd98bf5",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 7,
+          "t": 431.7640838623047,
+          "parent_ids": [
+            "029769ac-1a28-4b31-8b5b-500e01e77227",
+            "a170530f-f166-4c58-a0b6-d5aad906bbd4",
+            "f312c544-8f45-4212-a8c1-803a376b4fe9",
+            "74231517-27f2-49de-8bf5-64a375784c6b",
+            "57638f7e-288d-4129-af44-6be04b68a034",
+            "22dc6b9c-f215-4b24-9732-8bd841112b32"
+          ],
+          "cand": [
+            0.14211608157857014,
+            -0.34056955327453636,
+            0.240223370602661
+          ],
+          "score": 999.9972041248446,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 726,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1881007941390875,
+          "from_initial_design": false
+        },
+        {
+          "id": "ece430ba-ac8a-46e0-ba07-534268f5a6d4",
+          "stage": "evaluated",
+          "round": 1,
+          "eval": 8,
+          "t": 432.79888105392456,
+          "parent_ids": [
+            "029769ac-1a28-4b31-8b5b-500e01e77227",
+            "a170530f-f166-4c58-a0b6-d5aad906bbd4",
+            "f312c544-8f45-4212-a8c1-803a376b4fe9",
+            "74231517-27f2-49de-8bf5-64a375784c6b",
+            "57638f7e-288d-4129-af44-6be04b68a034",
+            "22dc6b9c-f215-4b24-9732-8bd841112b32"
+          ],
+          "cand": [
+            0.3904784727158193,
+            -0.30597274655222717,
+            0.20769678470079422
+          ],
+          "score": 0.0,
+          "is_attack": false,
+          "label": "COLLISION",
+          "contact_leg": 1,
+          "min_clearance": -4.126024439018994e-05,
+          "n_steps": 133,
+          "n_gave_up": 0,
+          "engaged": false,
+          "dist_to_truth": 0.17685047340191312,
+          "from_initial_design": false
+        },
+        {
+          "id": "85feb9b6-1264-4144-9325-be21a8109149",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 9,
+          "t": 437.88605785369873,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.24085472491937782,
+            -0.2847687697399727,
+            0.20255953417929357
+          ],
+          "score": 999.9978993724662,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 709,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09160857374403159,
+          "from_initial_design": false
+        },
+        {
+          "id": "b5978788-4feb-4683-9084-edfd7847af9e",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 10,
+          "t": 442.8787679672241,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.25456440884862214,
+            -0.2563529796443585,
+            0.2248327412256509
+          ],
+          "score": 999.9973749445991,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 711,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1033182618055369,
+          "from_initial_design": false
+        },
+        {
+          "id": "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 11,
+          "t": 447.9127380847931,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.2578954348134132,
+            -0.26712525059912345,
+            0.23345417032637117
+          ],
+          "score": 999.9971627371106,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 711,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.11405083042229823,
+          "from_initial_design": false
+        },
+        {
+          "id": "9573822d-d317-4abb-a33e-015a304d2d5f",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 12,
+          "t": 453.0110499858856,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.24528337059904423,
+            -0.26467936172100903,
+            0.19195701460330405
+          ],
+          "score": 999.9986415182145,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 706,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.07335075227547998,
+          "from_initial_design": false
+        },
+        {
+          "id": "2938377d-9df5-4cdd-a12b-84481ae85f30",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 13,
+          "t": 458.64670991897583,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.14425075161908063,
+            -0.12320839159339862,
+            0.013246438809558735
+          ],
+          "score": 999.9988583434689,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 782,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.19212789385111964,
+          "from_initial_design": false
+        },
+        {
+          "id": "65772ac6-9f81-46da-a641-eb525e4d9b9e",
+          "stage": "evaluated",
+          "round": 2,
+          "eval": 14,
+          "t": 463.9076108932495,
+          "parent_ids": [
+            "0077de3b-f404-468c-b517-19866fd98bf5",
+            "ece430ba-ac8a-46e0-ba07-534268f5a6d4"
+          ],
+          "cand": [
+            0.12544054649810588,
+            -0.3392610892976393,
+            0.2562713918749148
+          ],
+          "score": 999.9977591438093,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 729,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.20740272607339247,
+          "from_initial_design": false
+        },
+        {
+          "id": "5fcfda5d-31e0-4742-a300-177041dd5be8",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 15,
+          "t": 465.6580250263214,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.12049559222798124,
+            -0.2914359123071472,
+            0.1561976893405935
+          ],
+          "score": 1000.0009293271763,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -6.275855766202376e-05,
+          "n_steps": 226,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.14290834078426642,
+          "from_initial_design": false
+        },
+        {
+          "id": "8599466a-cb7d-4ba1-9473-91f741d9bf65",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 16,
+          "t": 467.2895519733429,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.1105346658507352,
+            -0.3283637734853543,
+            0.16373761705084944
+          ],
+          "score": 1000.0003494883159,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -5.690341062430937e-06,
+          "n_steps": 221,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16965214193813977,
+          "from_initial_design": false
+        },
+        {
+          "id": "003772b5-5f03-4899-bc2b-b8e4bcb4e503",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 17,
+          "t": 469.0382950305939,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.13267841021407936,
+            -0.32588697583862725,
+            0.16132609242363033
+          ],
+          "score": 1000.0003792373082,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -5.203033076020547e-05,
+          "n_steps": 233,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1499478440859124,
+          "from_initial_design": false
+        },
+        {
+          "id": "020164de-753c-43cc-bdfc-821180c9640f",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 18,
+          "t": 470.87621998786926,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.10353520973535334,
+            -0.3232978248692015,
+            0.19263944323654636
+          ],
+          "score": 1000.0004750673004,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -5.358999113505569e-05,
+          "n_steps": 232,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1819750076762091,
+          "from_initial_design": false
+        },
+        {
+          "id": "72cbfcb2-1449-4da0-8388-53d9b5c28ce5",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 19,
+          "t": 472.5379548072815,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.11318574720876948,
+            -0.3089126180489252,
+            0.1449145449646239
+          ],
+          "score": 1000.0005841647883,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -3.938041344392351e-05,
+          "n_steps": 211,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.15435799439541756,
+          "from_initial_design": false
+        },
+        {
+          "id": "efb8a756-24bb-4bb5-8028-12376d8ce20b",
+          "stage": "evaluated",
+          "round": 3,
+          "eval": 20,
+          "t": 474.2581899166107,
+          "parent_ids": [
+            "85feb9b6-1264-4144-9325-be21a8109149",
+            "b5978788-4feb-4683-9084-edfd7847af9e",
+            "e34cbbac-0a3b-4631-8ce4-468048b9e1f5",
+            "9573822d-d317-4abb-a33e-015a304d2d5f",
+            "2938377d-9df5-4cdd-a12b-84481ae85f30",
+            "65772ac6-9f81-46da-a641-eb525e4d9b9e"
+          ],
+          "cand": [
+            0.10590720935485076,
+            -0.3010056184782081,
+            0.19614841317163548
+          ],
+          "score": 1000.0005219344918,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -3.779167217415891e-06,
+          "n_steps": 225,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1724386102562352,
+          "from_initial_design": false
+        },
+        {
+          "id": "4897fa94-7d58-474e-964f-6b4794759393",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 21,
+          "t": 479.8110280036926,
+          "parent_ids": [
+            "5fcfda5d-31e0-4742-a300-177041dd5be8",
+            "8599466a-cb7d-4ba1-9473-91f741d9bf65",
+            "003772b5-5f03-4899-bc2b-b8e4bcb4e503",
+            "020164de-753c-43cc-bdfc-821180c9640f",
+            "72cbfcb2-1449-4da0-8388-53d9b5c28ce5",
+            "efb8a756-24bb-4bb5-8028-12376d8ce20b"
+          ],
+          "cand": [
+            0.11435873245676778,
+            -0.16355431382368713,
+            0.009781599585089007
+          ],
+          "score": 999.9985983305965,
+          "is_attack": false,
+          "label": "REACHED",
+          "contact_leg": null,
+          "min_clearance": 0.00011112828158188481,
+          "n_steps": 770,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.1924830988789011,
+          "from_initial_design": false
+        },
+        {
+          "id": "f12d52a1-da07-4ffe-a0ab-6e764b376d8d",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 22,
+          "t": 483.094731092453,
+          "parent_ids": [
+            "5fcfda5d-31e0-4742-a300-177041dd5be8",
+            "8599466a-cb7d-4ba1-9473-91f741d9bf65",
+            "003772b5-5f03-4899-bc2b-b8e4bcb4e503",
+            "020164de-753c-43cc-bdfc-821180c9640f",
+            "72cbfcb2-1449-4da0-8388-53d9b5c28ce5",
+            "efb8a756-24bb-4bb5-8028-12376d8ce20b"
+          ],
+          "cand": [
+            0.19261213377521433,
+            -0.22507963080647253,
+            0.15017064346075729
+          ],
+          "score": 1000.0001547468672,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.5350140905173726e-05,
+          "n_steps": 450,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.06522777040578186,
+          "from_initial_design": false
+        },
+        {
+          "id": "103206f3-e603-4d6c-be17-7952f1bb7638",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 23,
+          "t": 486.17895889282227,
+          "parent_ids": [
+            "5fcfda5d-31e0-4742-a300-177041dd5be8",
+            "8599466a-cb7d-4ba1-9473-91f741d9bf65",
+            "003772b5-5f03-4899-bc2b-b8e4bcb4e503",
+            "020164de-753c-43cc-bdfc-821180c9640f",
+            "72cbfcb2-1449-4da0-8388-53d9b5c28ce5",
+            "efb8a756-24bb-4bb5-8028-12376d8ce20b"
+          ],
+          "cand": [
+            0.12328217622028582,
+            -0.16566621634515866,
+            0.05328285343365655
+          ],
+          "score": 1000.00017141824,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.3871983892771445e-05,
+          "n_steps": 429,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.16262558913504122,
+          "from_initial_design": false
+        },
+        {
+          "id": "1f8e7139-29b4-4a88-8c87-e30ec0a4e516",
+          "stage": "evaluated",
+          "round": 4,
+          "eval": 24,
+          "t": 489.91398882865906,
+          "parent_ids": [
+            "5fcfda5d-31e0-4742-a300-177041dd5be8",
+            "8599466a-cb7d-4ba1-9473-91f741d9bf65",
+            "003772b5-5f03-4899-bc2b-b8e4bcb4e503",
+            "020164de-753c-43cc-bdfc-821180c9640f",
+            "72cbfcb2-1449-4da0-8388-53d9b5c28ce5",
+            "efb8a756-24bb-4bb5-8028-12376d8ce20b"
+          ],
+          "cand": [
+            0.15659206697487402,
+            -0.2166568084426759,
+            0.11919834946641232
+          ],
+          "score": 1000.0000586629006,
+          "is_attack": true,
+          "label": "COLLISION",
+          "contact_leg": 2,
+          "min_clearance": -1.5570567951234127e-05,
+          "n_steps": 507,
+          "n_gave_up": 0,
+          "engaged": true,
+          "dist_to_truth": 0.09627659686728439,
+          "from_initial_design": false
+        }
+      ]
+    }
+  ]
+}

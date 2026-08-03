@@ -1,0 +1,211 @@
+"""
+Stage 3b -- run SIREN against a verified target and log every location searched.
+
+The point of a target: an empty search is ambiguous between "no attack exists"
+and "the search cannot find one". A target removes that -- an attack is known to
+exist at known coordinates, and `G1_prime_truth` is never shown to the search.
+
+Differences from the older scenario/run_fuzzer.py, all of them things that bit
+us:
+
+  C1 tests SAFETY, not arrival.   The baseline [G0, G1] must reach *and* keep
+      clearance > 0 at every step. reached_final alone accepts a rollout that
+      penetrates an obstacle and still arrives -- that mislabelled 18 controls.
+
+  MODIFICATION counts as a hit.   The old code scored only contact on leg 2, so
+      6 of 61 ground-truth attacks could not be scored at all. Here the target's
+      own `kind` says which leg makes a hit, and both are recorded.
+
+  PROVENANCE per location.        Each evaluated location gets a UUID, a
+      wall-clock timestamp, the ask/tell round, and `parent_ids`.
+
+On `parent_ids`: it is a LIST, because "the parent" is not well defined for two
+of the three strategies and inventing one would be a lie about the genealogy.
+
+    random  nothing -- draws are independent           -> []
+    cem     the elite set that produced the current
+            mean/std; a proposal descends from all of
+            them, not one point                        -> ids of the elites
+    bo      the whole observation history through the
+            GP posterior; no single ancestor           -> ids of that round's
+                                                          observations
+
+    python -m fuzz.siren.pipeline.stage3_fuzz --target /abs/t.json --budget 60
+"""
+
+import argparse
+import json
+import time
+import uuid
+
+import numpy as np
+
+
+def contact_leg(rec):
+    for s in rec.steps:
+        if s.clearance < 0.0:
+            return int(s.wp_idx)
+    return None
+
+
+def evaluate_candidate(world, G0, cand, G1, steps, hit_leg):
+    """Run [G0, cand, G1] and decide whether it is an attack of the wanted kind.
+
+    Score mirrors pipeline_spec: engaged candidates outrank unengaged ones, and
+    within each group the braking margin (or clearance) decides. `mu` is
+    deliberately not used -- measured over 9936 engaged candidates it is
+    ANTI-correlated with contact (corr -0.14), so any monotone function of it
+    steers the search the wrong way.
+    """
+    rec = world.run([np.asarray(G0, float), np.asarray(cand, float),
+                     np.asarray(G1, float)], max_steps=steps)
+    leg = contact_leg(rec)
+    is_attack = ((rec.label == "COLLISION" and leg == hit_leg)
+                 or rec.label == "DEADLOCK")
+
+    tail = [s for s in rec.steps if s.wp_idx >= hit_leg]
+    engaged = [s for s in tail if s.engaged]
+    if engaged:
+        bm = [float(s.brake_margin) for s in tail
+              if np.isfinite(s.brake_margin)]
+        score = 1000.0 - (min(bm) if bm else 0.0)
+    else:
+        cl = [s.clearance for s in tail if np.isfinite(s.clearance)]
+        score = -float(min(cl)) if cl else 0.0
+    return is_attack, rec, leg, score, bool(engaged)
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser()
+    p.add_argument("--target", required=True)
+    p.add_argument("--pickers",
+                   default="random,random_seeded,cem,cem_seeded,bo,bo_seeded")
+    p.add_argument("--budget", type=int, default=60)
+    p.add_argument("--batch", type=int, default=10)
+    p.add_argument("--search-seeds", default="0")
+    p.add_argument("--out", required=True)
+    a = p.parse_args(argv)
+
+    from ..scenario.targets import load_target
+    from ..search.pick import make_picker, is_admissible
+
+    w, tgt = load_target(a.target)
+    sc = w.scene()
+    steps = tgt["max_steps"]
+    G0 = np.asarray(tgt["G0_commanded"], float)
+    G1 = np.asarray(tgt["G1"], float)
+    truth = np.asarray(tgt["G1_prime_truth"], float)
+    kind = tgt.get("kind", "INSERTION")
+    hit_leg = 2 if kind == "INSERTION" else 1
+
+    print(f"target {tgt['name']}")
+    print(f"  {tgt['case']}  filter={tgt['algo']}  seed={tgt['seed']}  "
+          f"kind={kind} -> a hit is contact on leg {hit_leg}")
+
+    base = w.run([G0, G1], max_steps=steps)
+    base_clear = min((s.clearance for s in base.steps), default=np.inf)
+    known = w.run([G0, truth, G1], max_steps=steps)
+    print(f"  baseline [G0,G1]         {base.label} "
+          f"(min clearance {base_clear:+.6f})")
+    print(f"  known attack [G0,G1*,G1] {known.label} "
+          f"(leg {contact_leg(known)}, {known.min_clearance:+.6f})")
+    # C1: safe arrival, not merely arrival
+    if base.label != "REACHED" or base_clear <= 0.0:
+        print("  baseline is not safe — aborting (the scene is broken, so a "
+              "collision would say nothing about the inserted goal)")
+        return 1
+    if known.label not in ("COLLISION", "DEADLOCK"):
+        print("  planted attack does not reproduce — aborting")
+        return 1
+    print(f"  (the search is NOT told G1* = {np.round(truth,3)})\n", flush=True)
+
+    rows = []
+    t_start = time.time()
+    for pname in [x.strip() for x in a.pickers.split(",") if x.strip()]:
+        for ss in [int(x) for x in a.search_seeds.split(",") if x.strip()]:
+            picker = make_picker(pname, sc, seed=ss)
+            n_eval, first_hit, hits, evals, n_inadm = 0, None, [], [], 0
+            prev_round_ids, rnd, t0 = [], 0, time.time()
+            while n_eval < a.budget:
+                want = min(a.batch, a.budget - n_eval)
+                cands = picker.ask(want)
+                if not cands:
+                    break
+                scored, this_round = [], []
+                for c in cands:
+                    if not is_admissible(c, sc)[0]:
+                        n_inadm += 1
+                        evals.append({"id": str(uuid.uuid4()),
+                                      "stage": "inadmissible", "round": rnd,
+                                      "t": time.time() - t_start,
+                                      "parent_ids": prev_round_ids,
+                                      "cand": [float(x) for x in
+                                               np.asarray(c, float).reshape(-1)]})
+                        continue
+                    atk, rec, leg, score, eng = evaluate_candidate(
+                        w, G0, c, G1, steps, hit_leg)
+                    n_eval += 1
+                    scored.append((c, score))
+                    uid = str(uuid.uuid4())
+                    this_round.append(uid)
+                    evals.append({
+                        "id": uid, "stage": "evaluated", "round": rnd,
+                        "eval": int(n_eval), "t": time.time() - t_start,
+                        "parent_ids": prev_round_ids,
+                        "cand": [float(x) for x in
+                                 np.asarray(c, float).reshape(-1)],
+                        "score": float(score), "is_attack": bool(atk),
+                        "label": rec.label,
+                        "contact_leg": None if leg is None else int(leg),
+                        "min_clearance": float(rec.min_clearance),
+                        "n_steps": int(rec.n_steps),
+                        "n_gave_up": int(getattr(rec, "n_gave_up", 0)),
+                        "engaged": bool(eng),
+                        "dist_to_truth": float(np.linalg.norm(
+                            np.asarray(c, float).reshape(-1) - truth)),
+                        "from_initial_design": bool(rnd == 0)})
+                    if atk:
+                        hits.append(evals[-1])
+                        if first_hit is None:
+                            first_hit = n_eval
+                            print(f"    {pname}/s{ss}: FIRST HIT at eval "
+                                  f"{n_eval}", flush=True)
+                    if n_eval >= a.budget:
+                        break
+                if scored:
+                    picker.tell(scored)
+                # the next round descends from what this round observed
+                prev_round_ids = this_round
+                rnd += 1
+            best = min((h["dist_to_truth"] for h in hits), default=None)
+            rows.append({"picker": pname, "search_seed": ss,
+                         "n_eval": n_eval, "n_attacks": len(hits),
+                         "first_hit": first_hit, "best_dist_to_truth": best,
+                         "n_inadmissible": n_inadm, "n_rounds": rnd,
+                         "elapsed_s": round(time.time() - t0, 1),
+                         "evaluations": evals})
+            print(f"  {pname:<14} s{ss}  attacks {len(hits):>3}/{n_eval}  "
+                  f"first {str(first_hit):>5}  rounds {rnd}  "
+                  f"({rows[-1]['elapsed_s']}s)", flush=True)
+
+    print(f"\n{'='*76}")
+    print(f"{'picker':<16}{'attacks':>9}{'rate':>7}{'1st':>6}"
+          f"{'closest':>10}{'rounds':>8}")
+    for r in rows:
+        rate = f"{100*r['n_attacks']/max(1,r['n_eval']):.0f}%"
+        cl = f"{r['best_dist_to_truth']:.3f}" if r["best_dist_to_truth"] is not None else "-"
+        print(f"{r['picker']:<16}{r['n_attacks']:>9}{rate:>7}"
+              f"{str(r['first_hit']):>6}{cl:>10}{r['n_rounds']:>8}")
+    json.dump({"target": tgt["name"], "case": tgt["case"], "algo": tgt["algo"],
+               "seed": tgt["seed"], "kind": kind, "hit_leg": hit_leg,
+               "budget": a.budget, "batch": a.batch,
+               "G1_prime_truth": truth.tolist(),
+               "baseline_label": base.label,
+               "baseline_min_clearance": float(base_clear),
+               "results": rows}, open(a.out, "w"), indent=2, default=float)
+    print(f"\nwrote {a.out}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

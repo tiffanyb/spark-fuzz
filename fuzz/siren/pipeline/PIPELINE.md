@@ -220,6 +220,94 @@ The fuzzing evaluation should record all searched location. For each searched lo
 
 ---
 
+## Stage 4 — measure and visualise the search
+
+Consumes the stage-3b output (`fuzz_<target>.json`), one entry per target. Two
+deliverables: **discovery curves** and a **searched-location render**.
+
+### 4a. Discovery curves
+
+**Script:** `fuzz/siren/scenario/search_curves.py` — *not implemented*
+
+Per target, per `(strategy, search_seed)`, two cumulative curves:
+
+```
+attacks vs trials   x = evaluation index 1..budget,  y = cumulative attacks
+attacks vs time     x = wall-clock seconds,          y = cumulative attacks
+```
+
+Both are step functions from the per-evaluation log, so no re-simulation is
+needed — the data is already in `evaluations`.
+
+*Trials* is the primary axis. It is the honest measure of search efficiency
+because one evaluation is one full rollout regardless of which strategy proposed
+it, so it is invariant to machine load and to how many searches were running
+concurrently.
+
+*Time* is the secondary axis and is **not currently computable**: only a single
+`elapsed_s` per strategy run is stored, not a per-evaluation timestamp. That is
+Missing-code #8. Until it lands, the time curve can only be approximated as
+`elapsed_s x eval/n_eval`, which assumes uniform cost per evaluation — false
+here, since a rollout aborts at contact but a deadlock runs the full horizon, so
+attacks are *systematically cheaper* than misses and the approximation biases
+the curve in the flattering direction. Do not publish the approximate version.
+
+Aggregate across search seeds with median and inter-quartile band rather than a
+mean: with 3 seeds a single unlucky replicate distorts a mean badly.
+
+Report alongside each curve, since a curve alone hides them:
+
+```
+evaluations-to-first-attack       (None if never found)
+total attacks / budget            the hit rate
+n_inadmissible                    proposals rejected on geometry, which cost
+                                  nothing and so do not appear on either axis
+```
+
+The first 8 evaluations are a shared initial design identical across strategies,
+so **every curve is identical below eval 9 by construction**. Mark that region
+on the plot; otherwise it reads as agreement between strategies when it is an
+artifact.
+
+### 4b. Searched-location render
+
+**Script:** extend `fuzz/siren/render_fuzz_case.py` — *not implemented*
+
+One 3-D scene per target: the robot posed at the G0 handover, obstacles, `G0`,
+`G1`, the planted `G1'`, and **every location the search tried** — not only the
+hits.
+
+```
+tried locations   rainbow-coloured by search iteration
+                  first iteration -> violet ... last iteration -> red
+identified attacks   a single distinct colour, outside the rainbow
+                     (white or black), and drawn larger
+G0 / G1 / planted G1'   the existing blue / green / yellow markers
+```
+
+Rendered as a MuJoCo scene with the robot present — orbit mp4 plus a still —
+matching the existing renderers, not a matplotlib scatter.
+
+Two decisions to settle before implementing:
+
+**What "iteration" means.** Colour by **ask/tell round**, not by evaluation
+index. With `--budget 60 --batch 10` there are 6 rounds, which is a readable
+number of distinct hues; 60 is not. The round is also the unit at which CEM
+updates its mean/std and BO refits, so it is the meaningful step. Store the
+round index explicitly rather than deriving it as `eval // batch`, which breaks
+whenever the final batch is short.
+
+**Attack colour must not be a rainbow hue.** If attacks were, say, red, they
+would be indistinguishable from late-iteration misses. Use a colour outside the
+map entirely.
+
+The existing `render_fuzz_case.py` already draws the robot at `state_at_G0`,
+the obstacles and the goal markers, and colours discovered goals by self-check
+verdict. What it does **not** do is read the full `evaluations` list — it reads
+`hits` only, so it currently cannot draw misses at all. That is the extension.
+
+---
+
 ## Missing code
 
 | # | what | why it matters |
@@ -228,9 +316,47 @@ The fuzzing evaluation should record all searched location. For each searched lo
 | 2 | **`run_fuzzer.py` C1 fix** — its baseline check has the same `reached_final` weakness stage 1 had | it can currently accept a target whose baseline collides |
 | 3 | **Modification support in `run_fuzzer.py`** — it counts an attack only when contact is on leg 2 | 6 of 61 ground-truth attacks are modification; SIREN is currently unscored against them |
 | 4 | **`make_targets.py` INDEX filter** and support for a `kind` field | otherwise stage 3a errors on `INDEX.json` and loses insertion/modification labelling |
-| 5 | **Stage-3 report script** — aggregate hit rate, evals-to-first-hit, distance-to-truth across targets and arms | `run_fuzzer` reports per target only; no cross-target summary exists |
+| 5 | **Stage-3 report script** — aggregate hit rate, evals-to-first-hit, distance-to-truth across targets and strategies, driven off the provenance log in #8 | `run_fuzzer` reports per target only; no cross-target summary exists |
 | 6 | **Deadlock leg attribution in `collect_verified.py`** — DEADLOCK is accepted as INSERTION without a leg test | safe today only because `classify_run` requires `on_final_leg`; fragile if that changes |
 | 7 | **cbf coverage** — no verified cbf attack exists | 6 of 7 filters are covered; cbf is the gap |
+| 8 | **Search-provenance recorder** — per-location UUID, wall-clock timestamp, and parent UUID | required by the stage-3 spec above; none of the three exist today. The timestamp is also what makes stage 4a's time curve computable |
+| 9 | **Picker-side lineage reporting** — `ask()` must return, per proposal, which prior evaluation(s) it descends from | prerequisite for #8; no picker exposes this, so the parent link cannot be reconstructed after the fact |
+| 10 | **`search_curves.py`** — cumulative attacks vs trials and vs time, per target and `(strategy, seed)`, with median/IQR across seeds | stage 4a; no discovery-curve computation exists |
+| 11 | **Round index in the evaluation log** — record the ask/tell round explicitly | stage 4b colours by round; deriving it as `eval // batch` is wrong whenever the final batch is short |
+| 12 | **`render_fuzz_case.py` extension** — read the full `evaluations` list, colour by round on a rainbow map, attacks in an off-map colour | stage 4b; it currently reads `hits` only and so cannot draw the misses at all |
+
+### On #8 and #9
+
+`run_fuzzer.py` already logs every evaluation — `eval, cand, score, is_attack,
+label, contact_leg, min_clearance, n_steps, n_gave_up, engaged, dist_to_truth`,
+plus a lighter record for candidates rejected as inadmissible. Missing are the
+**UUID**, the **timestamp**, and the **parent UUID**. The first two are
+mechanical. The third is not, for two reasons.
+
+*No picker reports lineage.* `Picker.ask(n)` returns bare coordinates. Nothing
+in `pick.py` or `bo.py` records what a proposal came from, and it cannot be
+recovered afterwards from the coordinates alone.
+
+*"Parent" is not well defined for two of the three strategies.* A decision is
+needed before implementing, and it should be recorded in the schema rather than
+left implicit:
+
+| strategy | what a proposal actually descends from |
+|---|---|
+| `random` | nothing — every draw is independent; parent is `null` |
+| `cem` | the whole elite set (top ~1/3) that produced the current mean and std, not one point. Candidates: the elite set as a list, or the single best elite, or the distribution's identity |
+| `bo` | the entire observation history through the GP posterior. There is no single parent; the honest link is to the round, or to the nearest observed neighbour |
+
+A defensible schema is: `parent_ids` as a **list** (empty for `random`, the
+elite set for `cem`, the round's full history or a nearest-neighbour reference
+for `bo`), plus a `round` index. That keeps the genealogy honest instead of
+inventing a single ancestor where none exists.
+
+Worth recording alongside, to support the efficiency claims: wall-clock and
+simulated-step cost per evaluation, the round index, the strategy and search
+seed, whether the candidate came from the shared initial design, and — for
+`cem` — the current mean and std, since those are what the lineage is really
+tracking.
 
 ---
 
@@ -267,3 +393,9 @@ Screening is mandatory before building on any scene.
 6 modification — from `G1MobileBase_D2_WG_DO_v1` s0, `G1FixedBase_D2_AG_SO_v0`
 s1, and `G1MobileBase_D2_WG_SO_v1` s2. Covering ssa, pssa, sss, rcbf, rsss.
 None for cbf.
+
+Stage-1 searches for `cbf`, `rsss` and `rssa` (seeds 1–20, 3 gate-passing worlds
+each) are still running and have reported further candidates — 8 each for `rsss`
+and `rssa`, none for `cbf`. Those are **not** in the count above: a candidate
+only becomes ground truth after `collect_verified.py` re-runs it from scratch,
+and on past evidence a meaningful fraction does not survive that.

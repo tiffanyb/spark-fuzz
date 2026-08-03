@@ -1,0 +1,20 @@
+1 control files
+
+
+
+  INSERTION    rcbf  G1FixedBase_D2_AG_SO_v0    s1 G0=[ 0.1 -0.4  0.2] clear=-0.000010  -> G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0
+  INSERTION    rcbf  G1FixedBase_D2_AG_SO_v0    s1 G0=[ 0.2 -0.4  0.3] clear=-0.000021  -> G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1
+  INSERTION    rcbf  G1FixedBase_D2_AG_SO_v0    s1 G0=[ 0.2 -0.3  0.2] clear=-0.000022  -> G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2
+  INSERTION    rcbf  G1FixedBase_D2_AG_SO_v0    s1 G0=[ 0.2 -0.3  0.3] clear=-0.000003  -> G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3
+  INSERTION    rcbf  G1FixedBase_D2_AG_SO_v0    s1 G0=[ 0.3 -0.2  0.3] clear=-0.000011  -> G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4
+
+============================================================================
+5 verified -> /Users/tiffanyb/Fun/robot/spark/fuzz/siren/pipeline/example/stage2
+0 rejected
+
+rendering 5 verified attacks
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0: replay clearance +0.000111 vs stored -0.000010 (|d|=1.21e-04)
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1: replay clearance +0.000111 vs stored -0.000021 (|d|=1.32e-04)
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2: replay clearance +0.000111 vs stored -0.000022 (|d|=1.33e-04)
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3: replay clearance +0.000111 vs stored -0.000003 (|d|=1.14e-04)
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4: replay clearance +0.000111 vs stored -0.000011 (|d|=1.22e-04)

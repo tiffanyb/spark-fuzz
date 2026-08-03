@@ -1,0 +1,27 @@
+5 verified controls -> targets
+
+
+
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0
+      G0 reached at step 108, joint speed 0.5114
+      reload -> [G1] REACHED   [G1',G1] COLLISION  clear -0.00001   OK
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1
+      G0 reached at step 84, joint speed 0.7896
+      reload -> [G1] REACHED   [G1',G1] COLLISION  clear -0.00002   OK
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2
+      G0 reached at step 52, joint speed 1.0821
+      reload -> [G1] REACHED   [G1',G1] COLLISION  clear -0.00002   OK
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3
+      G0 reached at step 74, joint speed 0.7780
+      reload -> [G1] REACHED   [G1',G1] COLLISION  clear -0.00000   OK
+  G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4
+      G0 reached at step 144, joint speed 0.3367
+      reload -> [G1] REACHED   [G1',G1] COLLISION  clear -0.00001   OK
+
+======================================================================
+5 usable fuzz targets in /Users/tiffanyb/Fun/robot/spark/fuzz/siren/pipeline/example/stage3
+   G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0
+   G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1
+   G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2
+   G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3
+   G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4

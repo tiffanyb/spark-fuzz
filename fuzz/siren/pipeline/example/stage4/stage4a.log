@@ -1,0 +1,10 @@
+1 fuzz results
+
+G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0   kind=INSERTION  hit_leg=2
+  strategy          attacks   rate   1st  inadm   closest
+  bo                      6    25%     2      0     0.065
+  cem                     9    38%     2      0     0.078
+  random                  5    21%     2      0     0.081
+
+wrote /Users/tiffanyb/Fun/robot/spark/fuzz/siren/pipeline/example/stage4/curves.json
+wrote /Users/tiffanyb/Fun/robot/spark/fuzz/siren/pipeline/example/stage4/curves_G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.png

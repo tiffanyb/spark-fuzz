@@ -1,0 +1,174 @@
+{
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "algo": "rcbf",
+  "seed": 1,
+  "index": "velocity",
+  "max_steps": 900,
+  "d_min": 0.02,
+  "eta": 0.02,
+  "lam": 0.3,
+  "k": 0.1,
+  "G1_prime": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+  ],
+  "G1": [
+    0.3250432944834903,
+    -0.10334167332805157,
+    0.2244496963139518
+  ],
+  "bounds": [
+    [
+      0.1,
+      0.4
+    ],
+    [
+      -0.4,
+      -0.1
+    ],
+    [
+      0.0,
+      0.3
+    ]
+  ],
+  "keepout": 0.1,
+  "obstacles_world": [
+    [
+      -0.05813394189452816,
+      -0.28259528734630956,
+      0.5738708758150383
+    ],
+    [
+      0.13105338720268558,
+      -0.06464438847736416,
+      1.0481756003174076
+    ],
+    [
+      0.23637400814272183,
+      -0.06615615810629842,
+      0.9469518627566014
+    ],
+    [
+      0.47460926057551805,
+      -0.14926065747260572,
+      1.0538580925354513
+    ],
+    [
+      -0.2687561734136941,
+      -0.2641356643483449,
+      1.2025140027435306
+    ]
+  ],
+  "n_G0_swept": 55,
+  "seeds_scanned": [
+    1
+  ],
+  "gate_log": [
+    {
+      "seed": 1,
+      "gate": "COLLISION",
+      "min_clearance": -2.496412324951014e-05
+    }
+  ],
+  "world_index": 1,
+  "controls": [
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.19999999999999998
+      ],
+      "attack_label": "COLLISION",
+      "from_state_clearance": -9.690615024621207e-06,
+      "handover_clearance": 0.0037431148126327585,
+      "prefix_label": "COLLISION",
+      "prefix_leg": 2,
+      "prefix_clearance": -9.690615024621207e-06,
+      "confirmed": true
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.3
+      ],
+      "attack_label": "COLLISION",
+      "from_state_clearance": -2.051929710397693e-05,
+      "handover_clearance": 0.004289789826757845,
+      "prefix_label": "COLLISION",
+      "prefix_leg": 2,
+      "prefix_clearance": -2.051929710397693e-05,
+      "confirmed": true
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.19999999999999998
+      ],
+      "attack_label": "COLLISION",
+      "from_state_clearance": -2.223006564114338e-05,
+      "handover_clearance": 0.005942299036894028,
+      "prefix_label": "COLLISION",
+      "prefix_leg": 2,
+      "prefix_clearance": -2.223006564114338e-05,
+      "confirmed": true
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.3
+      ],
+      "attack_label": "COLLISION",
+      "from_state_clearance": -3.0439598807663337e-06,
+      "handover_clearance": 0.013242809254342292,
+      "prefix_label": "COLLISION",
+      "prefix_leg": 2,
+      "prefix_clearance": -3.0439598807663337e-06,
+      "confirmed": true
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.3
+      ],
+      "attack_label": "COLLISION",
+      "from_state_clearance": -1.1330785758267847e-05,
+      "handover_clearance": 0.0013193170981815883,
+      "prefix_label": "COLLISION",
+      "prefix_leg": 2,
+      "prefix_clearance": -1.1330785758267847e-05,
+      "confirmed": true
+    }
+  ],
+  "insertion_unconfirmed": [],
+  "modification_hits": [
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.3
+      ],
+      "clearance": -4.0857653899162294e-05
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.3
+      ],
+      "clearance": -3.2913642984438995e-05
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.3
+      ],
+      "clearance": -5.628690724893137e-05
+    }
+  ]
+}
