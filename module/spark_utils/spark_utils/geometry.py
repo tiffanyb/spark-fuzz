@@ -223,8 +223,27 @@ def sphere_to_sphere_distance_info(frame1, velocity1, size1, frame2, velocity2, 
         # Compute outer product dist * dist^T (3x3 matrix)
         outer_product = [[dist[i] * dist[j] for j in range(3)] for i in range(3)]
 
-        # Compute curvature matrix
-        c = [[(1 / d_center) - (outer_product[i][j] / d_center**3) for j in range(3)] for i in range(3)]
+        # Compute curvature matrix: (I - n n^T) / d_center, the rate at which the
+        # contact normal rotates. This is the k<v, dn/dt> term of phi_dot.
+        #
+        # SIREN FIX (2026-08-03). The identity term is DIAGONAL. It was written as
+        #     (1 / d_center) - outer[i][j] / d_center**3
+        # which adds 1/d_center to ALL NINE entries instead of only i == j, so all
+        # six off-diagonal terms were high by exactly 1/d_center. The diagonal was
+        # right, which is why the matrix looked plausible.
+        #
+        # Consequence: -k<v, c v> over-stated k<v, dn/dt> by ~8x, so the filter's
+        # own prediction of phi_dot carried a near-constant bias (+0.088 fixed
+        # base, +0.173 mobile base) -- it believed phi was falling while phi rose,
+        # and declined to intervene with authority to spare. Correcting the term
+        # cuts the prediction error 25x (median residual 0.10823 -> 0.00427) and
+        # tracks the measured value to 1-3% step by step.
+        #
+        # Kept in explicit Kronecker-delta list form rather than np.eye/np.outer:
+        # this function is @njit and returns a reflected list, and changing the
+        # return type would alter the signature seen by its @njit caller.
+        c = [[((1.0 if i == j else 0.0) / d_center) - (outer_product[i][j] / d_center**3)
+              for j in range(3)] for i in range(3)]
     else:
         # If spheres are at the same position, set normal to a default direction
         # This can happen in singular cases where both spheres overlap exactly
