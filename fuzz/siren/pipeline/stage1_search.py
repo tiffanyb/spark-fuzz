@@ -104,6 +104,34 @@ SCENES = [
 ]
 
 
+def set_channel(world, channel):
+    """Tell the task which goal channel a schedule refers to.
+
+    The task drives the ARM goal by default. For the base channel it must steer
+    robot_goal_base instead and measure waypoint progress on the base pose, so
+    the schedule setter differs -- routing every rollout through here keeps the
+    two paths from silently diverging.
+    """
+    t = world.harness.env.task
+    t.channel = channel
+    if channel == "arm":
+        t.base_goal_schedule = None
+
+
+def run_ch(world, schedule, channel, **kw):
+    """One rollout on the given goal channel."""
+    t = world.harness.env.task
+    if channel == "base":
+        orig = t.set_goal_schedule
+        t.set_goal_schedule = lambda wps: t.set_base_goal_schedule(wps)
+        try:
+            return world.run(schedule, **kw)
+        finally:
+            t.set_goal_schedule = orig
+    set_channel(world, "arm")
+    return world.run(schedule, **kw)
+
+
 def failing_leg(rec):
     for s in rec.steps:
         if s.clearance < 0.0:
@@ -136,6 +164,24 @@ def main(argv=None):
     p.add_argument("--grid", type=int, default=6)
     p.add_argument("--lam", type=float, default=1.0)
     p.add_argument("--relax", action="store_true", default=True)
+    p.add_argument("--goal-channel", default="arm", choices=["arm", "base"],
+                   help="which goal channel to attack. 'arm' inserts an "
+                        "end-effector goal (0.3 m cube). 'base' inserts a base "
+                        "pose (x, y, yaw) -- available only on whole-body (WG) "
+                        "cases, where base_goal_range spans 1.6 x 1.6 m plus "
+                        "full yaw, ~28x the arm footprint plus a rotation the "
+                        "arm channel has no analogue for.")
+    p.add_argument("--max-controls", type=int, default=0,
+                   help="stop sweeping a world once this many PREFIX-CONFIRMED "
+                        "controls are found (0 = no cap, sweep the whole grid). "
+                        "A cap saves rollouts but makes counts incomparable "
+                        "across configs -- it measures the cap, not the density "
+                        "of attackable goals.")
+    p.add_argument("--config", default=None,
+                   help="trial config YAML. When given it supplies every "
+                        "parameter that reaches SPARK -- demand, d_min, phi_n, "
+                        "phi_k, slack weight and the raw safe_algo fields -- so "
+                        "a run is reproducible from one file.")
     p.add_argument("--out-dir", default="fuzz/siren/experiment/g0_search_state")
     a = p.parse_args(argv)
 
@@ -145,6 +191,25 @@ def main(argv=None):
     from ..world import derived
     from ..search.pick import is_admissible
     from .state import capture_world, run_from_state
+    from . import trialconf
+
+    tconf = trialconf.load(a.config) if a.config else None
+    if tconf is not None:
+        sr = tconf.get("search", {})
+        if a.seeds == "0,1,2":
+            a.seeds = str(sr.get("seeds", a.seeds))
+        if a.n_worlds == 3 and sr.get("n_worlds") is not None:
+            a.n_worlds = int(sr["n_worlds"])
+        if a.grid == 6 and sr.get("grid") is not None:
+            a.grid = int(sr["grid"])
+        if sr.get("relax") is not None:
+            a.relax = bool(sr["relax"])
+        if a.max_controls == 0 and sr.get("max_controls") is not None:
+            a.max_controls = int(sr["max_controls"])
+        if not a.scenes:
+            scenes = [(c, trialconf.index_for(c))
+                      for c in trialconf.USABLE_SCENES]
+        print(trialconf.describe(tconf), flush=True)
 
     os.makedirs(a.out_dir, exist_ok=True)
     scenes = SCENES
@@ -169,12 +234,25 @@ def main(argv=None):
         # burning the quota on it. The seeds that passed are recorded in the
         # output so a result can be traced back to its exact world.
         n_passed = 0
+        total_confirmed = 0        # controls found for this (filter, scene)
         gate_log = []
         for sd in seeds:
-            if n_passed >= a.n_worlds:
+            # STOP ON CONTROLS, not on worlds swept. Stopping after N worlds
+            # regardless of outcome is what left most (filter, scene) pairs with
+            # no target at all: a gate can pass and the sweep still find nothing,
+            # and the job then gave up with seeds left unscanned.
+            if a.max_controls and total_confirmed >= a.max_controls:
                 break
-            spec = real_filter(algo=a.algo, index=index, d_min=0.02, eta=0.02,
-                               lam=a.lam, k=0.1)
+            if n_passed >= a.n_worlds:      # safety cap on compute, not a goal
+                print(f"   world cap {a.n_worlds} reached with "
+                      f"{total_confirmed} controls — giving up on this pair",
+                      flush=True)
+                break
+            if tconf is not None:
+                spec = trialconf.spec_for(tconf, a.algo, case)
+            else:
+                spec = real_filter(algo=a.algo, index=index, d_min=0.02,
+                                   eta=0.02, lam=a.lam, k=0.1)
             tag = f"{case}_{a.algo}_s{sd}_lam{a.lam}"
             try:
                 w = World.build(seed=sd, spec=spec, test_case=case,
@@ -186,10 +264,23 @@ def main(argv=None):
                       flush=True)
                 continue
 
-            G1p = np.asarray(sc.G0, float)      # scenario START becomes G1'
-            G1 = np.asarray(sc.G1, float)       # scenario GOAL stays G1
+            if a.goal_channel == "base":
+                if not getattr(h.env.task, "base_goal_enable", False):
+                    print(f"\n{case} s{sd}: no base goal on this case "
+                          f"(base_goal_enable=False) — skipping", flush=True)
+                    continue
+                from scipy.spatial.transform import Rotation as _R
+                b0 = np.asarray(h.env.task.robot_base_frame, float)
+                yaw0 = float(_R.from_matrix(b0[:3, :3]).as_euler("xyz")[2])
+                G1p = np.array([b0[0, 3], b0[1, 3], yaw0])   # home BASE pose
+                gb = np.asarray(h.env.task.robot_goal_base.frame, float)
+                G1 = np.array([gb[0, 3], gb[1, 3],
+                               float(_R.from_matrix(gb[:3, :3]).as_euler("xyz")[2])])
+            else:
+                G1p = np.asarray(sc.G0, float)      # scenario START becomes G1'
+                G1 = np.asarray(sc.G1, float)       # scenario GOAL stays G1
 
-            gate = w.run([G1], max_steps=steps)
+            gate = run_ch(w, [G1], a.goal_channel, max_steps=steps)
             print(f"\n{case} s{sd}: gate home->G1 = {gate.label} "
                   f"({gate.min_clearance:+.6f})", flush=True)
             gate_log.append({"seed": sd, "gate": gate.label,
@@ -201,20 +292,59 @@ def main(argv=None):
             n_passed += 1
             print(f"   gate PASSED — world {n_passed}/{a.n_worlds}", flush=True)
 
-            lo = [b[0] for b in sc.bounds]
-            hi = [b[1] for b in sc.bounds]
+            if a.goal_channel == "base":
+                br = h.env.task.base_goal_range
+                rr = getattr(h.env.task, "base_goal_rot_range", (-np.pi, np.pi))
+                lo = [br[0][0], br[1][0], rr[0]]
+                hi = [br[0][1], br[1][1], rr[1]]
+            else:
+                lo = [b[0] for b in sc.bounds]
+                hi = [b[1] for b in sc.bounds]
             ax = [np.linspace(lo[i], hi[i], a.grid) for i in range(3)]
             g0s = [np.array([x, y, z]) for x in ax[0] for y in ax[1] for z in ax[2]]
-            g0s = [g for g in g0s if is_admissible(g, sc)[0]]
+            if a.goal_channel == "base":
+                # Apply SPARK's OWN base-goal rule, not the arm one. benchmark_task
+                # rejects a sampled base goal whose XY distance to any obstacle is
+                # below base_goal_keepout (default 0.1), exactly as it rejects arm
+                # goals below arm_goal_keepout. Sweeping the raw grid instead held
+                # the two channels to different standards: an arm attacker was
+                # confined to goals the planner could emit while a base attacker
+                # was not, so a "base attack" could be a pose sitting on an
+                # obstacle -- not an attack under the same threat model, and a
+                # wasted rollout besides.
+                ko = float(getattr(h.env.task, "base_goal_keepout", 0.1))
+                obs_xy = np.array([np.asarray(o)[:2, 3]
+                                   for o in sc.obstacles_world]) if len(sc.obstacles_world) else None
+                def _base_ok(g):
+                    if obs_xy is None or not len(obs_xy):
+                        return True
+                    return bool(np.all(np.linalg.norm(obs_xy - g[:2], axis=1) >= ko))
+                n_raw = len(g0s)
+                g0s = [g for g in g0s if _base_ok(g)]
+                print(f"   base grid: {len(g0s)}/{n_raw} pass SPARK's "
+                      f"base_goal_keepout={ko} (xy)", flush=True)
+            else:
+                g0s = [g for g in g0s if is_admissible(g, sc)[0]]
 
             t0 = time.time()
             ins, mods, confirmed, n_bad_s0, n_err = [], [], [], 0, 0
+            # SIREN FIX. The three C1 rejection reasons used to collapse into one
+            # uncounted `continue`, so a sweep that rejected every G0 printed
+            # "0 insertion, 0 bad handover, 0 errors" and gave no clue why.
+            # Split them: collided / never reached G1 / no handover captured.
+            n_c1_collided = n_c1_noreach = n_c1_nos0 = 0
             for g0 in g0s:
                 try:
                     # ---- C1: legitimate task must reach; capture s0 ------- #
                     probe.reset_giveups(h)
                     af, ti = h.reset()
-                    h.env.task.set_goal_schedule([g0, G1])
+                    # C1 steps manually (it must capture s0 mid-run), so the
+                    # channel has to be selected here too -- w.run is bypassed
+                    if a.goal_channel == "base":
+                        h.env.task.set_base_goal_schedule([g0, G1])
+                    else:
+                        set_channel(w, "arm")
+                        h.env.task.set_goal_schedule([g0, G1])
                     u, ai = h.algo.act(af, ti)
                     # C1 must mean "arrived SAFELY", not merely "arrived".
                     # reached_final alone let a rollout that penetrated an
@@ -229,6 +359,20 @@ def main(argv=None):
                         af, ti = h.env.step(u, ai)
                         u, ai = h.algo.act(af, ti)
                         base_min_clear = min(base_min_clear, h.clearance(ti))
+                        # SIREN FIX. A collision here is already FATAL for this
+                        # G0 -- the guard below rejects on base_min_clear < 0
+                        # regardless of what happens next. Without this break the
+                        # rollout kept stepping after the fatal contact, because
+                        # the robot carries on and eventually reaches G1, so the
+                        # loop only ended on reached_final. Measured on
+                        # G1FixedBase_D2_AG_DO_v0 s4: 196-235 steps spent to
+                        # learn what step ~80 already decided, 2.5x the cost
+                        # (7.2s -> 2.9s over three G0). Exactly equivalent: the
+                        # only fields read after this point are base_min_clear
+                        # (already negative) and ok_reach (must stay False).
+                        n_c1_collided += 1 if base_min_clear < 0.0 else 0
+                        if base_min_clear < 0.0:
+                            break
                         if s0 is None and int(getattr(h.env.task, "wp_idx", 0)) >= 1:
                             s0 = capture_world(h)
                             clr0 = h.clearance(ti)
@@ -246,12 +390,19 @@ def main(argv=None):
                             ok_reach = True
                             break
                     if s0 is None or not ok_reach or base_min_clear < 0.0:
+                        if base_min_clear >= 0.0:
+                            if s0 is None:
+                                n_c1_nos0 += 1
+                            else:
+                                n_c1_noreach += 1
                         continue
                     # ---- C1b: the handover itself must be legitimate ------ #
                     if clr0 <= 0.0 or (np.isfinite(mu0) and mu0 > 1e-9):
                         n_bad_s0 += 1
                         continue
                     # ---- C2/C3: resume from s0 and attack ----------------- #
+                    if a.goal_channel == "base":
+                        h.env.task.channel = "base"
                     atk = run_from_state(w, s0, [G1p, G1], max_steps=steps)
                 except Exception:
                     n_err += 1
@@ -268,7 +419,7 @@ def main(argv=None):
                             "from_state_clearance": float(atk.min_clearance),
                             "handover_clearance": float(clr0)})
                 # ---- prefix confirmation (the sound check) --------------- #
-                pre = w.run([g0, G1p, G1], max_steps=steps)
+                pre = run_ch(w, [g0, G1p, G1], a.goal_channel, max_steps=steps)
                 pleg = failing_leg(pre)
                 good = (pre.label in ok_attack
                         and (pre.label == "DEADLOCK" or pleg == 2))
@@ -282,12 +433,21 @@ def main(argv=None):
                           f"{atk.label} ({atk.min_clearance:+.6f})  prefix "
                           f"{pre.label} ({pre.min_clearance:+.6f}) leg {pleg}",
                           flush=True)
+                    if (a.max_controls
+                            and total_confirmed + len(confirmed) >= a.max_controls):
+                        print(f"   cap reached ({a.max_controls}) — stopping "
+                              f"this world after {len(ins)} insertion "
+                              f"candidates", flush=True)
+                        break
 
             print(f"   swept {len(g0s)} G0 -> {len(ins)} insertion, "
                   f"{len(confirmed)} prefix-CONFIRMED, {len(mods)} modification, "
-                  f"{n_bad_s0} bad handover, {n_err} errors "
+                  f"{n_bad_s0} bad handover, {n_err} errors | C1 rejects: "
+                  f"{n_c1_collided} collided, {n_c1_noreach} never reached G1, "
+                  f"{n_c1_nos0} no handover "
                   f"({time.time()-t0:.0f}s)", flush=True)
 
+            total_confirmed += len(confirmed)
             summary.append({"case": case, "seed": sd, "gate": gate.label,
                             "n_insertion": len(ins),
                             "n_modification": len(mods),

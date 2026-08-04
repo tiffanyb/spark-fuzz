@@ -94,6 +94,18 @@ def restore_world(harness, st: dict):
         if rec.get("last_frame") is not None:
             o.last_frame = np.asarray(rec["last_frame"], float)
         o.last_direction = np.asarray(rec["last_direction"], float)
+        # SIREN FIX (2026-08-03). get_info() publishes the obstacle velocity from
+        # `last_displacement` (the REALISED step, measured after the bound clamp),
+        # which older snapshots do not carry. It is recoverable EXACTLY rather
+        # than approximately: snapshots are taken between steps, so `frame` is
+        # post-clamp and `last_frame` is that step's pre-move snapshot, and their
+        # difference is the definition of last_displacement. Without this, a
+        # resumed run publishes a stale velocity on its first restored step.
+        if rec.get("last_frame") is not None:
+            o.last_displacement = (np.asarray(rec["frame"], float)[:3, 3]
+                                   - np.asarray(rec["last_frame"], float)[:3, 3])
+        else:
+            o.last_displacement = np.zeros(3)
         o.step_counter = int(rec["step_counter"])
         if rec.get("rs_state") is not None and getattr(o, "rs", None) is not None:
             k, keys, pos, has_gauss, cached = rec["rs_state"]
