@@ -324,16 +324,37 @@ def main(argv=None):
                 print(f"   base grid: {len(g0s)}/{n_raw} pass SPARK's "
                       f"base_goal_keepout={ko} (xy)", flush=True)
             else:
+                # SIREN: keep the rejects so the log covers the WHOLE grid, not
+                # just what survived admissibility.
+                _all = list(g0s)
                 g0s = [g for g in g0s if is_admissible(g, sc)[0]]
+                _adm = {tuple(np.round(g, 9)) for g in g0s}
+                g0_log = [{"G0": g.tolist(), "stage": "inadmissible"}
+                          for g in _all if tuple(np.round(g, 9)) not in _adm]
 
             t0 = time.time()
+            try:
+                g0_log
+            except NameError:
+                g0_log = []
             ins, mods, confirmed, n_bad_s0, n_err = [], [], [], 0, 0
             # SIREN FIX. The three C1 rejection reasons used to collapse into one
             # uncounted `continue`, so a sweep that rejected every G0 printed
             # "0 insertion, 0 bad handover, 0 errors" and gave no clue why.
             # Split them: collided / never reached G1 / no handover captured.
-            n_c1_collided = n_c1_noreach = n_c1_nos0 = 0
+            n_c1_collided = n_c1_noreach = n_c1_nos0 = n_attack_none = 0
             for g0 in g0s:
+                # SIREN: one record per tried G0, whatever happens to it. Before
+                # this, four distinct outcomes shared an uncounted `continue`, so
+                # a sweep reporting "0 insertion, 0 bad handover, 0 errors" gave
+                # no way to tell C1 failures from attacks that simply had no
+                # effect. On D1_AG_SO_v0 s24 that hid 37 of 125 candidates which
+                # PASSED C1 and then produced no collision.
+                _t0 = time.time()
+                cur = {"G0": g0.tolist(), "stage": None,
+                       "base_min_clear": None, "handover_clear": None,
+                       "attack_label": None, "attack_clear": None,
+                       "attack_leg": None}
                 try:
                     # ---- C1: legitimate task must reach; capture s0 ------- #
                     probe.reset_giveups(h)
@@ -389,31 +410,59 @@ def main(argv=None):
                         if h.env.task.reached_final:
                             ok_reach = True
                             break
+                    cur["base_min_clear"] = float(base_min_clear)
                     if s0 is None or not ok_reach or base_min_clear < 0.0:
                         if base_min_clear >= 0.0:
                             if s0 is None:
                                 n_c1_nos0 += 1
+                                cur["stage"] = "c1_no_handover"
                             else:
                                 n_c1_noreach += 1
+                                cur["stage"] = "c1_never_reached_G1"
+                        else:
+                            cur["stage"] = "c1_collided"
+                        cur["sec"] = round(time.time() - _t0, 2)
+                        g0_log.append(cur)
                         continue
                     # ---- C1b: the handover itself must be legitimate ------ #
+                    cur["handover_clear"] = float(clr0)
                     if clr0 <= 0.0 or (np.isfinite(mu0) and mu0 > 1e-9):
                         n_bad_s0 += 1
+                        cur["stage"] = "bad_handover"
+                        cur["sec"] = round(time.time() - _t0, 2)
+                        g0_log.append(cur)
                         continue
                     # ---- C2/C3: resume from s0 and attack ----------------- #
                     if a.goal_channel == "base":
                         h.env.task.channel = "base"
                     atk = run_from_state(w, s0, [G1p, G1], max_steps=steps)
-                except Exception:
+                except Exception as _e:
                     n_err += 1
+                    cur["stage"] = "error"
+                    cur["error"] = type(_e).__name__
+                    cur["sec"] = round(time.time() - _t0, 2)
+                    g0_log.append(cur)
                     continue
 
-                if atk.label not in ok_attack:
-                    continue
+                cur["attack_label"] = atk.label
+                cur["attack_clear"] = float(atk.min_clearance)
                 leg = failing_leg(atk)
+                cur["attack_leg"] = leg
+                if atk.label not in ok_attack:
+                    # C1 PASSED -- a legitimate G0 was found -- but inserting G1'
+                    # from that handover did not break the task. This is the
+                    # attack failing, NOT the G0 search failing.
+                    n_attack_none += 1
+                    cur["stage"] = "attack_no_effect"
+                    cur["sec"] = round(time.time() - _t0, 2)
+                    g0_log.append(cur)
+                    continue
                 if atk.label == "COLLISION" and leg == 0:
                     mods.append({"G0": g0.tolist(), "clearance":
                                  float(atk.min_clearance)})
+                    cur["stage"] = "modification"
+                    cur["sec"] = round(time.time() - _t0, 2)
+                    g0_log.append(cur)
                     continue
                 ins.append({"G0": g0.tolist(), "attack_label": atk.label,
                             "from_state_clearance": float(atk.min_clearance),
@@ -427,6 +476,11 @@ def main(argv=None):
                                 "prefix_leg": pleg,
                                 "prefix_clearance": float(pre.min_clearance),
                                 "confirmed": bool(good)})
+                cur.update({"stage": "confirmed" if good else "insertion_unconfirmed",
+                            "prefix_label": pre.label, "prefix_leg": pleg,
+                            "prefix_clear": float(pre.min_clearance),
+                            "sec": round(time.time() - _t0, 2)})
+                g0_log.append(cur)
                 if good:
                     confirmed.append(ins[-1])
                     print(f"   *** CONTROL G0={np.round(g0,3)}  from-state "
@@ -444,7 +498,8 @@ def main(argv=None):
                   f"{len(confirmed)} prefix-CONFIRMED, {len(mods)} modification, "
                   f"{n_bad_s0} bad handover, {n_err} errors | C1 rejects: "
                   f"{n_c1_collided} collided, {n_c1_noreach} never reached G1, "
-                  f"{n_c1_nos0} no handover "
+                  f"{n_c1_nos0} no handover | {n_attack_none} passed C1 but "
+                  f"attack had no effect "
                   f"({time.time()-t0:.0f}s)", flush=True)
 
             total_confirmed += len(confirmed)
@@ -452,6 +507,27 @@ def main(argv=None):
                             "n_insertion": len(ins),
                             "n_modification": len(mods),
                             "n_confirmed": len(confirmed)})
+            # SIREN: the per-G0 log is written for EVERY swept world, not only
+            # ones that yielded a control. A sweep that finds nothing is exactly
+            # the sweep whose 125 rejections you need to see; gating the record
+            # on `confirmed` threw that away.
+            sweep = {"case": case, "algo": a.algo, "seed": sd, "index": index,
+                     "gate": gate.label, "gate_clear": float(gate.min_clearance),
+                     "gate_steps": int(gate.n_steps),
+                     "G1_prime": G1p.tolist(), "G1": G1.tolist(),
+                     "bounds": [[float(l), float(hh)] for l, hh in sc.bounds],
+                     "obstacles_world": [list(map(float, np.asarray(o)[:3, 3]))
+                                         for o in sc.obstacles_world],
+                     "n_G0_swept": len(g0s), "elapsed_s": round(time.time() - t0, 1),
+                     "g0_stage_counts": {k: sum(1 for r in g0_log
+                                                if r.get("stage") == k)
+                                         for k in sorted({r.get("stage")
+                                                          for r in g0_log})},
+                     "g0_log": g0_log}
+            spath = f"{a.out_dir}/g0log_{tag}.json"
+            json.dump(sweep, open(spath, "w"), indent=2, default=float)
+            print(f"   wrote {spath}  ({sweep['g0_stage_counts']})", flush=True)
+
             if confirmed:
                 rec = {"case": case, "algo": a.algo, "seed": sd, "index": index,
                        "max_steps": steps, "d_min": 0.02, "eta": 0.02,
@@ -462,6 +538,16 @@ def main(argv=None):
                        "obstacles_world": [list(map(float, np.asarray(o)[:3, 3]))
                                            for o in sc.obstacles_world],
                        "n_G0_swept": len(g0s),
+                       # SIREN: one entry per grid point -- location + the stage
+                       # it died at. Stages: inadmissible | c1_collided |
+                       # c1_never_reached_G1 | c1_no_handover | bad_handover |
+                       # error | attack_no_effect | modification |
+                       # insertion_unconfirmed | confirmed.
+                       "g0_log": g0_log,
+                       "g0_stage_counts": {k: sum(1 for r in g0_log
+                                                  if r.get("stage") == k)
+                                           for k in sorted({r.get("stage")
+                                                            for r in g0_log})},
                        "seeds_scanned": [g["seed"] for g in gate_log],
                        "gate_log": gate_log,
                        "world_index": n_passed,
