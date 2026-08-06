@@ -48,7 +48,8 @@ def contact_leg(rec):
     return None
 
 
-def evaluate_candidate(world, G0, cand, G1, steps, hit_leg):
+def evaluate_candidate(world, G0, cand, G1, steps, hit_leg,
+                       channel="arm"):
     """Run [G0, cand, G1] and decide whether it is an attack of the wanted kind.
 
     Score mirrors pipeline_spec: engaged candidates outrank unengaged ones, and
@@ -57,8 +58,9 @@ def evaluate_candidate(world, G0, cand, G1, steps, hit_leg):
     ANTI-correlated with contact (corr -0.14), so any monotone function of it
     steers the search the wrong way.
     """
-    rec = world.run([np.asarray(G0, float), np.asarray(cand, float),
-                     np.asarray(G1, float)], max_steps=steps)
+    from .stage1_search import run_ch
+    rec = run_ch(world, [np.asarray(G0, float), np.asarray(cand, float),
+                         np.asarray(G1, float)], channel, max_steps=steps)
     leg = contact_leg(rec)
     is_attack = ((rec.label == "COLLISION" and leg == hit_leg)
                  or rec.label == "DEADLOCK")
@@ -86,11 +88,51 @@ def main(argv=None):
     p.add_argument("--out", required=True)
     a = p.parse_args(argv)
 
+    import dataclasses
+
     from ..scenario.targets import load_target
     from ..search.pick import make_picker, is_admissible
+    from .stage1_search import run_ch
 
     w, tgt = load_target(a.target)
     sc = w.scene()
+    channel = tgt.get("channel", "arm")
+
+    # A BASE target's coordinates are (x, y, yaw) base poses, not end-effector
+    # positions. Two things follow, and both used to be wrong here:
+    #   * every rollout has to go down the base channel, or the waypoints reach
+    #     the arm IK as an unreachable pose and casadi dies;
+    #   * the search space is base_goal_range + the yaw range, NOT the 0.3 m arm
+    #     workspace box. The bounds stored in the target are the ARM box even
+    #     for base targets (a stage-1 bug, fixed there too), so they are taken
+    #     from the live task rather than from the file.
+    admissible = is_admissible
+    if channel == "base":
+        task = w.harness.env.task
+        br = task.base_goal_range
+        rr = getattr(task, "base_goal_rot_range", (-np.pi, np.pi))
+        ko = float(getattr(task, "base_goal_keepout", 0.1))
+        sc = dataclasses.replace(
+            sc, bounds=((br[0][0], br[0][1]), (br[1][0], br[1][1]),
+                        (rr[0], rr[1])), keepout=ko)
+        obs_xy = (np.array([np.asarray(o)[:2, 3] for o in sc.obstacles_world])
+                  if sc.n_obstacles else None)
+
+        def admissible(cand, scene):
+            """SPARK's own rule for a sampled base goal: inside base_goal_range,
+            and at least base_goal_keepout from any obstacle in XY. The yaw
+            component has no keepout -- rotating in place cannot approach an
+            obstacle."""
+            g = np.asarray(cand, float).reshape(3)
+            for d in range(3):
+                lo, hi = scene.bounds[d]
+                if g[d] < lo or g[d] > hi:
+                    return False, "out_of_bounds"
+            if obs_xy is not None and len(obs_xy):
+                gap = float(np.min(np.linalg.norm(obs_xy - g[:2], axis=1)))
+                if gap < scene.keepout:
+                    return False, f"too_close({gap:.3f}<{scene.keepout:.3f})"
+            return True, "ok"
     steps = tgt["max_steps"]
     G0 = np.asarray(tgt["G0_commanded"], float)
     G1 = np.asarray(tgt["G1"], float)
@@ -100,11 +142,13 @@ def main(argv=None):
 
     print(f"target {tgt['name']}")
     print(f"  {tgt['case']}  filter={tgt['algo']}  seed={tgt['seed']}  "
-          f"kind={kind} -> a hit is contact on leg {hit_leg}")
+          f"channel={channel}  kind={kind} -> a hit is contact on leg {hit_leg}")
+    print(f"  search space {[tuple(round(float(x), 3) for x in b) for b in sc.bounds]}"
+          f"  keepout {sc.keepout}")
 
-    base = w.run([G0, G1], max_steps=steps)
+    base = run_ch(w, [G0, G1], channel, max_steps=steps)
     base_clear = min((s.clearance for s in base.steps), default=np.inf)
-    known = w.run([G0, truth, G1], max_steps=steps)
+    known = run_ch(w, [G0, truth, G1], channel, max_steps=steps)
     print(f"  baseline [G0,G1]         {base.label} "
           f"(min clearance {base_clear:+.6f})")
     print(f"  known attack [G0,G1*,G1] {known.label} "
@@ -125,6 +169,7 @@ def main(argv=None):
         for ss in [int(x) for x in a.search_seeds.split(",") if x.strip()]:
             picker = make_picker(pname, sc, seed=ss)
             n_eval, first_hit, hits, evals, n_inadm = 0, None, [], [], 0
+            n_err = 0
             prev_round_ids, rnd, t0 = [], 0, time.time()
             while n_eval < a.budget:
                 want = min(a.batch, a.budget - n_eval)
@@ -133,7 +178,7 @@ def main(argv=None):
                     break
                 scored, this_round = [], []
                 for c in cands:
-                    if not is_admissible(c, sc)[0]:
+                    if not admissible(c, sc)[0]:
                         n_inadm += 1
                         evals.append({"id": str(uuid.uuid4()),
                                       "stage": "inadmissible", "round": rnd,
@@ -142,8 +187,27 @@ def main(argv=None):
                                       "cand": [float(x) for x in
                                                np.asarray(c, float).reshape(-1)]})
                         continue
-                    atk, rec, leg, score, eng = evaluate_candidate(
-                        w, G0, c, G1, steps, hit_leg)
+                    # A candidate the whole-body IK cannot solve raises out of
+                    # casadi ("Maximum_Iterations_Exceeded") and used to kill the
+                    # whole run -- 6 of 59 targets produced no result at all, and
+                    # a crash midway is indistinguishable from a search that
+                    # found nothing. Charge it as a spent evaluation (it cost a
+                    # rollout attempt) and carry on; the picker simply never
+                    # hears about it, which is correct since there is no score.
+                    try:
+                        atk, rec, leg, score, eng = evaluate_candidate(
+                            w, G0, c, G1, steps, hit_leg, channel)
+                    except Exception as e:
+                        n_eval += 1
+                        n_err += 1
+                        evals.append({"id": str(uuid.uuid4()), "stage": "error",
+                                      "round": rnd, "eval": int(n_eval),
+                                      "t": time.time() - t_start,
+                                      "parent_ids": prev_round_ids,
+                                      "cand": [float(x) for x in
+                                               np.asarray(c, float).reshape(-1)],
+                                      "error": f"{type(e).__name__}: {e}"[:200]})
+                        continue
                     n_eval += 1
                     scored.append((c, score))
                     uid = str(uuid.uuid4())
@@ -181,12 +245,13 @@ def main(argv=None):
             rows.append({"picker": pname, "search_seed": ss,
                          "n_eval": n_eval, "n_attacks": len(hits),
                          "first_hit": first_hit, "best_dist_to_truth": best,
-                         "n_inadmissible": n_inadm, "n_rounds": rnd,
+                         "n_inadmissible": n_inadm,
+                         "n_errors": n_err, "n_rounds": rnd,
                          "elapsed_s": round(time.time() - t0, 1),
                          "evaluations": evals})
             print(f"  {pname:<14} s{ss}  attacks {len(hits):>3}/{n_eval}  "
                   f"first {str(first_hit):>5}  rounds {rnd}  "
-                  f"({rows[-1]['elapsed_s']}s)", flush=True)
+                  f"err {n_err}  ({rows[-1]['elapsed_s']}s)", flush=True)
 
     print(f"\n{'='*76}")
     print(f"{'picker':<16}{'attacks':>9}{'rate':>7}{'1st':>6}"

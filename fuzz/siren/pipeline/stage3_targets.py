@@ -63,6 +63,26 @@ def main(argv=None):
         w = World.build(seed=seed, spec=spec, test_case=case, max_steps=steps)
         h = w.harness
 
+        # Which goal channel this target attacks. Targets written before the
+        # channel was recorded are all arm-channel, so that is the fallback.
+        channel = v.get("channel", "arm")
+
+        def drive(schedule, world=w, ch=channel):
+            """Send a waypoint list down the channel the target belongs to.
+
+            A base target's G0/G1' are (x, y, yaw) base poses, not end-effector
+            positions -- pushing them through set_goal_schedule would command
+            the arm to a pose that is not even in the same space. set_channel is
+            stage 1's own helper, reused so the two stages cannot drift apart.
+            """
+            from .stage1_search import set_channel
+            set_channel(world, ch)
+            t = world.harness.env.task
+            if ch == "base":
+                t.set_base_goal_schedule(schedule)
+            else:
+                t.set_goal_schedule(schedule)
+
         # --- capture the state at the HANDOVER, not at a settled stop ----- #
         # Running schedule [G0] alone makes G0 the FINAL waypoint, so the
         # reference controller decelerates into it and the arm arrives at rest.
@@ -79,7 +99,7 @@ def main(argv=None):
         from ..world.sim import probe
         probe.reset_giveups(h)
         af, ti = h.reset()
-        h.env.task.set_goal_schedule([G0, G1])
+        drive([G0, G1])
         u, ai = h.algo.act(af, ti)
         reached_at, state = None, None
         for t in range(steps):
@@ -100,6 +120,7 @@ def main(argv=None):
 
         target = {
             "name": tag, "case": case, "algo": algo, "seed": seed,
+            "channel": channel,          # arm | base -- drives every rollout
             "kind": v.get("kind", "INSERTION"),   # what stage 2 verified
             "index": v["index"], "max_steps": steps,
             "d_min": v["d_min"], "eta": v["eta"], "lam": v["lam"], "k": v["k"],
@@ -128,10 +149,18 @@ def main(argv=None):
         # targets.py). Running the same rollout does, exactly.
         w2, tgt = load_target(tpath)
         G0r = np.asarray(tgt["G0_commanded"])
-        clean = w2.run([G0r, np.asarray(tgt["G1"])], max_steps=steps)
-        atk = w2.run([G0r, np.asarray(tgt["G1_prime_truth"]),
-                      np.asarray(tgt["G1"])], max_steps=steps)
-        ok = clean.label == "REACHED" and atk.label == "COLLISION"
+        from .stage1_search import run_ch
+        ch = tgt.get("channel", "arm")
+        clean = run_ch(w2, [G0r, np.asarray(tgt["G1"])], ch, max_steps=steps)
+        atk = run_ch(w2, [G0r, np.asarray(tgt["G1_prime_truth"]),
+                          np.asarray(tgt["G1"])], ch, max_steps=steps)
+        # DEADLOCK counts. Stage 2 verifies an attack as COLLISION *or*
+        # DEADLOCK, and stage3_fuzz scores a deadlock as a hit -- but this
+        # round trip used to demand COLLISION, so all 6 deadlock attacks were
+        # silently dropped here and could never be fuzzed. Filter-induced
+        # infeasibility is the more interesting failure of the two; it is the
+        # filter refusing to move rather than failing to avoid.
+        ok = clean.label == "REACHED" and atk.label in ("COLLISION", "DEADLOCK")
         print(f"  {tag}", flush=True)
         print(f"      G0 reached at step {reached_at}, joint speed {speed:.4f}",
               flush=True)

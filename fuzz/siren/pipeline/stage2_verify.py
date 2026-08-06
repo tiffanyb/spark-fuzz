@@ -41,7 +41,7 @@ def contact_leg(steps):
     return None
 
 
-def instrumented_run(world, schedule, max_steps):
+def instrumented_run(world, schedule, max_steps, channel="arm"):
     """One rollout, keeping everything needed to re-render and to investigate.
 
     World.run already records per-step clearance/phi/mu/g/demand/brake_margin/
@@ -53,10 +53,20 @@ def instrumented_run(world, schedule, max_steps):
     """
     from ..world.sim import probe
 
+    from .stage1_search import run_ch, set_channel
+
     h = world.harness
     probe.reset_giveups(h)
     af, ti = h.reset()
-    h.env.task.set_goal_schedule(schedule)
+    # Drive the channel this control was FOUND on. A base control's waypoints
+    # are (x, y, yaw) base poses; sending them to set_goal_schedule would
+    # command the arm to a pose in a different space entirely, so the rollout
+    # would verify something that is not the attack.
+    set_channel(world, channel)
+    if channel == "base":
+        h.env.task.set_base_goal_schedule(schedule)
+    else:
+        h.env.task.set_goal_schedule(schedule)
     u, ai = h.algo.act(af, ti)
 
     qpos, obst, ctrl = [], [], []
@@ -69,8 +79,8 @@ def instrumented_run(world, schedule, max_steps):
                                 for o in ti["obstacle"]["frames_world"]], float))
         if h.clearance(ti) < 0.0 or h.env.task.reached_final:
             break
-    rec = world.run(schedule, max_steps=max_steps, exact_margin=True,
-                    keep_q=True)
+    rec = run_ch(world, schedule, channel, max_steps=max_steps,
+                 exact_margin=True, keep_q=True)
     return rec, np.array(qpos), np.array(obst), np.array(ctrl)
 
 
@@ -104,10 +114,16 @@ def main(argv=None):
     p.add_argument("--trace-stride", type=int, default=5)
     p.add_argument("--render", action="store_true", default=False)
     p.add_argument("--only", default=None)
+    p.add_argument("--tag-offset", type=int, default=0,
+                   help="first index for the {KIND}{n} suffix. The tag is the "
+                        "output FILENAME, so appending to a directory that "
+                        "already holds INSERTION0..52 without an offset would "
+                        "silently overwrite those files and their traces.")
     a = p.parse_args(argv)
 
     from ..world.run import World
     from ..world.types import real_filter
+    from .stage1_search import run_ch
 
     os.makedirs(a.out_dir, exist_ok=True)
     files = sorted(f for f in glob.glob(a.src)
@@ -126,21 +142,25 @@ def main(argv=None):
                         max_steps=steps)
         G1 = np.asarray(src["G1"], float)
         G1p = np.asarray(src["G1_prime"], float)
+        # arm | base. Records written before the field existed are
+        # all arm-channel searches, so that is the fallback.
+        channel = src.get("channel", "arm")
 
         for i, c in enumerate(src.get("controls", [])):
             G0 = np.asarray(c["G0"], float)
-            base = w.run([G0, G1], max_steps=steps)
+            base = run_ch(w, [G0, G1], channel, max_steps=steps)
             base_clear = min((s.clearance for s in base.steps), default=np.inf)
             if base.label != "REACHED" or base_clear <= 0.0:
                 rejected.append((os.path.basename(path), i,
                                  f"baseline {base.label} {base_clear:+.6f}"))
                 continue
 
-            rec, qpos, obst, ctrl = instrumented_run(w, [G0, G1p, G1], steps)
+            rec, qpos, obst, ctrl = instrumented_run(
+                w, [G0, G1p, G1], steps, channel=channel)
             labels = [rec.label]
             legs = [contact_leg(rec.steps)]
             for _ in range(a.repeats - 1):
-                r2 = w.run([G0, G1p, G1], max_steps=steps)
+                r2 = run_ch(w, [G0, G1p, G1], channel, max_steps=steps)
                 labels.append(r2.label)
                 legs.append(contact_leg(r2.steps))
             if not all(l in ("COLLISION", "DEADLOCK") for l in labels):
@@ -157,8 +177,10 @@ def main(argv=None):
                 continue
 
             tag = (f"{src['case']}_{src['algo']}_s{src['seed']}"
-                   f"_lam{src['lam']}_{kind}{len(kept)}")
+                   f"_lam{src['lam']}_{channel}_{kind}"
+                   f"{a.tag_offset + len(kept)}")
             out = {"kind": kind, "case": src["case"], "algo": src["algo"],
+                   "channel": channel,
                    "seed": src["seed"], "index": src["index"],
                    "max_steps": steps, "d_min": src["d_min"],
                    "eta": src["eta"], "lam": src["lam"], "k": src["k"],

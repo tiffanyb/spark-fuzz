@@ -253,7 +253,10 @@ def main(argv=None):
             else:
                 spec = real_filter(algo=a.algo, index=index, d_min=0.02,
                                    eta=0.02, lam=a.lam, k=0.1)
-            tag = f"{case}_{a.algo}_s{sd}_lam{a.lam}"
+            # The channel belongs in the tag. Without it an arm job and a base
+            # job for the same (case, algo, seed) write the SAME filename, so
+            # whichever finishes last silently erases the other's controls.
+            tag = f"{case}_{a.algo}_s{sd}_lam{a.lam}_{a.goal_channel}"
             try:
                 w = World.build(seed=sd, spec=spec, test_case=case,
                                 max_steps=steps)
@@ -529,11 +532,32 @@ def main(argv=None):
             print(f"   wrote {spath}  ({sweep['g0_stage_counts']})", flush=True)
 
             if confirmed:
+                # Record the ACTUAL spec, not hardcoded literals. These four
+                # fields used to be written as 0.02/0.02/a.lam/0.1 regardless of
+                # --config, so a trial1 (SPARK-default) target claimed trial2's
+                # values -- which defeats the point of the config file, since the
+                # whole trial comparison rests on the recorded parameters.
                 rec = {"case": case, "algo": a.algo, "seed": sd, "index": index,
-                       "max_steps": steps, "d_min": 0.02, "eta": 0.02,
-                       "lam": a.lam, "k": 0.1,
+                       # which goal channel this target attacks. Stage 3 must
+                       # drive a base target through set_base_goal_schedule, not
+                       # set_goal_schedule, or it silently fuzzes the wrong goal.
+                       "channel": a.goal_channel,
+                       "config": (tconf.get("name") if tconf else None),
+                       "max_steps": steps,
+                       "d_min": spec.d_min, "eta": spec.eta,
+                       "lam": (spec.lam if spec.lam is not None else a.lam),
+                       "k": spec.k,
+                       "slack_weight": getattr(spec, "slack_weight", None),
+                       "overrides": dict(spec.overrides or {}),
                        "G1_prime": G1p.tolist(), "G1": G1.tolist(),
-                       "bounds": [[float(l), float(hh)] for l, hh in sc.bounds],
+                       # the bounds actually SEARCHED. sc.bounds is the arm
+                       # workspace box; on the base channel the search ran over
+                       # base_goal_range + yaw instead, and recording the arm box
+                       # there gave downstream stages a search space that does
+                       # not even contain the goals in the file.
+                       "bounds": [[float(x) for x in b] for b in
+                                  (zip(lo, hi) if a.goal_channel == "base"
+                                   else sc.bounds)],
                        "keepout": float(sc.keepout),
                        "obstacles_world": [list(map(float, np.asarray(o)[:3, 3]))
                                            for o in sc.obstacles_world],
