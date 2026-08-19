@@ -69,3 +69,64 @@ def candidate_spots(base_pts, atk_pts, R, d_min, n=12, clear=0.05):
         if len(keep) >= n:
             break
     return keep
+
+
+# --------------------------------------------------------------------------- #
+# Surface separation.
+#
+# sweep_points returns collision-volume CENTRES. The original placement metric
+# was `min |p - b| - R_obstacle`, which subtracts only the obstacle's radius and
+# silently treats the robot as a point cloud. The robot is not a point cloud:
+# SPARK models it as spheres of 0.05 m on arm links, 0.06 at the shoulder rolls,
+# 0.08-0.10 at the torso. The true free space between an obstacle of radius R
+# centred at p and a robot sphere of radius r_b centred at b is
+#
+#     |p - b| - R - r_b
+#
+# Omitting r_b overstates free space by 5-10 cm, which is larger than the entire
+# band the placement search operates in -- every placement selected under the old
+# metric sits INSIDE the swept volume rather than clear of it. Both call sites
+# had the same bug, so the corrected metric lives here and is shared.
+# --------------------------------------------------------------------------- #
+
+def volume_radii(world):
+    """Radius of each guarded collision volume, in CollisionVol iteration order.
+
+    sweep_points and legs_sweep append one point per volume per step in exactly
+    this order, so the per-point radii are this array tiled over the steps.
+    """
+    out = []
+    for g in world.harness.robot_cfg.CollisionVol.values():
+        r = (g.attributes["radius"] if hasattr(g, "attributes")
+             else getattr(g, "radius", 0.05))
+        out.append(float(r))
+    return np.array(out, float)
+
+
+def tile_radii(world, n_points):
+    """Per-point radii for a sweep of n_points, tiled from volume_radii."""
+    r = volume_radii(world)
+    if n_points % len(r):
+        raise ValueError(f"{n_points} points is not a whole number of sweeps "
+                         f"over {len(r)} collision volumes")
+    return np.resize(r, n_points)
+
+
+def surface_gap(probe_pts, swept_pts, swept_radii, r_obstacle, chunk=256):
+    """Free space between a sphere of radius r_obstacle at each probe point and
+    the nearest surface of the swept volume.
+
+    Returns one value per probe point. Negative means the sphere overlaps the
+    swept volume. Chunked so the pairwise distance never materialises in full.
+    """
+    probe_pts = np.asarray(probe_pts, float)
+    swept_pts = np.asarray(swept_pts, float)
+    swept_radii = np.asarray(swept_radii, float)
+    if len(probe_pts) == 0 or len(swept_pts) == 0:
+        return np.full(len(probe_pts), np.inf)
+    out = np.empty(len(probe_pts))
+    for i in range(0, len(probe_pts), chunk):
+        blk = probe_pts[i:i + chunk]
+        d = np.linalg.norm(blk[:, None, :] - swept_pts[None, :, :], axis=2)
+        out[i:i + chunk] = (d - swept_radii[None, :]).min(axis=1)
+    return out - float(r_obstacle)

@@ -39,6 +39,8 @@ STEPS = 900
 GEOM = "fuzz/siren/constructed/separation_geom.json"
 OUT = "fuzz/siren/constructed/final_attacks"
 PARK = np.array([9.0, 9.0, 9.0])
+#: obstacle radius the separation geometry is computed for
+R_STOCK_GEOM = 0.05
 
 
 def park_all(world):
@@ -89,7 +91,7 @@ def goal_grid(bounds, n=4):
 def phase_geom(n_grid, sub):
     from ..pipeline import trialconf
     from ..world.run import World
-    from .swept import sweep_points  # noqa: F401
+    from .swept import surface_gap, sweep_points, volume_radii  # noqa: F401
 
     cfg = trialconf.load("fuzz/siren/pipeline/configs/trial2_ours.yaml")
     spec = trialconf.spec_for(cfg, "ssa", CASE)
@@ -101,8 +103,11 @@ def phase_geom(n_grid, sub):
 
     park_all(w)
     base = sweep_points(w, [G0, G1], STEPS)
-    B = base[:: max(1, len(base) // sub)]
-    print(f"baseline sweep {len(base)} pts (subsampled {len(B)})", flush=True)
+    vol_r = volume_radii(w)
+    nv = len(vol_r)
+    B = base.reshape(-1, nv, 3)[:: max(1, len(base) // nv // sub)].reshape(-1, 3)
+    print(f"baseline sweep {len(base)} pts (subsampled {len(B)}), "
+          f"{nv} collision volumes", flush=True)
 
     rows = []
     for i, G1p in enumerate(goal_grid(bounds, n_grid)):
@@ -114,16 +119,22 @@ def phase_geom(n_grid, sub):
             print(f"  [{i:3d}] G1'={np.round(G1p,3)} return leg never ran",
                   flush=True)
             continue
-        A = leg2[:: max(1, len(leg2) // sub)]
-        L1 = leg1[:: max(1, len(leg1) // sub)]
+        # subsample by whole sweeps so point order still matches CollisionVol
+        A = leg2.reshape(-1, nv, 3)[:: max(1, len(leg2) // nv // sub)].reshape(-1, 3)
+        L1 = leg1.reshape(-1, nv, 3)[:: max(1, len(leg1) // nv // sub)].reshape(-1, 3)
         # An insertion needs contact on the RETURN leg only, so the obstacle has
         # to clear two volumes, not one: the baseline (or the legitimate task
         # breaks and there is nothing to attack) and the OUTBOUND leg (or the
         # contact lands on leg 1, which is a modification, not an insertion).
         # Scoring on the min of the two distances is what separates the cases;
         # scoring on the baseline alone put every contact on leg 1.
-        db = np.min(np.linalg.norm(A[:, None, :] - B[None, :, :], axis=2), axis=1)
-        d1 = np.min(np.linalg.norm(A[:, None, :] - L1[None, :, :], axis=2), axis=1)
+        # Surface separation, not centre-to-centre: the robot's own collision
+        # spheres (0.05 m arm, up to 0.10 m torso) must be subtracted too, or a
+        # placement reported as clear is actually inside the swept volume. `d`
+        # now already accounts for the obstacle radius, so callers must not
+        # subtract R again.
+        db = surface_gap(A, B, np.resize(vol_r, len(B)), R_STOCK_GEOM)
+        d1 = surface_gap(A, L1, np.resize(vol_r, len(L1)), R_STOCK_GEOM)
         d = np.minimum(db, d1)
         j = int(np.argmax(d))
         rows.append({"G1_prime": G1p.tolist(), "spot": A[j].tolist(),
@@ -141,9 +152,13 @@ def phase_geom(n_grid, sub):
         print(f"   sep {r['sep']:.4f}  G1'={np.round(r['G1_prime'],3)}")
     # an obstacle of radius R fits without touching the baseline when
     # sep > R + d_min + clear
-    for R in (0.03, 0.05, 0.07, 0.09):
-        k = sum(1 for r in rows if r["sep"] > R + 0.02 + 0.02)
-        print(f"   R={R}: {k} candidates clear the baseline")
+    # `sep` is now true surface separation for a 0.05 m sphere, so a placement
+    # genuinely clears the legitimate volume when sep > 0 (add d_min if the
+    # filter must also never engage on it).
+    for thr, label in ((0.0, "clear of the swept volume"),
+                       (0.02, "clear by d_min as well")):
+        k = sum(1 for r in rows if r["sep"] > thr)
+        print(f"   sep > {thr}: {k} candidates {label}")
     return 0
 
 

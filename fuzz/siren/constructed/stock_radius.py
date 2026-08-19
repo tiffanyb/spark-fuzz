@@ -78,7 +78,7 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     from ..pipeline import trialconf
     from ..world.run import World
     from .separated_search import legs_sweep
-    from .swept import sweep_points
+    from .swept import surface_gap, sweep_points, tile_radii
 
     cfg = trialconf.load("fuzz/siren/pipeline/configs/trial2_ours.yaml")
     spec0 = trialconf.spec_for(cfg, "ssa", CASE)
@@ -87,9 +87,16 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     G0, G1 = np.asarray(sc.G0, float), np.asarray(sc.G1, float)
     bounds = [(float(x), float(y)) for x, y in sc.bounds]
     park_all(w)
+    vol_r = None
     B = sweep_points(w, [G0, G1], steps)
-    B = B[:: max(1, len(B) // 1500)]
-    print(f"seed {seed}: baseline sweep {len(B)} pts", flush=True)
+    from .swept import volume_radii
+    vol_r = volume_radii(w)
+    nv = len(vol_r)
+    B = B.reshape(-1, nv, 3)[:: max(1, len(B) // nv // 1500)].reshape(-1, 3)
+    rB = np.resize(vol_r, len(B))
+    print(f"seed {seed}: baseline sweep {len(B)} pts, "
+          f"{nv} collision volumes (radii {vol_r.min():.2f}-{vol_r.max():.2f} m)",
+          flush=True)
 
     spots = []
     for i, G1p in enumerate(goal_grid(bounds, grid)):
@@ -99,24 +106,43 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
         leg1, leg2 = legs.get(1, np.zeros((0, 3))), legs.get(2, np.zeros((0, 3)))
         if len(leg1) == 0 or len(leg2) == 0:
             continue
-        A = leg2[:: max(1, len(leg2) // 1500)]
-        L1 = leg1[:: max(1, len(leg1) // 1500)]
-        db = np.min(np.linalg.norm(A[:, None] - B[None], axis=2), axis=1)
-        d1 = np.min(np.linalg.norm(A[:, None] - L1[None], axis=2), axis=1)
-        sep = np.minimum(db, d1)
-        gap = sep - R_STOCK
+        # Subsample by whole sweeps so the point order still matches the
+        # CollisionVol order the radii are tiled from.
+        nv = len(vol_r)
+        A = leg2.reshape(-1, nv, 3)[:: max(1, len(leg2) // nv // 1500)].reshape(-1, 3)
+        L1 = leg1.reshape(-1, nv, 3)[:: max(1, len(leg1) // nv // 1500)].reshape(-1, 3)
+        rA = np.resize(vol_r, len(A))
+        r1 = np.resize(vol_r, len(L1))
+        # free space between a radius-R sphere at each return-leg point and the
+        # nearest SURFACE of the legitimate volume / the outbound leg
+        db = surface_gap(A, B, rB, R_STOCK)
+        d1 = surface_gap(A, L1, r1, R_STOCK)
+        gap = np.minimum(db, d1)
+        # the old centre-to-centre quantity, kept so placements recorded under
+        # the previous metric remain locatable
+        legacy = np.minimum(
+            np.min(np.linalg.norm(A[:, None] - B[None], axis=2), axis=1),
+            np.min(np.linalg.norm(A[:, None] - L1[None], axis=2), axis=1)) - R_STOCK
         ok = (gap >= gap_lo) & (gap <= gap_hi)
         if not ok.any():
             continue
-        pts, gs = A[ok], gap[ok]
-        order = np.argsort(gs)          # tightest fit first
+        pts, gs, lg = A[ok], gap[ok], legacy[ok]
+        # Least-overlapping first. Under the old centre-to-centre metric the
+        # productive end of the band was the TIGHTEST fit, so this sorted
+        # ascending. With surface separation the sign flips: every placement
+        # overlaps the legitimate volume, and the ones that overlap LEAST are
+        # the ones that can leave the legitimate task completable. Sorting
+        # ascending here would now select the placements most likely to break
+        # the baseline outright.
+        order = np.argsort(-gs)
         chosen = []
         for j in order:
             if all(np.linalg.norm(pts[j] - c) > 0.03 for c in chosen):
                 chosen.append(pts[j])
                 spots.append({"G1_prime": G1p.tolist(),
                               "spot": pts[j].tolist(),
-                              "gap": float(gs[j])})
+                              "gap": float(gs[j]),
+                              "gap_centre_legacy": float(lg[j])})
             if len(chosen) >= per_goal:
                 break
         print(f"  [{i:3d}] G1'={np.round(G1p,3)} {int(ok.sum())} in band -> "
@@ -125,6 +151,14 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
 
     spots.sort(key=lambda s: s["gap"])
     json.dump({"case": CASE, "seed": seed, "R": R_STOCK,
+               "metric_version": 2,
+               "metric": "gap = free space between a radius-R sphere at the "
+                         "placement and the nearest SURFACE of the legitimate "
+                         "swept volume or the outbound leg; negative means the "
+                         "sphere overlaps it. gap_centre_legacy is the previous "
+                         "centre-to-centre quantity, which omitted the robot's "
+                         "own collision radius and overstated free space by "
+                         "0.05-0.10 m.",
                "G0": G0.tolist(), "G1": G1.tolist(), "bounds": bounds,
                "spots": spots}, open(SPOTS, "w"), indent=1)
     print(f"\n{len(spots)} placements at R={R_STOCK} -> {SPOTS}", flush=True)
@@ -294,13 +328,16 @@ def main(argv=None):
     p.add_argument("--seed", type=int, default=1)
     p.add_argument("--grid", type=int, default=4)
     p.add_argument("--steps", type=int, default=1200)
-    p.add_argument("--gap-lo", type=float, default=0.016)
-    p.add_argument("--gap-hi", type=float, default=0.040)
+    p.add_argument("--gap-lo", type=float, default=-0.034,
+                   help="metric v2: true surface separation. The v1 band "
+                        "[0.016, 0.040] was centre-to-centre and corresponds to "
+                        "[-0.034, -0.010] here.")
+    p.add_argument("--gap-hi", type=float, default=-0.010)
     p.add_argument("--per-goal", type=int, default=6)
     p.add_argument("--max-spots", type=int, default=40)
     p.add_argument("--ks", default=None,
                    help="phi_k values to scan (SPARK ships 0.1 and 1.0)")
-    p.add_argument("--gap-target", type=float, default=0.027,
+    p.add_argument("--gap-target", type=float, default=-0.023,
                    help="free room sep-R the confirmed attacks land at; spots "
                         "are tried in order of distance from it")
     p.add_argument("--want", type=int, default=1)
