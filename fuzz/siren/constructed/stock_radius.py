@@ -30,6 +30,7 @@ Two corrections over separated_search:
 """
 
 import argparse
+import gc
 import json
 import os
 
@@ -38,10 +39,9 @@ import numpy as np
 from .separated_search import CASE, PARK, goal_grid, park_all
 
 R_STOCK = 0.05
-SPOTS = "fuzz/siren/constructed/stock_spots.json"
-OUT = "fuzz/siren/constructed/stock_attacks"
+SPOTS = "fuzz/siren/constructed/rq1_results/stock_spots"
+OUT = "fuzz/siren/constructed/rq1_results/stock_attacks"
 
-MAX_SEED = 10  # how many seeds to scan when --seed=-1
 
 def run(world, schedule, pos_w, R, steps):
     """Rollout with the obstacles pinned; None if the solver gave out.
@@ -61,6 +61,22 @@ def run(world, schedule, pos_w, R, steps):
         print(f"     solver failed ({type(e).__name__}) -- setting skipped",
               flush=True)
         return None
+
+
+def free_worlds(*names_locals):
+    """Drop Worlds and reclaim promptly.
+
+    Each World holds a MuJoCo model plus a SPARK harness -- measured at about
+    1.06 GB. Letting one fall out of scope is not enough: six built and dropped
+    left RSS 3.6 GB above baseline, and a hunt building 66 Worlds in three
+    minutes climbed 4.6 -> 15.3 GB and kept climbing. Collecting explicitly
+    after each use holds the cost to ~82 MB per World, a 13x reduction.
+
+    This is not a tidiness nicety. Running six such workers in parallel is what
+    starved the machine: the kernel panicked with a userspace watchdog timeout
+    (no WindowServer check-in for 122 s) under the memory pressure.
+    """
+    gc.collect()
 
 
 def legwise(rec):
@@ -104,6 +120,8 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
         w2 = World.build(seed=seed, spec=spec0, test_case=CASE, max_steps=steps)
         park_all(w2)
         legs = legs_sweep(w2, [G0, G1p, G1], steps)
+        w2 = None
+        free_worlds()
         leg1, leg2 = legs.get(1, np.zeros((0, 3))), legs.get(2, np.zeros((0, 3)))
         if len(leg1) == 0 or len(leg2) == 0:
             continue
@@ -152,6 +170,8 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
               flush=True)
 
     spots.sort(key=lambda s: s["gap"])
+    spot_file = f"{SPOTS}_{seed}.json"
+    os.makedirs(os.path.dirname(spot_file), exist_ok=True)
     json.dump({"case": CASE, "seed": seed, "R": R_STOCK,
                "metric_version": 2,
                "metric": "gap = free space between a radius-R sphere at the "
@@ -162,8 +182,8 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
                          "own collision radius and overstated free space by "
                          "0.05-0.10 m.",
                "G0": G0.tolist(), "G1": G1.tolist(), "bounds": bounds,
-               "spots": spots}, open(SPOTS, "w"), indent=1)
-    print(f"\n{len(spots)} placements at R={R_STOCK} -> {SPOTS}", flush=True)
+               "spots": spots}, open(spot_file, "w"), indent=1)
+    print(f"\n{len(spots)} placements at R={R_STOCK} -> {spot_file}", flush=True)
     return 0
 
 
@@ -173,16 +193,22 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
     from ..world.run import World
     from ..world.types import real_filter
 
-    s = json.load(open(SPOTS))
+    spot_file = f"{SPOTS}_{seed}.json"
+    s = json.load(open(spot_file))
     # Try the placements whose free room matches the band the confirmed attacks
     # landed in first. Every insertion found so far sits at sep - R between
     # 0.024 and 0.030: tighter and the filter simply stops short of the sphere,
     # looser and it has room to route around. Ordering tightest-first spent the
     # budget on the end of the range that never produces a hit.
-    s = filter(lambda x: x["seed"] == seed, s)
     s["spots"].sort(key=lambda x: abs(x["gap"] - gap_target))
     G0, G1 = np.asarray(s["G0"], float), np.asarray(s["G1"], float)
-    seed = s["seed"]
+    # The corpus records the seed it was generated on. Trust the file over the
+    # argument, but refuse to run if they disagree -- silently ignoring --seed
+    # would hunt one scene while reporting another.
+    if int(s["seed"]) != int(seed):
+        raise SystemExit(f"--seed {seed} but {spot_file} was generated on seed "
+                         f"{s['seed']}; regenerate the corpus or pass --seed "
+                         f"{s['seed']}")
     cfg = trialconf.load("fuzz/siren/pipeline/configs/trial2_ours.yaml")
     os.makedirs(OUT, exist_ok=True)
 
@@ -231,6 +257,8 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
             wp_ = World.build(seed=seed, spec=probe_spec, test_case=CASE,
                               max_steps=steps)
             pr = run(wp_, [G0, G1p, G1], pos_w, R_STOCK, steps)
+            wp_ = None
+            free_worlds()
             if pr is None:
                 continue
             pper, phit, _ = legwise(pr)
@@ -259,6 +287,8 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
                     continue
                 aper, ahit, an = legwise(atk)
                 if ahit != 2:
+                    w2 = None
+                    free_worlds()
                     continue
                 w = World.build(seed=seed, spec=spec, test_case=CASE,
                                 max_steps=steps)
@@ -266,6 +296,8 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
                 if b is None:
                     continue
                 bper, bhit, bn = legwise(b)
+                w = None
+                free_worlds()
                 bmin = min(bper.values()) if bper else np.inf
                 if b.label != "REACHED" or bmin <= 0:
                     print(f"  {algo:<5} gap={sp['gap']:.4f} leg2 hit but "
@@ -281,9 +313,13 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
                       flush=True)
                 # fresh world: the IK warm start persists across reset(), so a
                 # hit inside a reused World is not yet a result
+                w2 = None
+                free_worlds()
                 w3 = World.build(seed=seed, spec=spec, test_case=CASE,
                                  max_steps=steps)
                 a2 = run(w3, [G0, G1p, G1], pos_w, R_STOCK, steps)
+                w3 = None
+                free_worlds()
                 if a2 is None:
                     continue
                 p2, h2, _ = legwise(a2)
@@ -312,7 +348,7 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
                            "leg2_min": float(min(aper.get(2, np.inf),
                                                  p2.get(2, np.inf))),
                            "hit_leg": "INSERTION"},
-                          open(f"{OUT}/{algo}_{hits}.json", "w"),
+                          open(f"{OUT}/{algo}_{hits}_{seed}.json", "w"),
                           indent=1, default=float)
                 hits += 1
                 total += 1
@@ -349,18 +385,13 @@ def main(argv=None):
     p.add_argument("--algos", default="ssa,rssa,pssa,cbf,rcbf,sss,rsss")
     a = p.parse_args(argv)
     if a.phase == "spots":
-        if a.seed != -1:
-            return phase_spots(a.seed, a.grid, a.steps, a.gap_lo, a.gap_hi,
-                            a.per_goal)
-        else:
-            for seed in range(1, MAX_SEED + 1):
-                phase_spots(seed, a.grid, a.steps, a.gap_lo, a.gap_hi,
-                            a.per_goal)
-    return phase_hunt(a.algos.split(","), a.steps,
-                      [float(x) for x in a.ladder.split(",")],
-                      [float(x) for x in a.dmins.split(",")],
-                      a.want, a.max_spots, a.gap_target,
-                      ([float(x) for x in a.ks.split(",")] if a.ks else None))
+        return phase_spots(a.seed, a.grid, a.steps, a.gap_lo, a.gap_hi, a.per_goal)
+    else:
+        return phase_hunt(a.algos.split(","), a.steps,
+                          [float(x) for x in a.ladder.split(",")],
+                          [float(x) for x in a.dmins.split(",")],
+                          a.want, a.max_spots, a.seed, a.gap_target,
+                          ([float(x) for x in a.ks.split(",")] if a.ks else None))
 
 
 if __name__ == "__main__":
