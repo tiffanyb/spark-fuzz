@@ -91,7 +91,8 @@ def goal_grid(bounds, n=4):
 def phase_geom(n_grid, sub):
     from ..pipeline import trialconf
     from ..world.run import World
-    from .swept import surface_gap, sweep_points, volume_radii  # noqa: F401
+    from .swept import (surface_gap, sweep_points, tile_radii_for,
+                        volume_radii)  # noqa: F401
 
     cfg = trialconf.load("fuzz/siren/pipeline/configs/trial2_ours.yaml")
     spec = trialconf.spec_for(cfg, "ssa", CASE)
@@ -133,8 +134,8 @@ def phase_geom(n_grid, sub):
         # placement reported as clear is actually inside the swept volume. `d`
         # now already accounts for the obstacle radius, so callers must not
         # subtract R again.
-        db = surface_gap(A, B, np.resize(vol_r, len(B)), R_STOCK_GEOM)
-        d1 = surface_gap(A, L1, np.resize(vol_r, len(L1)), R_STOCK_GEOM)
+        db = surface_gap(A, B, tile_radii_for(vol_r, len(B)), R_STOCK_GEOM)
+        d1 = surface_gap(A, L1, tile_radii_for(vol_r, len(L1)), R_STOCK_GEOM)
         d = np.minimum(db, d1)
         j = int(np.argmax(d))
         rows.append({"G1_prime": G1p.tolist(), "spot": A[j].tolist(),

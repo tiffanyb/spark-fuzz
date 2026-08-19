@@ -41,6 +41,7 @@ R_STOCK = 0.05
 SPOTS = "fuzz/siren/constructed/stock_spots.json"
 OUT = "fuzz/siren/constructed/stock_attacks"
 
+MAX_SEED = 10  # how many seeds to scan when --seed=-1
 
 def run(world, schedule, pos_w, R, steps):
     """Rollout with the obstacles pinned; None if the solver gave out.
@@ -78,7 +79,7 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     from ..pipeline import trialconf
     from ..world.run import World
     from .separated_search import legs_sweep
-    from .swept import surface_gap, sweep_points, tile_radii
+    from .swept import surface_gap, sweep_points, tile_radii_for
 
     cfg = trialconf.load("fuzz/siren/pipeline/configs/trial2_ours.yaml")
     spec0 = trialconf.spec_for(cfg, "ssa", CASE)
@@ -93,7 +94,7 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     vol_r = volume_radii(w)
     nv = len(vol_r)
     B = B.reshape(-1, nv, 3)[:: max(1, len(B) // nv // 1500)].reshape(-1, 3)
-    rB = np.resize(vol_r, len(B))
+    rB = tile_radii_for(vol_r, len(B))
     print(f"seed {seed}: baseline sweep {len(B)} pts, "
           f"{nv} collision volumes (radii {vol_r.min():.2f}-{vol_r.max():.2f} m)",
           flush=True)
@@ -111,8 +112,9 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
         nv = len(vol_r)
         A = leg2.reshape(-1, nv, 3)[:: max(1, len(leg2) // nv // 1500)].reshape(-1, 3)
         L1 = leg1.reshape(-1, nv, 3)[:: max(1, len(leg1) // nv // 1500)].reshape(-1, 3)
-        rA = np.resize(vol_r, len(A))
-        r1 = np.resize(vol_r, len(L1))
+        # No radii for A: those are probe points (obstacle centres), so only the
+        # obstacle radius is charged on that side, inside surface_gap.
+        r1 = tile_radii_for(vol_r, len(L1))
         # free space between a radius-R sphere at each return-leg point and the
         # nearest SURFACE of the legitimate volume / the outbound leg
         db = surface_gap(A, B, rB, R_STOCK)
@@ -166,7 +168,7 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
 
 
 def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
-               gap_target=0.027, ks=None):
+               seed, gap_target=0.027, ks=None):
     from ..pipeline import trialconf
     from ..world.run import World
     from ..world.types import real_filter
@@ -177,6 +179,7 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
     # 0.024 and 0.030: tighter and the filter simply stops short of the sphere,
     # looser and it has room to route around. Ordering tightest-first spent the
     # budget on the end of the range that never produces a hit.
+    s = filter(lambda x: x["seed"] == seed, s)
     s["spots"].sort(key=lambda x: abs(x["gap"] - gap_target))
     G0, G1 = np.asarray(s["G0"], float), np.asarray(s["G1"], float)
     seed = s["seed"]
@@ -346,8 +349,13 @@ def main(argv=None):
     p.add_argument("--algos", default="ssa,rssa,pssa,cbf,rcbf,sss,rsss")
     a = p.parse_args(argv)
     if a.phase == "spots":
-        return phase_spots(a.seed, a.grid, a.steps, a.gap_lo, a.gap_hi,
-                           a.per_goal)
+        if a.seed != -1:
+            return phase_spots(a.seed, a.grid, a.steps, a.gap_lo, a.gap_hi,
+                            a.per_goal)
+        else:
+            for seed in range(1, MAX_SEED + 1):
+                phase_spots(seed, a.grid, a.steps, a.gap_lo, a.gap_hi,
+                            a.per_goal)
     return phase_hunt(a.algos.split(","), a.steps,
                       [float(x) for x in a.ladder.split(",")],
                       [float(x) for x in a.dmins.split(",")],

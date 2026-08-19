@@ -105,11 +105,26 @@ def volume_radii(world):
 
 def tile_radii(world, n_points):
     """Per-point radii for a sweep of n_points, tiled from volume_radii."""
-    r = volume_radii(world)
-    if n_points % len(r):
+    return tile_radii_for(volume_radii(world), n_points)
+
+
+def tile_radii_for(radii, n_points):
+    """Tile a known radii vector over n_points, refusing a partial sweep.
+
+    The length check is a guard, not a proof. It catches a subsample that
+    truncated mid-sweep, which is the common way the point/radius pairing goes
+    wrong. It CANNOT catch a stride that stays a whole multiple of the sweep
+    length while shifting the phase -- e.g. a flat `pts[::2]` over a 5-volume
+    sweep yields 100 points, passes this check, and mispairs every radius.
+    Subsampling must therefore be done as reshape(-1, nv, 3)[::k], by whole
+    sweeps; this guard only stops the sloppier half of the failure mode.
+    """
+    radii = np.asarray(radii, float)
+    if n_points % len(radii):
         raise ValueError(f"{n_points} points is not a whole number of sweeps "
-                         f"over {len(r)} collision volumes")
-    return np.resize(r, n_points)
+                         f"over {len(radii)} collision volumes -- the "
+                         f"point/radius pairing would be wrong")
+    return np.resize(radii, n_points)
 
 
 def surface_gap(probe_pts, swept_pts, swept_radii, r_obstacle, chunk=256):
