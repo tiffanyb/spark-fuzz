@@ -2,8 +2,8 @@
 #
 # End-to-end runner for the goal-insertion experiments.
 #
-#   ./run.sh                 run every stage, in order
-#   ./run.sh arma analyze    run only the named stages
+#   ./run.sh                 build the attacks: spots -> hunt -> render
+#   ./run.sh <stage> ...     run named stages (see --list for the full set)
 #   ./run.sh --list          show stages, runtimes and outputs
 #   FORCE=1 ./run.sh spots   re-run a stage whose output already exists
 #
@@ -11,18 +11,26 @@
 # hungry; nothing here is parallelised on purpose, and the script refuses to
 # start if another run is already going.
 #
-# Total runtime for a full run is roughly 9 hours, dominated by `deployment`.
-# Every stage is skipped if its output exists, so an interrupted run can simply
-# be restarted; `deployment` additionally resumes mid-stage from its own records.
+# The default run is roughly 3 hours, dominated by `hunt`. A stage is skipped
+# when its output exists AND nothing it depends on is newer, so an interrupted
+# run can simply be restarted.
+#
+# The deployment-experiment stages are NOT in the default set; name them
+# explicitly to reproduce that run (about 8 further hours).
 
 set -uo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+# Absolute path to this script. $0 is relative and the script cd's to $REPO
+# below, so --sweep could not re-invoke itself through $0.
+SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 PY=/Users/tiffanyb/Tools/miniconda3/envs/spark/bin/python
 CDIR="fuzz/siren/constructed"
 EDIR="$CDIR/experiment"
 LOGS="$CDIR/logs"
-SEEDS=${SEEDS:-1,2,3,4,5,6}
+SEEDS=${SEEDS:-1,2,3,4,5,6}      # deployment stages (multi-scene)
+SEED=${SEED:-1}                  # attack-construction stages (one scene)
+RQ1="$CDIR/rq1_results"
 FORCE=${FORCE:-0}
 
 # The system python3 is x86_64 and its numpy will not import on this arm64
@@ -40,10 +48,16 @@ export PYTHONPATH=.
 
 mkdir -p "$LOGS"
 
-if pgrep -f "envs/spark/bin/python -m fuzz.siren" >/dev/null 2>&1; then
-    echo "FATAL: a fuzz.siren job is already running. These stages must not run"
-    echo "       concurrently (memory). Wait for it, or kill it first:"
-    pgrep -fl "envs/spark/bin/python -m fuzz.siren" | sed 's/^/       /'
+# Anchored at the start of the command line so this matches only a real
+# interpreter process. Unanchored, `pgrep -f` also matches any SHELL whose
+# command line happens to contain the pattern -- including the very shell
+# running this check, which made the guard fire against itself.
+if [ "${ALLOW_PARALLEL:-0}" != "1" ] \
+   && pgrep -f "^$PY -m fuzz.siren" >/dev/null 2>&1; then
+    echo "FATAL: a fuzz.siren job is already running. These stages are memory"
+    echo "       hungry, so one at a time by default. Wait, kill it, or set"
+    echo "       ALLOW_PARALLEL=1 if you are fanning out deliberately:"
+    pgrep -fl "^$PY -m fuzz.siren" | sed 's/^/       /'
     exit 1
 fi
 
@@ -68,16 +82,22 @@ step() {   # step <name> <output> <~mins> <deps-csv> <cmd...>
         fi
         echo "== $name: STALE, inputs newer than output:$stale"
     fi
-    echo "== $name: running (~${mins} min) -> $LOGS/$name.log"
+    local log="$LOGS/${name}_s${SEED}.log"
+    echo "== $name: running (~${mins} min) -> $log"
     local t0=$SECONDS
-    if ! "$@" > "$LOGS/$name.log" 2>&1; then
+    if ! "$@" > "$log" 2>&1; then
         echo "== $name: FAILED after $(( (SECONDS-t0)/60 )) min. Last lines:" >&2
-        tail -20 "$LOGS/$name.log" >&2
+        tail -20 "$log" >&2
         return 1
     fi
     echo "== $name: done in $(( (SECONDS-t0)/60 )) min"
+    # `|| true`: this is a cosmetic summary. With `set -o pipefail` a grep that
+    # matches nothing makes the whole pipeline non-zero, which becomes `step`'s
+    # return status and aborts the stage loop -- that is exactly what happened
+    # when the log path went per-seed and this line still pointed at the old one.
     grep -E "wrote|summary ->|placements at|STATIC INSERTION|scenes informative|usable in" \
-         "$LOGS/$name.log" 2>/dev/null | tail -4 | sed 's/^/     /'
+         "$log" 2>/dev/null | tail -4 | sed 's/^/     /' || true
+    return 0
 }
 
 # Source files whose change should invalidate downstream outputs.
@@ -93,30 +113,28 @@ do_spots() {
     # Band is metric v2 (true surface separation): the historical v1 bands
     # 0.016-0.040 and 0.002-0.022 are 0.05 lower here, so -0.050..-0.005 covers
     # both, and the passes differ only by --gap-target.
-    step spots "$CDIR/stock_spots.json" 20 "$SRC_GEOM" \
+    step spots "$RQ1/stock_spots_${SEED}.json" 20 "$SRC_GEOM" \
         $PY -m fuzz.siren.constructed.stock_radius --phase spots \
-            --grid 5 --gap-lo -0.050 --gap-hi -0.005 --per-goal 8
+            --seed "$SEED" --grid 5 --gap-lo -0.050 --gap-hi -0.005 --per-goal 8
 }
 
 do_hunt() {
-    step hunt_main "$CDIR/stock_attacks/rssa_0.json" 40 "$CDIR/stock_spots.json,$SRC_GEOM" \
+    step hunt_main "$RQ1/stock_attacks/rssa_0_${SEED}.json" 40 "$RQ1/stock_spots_${SEED}.json,$SRC_GEOM" \
         $PY -m fuzz.siren.constructed.stock_radius --phase hunt --want 1 \
-            --steps 900 --gap-target -0.023 --ladder 1,0.5,0.2,0.05 \
+            --seed "$SEED" --steps 900 --gap-target -0.023 --ladder 1,0.5,0.2,0.05 \
             --dmins 0.020,0.015 --max-spots 14
-    # ssa, cbf and sss also need the velocity term phi_k lowered
-    step hunt_k "$CDIR/stock_attacks/ssa_0.json" 60 "$CDIR/stock_spots.json,$SRC_GEOM" \
+    step hunt_k "$RQ1/stock_attacks/ssa_0_${SEED}.json" 60 "$RQ1/stock_spots_${SEED}.json,$SRC_GEOM" \
         $PY -m fuzz.siren.constructed.stock_radius --phase hunt --want 1 \
-            --steps 900 --ladder 1,0.5,0.2,0.05 --dmins 0.020,0.015 \
+            --seed "$SEED" --steps 900 --ladder 1,0.5,0.2,0.05 --dmins 0.020,0.015 \
             --ks 1.0,0.3,0.1 --max-spots 20 --algos ssa,cbf,sss
-    # cbf only falls in a much tighter band than the rest
-    step hunt_cbf "$CDIR/stock_attacks/cbf_0.json" 40 "$CDIR/stock_spots.json,$SRC_GEOM" \
+    step hunt_cbf "$RQ1/stock_attacks/cbf_0_${SEED}.json" 40 "$RQ1/stock_spots_${SEED}.json,$SRC_GEOM" \
         $PY -m fuzz.siren.constructed.stock_radius --phase hunt --want 1 \
-            --steps 900 --gap-target -0.046 --ladder 0.02,0.05,0.2,1 \
+            --seed "$SEED" --steps 900 --gap-target -0.046 --ladder 0.02,0.05,0.2,1 \
             --dmins 0.015,0.018,0.020 --ks 0.1,0.3,1.0 --max-spots 30 --algos cbf
 }
 
 do_render() {
-    step render "$CDIR/stock_visualizations/ssa_0_attack.mp4" 10 "$CDIR/stock_attacks,$CDIR/render_stock.py" \
+    step render "$CDIR/stock_visualizations/ssa_0_${SEED}_attack.mp4" 10 "$RQ1/stock_attacks,$CDIR/render_stock.py" \
         $PY -m fuzz.siren.constructed.render_stock
 }
 
@@ -165,29 +183,63 @@ do_analyze() {
         $PY -m fuzz.siren.constructed.experiment.analyze --run "$EDIR/deployment_out"
 }
 
-ALL="spots hunt render preflight shipped reach deployment repeat analyze"
+# Default set: attack construction only.
+ALL="spots hunt render"
+# Reachable by name, but not run by default -- these belong to the deployment
+# experiment, which has already been run and whose outputs are in
+# experiment/deployment_out/. Kept so that run is reproducible:
+#   ./run.sh preflight shipped reach deployment repeat analyze
+EXTRA="preflight shipped reach deployment repeat analyze"
 
 if [ "${1:-}" = "--list" ]; then
     cat <<'EOT'
-stage      ~min  output                                       what it does
----------  ----  -------------------------------------------  ------------------------------
-spots        20  constructed/stock_spots.json                  placement corpus (surface metric)
-hunt        140  constructed/stock_attacks/*.json              per-filter attack search
-render       10  constructed/stock_visualizations/*.mp4         attack + legitimate-task videos
-preflight    10  experiment/preflight.json                     engagement gate
-shipped      15  experiment/shipped_check.json                 shipped-config viability
-reach        90  experiment/reachable.json                     kinematic reachability screen
-deployment  360  experiment/deployment_out/summary.json                  main experiment (resumable)
-repeat       30  experiment/deployment_out/repeatability.json            label-flip + determinism
-analyze       2  experiment/deployment_out/RESULTS.md                    tables and figures
+DEFAULT (./run.sh runs these, in this order) -- constructed attacks
+stage      ~min  output                                  what it does
+---------  ----  --------------------------------------  ------------------------------
+spots        20  rq1_results/stock_spots_<seed>.json     placement corpus (surface metric)
+hunt        140  rq1_results/stock_attacks/*.json        per-filter attack search
+render       10  stock_visualizations/*.mp4              attack + legitimate-task videos
+
+ON REQUEST (name them explicitly) -- deployment experiment, already run
+preflight    10  experiment/preflight.json               engagement gate
+shipped      15  experiment/shipped_check.json           shipped-config viability
+reach        90  experiment/reachable.json               kinematic reachability screen
+deployment  360  experiment/deployment_out/summary.json  unmodified scenes, goal varies
+repeat       30  experiment/deployment_out/repeatability.json  label-flip + determinism
+analyze       2  experiment/deployment_out/RESULTS.md    tables and figures
 EOT
+    exit 0
+fi
+
+if [ "${1:-}" = "--sweep" ]; then
+    # Fan out over seeds. Each worker is a full single-seed run of this script,
+    # so the per-stage skip/staleness logic still applies per seed. JOBS bounds
+    # concurrency: these are MuJoCo processes and running one per seed at once
+    # is how a previous sweep exhausted memory.
+    range="${2:-1-10}"; lo="${range%%-*}"; hi="${range##*-}"
+    jobs_max="${JOBS:-6}"
+    shift 2 || shift 1
+    sweep_stages="${*:-spots hunt}"
+    echo "sweep   : seeds $lo..$hi, $jobs_max at a time, stages: $sweep_stages"
+    mkdir -p "$LOGS/sweep"
+    pids=""
+    for sd in $(seq "$lo" "$hi"); do
+        while [ "$(jobs -rp | wc -l)" -ge "$jobs_max" ]; do sleep 5; done
+        echo "  -> seed $sd started"
+        ALLOW_PARALLEL=1 SEED="$sd" bash "$SELF" $sweep_stages \
+            > "$LOGS/sweep/seed${sd}.log" 2>&1 &
+    done
+    wait
+    echo
+    echo "sweep finished; per-seed logs in $LOGS/sweep/"
     exit 0
 fi
 
 STAGES="${*:-$ALL}"
 echo "repo    : $REPO"
 echo "python  : $PY"
-echo "seeds   : $SEEDS"
+echo "seed    : $SEED (attack construction)"
+echo "seeds   : $SEEDS (deployment stages)"
 echo "stages  : $STAGES"
 echo "logs    : $LOGS"
 echo "started : $(date '+%F %T')"
@@ -211,5 +263,5 @@ done
 
 echo
 echo "all stages finished in $(( (SECONDS-T0)/60 )) min at $(date '+%F %T')"
-echo "results  : $EDIR/deployment_out/RESULTS.md, $EDIR/FINDINGS.md, $CDIR/STOCK_RESULT.md"
+echo "results  : $CDIR/STOCK_RESULT.md (attacks), $CDIR/stock_visualizations/ (videos)"
 echo "metadata : meta.json in each output directory (timestamps, argv, config text, file hashes)"

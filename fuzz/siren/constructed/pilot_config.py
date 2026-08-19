@@ -87,13 +87,16 @@ def main(argv=None):
                    help="candidates sampled from the corpus, spread over gap")
     p.add_argument("--steps", type=int, default=900)
     p.add_argument("--out", default=OUT)
+    p.add_argument("--seed", type=int, default=1,
+                   help="which per-seed corpus to read; SPOTS is a prefix")
     a = p.parse_args(argv)
 
     from ..pipeline import trialconf
     from ..world.run import World
 
     os.makedirs(a.out, exist_ok=True)
-    s = json.load(open(SPOTS))
+    spot_file = f"{SPOTS}_{a.seed}.json"
+    s = json.load(open(spot_file))
     G0 = np.asarray(s["G0"], float)
     G1 = np.asarray(s["G1"], float)
     seed = s["seed"]
@@ -162,7 +165,7 @@ def main(argv=None):
         "python": platform.python_version(),
         "numpy": np.__version__,
         "hashes": {
-            "stock_spots.json": sha(SPOTS),
+            "corpus": sha(spot_file),
             "stock_radius.py": sha("fuzz/siren/constructed/stock_radius.py"),
             "separated_search.py":
                 sha("fuzz/siren/constructed/separated_search.py"),
