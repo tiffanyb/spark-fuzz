@@ -62,7 +62,15 @@ def apply_filter_spec(cfg, spec: FilterSpec):
     sa = cfg.algo.safe_controller.safe_algo
     sa.class_name = spec.class_name
 
-    if spec.demand_shape == "constant":
+    if spec.demand_shape == "coefficient":
+        # pfm and sma take one gain each; SPARK ships both at 1.0
+        # (example/g1/run_g1_benchmark.py:95, :99). ByPassSafeControl takes
+        # none, and setting these on it is harmless.
+        if spec.algo == "pfm":
+            sa.c_pfm = float(spec.c if spec.c is not None else 1.0)
+        elif spec.algo == "sma":
+            sa.c_sma = float(spec.c if spec.c is not None else 1.0)
+    elif spec.demand_shape == "constant":
         sa.eta_ssa = float(spec.eta if spec.eta is not None else 0.5)
     else:
         lam = float(spec.lam if spec.lam is not None else 10.0)
@@ -83,6 +91,16 @@ def apply_filter_spec(cfg, spec: FilterSpec):
         weight = weight[:-3]
     elif "RightArm" in cfg.robot.cfg.class_name:
         weight = weight[3:10]
+    # _FULL_CONTROL_WEIGHT is a hand-tuned G1 profile. SPARK asserts the weight
+    # vector matches the robot's control dimension exactly, so any other arm
+    # (Gen3, IIWA14, LRMate200iD3f, R1LiteUpper) aborts at construction. Fall
+    # back to a uniform weight sized from the robot itself: it is the neutral
+    # choice -- the QP minimises ||u - u_ref|| with no axis preferred -- and it
+    # is what lets those benchmarks run at all.
+    from spark_utils import initialize_class
+    n_ctrl = len(initialize_class(cfg.robot.cfg).Control)
+    if len(weight) != n_ctrl:
+        weight = [1.0] * n_ctrl
     sa.control_weight = weight
 
     # The robot's control mode decides the index; a spec asking for the other one
@@ -94,6 +112,21 @@ def apply_filter_spec(cfg, spec: FilterSpec):
     if required == "velocity":
         si.phi_n = 1                                   # linear form
         si.phi_k = float(spec.k if spec.k is not None else 0.1)
+
+    # Raw overrides land LAST so a config file can reproduce SPARK's shipped
+    # settings exactly -- including fields FilterSpec has no named slot for
+    # (safety_buffer, use_slack, slack_regularization_order, phi_n, the self
+    # min_distance, ...). Dotted paths are resolved against cfg.algo.safe_controller.
+    for path, val in (spec.overrides or {}).items():
+        node = cfg.algo.safe_controller
+        parts = path.split(".")
+        for part in parts[:-1]:
+            node = node[part] if isinstance(node, dict) else getattr(node, part)
+        leaf = parts[-1]
+        if isinstance(node, dict):
+            node[leaf] = val
+        else:
+            setattr(node, leaf, val)
     return cfg
 
 
@@ -154,4 +187,24 @@ def build_config(seed: int = 0,
     cfg.enable_logger = False
     cfg.enable_plotter = False
     cfg.enable_safe_zone_render = False
+
+    # Optional reference-controller override, env-gated so the default (and every
+    # existing experiment) is unchanged. Set SIREN_POLICY=TeleopPIDPolicy to run
+    # the teleoperation reference tracker instead of BenchmarkPIDPolicy; used for
+    # the RQ3 / teleop scenes under fuzz/siren/teleop. TeleopPIDPolicy is arm-only
+    # (it does not command the base), so only use it on FixedBase scenes.
+    import os
+    _pol = os.environ.get("SIREN_POLICY")
+    if _pol:
+        cfg.algo.policy.class_name = _pol
+
+    # Optional obstacle-count override, env-gated so every existing experiment is
+    # unchanged. The FixedBase SO scenes ship with 5 obstacles, but SPARK's own
+    # generator uses 10 and 50 on other benchmark cases, so a denser scene stays
+    # inside the benchmark's own parameter range rather than inventing a new one.
+    # Needed for corridor scenes, where the count is what makes several
+    # constraints active at once.
+    _n = os.environ.get("SIREN_NUM_OBSTACLES")
+    if _n:
+        cfg.env.task.num_obstacle_task = int(_n)
     return cfg

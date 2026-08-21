@@ -147,6 +147,15 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
         if not ok.any():
             continue
         pts, gs, lg = A[ok], gap[ok], legacy[ok]
+        # Keep the two components, not just their minimum. An insertion has to
+        # clear TWO volumes and the failures are asymmetric: a placement tight
+        # against the baseline is fine (the filter routes around it and the
+        # legitimate task still reaches G1), but one inside the OUTBOUND
+        # corridor is fatal -- leg 1 collides, world/run.py:183 breaks on the
+        # first negative clearance, and the return leg never executes. Stored
+        # as a single min the two are indistinguishable, which is what left
+        # seeds 3/5/6/7 with zero leg-2 contacts over 4148 Worlds.
+        gb_, g1_ = db[ok], d1[ok]
         # Least-overlapping first. Under the old centre-to-centre metric the
         # productive end of the band was the TIGHTEST fit, so this sorted
         # ascending. With surface separation the sign flips: every placement
@@ -162,6 +171,8 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
                 spots.append({"G1_prime": G1p.tolist(),
                               "spot": pts[j].tolist(),
                               "gap": float(gs[j]),
+                              "gap_baseline": float(gb_[j]),
+                              "gap_leg1": float(g1_[j]),
                               "gap_centre_legacy": float(lg[j])})
             if len(chosen) >= per_goal:
                 break
@@ -172,8 +183,12 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     spots.sort(key=lambda s: s["gap"])
     spot_file = f"{SPOTS}_{seed}.json"
     os.makedirs(os.path.dirname(spot_file), exist_ok=True)
+    # Write via a temp file and rename. A hunt worker in another process reads
+    # this corpus, and json.dump straight onto the live path leaves a window
+    # where that reader sees a truncated file; os.replace is atomic on POSIX.
+    tmp_file = f"{spot_file}.tmp"
     json.dump({"case": CASE, "seed": seed, "R": R_STOCK,
-               "metric_version": 2,
+               "metric_version": 3,
                "metric": "gap = free space between a radius-R sphere at the "
                          "placement and the nearest SURFACE of the legitimate "
                          "swept volume or the outbound leg; negative means the "
@@ -181,14 +196,17 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
                          "centre-to-centre quantity, which omitted the robot's "
                          "own collision radius and overstated free space by "
                          "0.05-0.10 m.",
+               "grid": grid, "gap_lo": gap_lo, "gap_hi": gap_hi,
+               "per_goal": per_goal,
                "G0": G0.tolist(), "G1": G1.tolist(), "bounds": bounds,
-               "spots": spots}, open(spot_file, "w"), indent=1)
+               "spots": spots}, open(tmp_file, "w"), indent=1)
+    os.replace(tmp_file, spot_file)
     print(f"\n{len(spots)} placements at R={R_STOCK} -> {spot_file}", flush=True)
     return 0
 
 
 def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
-               seed, gap_target=0.027, ks=None):
+               seed, gap_target=0.027, ks=None, min_leg1=None):
     from ..pipeline import trialconf
     from ..world.run import World
     from ..world.types import real_filter
@@ -200,6 +218,28 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
     # 0.024 and 0.030: tighter and the filter simply stops short of the sphere,
     # looser and it has room to route around. Ordering tightest-first spent the
     # budget on the end of the range that never produces a hit.
+    # Drop placements buried in the OUTBOUND corridor. gap is min(baseline,
+    # leg1), so a very negative gap can mean either "tight against the
+    # legitimate path" (fine -- the filter routes around it) or "inside leg 1"
+    # (fatal -- leg 1 collides, the rollout stops at world/run.py:183 and the
+    # return leg never runs). Only the second kind is worthless for an
+    # insertion, and only gap_leg1 separates them.
+    if min_leg1 is not None:
+        have = [x for x in s["spots"] if "gap_leg1" in x]
+        if not have:
+            print(f"--min-leg1 ignored: {spot_file} is metric_version "
+                  f"{s.get('metric_version')} and records no gap_leg1; "
+                  f"regenerate with --phase spots to use it", flush=True)
+        else:
+            before = len(s["spots"])
+            s["spots"] = [x for x in have if x["gap_leg1"] >= min_leg1]
+            print(f"--min-leg1 {min_leg1}: {len(s['spots'])}/{before} "
+                  f"placements clear the outbound leg", flush=True)
+            if not s["spots"]:
+                raise SystemExit(
+                    f"no placement in {spot_file} has gap_leg1 >= {min_leg1}; "
+                    f"max available is "
+                    f"{max(x['gap_leg1'] for x in have):.4f}")
     s["spots"].sort(key=lambda x: abs(x["gap"] - gap_target))
     G0, G1 = np.asarray(s["G0"], float), np.asarray(s["G1"], float)
     # The corpus records the seed it was generated on. Trust the file over the
@@ -367,6 +407,10 @@ def main(argv=None):
     p.add_argument("--seed", type=int, default=1)
     p.add_argument("--grid", type=int, default=4)
     p.add_argument("--steps", type=int, default=1200)
+    p.add_argument("--min-leg1", type=float, default=None,
+                   help="hunt only placements whose surface gap to the "
+                        "OUTBOUND leg is at least this; keeps the rollout "
+                        "alive to leg 2 (needs a metric_version 3 corpus)")
     p.add_argument("--gap-lo", type=float, default=-0.034,
                    help="metric v2: true surface separation. The v1 band "
                         "[0.016, 0.040] was centre-to-centre and corresponds to "
@@ -391,7 +435,8 @@ def main(argv=None):
                           [float(x) for x in a.ladder.split(",")],
                           [float(x) for x in a.dmins.split(",")],
                           a.want, a.max_spots, a.seed, a.gap_target,
-                          ([float(x) for x in a.ks.split(",")] if a.ks else None))
+                          ([float(x) for x in a.ks.split(",")] if a.ks else None),
+                          a.min_leg1)
 
 
 if __name__ == "__main__":

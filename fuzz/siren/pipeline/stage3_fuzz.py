@@ -136,7 +136,12 @@ def main(argv=None):
     steps = tgt["max_steps"]
     G0 = np.asarray(tgt["G0_commanded"], float)
     G1 = np.asarray(tgt["G1"], float)
-    truth = np.asarray(tgt["G1_prime_truth"], float)
+    # A target may have NO answer key. The benchmark targets are built around a
+    # known attack, but a target can also be built from a scenario the filter
+    # merely SURVIVES -- there the question is whether an attack exists at all,
+    # so there is nothing to measure distance to and nothing to pre-check.
+    _t = tgt.get("G1_prime_truth")
+    truth = None if _t is None else np.asarray(_t, float)
     kind = tgt.get("kind", "INSERTION")
     hit_leg = 2 if kind == "INSERTION" else 1
 
@@ -148,20 +153,25 @@ def main(argv=None):
 
     base = run_ch(w, [G0, G1], channel, max_steps=steps)
     base_clear = min((s.clearance for s in base.steps), default=np.inf)
-    known = run_ch(w, [G0, truth, G1], channel, max_steps=steps)
+    known = (run_ch(w, [G0, truth, G1], channel, max_steps=steps)
+             if truth is not None else None)
     print(f"  baseline [G0,G1]         {base.label} "
           f"(min clearance {base_clear:+.6f})")
-    print(f"  known attack [G0,G1*,G1] {known.label} "
-          f"(leg {contact_leg(known)}, {known.min_clearance:+.6f})")
+    if known is not None:
+        print(f"  known attack [G0,G1*,G1] {known.label} "
+              f"(leg {contact_leg(known)}, {known.min_clearance:+.6f})")
     # C1: safe arrival, not merely arrival
     if base.label != "REACHED" or base_clear <= 0.0:
         print("  baseline is not safe — aborting (the scene is broken, so a "
               "collision would say nothing about the inserted goal)")
         return 1
-    if known.label not in ("COLLISION", "DEADLOCK"):
+    if known is not None and known.label not in ("COLLISION", "DEADLOCK"):
         print("  planted attack does not reproduce — aborting")
         return 1
-    print(f"  (the search is NOT told G1* = {np.round(truth,3)})\n", flush=True)
+    print(f"  (the search is NOT told G1* = {np.round(truth,3)})\n"
+          if truth is not None else
+          "  NO ground truth — open search: does an attack exist at all?\n",
+          flush=True)
 
     rows = []
     t_start = time.time()
@@ -225,8 +235,10 @@ def main(argv=None):
                         "n_steps": int(rec.n_steps),
                         "n_gave_up": int(getattr(rec, "n_gave_up", 0)),
                         "engaged": bool(eng),
-                        "dist_to_truth": float(np.linalg.norm(
-                            np.asarray(c, float).reshape(-1) - truth)),
+                        "dist_to_truth": (None if truth is None else
+                                          float(np.linalg.norm(
+                                              np.asarray(c, float).reshape(-1)
+                                              - truth))),
                         "from_initial_design": bool(rnd == 0)})
                     if atk:
                         hits.append(evals[-1])
@@ -241,7 +253,8 @@ def main(argv=None):
                 # the next round descends from what this round observed
                 prev_round_ids = this_round
                 rnd += 1
-            best = min((h["dist_to_truth"] for h in hits), default=None)
+            best = min((h["dist_to_truth"] for h in hits
+                        if h["dist_to_truth"] is not None), default=None)
             rows.append({"picker": pname, "search_seed": ss,
                          "n_eval": n_eval, "n_attacks": len(hits),
                          "first_hit": first_hit, "best_dist_to_truth": best,
@@ -264,7 +277,7 @@ def main(argv=None):
     json.dump({"target": tgt["name"], "case": tgt["case"], "algo": tgt["algo"],
                "seed": tgt["seed"], "kind": kind, "hit_leg": hit_leg,
                "budget": a.budget, "batch": a.batch,
-               "G1_prime_truth": truth.tolist(),
+               "G1_prime_truth": (None if truth is None else truth.tolist()),
                "baseline_label": base.label,
                "baseline_min_clearance": float(base_clear),
                "results": rows}, open(a.out, "w"), indent=2, default=float)

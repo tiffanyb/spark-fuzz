@@ -57,7 +57,7 @@ SCENES = [(c, "velocity" if "_D2_" in c else "distance") for c in ALL_CASES]
 def step_run(h, schedule, max_steps, capture_wp=None, restore=None):
     """One rollout. Returns (final_state, captured_state, n_steps, reached)."""
     from ..world.sim import probe
-    from .state import capture_world, restore_world
+    from .state import capture_world, restore_world, refresh_task_cache
 
     probe.reset_giveups(h)
     af, ti = h.reset()
@@ -65,6 +65,8 @@ def step_run(h, schedule, max_steps, capture_wp=None, restore=None):
         restore_world(h, restore)
         af = (h.env.agent.get_feedback()
               if hasattr(h.env.agent, "get_feedback") else af)
+        # _update_robot_state BEFORE get_info -- see refresh_task_cache
+        refresh_task_cache(h, af)
         ti = h.env.task.get_info(af)
     h.env.task.set_goal_schedule(schedule)
     u, ai = h.algo.act(af, ti)

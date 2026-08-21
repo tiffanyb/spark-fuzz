@@ -106,6 +106,36 @@ def render_one(meta_path, fps=25, width=1280, height=720, stride=2,
     n = min(len(qpos), len(clear))
     hit = int(np.argmax(clear[:n] < 0.0)) if np.any(clear[:n] < 0.0) else None
 
+    # WHICH obstacle collides at the contact step, so only that one is
+    # highlighted rather than all of them. It is the obstacle column of the
+    # argmin over the guarded robot-obstacle distance matrix (the same
+    # computation the fidelity check below uses). Posing the robot here is
+    # harmless -- the render loop re-poses qpos every frame. obst[t] enumerates
+    # the same obstacle order as this matrix's columns, so the index matches j.
+    hit_obs = None
+    if hit is not None:
+        from spark_utils import compute_masked_distance_matrix
+        _si = h.algo.safe_controller.safe_algo.safety_index
+        _mask = np.asarray(_si.env_collision_mask, bool)
+        ag.data.qpos[:] = qpos[hit]
+        mujoco.mj_forward(ag.model, ag.data)
+        for _dof in h.robot_cfg.DoFs:
+            ag.dof_pos_cmd[_dof] = qpos[hit][h.robot_cfg.DoF_to_MujocoDoF[_dof]]
+            ag.dof_vel_cmd[_dof] = 0.0
+        _af = ag.get_feedback()
+        h.env.task._update_robot_state(_af)
+        _ti = h.env.task.get_info(_af)
+        _of = [np.array(f, float).copy() for f in _ti["obstacle"]["frames_world"]]
+        for _f, _c in zip(_of, obst[hit]):
+            _f[:3, 3] = _c
+        _dmat, _ = compute_masked_distance_matrix(
+            frame_list_1=h.env.task.robot_frames_world,
+            geom_list_1=h.robot_cfg.CollisionVol.values(),
+            frame_list_2=_of, geom_list_2=_ti["obstacle"]["geom"])
+        _dm = np.where(_mask, np.asarray(_dmat, float), np.inf) \
+            if np.shape(_mask) == np.asarray(_dmat).shape else np.asarray(_dmat, float)
+        hit_obs = int(np.unravel_index(np.argmin(_dm), _dm.shape)[1])
+
     mp4 = f"{vis}/{tag}_{variant}.mp4"
     vw = cv2.VideoWriter(mp4, cv2.VideoWriter_fourcc(*"mp4v"), fps,
                          (width, height))
@@ -132,7 +162,7 @@ def render_one(meta_path, fps=25, width=1280, height=720, stride=2,
             s.ngeom += 1
 
         for j, c in enumerate(obst[t]):
-            solid = hit is not None and t == hit
+            solid = hit is not None and t == hit and j == hit_obs
             add(c, 0.05, (0.85, .15, .15, .28) if not solid
                 else (1.0, 0.0, 0.0, 1.0))
         add(world_of(G0), 0.024, (0.20, 0.45, 1.00, 0.95))

@@ -35,7 +35,7 @@ import traceback
 
 import numpy as np
 
-from .pipeline import run_search, summarize
+from .pipeline_spec import run_search, summarize
 from .search.pick import ARMS, make_picker
 from .world.run import World
 from .world.types import real_filter

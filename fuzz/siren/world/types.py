@@ -52,6 +52,13 @@ class Scene:
 #      constant      d = eta        (SSA, r-SSA, p-SSA)
 #      proportional  d = lambda*phi (CBF, SSS and their relaxed forms)
 _ALGO_DEMAND = {
+    # pfm and sma are not eta/lambda filters: each takes a single gain
+    # (c_pfm / c_sma). "coefficient" marks that shape so the demand ladders,
+    # which scale eta or lambda, leave them alone. "none" is SPARK's own
+    # ByPassSafeControl, the no-filter control arm.
+    "pfm":  "coefficient",
+    "sma":  "coefficient",
+    "none": "coefficient",
     "ssa":  "constant",
     "rssa": "constant",
     "pssa": "constant",
@@ -62,6 +69,9 @@ _ALGO_DEMAND = {
 }
 
 _ALGO_CLASS = {
+    "pfm":  "BasicPotentialFieldMethod",
+    "sma":  "BasicSlidingModeAlgorithm",
+    "none": "ByPassSafeControl",
     "ssa":  "BasicSafeSetAlgorithm",
     "rssa": "RelaxedSafeSetAlgorithm",
     "pssa": "ProjectedSafeSetAlgorithm",
@@ -86,7 +96,15 @@ class FilterSpec:
     eta: Optional[float] = None         # constant demand
     lam: Optional[float] = None         # proportional demand
     k: Optional[float] = None           # velocity-index coefficient
+    #: raw dotted-path overrides applied LAST, e.g.
+    #:   {"safe_algo.safety_buffer": 0.1,
+    #:    "safety_index.min_distance.environment": 0.1}
+    #: This is what makes a config file able to reproduce SPARK's
+    #: shipped settings exactly, including fields FilterSpec has no
+    #: named slot for (safety_buffer, use_slack, phi_n, ...).
+    overrides: Optional[dict] = None
     slack_weight: Optional[float] = None
+    c: Optional[float] = None           # single gain for pfm (c_pfm) / sma (c_sma)
     label: str = ""
 
     # -- derived -------------------------------------------------------- #
@@ -138,10 +156,10 @@ DEFAULT_ETA_REF = 0.02          # sane for the G1 benchmark; override per scene
 
 
 def real_filter(algo="ssa", index="distance", d_min=0.02,
-                eta=None, lam=None, k=None) -> FilterSpec:
+                eta=None, lam=None, k=None, c=None) -> FilterSpec:
     """The white-box case: the filter we actually know is deployed."""
     return FilterSpec(algo=algo, index=index, d_min=d_min, eta=eta, lam=lam, k=k,
-                      label="real")
+                      c=c, label="real")
 
 
 def gray_ensemble(demand_shape="constant", index="distance", d_min=0.02,

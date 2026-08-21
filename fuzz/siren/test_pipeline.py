@@ -8,7 +8,7 @@ deterministic and can assert things a live scene would only show by luck
 
 import numpy as np
 
-from .pipeline import (Evaluation, classify, evaluate, run_search, summarize,
+from .pipeline_spec import (Evaluation, classify, evaluate, run_search, summarize,
                        _ENGAGED_OFFSET)
 from .world.measure import StepMeasurement
 from .world.types import Scene

@@ -94,6 +94,18 @@ def restore_world(harness, st: dict):
         if rec.get("last_frame") is not None:
             o.last_frame = np.asarray(rec["last_frame"], float)
         o.last_direction = np.asarray(rec["last_direction"], float)
+        # SIREN FIX (2026-08-03). get_info() publishes the obstacle velocity from
+        # `last_displacement` (the REALISED step, measured after the bound clamp),
+        # which older snapshots do not carry. It is recoverable EXACTLY rather
+        # than approximately: snapshots are taken between steps, so `frame` is
+        # post-clamp and `last_frame` is that step's pre-move snapshot, and their
+        # difference is the definition of last_displacement. Without this, a
+        # resumed run publishes a stale velocity on its first restored step.
+        if rec.get("last_frame") is not None:
+            o.last_displacement = (np.asarray(rec["frame"], float)[:3, 3]
+                                   - np.asarray(rec["last_frame"], float)[:3, 3])
+        else:
+            o.last_displacement = np.zeros(3)
         o.step_counter = int(rec["step_counter"])
         if rec.get("rs_state") is not None and getattr(o, "rs", None) is not None:
             k, keys, pos, has_gauss, cached = rec["rs_state"]
@@ -113,6 +125,36 @@ def restore_world(harness, st: dict):
             obj.frame[:] = np.asarray(frame, float)
 
 
+def refresh_task_cache(harness, agent_feedback):
+    """Recompute the task's CACHED view of the robot after a restore.
+
+    THE BUG THIS FIXES. get_info() builds the goal the reference controller
+    actually tracks as
+
+        info["goal_teleop"]["right"] = self.robot_base_frame @ robot_goal_right.frame
+
+    but `self.robot_base_frame` and `self.robot_frames_world` are cached
+    attributes, refreshed ONLY inside _update_robot_state(). get_info() never
+    calls it -- BenchmarkTask.step() does, just before. So a resume that went
+    straight to get_info() left the task holding the base frame from reset()
+    while the restored robot was somewhere else entirely.
+
+    On a FIXED base that is harmless: the base frame never moves, so the stale
+    copy is correct by accident. On a mobile or locomoting base it is not:
+    goal_teleop came out 0.34 wrong, u_ref 2.69 wrong, and the resumed run
+    diverged from step +1. That is exactly the observed split -- all 8
+    G1FixedBase variants resumed bit-exact (56/56) while all 8 G1MobileBase
+    variants and G1SportMode failed (0/66).
+
+    Calling _update_robot_state() first is what BenchmarkTask.step() does, so
+    this simply restores the ordering the simulator itself relies on.
+    """
+    task = harness.env.task
+    upd = getattr(task, "_update_robot_state", None)
+    if upd is not None and agent_feedback is not None:
+        upd(agent_feedback)
+
+
 def run_from_state(world, state: dict, schedule, max_steps=None,
                    exact_margin=False):
     """Run `schedule` starting from `state` instead of the home pose.
@@ -126,11 +168,10 @@ def run_from_state(world, state: dict, schedule, max_steps=None,
     def patched_reset(*a, **kw):
         agent_feedback, _stale = original_reset(*a, **kw)
         restore_world(h, state)
-        # rebuild the info dict AFTER the state is in place, or every downstream
-        # reader sees the pre-restore world
         agent_feedback = (h.env.agent.get_feedback()
                           if hasattr(h.env.agent, "get_feedback")
                           else agent_feedback)
+        refresh_task_cache(h, agent_feedback)
         task_info = h.env.task.get_info(agent_feedback)
         return agent_feedback, task_info
 

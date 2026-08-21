@@ -56,13 +56,51 @@ import time
 
 import numpy as np
 
+#: DEFAULT SCENES = every benchmark family whose simulator state can be captured
+#: and restored faithfully, measured over 25 families x 3 seeds x 3 g0 candidates
+#: (see the fidelity test in test_run_from_state.py). The search resumes from a
+#: captured handover, so a family whose state does not round-trip wastes the
+#: whole point of the resume: candidates are evaluated on a trajectory the real
+#: rollout would not produce, and every hit then dies at prefix confirmation.
+#:
+#:      G1FixedBase   all 8 variants        EXACT   56/56
+#:      G1MobileBase  6 of 8 variants       EXACT
+#:      G1MobileBase  _D1_WG_SO_v0          8/9  \  the single miss in each is a
+#:      G1MobileBase  _D2_WG_DO_v1          8/9  /  horizon-limited run, where
+#:                                                  both rollouts time out and
+#:                                                  never converge to compare
+#:
+#: The two partials are kept: prefix confirmation makes them sound regardless,
+#: and _D2_WG_DO_v1 is the single most productive scene found so far (the ssa,
+#: pssa and sss attacks all come from it). Excluding it would trade a real
+#: result for a cosmetic 100%.
+#:
+#: DELIBERATELY EXCLUDED -- state does not round-trip, so resume-based search is
+#: unreliable there and these need the prefix-only path instead:
+#:      G1SportMode_D1_WG_SO_v1   0/7    locomotion/gait state uncaptured
+#:      IIWA14Single  D1, D2      0/10
+#:      R1LiteUpper   D1          0/2      D2  1/4
+#:      Gen3Single    D1, D2      1/3 each
+#:      LRMate200iD3f D1 3/6, D2  5/6      mixed WITHIN a single case, so the
+#:                                         carrier is path-dependent, not a
+#:                                         property of the robot
 SCENES = [
-    ("G1FixedBase_D2_AG_SO_v0", "velocity"),
-    ("G1MobileBase_D2_WG_SO_v1", "velocity"),
-    ("G1MobileBase_D2_WG_DO_v1", "velocity"),
-    ("R1LiteUpper_D2_AG_SO_v0", "velocity"),
-    ("LRMate200iD3f_D2_AG_SO_v0", "velocity"),
     ("G1FixedBase_D1_AG_SO_v0", "distance"),
+    ("G1FixedBase_D1_AG_SO_v1", "distance"),
+    ("G1FixedBase_D1_AG_DO_v0", "distance"),
+    ("G1FixedBase_D1_AG_DO_v1", "distance"),
+    ("G1FixedBase_D2_AG_SO_v0", "velocity"),
+    ("G1FixedBase_D2_AG_SO_v1", "velocity"),
+    ("G1FixedBase_D2_AG_DO_v0", "velocity"),
+    ("G1FixedBase_D2_AG_DO_v1", "velocity"),
+    ("G1MobileBase_D1_WG_SO_v0", "distance"),
+    ("G1MobileBase_D1_WG_SO_v1", "distance"),
+    ("G1MobileBase_D1_WG_DO_v0", "distance"),
+    ("G1MobileBase_D1_WG_DO_v1", "distance"),
+    ("G1MobileBase_D2_WG_SO_v0", "velocity"),
+    ("G1MobileBase_D2_WG_SO_v1", "velocity"),
+    ("G1MobileBase_D2_WG_DO_v0", "velocity"),
+    ("G1MobileBase_D2_WG_DO_v1", "velocity"),
 ]
 
 
