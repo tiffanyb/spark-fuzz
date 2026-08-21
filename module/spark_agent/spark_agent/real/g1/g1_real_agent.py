@@ -56,6 +56,7 @@ class G1RealAgent(BaseAgent):
         self.dt = kwargs.get("dt", 0.01)
         self.control_decimation = kwargs.get("control_decimation", 1)
         self.send_cmd = kwargs.get("send_cmd", False)
+        self.network_interface = kwargs.get("network_interface", None)
         # ------------------------------- Unitree Model ------------------------------ #
         self.unitree_model = kwargs["unitree_model"]    # g1 or h1
         if self.unitree_model not in ["g1", "h1"]:
@@ -109,7 +110,10 @@ class G1RealAgent(BaseAgent):
 
         from unitree_sdk2py.core.channel import ChannelFactoryInitialize
 
-        ChannelFactoryInitialize()
+        if self.network_interface is not None:
+            ChannelFactoryInitialize(0, self.network_interface)
+        else:
+            ChannelFactoryInitialize()
 
         # --------------------- High-level control initialization -------------------- #
         if self.control_level == UnitreeControlLevel.HIGH:
@@ -132,7 +136,11 @@ class G1RealAgent(BaseAgent):
             self.loco_client.SetTimeout(10.0)
             self.loco_client.Init()
             print("Loco Client Initialized.")
-            self._initialize_sports_mode()
+            if self.send_cmd:
+                self._initialize_sports_mode()
+            else:
+                # dry run: observe only, do not drive the robot FSM
+                print(f"[dry run] send_cmd=False, skipping sports mode init. Current FSM ID: {self.loco_client.GetFsmId(0)[1]}")
 
         # --------------------- Low-level control initialization --------------------- #
         else:   # low level control
@@ -360,7 +368,10 @@ class G1RealAgent(BaseAgent):
 
     def reset_upper_body(self):
 
-        
+        if not self.send_cmd:
+            print("[dry run] send_cmd=False, skipping upper body reset.")
+            return
+
         for _ in range(100):
             
             target_kp = np.zeros_like(self.motor_kp)
@@ -542,6 +553,10 @@ class G1RealAgent(BaseAgent):
         x = self.robot_cfg.compose_state_from_dof(self.dof_pos_cmd, self.dof_vel_cmd)
         
         return x
+
+    def close_viewer(self):
+        # no viewer on the real robot; called by the pipeline on shutdown
+        pass
 
     def get_imu_rpy(self):
         return np.array(self._low_state_buffer.GetData().imu_rpy)

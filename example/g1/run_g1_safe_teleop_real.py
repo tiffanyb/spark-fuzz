@@ -1,16 +1,28 @@
 from spark_pipeline import TeleopPipeline as Pipeline
+from spark_pipeline import G1TeleopPipelineConfig as PipelineConfig
 import os
 
-USE_REAL = False
+USE_REAL = True
 
-if USE_REAL:
-    from spark_pipeline import G1SafeTeleopRealPipelineConfig as PipelineConfig
-else:
-    from spark_pipeline import G1SafeTeleopSimPipelineConfig as PipelineConfig
+# Dry run switch: with SEND_CMD = False the pipeline connects to the robot,
+# reads state feedback and computes commands, but never publishes them and
+# never touches the robot FSM. Flip to True only after a clean dry run.
+SEND_CMD = False
+
+# DDS network interface connected to the G1 (e.g. "eth0" / "enp2s0").
+# None = SDK default interface.
+NETWORK_INTERFACE = None
 
 def config_task_module(cfg: PipelineConfig, **kwargs):
     """Configure task-related settings."""
-    cfg.env.task.enable_ros = True # if ROS is needed for receiving task info
+    cfg.env.task.enable_ros = False # if ROS is needed for receiving task info
+    # To teleoperate via ROS (e.g. AVP), set enable_ros = True and provide topics:
+    # cfg.env.task.ros_params = dict(
+    #     robot_command_topic = "/g1_29dof/robot_command",
+    #     robot_state_topic   = "/g1_29dof/robot_state",
+    #     robot_teleop_topic  = "/g1_29dof/robot_teleop",
+    #     obstacle_topic      = "/g1_29dof/human_state",
+    # )
 
     cfg.env.task.mode = "Velocity" # "Brownian", "Velocity"
     cfg.env.task.obstacle_direction = [0.0, 1.0, 0.0]
@@ -34,11 +46,15 @@ def config_agent_module(cfg: PipelineConfig, **kwargs):
         cfg.env.agent.dt = 0.002
         cfg.env.agent.control_decimation = 5
     else:
+        cfg.env.agent.class_name = "G1RealAgent"
+        cfg.env.agent.unitree_model = "g1"
+        cfg.env.agent.level = "high"           # only high level (sports mode / arm_sdk) is implemented
         cfg.env.agent.enable_viewer = False
         cfg.env.agent.dt = 0.01
         cfg.env.agent.control_decimation = 1
-        cfg.env.agent.send_cmd = True
-    
+        cfg.env.agent.send_cmd = SEND_CMD
+        cfg.env.agent.network_interface = NETWORK_INTERFACE
+
     return cfg
 
 def config_policy_module(cfg: PipelineConfig, **kwargs):
@@ -153,7 +169,7 @@ def config_safety_module(cfg: PipelineConfig, **kwargs):
             cfg.algo.safe_controller.safety_index.phi_nn_path = "n_2_scalar.onnx"
 
     cfg.algo.safe_controller.safety_index.enable_self_collision = False
-    cfg.algo.safe_controller.safety_index.min_distance['environment'] = 0.01
+    cfg.algo.safe_controller.safety_index.min_distance['environment'] = 0.05 # meters of clearance on hardware
 
     return cfg
 
@@ -189,15 +205,13 @@ def run(**kwargs):
     return
 
 if __name__ == "__main__":
-    ROBOT_CFG_LIST = [
-        "G1FixedBaseDynamic1Config",
-        "G1FixedBaseDynamic2Config",
-    ]
     log_root = os.path.join(os.path.dirname(os.path.realpath(__file__)), f'out_real_rssa')
     save_path = log_root
-    
-    run(robot_cfg = "G1DualArmDynamic1Config",
-        safe_algo = "bypass",
+
+    # G1FixedBaseDynamic1Config (17 DoF: waist + both arms) matches the joints
+    # driven by the high-level arm_sdk interface on the real robot.
+    run(robot_cfg = "G1FixedBaseDynamic1Config",
+        safe_algo = "rssa",
         safety_index = "si1",
         save_path = save_path)
     
