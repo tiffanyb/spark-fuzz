@@ -14,6 +14,13 @@ the wrist joints move the hand without moving the elbow.
 The QP is infeasible exactly when c_i - eta - L_f phi_i < 0 on the binding row,
 so this file is the record of why eta=20 goes infeasible partway through.
 
+EVERY step of the run is recorded, not only the steps where the filter engaged.
+On an idle step (phi < 0 everywhere) there is no binding constraint, so the row
+reports the pair CLOSEST to engaging -- the largest phi among the masked rows --
+and sets engaged=0. Authority is a property of the pose, not of whether the
+filter happened to be active, and omitting the idle steps left 589 holes in a
+687-step run.
+
 Env constraints are flattened (robot_vol, obstacle_vol) row-major, then the
 self-collision upper triangle, so volume = j // n_obstacle for j < n_env.
 
@@ -100,51 +107,69 @@ def main(argv=None):
                 n_env = len(phi) - NSELF
                 n_obs = n_env // NV
             act = derived.active_set(phi, raw["phi_mask"], "constant")
-            if act.any():
-                c = derived.control_authority(Lg, raw["u_lim"])
+            c = derived.control_authority(Lg, raw["u_lim"])
+            engaged = bool(act.any())
+            if engaged:
+                # the constraint the filter is actually fighting
                 m = derived.margin(
                     c, derived.demand_vector("constant", phi, eta=a.eta),
                     Lf, act)
-                j = m["binding"]
-                share = np.abs(Lg[j]) * np.abs(raw["u_lim"])
-                tot = share.sum()
-                share = share / tot if tot else share
-                top = int(np.argmax(share))
-                rows.append({
-                    "step": t,
-                    "leg": int(getattr(h.env.task, "wp_idx", 0)),
-                    "clearance": round(clr, 9),
-                    "c_authority": round(float(c[j]), 6),
-                    "eta": a.eta,
-                    "Lf": round(float(Lf[j]), 6),
-                    "margin_g": round(float(m["g_min"]), 6),
-                    "infeasible": gave,
-                    "body_part": (VOLS[j // n_obs] if j < n_env
-                                  else "SELF_COLLISION"),
-                    "constraint_index": int(j),
-                    "n_active": int(m["n_active"]),
-                    "n_joints_1pct": int((share > 0.01).sum()),
-                    "top_joint": (DOFS[top] if top < len(DOFS)
-                                  else f"u{top}"),
-                    "top_joint_share": round(float(share[top]), 4),
-                })
+                j = int(m["binding"])
+                n_active, margin_g = int(m["n_active"]), float(m["g_min"])
+            else:
+                # Filter idle (phi < 0 everywhere), but authority is still
+                # defined -- report it for the pair CLOSEST to engaging, i.e.
+                # the largest phi among the masked rows. Without these rows the
+                # trace has 589 holes and the wrist->elbow handover looks like a
+                # jump rather than the continuous swing it is.
+                mask = np.asarray(raw["phi_mask"], float).reshape(-1) > 0
+                j = int(np.argmax(np.where(mask, phi, -np.inf)))
+                n_active = 0
+                margin_g = float(c[j] - a.eta - Lf[j])
+            share = np.abs(Lg[j]) * np.abs(raw["u_lim"])
+            tot = share.sum()
+            share = share / tot if tot else share
+            top = int(np.argmax(share))
+            rows.append({
+                "step": t,
+                "leg": int(getattr(h.env.task, "wp_idx", 0)),
+                "clearance": round(clr, 9),
+                "c_authority": round(float(c[j]), 6),
+                "eta": a.eta,
+                "phi": round(float(phi[j]), 9),
+                "Lf": round(float(Lf[j]), 6),
+                "margin_g": round(margin_g, 6),
+                "engaged": int(engaged),
+                "infeasible": gave,
+                "body_part": (VOLS[j // n_obs] if j < n_env
+                              else "SELF_COLLISION"),
+                "constraint_index": int(j),
+                "n_active": n_active,
+                "n_joints_1pct": int((share > 0.01).sum()),
+                "top_joint": (DOFS[top] if top < len(DOFS) else f"u{top}"),
+                "top_joint_share": round(float(share[top]), 4),
+            })
         if clr < 0.0 or h.env.task.reached_final:
             break
     h.reset = orig
 
-    cols = ["step", "leg", "clearance", "c_authority", "eta", "Lf", "margin_g",
-            "infeasible", "body_part", "constraint_index", "n_active",
-            "n_joints_1pct", "top_joint", "top_joint_share"]
+    cols = ["step", "leg", "clearance", "c_authority", "eta", "phi", "Lf",
+            "margin_g", "engaged", "infeasible", "body_part",
+            "constraint_index", "n_active", "n_joints_1pct", "top_joint",
+            "top_joint_share"]
     with open(a.out, "w", newline="") as fh:
         wtr = csv.DictWriter(fh, fieldnames=cols)
         wtr.writeheader()
         wtr.writerows(rows)
 
-    print(f"{a.algo} eta={a.eta}: {len(rows)} engaged steps -> {a.out}")
-    print(f"  infeasible on {sum(r['infeasible'] for r in rows)} of them")
+    ne = sum(r["engaged"] for r in rows)
+    print(f"{a.algo} eta={a.eta}: {len(rows)} steps -> {a.out}")
+    print(f"  filter engaged on {ne}, idle on {len(rows) - ne}")
+    print(f"  infeasible on {sum(r['infeasible'] for r in rows)}")
     seen = {}
     for r in rows:
-        seen.setdefault(r["body_part"], []).append(r["c_authority"])
+        if r["engaged"]:
+            seen.setdefault(r["body_part"], []).append(r["c_authority"])
     for part, cs in sorted(seen.items(), key=lambda kv: -len(kv[1])):
         cs = np.array(cs)
         print(f"  {part:<28} {len(cs):>4} steps   c mean {cs.mean():6.2f}"
