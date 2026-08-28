@@ -1,6 +1,6 @@
 """Figure 2: why SSA at eta=20 goes infeasible -- authority follows the body part.
 
-Reads eta20_authority.csv (every step of the run), writes casestudy_eta20.pdf.
+Reads data/eta20_authority.csv (every step of the run), writes data/casestudy_eta20.pdf.
 
 What the chart has to carry: c is NOT a constant of the robot. u_lim and phi_k
 never change during the run, so every move in c comes from WHICH collision volume
@@ -63,8 +63,8 @@ LABEL = {"elbow": "elbow nearest", "wrist": "wrist / hand nearest",
 
 def main(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--csv", default=os.path.join(HERE, "eta20_authority.csv"))
-    p.add_argument("--out", default=os.path.join(HERE, "casestudy_eta20.pdf"))
+    p.add_argument("--csv", default=os.path.join(HERE, "data", "eta20_authority.csv"))
+    p.add_argument("--out", default=os.path.join(HERE, "data", "casestudy_eta20.pdf"))
     a = p.parse_args(argv)
 
     rows = list(csv.DictReader(open(a.csv)))

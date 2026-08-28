@@ -19,9 +19,12 @@ Two outcome columns, deliberately kept separate:
                    stalled the task); that is a task failure, not a defence,
                    and collapsing it into "attack failed" would hide it.
 
+Data lives in data/: the attack is read from data/pssa_0_1.json and the sweep is
+written to data/eta_sweep.csv + data/eta_sweep_meta.json by default.
+
 Usage (see README.md -- DYLD_INSERT_LIBRARIES is required):
     python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta
-    python .../sweep_eta.py --attack <path.json> --out eta_sweep.csv
+    python .../sweep_eta.py --attack <path.json> --out data/eta_sweep.csv
 """
 
 import argparse
@@ -37,8 +40,9 @@ ETAS = [0.0001, 0.001, 0.004, 0.005, 0.01, 0.05, 0.5, 1, 2, 3, 4, 5, 10, 15,
         20, 50, 100, 200, 1000, 10000]
 ALGOS = ["ssa"]
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_ATTACK = os.path.join(
-    os.path.dirname(HERE), "stock_attacks", "pssa_0_1.json")
+# All data files live in casestudy/data/.
+DATA = os.path.join(HERE, "data")
+DEFAULT_ATTACK = os.path.join(DATA, "pssa_0_1.json")
 
 
 def run_one(V, algo, eta):
@@ -120,7 +124,7 @@ def run_one(V, algo, eta):
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--attack", default=DEFAULT_ATTACK)
-    p.add_argument("--out", default=os.path.join(HERE, "eta_sweep.csv"))
+    p.add_argument("--out", default=os.path.join(DATA, "eta_sweep.csv"))
     p.add_argument("--algos", default=",".join(ALGOS),
                    help="comma list; 'ssa,pssa' to include the slack filter")
     a = p.parse_args(argv)

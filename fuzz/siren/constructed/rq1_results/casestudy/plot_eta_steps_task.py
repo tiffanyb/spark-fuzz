@@ -1,6 +1,6 @@
 """Plot eta sweep episode length with task success/failure regions.
 
-Reads eta_sweep.csv and writes eta_steps_task.pdf/png. The main series is the
+Reads data/eta_sweep.csv and writes data/eta_steps_task.pdf/png. The main series is the
 number of simulation steps. Red/green vertical regions show where the task fails
 or succeeds for the sampled eta values.
 """
@@ -74,9 +74,9 @@ def exp_label(x):
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv", default=os.path.join(HERE, "eta_sweep.csv"))
+    parser.add_argument("--csv", default=os.path.join(HERE, "data", "eta_sweep.csv"))
     parser.add_argument("--algo", default="ssa")
-    parser.add_argument("--out", default=os.path.join(HERE, "eta_steps_task.pdf"))
+    parser.add_argument("--out", default=os.path.join(HERE, "data", "eta_steps_task.pdf"))
     args = parser.parse_args(argv)
 
     rows = load_rows(args.csv, args.algo)

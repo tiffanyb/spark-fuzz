@@ -1,6 +1,6 @@
 """Plot control authority over time for the eta=20 case study.
 
-Reads eta20_authority.csv and writes eta20_authority_steps.pdf/png.
+Reads data/eta20_authority.csv and writes data/eta20_authority_steps.pdf/png.
 """
 
 import argparse
@@ -57,8 +57,8 @@ def load_rows(path):
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv", default=os.path.join(HERE, "eta20_authority.csv"))
-    parser.add_argument("--out", default=os.path.join(HERE, "eta20_authority_steps.pdf"))
+    parser.add_argument("--csv", default=os.path.join(HERE, "data", "eta20_authority.csv"))
+    parser.add_argument("--out", default=os.path.join(HERE, "data", "eta20_authority_steps.pdf"))
     args = parser.parse_args(argv)
 
     rows = load_rows(args.csv)

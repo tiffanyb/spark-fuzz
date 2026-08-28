@@ -24,6 +24,9 @@ filter happened to be active, and omitting the idle steps left 589 holes in a
 Env constraints are flattened (robot_vol, obstacle_vol) row-major, then the
 self-collision upper triangle, so volume = j // n_obstacle for j < n_env.
 
+Data lives in data/: the attack is read from data/pssa_0_1.json and the trace is
+written to data/eta20_authority.csv by default.
+
 Usage (see README.md -- DYLD_INSERT_LIBRARIES is required):
     python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta20_authority
 """
@@ -36,8 +39,9 @@ import os
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_ATTACK = os.path.join(
-    os.path.dirname(HERE), "stock_attacks", "pssa_0_1.json")
+# All data files live in casestudy/data/.
+DATA = os.path.join(HERE, "data")
+DEFAULT_ATTACK = os.path.join(DATA, "pssa_0_1.json")
 
 
 def main(argv=None):
@@ -45,7 +49,7 @@ def main(argv=None):
     p.add_argument("--attack", default=DEFAULT_ATTACK)
     p.add_argument("--eta", type=float, default=20.0)
     p.add_argument("--algo", default="ssa")
-    p.add_argument("--out", default=os.path.join(HERE, "eta20_authority.csv"))
+    p.add_argument("--out", default=os.path.join(DATA, "eta20_authority.csv"))
     a = p.parse_args(argv)
 
     from fuzz.siren.world.run import World
