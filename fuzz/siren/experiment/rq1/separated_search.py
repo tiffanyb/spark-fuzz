@@ -45,7 +45,7 @@ R_STOCK_GEOM = 0.05
 
 def park_all(world):
     """Move every obstacle out of the workspace so the filter stays disengaged."""
-    from .big_obstacle import set_obstacles
+    from fuzz.siren.world.big_obstacle import set_obstacles
     n = len(world.scene().obstacles_world)
     set_obstacles(world, [PARK] * n, 0.05)
 
@@ -166,7 +166,7 @@ def phase_geom(n_grid, sub):
 def phase_test(top, radii, algos, clear=0.015, offsets=None):
     from fuzz.siren.pipeline import trialconf
     from fuzz.siren.world.run import World
-    from .big_obstacle import evaluate
+    from fuzz.siren.world.big_obstacle import evaluate
 
     g = json.load(open(GEOM))
     G0 = np.asarray(g["G0"], float)
@@ -261,7 +261,7 @@ def phase_multi(top, R, K, clear, algos, spacing=2.2, offsets=None,
     """
     from fuzz.siren.pipeline import trialconf
     from fuzz.siren.world.run import World
-    from .big_obstacle import evaluate
+    from fuzz.siren.world.big_obstacle import evaluate
     from .swept import sweep_points
 
     g = json.load(open(GEOM))
@@ -385,7 +385,7 @@ def phase_demand(top, R, K, clear, algos, spacing, ladder,
     from fuzz.siren.pipeline import trialconf
     from fuzz.siren.world.run import World
     from fuzz.siren.world.types import real_filter
-    from .big_obstacle import evaluate
+    from fuzz.siren.world.big_obstacle import evaluate
     from .swept import sweep_points
 
     g = json.load(open(GEOM))

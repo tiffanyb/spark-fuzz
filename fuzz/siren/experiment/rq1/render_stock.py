@@ -79,7 +79,7 @@ def rollout(world, schedule, pos_w, radius, steps):
 
     from fuzz.siren.pipeline.stage1_search import set_channel
     from fuzz.siren.world.sim import probe
-    from .big_obstacle import set_obstacles
+    from fuzz.siren.world.big_obstacle import set_obstacles
 
     h = world.harness
     ag = h.env.agent

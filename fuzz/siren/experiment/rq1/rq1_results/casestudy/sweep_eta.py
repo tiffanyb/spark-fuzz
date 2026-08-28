@@ -52,7 +52,7 @@ def run_one(V, algo, eta):
     from fuzz.siren.world.sim import probe
     from fuzz.siren.world import derived
     from fuzz.siren.pipeline.stage1_search import set_channel
-    from fuzz.siren.experiment.rq1.big_obstacle import set_obstacles
+    from fuzz.siren.world.big_obstacle import set_obstacles
 
     pos_w = [np.asarray(q, float) for q in V["obstacles_world"]]
     R = float(V["obstacle_radius"])

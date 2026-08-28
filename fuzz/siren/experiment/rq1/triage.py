@@ -42,7 +42,7 @@ SLACK_EPS = 1e-6
 def run_instrumented(world, schedule, pos_w, radius, steps):
     """Pinned-obstacle rollout with the exact feasibility margin computed."""
     from fuzz.siren.pipeline.stage1_search import set_channel
-    from .big_obstacle import set_obstacles
+    from fuzz.siren.world.big_obstacle import set_obstacles
     h = world.harness
     orig = h.reset
 

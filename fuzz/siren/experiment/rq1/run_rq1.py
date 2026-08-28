@@ -53,7 +53,7 @@ def run(world, schedule, pos_w, R, steps):
     of 500 rollouts. A failed solve is not evidence about the filter, so the
     setting is skipped rather than scored.
     """
-    from .big_obstacle import run_pinned
+    from fuzz.siren.world.big_obstacle import run_pinned
     try:
         return run_pinned(world, [np.asarray(x, float) for x in schedule],
                           pos_w, R, steps)
