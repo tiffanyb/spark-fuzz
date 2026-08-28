@@ -1,0 +1,97 @@
+# TRIAL 1 -- SPARK's shipped parameters, verbatim.
+#
+# Every value below is copied from SPARK's own code, with the file and line it
+# came from. Nothing here is our choice, so that a result under this config is a
+# statement about SPARK as distributed rather than about our tuning.
+#
+#   example/g1/run_g1_benchmark.py                       per-filter demand +
+#                                                        slack + control_weight
+#   pipeline/spark_pipeline/autonomy/benchmark_pipeline_config.py
+#                                                        safety_index and the
+#                                                        safe_algo fields their
+#                                                        runner never overrides
+#
+# ONE HONEST GAP: `pssa` is NOT a SPARK filter. It lives in fuzz/projected_ssa.py
+# as a subclass of RelaxedSafeSetAlgorithm, monkey-patched into spark_policy.
+# SPARK ships six (ssa rssa sss rsss cbf rcbf) plus pfm/sma. It is included here
+# with its parent's SPARK values so the 7 x 16 grid is complete, and flagged as
+# `spark_native: false`.
+
+name: config1
+description: SPARK's shipped defaults, unmodified
+
+filters:
+  ssa:
+    spark_native: true
+    class_name: BasicSafeSetAlgorithm        # run_g1_benchmark.py:31
+    eta: 0.1                                 # eta_ssa, run_g1_benchmark.py:32
+  rssa:
+    spark_native: true
+    class_name: RelaxedSafeSetAlgorithm      # :41
+    eta: 0.1                                 # :42
+    slack_weight: 1000.0                     # :43
+  sss:
+    spark_native: true
+    class_name: BasicSublevelSafeSetAlgorithm  # :52
+    lam: 10.0                                # lambda_sss, :53
+  rsss:
+    spark_native: true
+    class_name: RelaxedSublevelSafeSetAlgorithm  # :61
+    lam: 10.0                                # :62
+    slack_weight: 1000.0                     # :63
+  cbf:
+    spark_native: true
+    class_name: BasicControlBarrierFunction  # :72
+    lam: 10.0                                # lambda_cbf, :73
+  rcbf:
+    spark_native: true
+    class_name: RelaxedControlBarrierFunction  # :82
+    lam: 10.0                                # :83
+    slack_weight: 1000.0                     # :84
+  pssa:
+    spark_native: false                      # OURS -- fuzz/projected_ssa.py
+    class_name: ProjectedSafeSetAlgorithm
+    eta: 0.1                                 # parent RelaxedSafeSetAlgorithm
+    slack_weight: 1000.0                     # parent
+
+  pfm:
+    spark_native: true
+    class_name: BasicPotentialFieldMethod   # run_g1_benchmark.py:94
+    c: 1.0                                  # c_pfm, run_g1_benchmark.py:95
+  sma:
+    spark_native: true
+    class_name: BasicSlidingModeAlgorithm   # run_g1_benchmark.py:98
+    c: 1.0                                  # c_sma, run_g1_benchmark.py:99
+  none:
+    spark_native: true
+    class_name: ByPassSafeControl           # SPARK's own no-filter passthrough
+
+# safety index
+index:
+  d_min: 0.1               # min_distance["environment"], benchmark_pipeline_config.py:67
+  phi_n: 1.0               # si2, run_g1_benchmark.py:113
+  phi_k: 1.0               # si2, run_g1_benchmark.py:114
+  overrides:
+    safety_index.min_distance.self: 0.01           # benchmark_pipeline_config.py:68
+    safety_index.enable_self_collision: false      # :71
+
+# safe_algo fields SPARK's runner leaves at the config default
+safe_algo_overrides:
+  safe_algo.safety_buffer: 0.1                     # :76
+  safe_algo.use_slack: true                        # :77
+  safe_algo.slack_regularization_order: 2          # :79
+
+# control_weight is [1.0] * 20 in both SPARK and ours, sliced identically per
+# robot (:-3 for FixedBase, 3:10 for RightArm) -- run_g1_benchmark.py:100-103
+# vs our config.py:81-96. No deviation, so nothing to set here.
+
+search:
+  seeds: "1-120"
+  n_worlds: 4
+  grid: 5
+  relax: true
+  # stop a world once this many prefix-confirmed controls are found.
+  # NOTE this makes control COUNTS incomparable between trials -- both
+  # will report at most this many. Compare gate-pass rates and which
+  # (filter, family) pairs yield anything, not the totals.
+  max_controls: 2

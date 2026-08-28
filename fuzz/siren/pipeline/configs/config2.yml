@@ -1,0 +1,68 @@
+name: config2
+description: the parameter values used throughout this project
+
+filters:
+  ssa:
+    spark_native: true
+    class_name: BasicSafeSetAlgorithm
+    eta: 0.02
+  rssa:
+    spark_native: true
+    class_name: RelaxedSafeSetAlgorithm
+    eta: 0.02
+    slack_weight: 1000.0
+  sss:
+    spark_native: true
+    class_name: BasicSublevelSafeSetAlgorithm
+    lam: 10.0
+  rsss:
+    spark_native: true
+    class_name: RelaxedSublevelSafeSetAlgorithm
+    lam: 10.0
+    slack_weight: 1000.0
+  cbf:
+    spark_native: true
+    class_name: BasicControlBarrierFunction
+    lam: 10.0
+  rcbf:
+    spark_native: true
+    class_name: RelaxedControlBarrierFunction
+    lam: 10.0
+    slack_weight: 1000.0
+  pssa:
+    spark_native: false
+    class_name: ProjectedSafeSetAlgorithm
+    eta: 0.02
+    slack_weight: 1.0
+
+  pfm:
+    spark_native: true
+    class_name: BasicPotentialFieldMethod
+    c: 1.0
+  sma:
+    spark_native: true
+    class_name: BasicSlidingModeAlgorithm
+    c: 1.0
+  none:
+    spark_native: true
+    class_name: ByPassSafeControl
+
+index:
+  d_min: 0.02
+  phi_n: 1.0
+  phi_k: 0.1
+  overrides:
+    safety_index.min_distance.self: 0.01
+    safety_index.enable_self_collision: false
+
+safe_algo_overrides:
+  safe_algo.safety_buffer: 0.1
+  safe_algo.use_slack: true
+  safe_algo.slack_regularization_order: 2
+
+search:
+  seeds: "1-120"
+  n_worlds: 4
+  grid: 5
+  relax: true
+  max_controls: 2
