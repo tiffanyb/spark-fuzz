@@ -1,33 +1,15 @@
-"""
-Phase-A single-arm adversarial goal-insertion fuzzer for SPARK.
+"""fuzz — SPARK adversarial goal-insertion research.
 
-Research question (see ../RESEARCH_PLAN_0611.md §15): can a single *admissible*
-intermediate goal G1' inserted before a legitimate goal G1 trap a reactive
-safe controller so the robot can no longer reach G1 safely?
+At import time this registers two classes into SPARK's namespaces so
+`spark`'s `initialize_class` can resolve them by name:
 
-This package is intentionally self-contained: it plugs into SPARK by
-*registering* a custom Task into the `spark_task` namespace at import time
-(see goal_insertion_task.py) rather than editing any core SPARK file.
+    goal_insertion_task -> spark_task.SingleArmGoalInsertionTask
+    projected_ssa       -> spark_policy.ProjectedSafeSetAlgorithm
 
-Public entry point:
-    from fuzz import build_single_arm_config, SingleArmHarness, GoalInsertionFuzzer
+Both are used by the SIREN pipeline under fuzz/siren/ (the task class its worlds
+run, and the pssa filter). The former standalone Phase-A fuzzer that also lived
+at this level has been retired to fuzz/trash/.
 """
 
-from .config import build_single_arm_config
-from .goal_insertion_task import SingleArmGoalInsertionTask
-from .harness import SingleArmHarness
-from .metrics import StepRecord, TrialOutcome, classify_trial
-from .admissibility import is_admissible, sample_admissible
-from .fuzzer import GoalInsertionFuzzer
-
-__all__ = [
-    "build_single_arm_config",
-    "SingleArmGoalInsertionTask",
-    "SingleArmHarness",
-    "StepRecord",
-    "TrialOutcome",
-    "classify_trial",
-    "is_admissible",
-    "sample_admissible",
-    "GoalInsertionFuzzer",
-]
+from . import goal_insertion_task  # noqa: F401  (-> spark_task)
+from . import projected_ssa        # noqa: F401  (-> spark_policy)

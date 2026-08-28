@@ -37,6 +37,16 @@ class SingleArmGoalInsertionTask(BenchmarkTask):
         self.goal_schedule = None
         self.wp_idx = 0
 
+        # BASE-goal channel. On whole-body (WG) cases SPARK commands a base pose
+        # as well as an arm pose -- base_goal_range spans 1.6 x 1.6 m plus full
+        # yaw, against the arm goal's 0.3 m cube -- so an attacker with access to
+        # the goal interface has a second, much larger channel. When a base
+        # schedule is set, this task steers the base goal along it exactly as it
+        # steers the arm goal, and waypoint advance is driven by whichever
+        # channel is being attacked (see `channel`).
+        self.base_goal_schedule = None
+        self.channel = "arm"
+
         # Thresholds.
         self.reach_eps = kwargs.get("reach_eps", 0.05)                 # advance between waypoints
         self.final_reach_eps = kwargs.get("final_reach_eps", self.arm_goal_size)  # count G1 as reached
@@ -50,6 +60,22 @@ class SingleArmGoalInsertionTask(BenchmarkTask):
     # ------------------------------------------------------------------ #
     #  Schedule control (called by the harness after reset)
     # ------------------------------------------------------------------ #
+    def set_base_goal_schedule(self, waypoints_xy_yaw):
+        """waypoints_xy_yaw: list of (x, y, yaw) base poses in the WORLD frame.
+
+        z is pinned to base_goal_range's z, which SPARK fixes (0.793) -- the base
+        does not translate vertically, so searching it would waste two thirds of
+        every grid axis.
+        """
+        self.base_goal_schedule = [np.asarray(w, dtype=float).reshape(3)
+                                   for w in waypoints_xy_yaw]
+        self.channel = "base"
+        self.wp_idx = 0
+        self.reached_final = False
+        self.dist_to_current = np.inf
+        self.dist_to_final = np.inf
+        self.steps_in_phase = 0
+
     def set_goal_schedule(self, waypoints_base_xyz):
         """waypoints_base_xyz: list of 3-D positions in the robot base frame.
         The final entry is the legitimate goal G1."""
@@ -70,7 +96,51 @@ class SingleArmGoalInsertionTask(BenchmarkTask):
     #  Override goal motion: follow the schedule instead of Brownian walk.
     #  (called from BenchmarkTask.step() after _update_robot_state())
     # ------------------------------------------------------------------ #
+    def _update_base_goal(self):
+        """Steer the BASE goal along its schedule and measure progress on it.
+
+        Distance mixes translation and rotation, so yaw error is folded in as
+        arc length at a 0.5 m lever -- a 90 deg heading error then counts about
+        the same as 0.8 m of translation. Without that, a waypoint could count as
+        reached while the robot faces the opposite way, which is exactly the
+        state a base-goal attack would exploit.
+        """
+        import numpy as _np
+        from scipy.spatial.transform import Rotation as _R
+
+        wp = self.base_goal_schedule[self.wp_idx]
+        z = float(self.robot_goal_base.frame[2, 3])
+        self.robot_goal_base.frame[:3, 3] = _np.array([wp[0], wp[1], z])
+        self.robot_goal_base.frame[:3, :3] = _R.from_euler(
+            "xyz", [0, 0, float(wp[2])]).as_matrix()
+
+        b = self.robot_base_frame
+        pos = _np.asarray(b[:3, 3], float)
+        yaw = float(_R.from_matrix(_np.asarray(b[:3, :3], float)).as_euler("xyz")[2])
+
+        def _d(w):
+            dxy = float(_np.linalg.norm(pos[:2] - _np.asarray(w[:2], float)))
+            dyaw = abs((yaw - float(w[2]) + _np.pi) % (2 * _np.pi) - _np.pi)
+            return dxy + 0.5 * dyaw
+
+        self.dist_to_current = _d(wp)
+        self.dist_to_final = _d(self.base_goal_schedule[-1])
+
+        if (self.wp_idx < len(self.base_goal_schedule) - 1
+                and self.dist_to_current < self.reach_eps):
+            self.wp_idx += 1
+            self.steps_in_phase = 0
+        else:
+            self.steps_in_phase += 1
+        if self.dist_to_final < self.final_reach_eps:
+            self.reached_final = True
+
     def _update_robot_goal(self):
+        if self.channel == "base" and self.base_goal_schedule is not None:
+            # keep the arm goal pinned where the benchmark sampled it: the ATTACK
+            # is on the base channel, so the arm must behave legitimately
+            self._update_base_goal()
+            return
         goal_xyz = self._current_goal_base()
         self.robot_goal_right.frame[:3, 3] = goal_xyz
 
