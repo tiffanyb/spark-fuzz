@@ -67,7 +67,7 @@ def run_schedule(world, schedule, steps, channel="arm", pin=None, radius=0.05):
     if pin is not None:
         if channel != "arm":
             raise RuntimeError("pinned obstacle targets are only supported for arm-channel runs")
-        from fuzz.siren.experiment.rq1.big_obstacle import run_pinned
+        from fuzz.siren.world.big_obstacle import run_pinned
         return run_pinned(world, sched, pin, radius, steps)
     from .stage1_search import run_ch
     return run_ch(world, sched, channel, max_steps=steps)
@@ -101,7 +101,7 @@ def evaluate_candidate(world, G0, cand, G1, steps, hit_leg,
                        channel="arm", pin=None, radius=0.05):
     """Run [G0, cand, G1] and decide whether it is an attack of the wanted kind.
 
-    Score mirrors pipeline_spec: engaged candidates outrank unengaged ones, and
+    Score: engaged candidates outrank unengaged ones, and
     within each group the braking margin (or clearance) decides. `mu` is
     deliberately not used -- measured over 9936 engaged candidates it is
     ANTI-correlated with contact (corr -0.14), so any monotone function of it

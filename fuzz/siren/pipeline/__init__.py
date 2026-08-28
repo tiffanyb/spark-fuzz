@@ -1,6 +1,6 @@
 """SIREN evaluation pipeline: find -> verify -> fuzz -> measure.
 
-See PIPELINE.md in this directory. Stage entry points:
+See README.md in this directory. Stage entry points:
 
     stage1_search    find ground-truth attacks in the SPARK benchmark
     stage2_verify    re-verify from scratch, record the trace, render
@@ -8,7 +8,4 @@ See PIPELINE.md in this directory. Stage entry points:
     stage3_fuzz      run SIREN against a target, logging every evaluation
     stage4_curves    discovery curves: attacks vs trials, attacks vs time
     stage4_render    3-D render of every searched location
-
-The former fuzz/siren/pipeline.py (the per-candidate evaluation spec) is now
-fuzz/siren/pipeline_spec.py -- a module and a package cannot share a name.
 """

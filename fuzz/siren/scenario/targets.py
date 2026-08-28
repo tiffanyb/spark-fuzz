@@ -149,7 +149,7 @@ def load_target(path, max_steps=None):
     obs = target.get("obstacles_world")
     if obs:
         import numpy as _np
-        from ..constructed.big_obstacle import set_obstacles as _set_obs
+        from fuzz.siren.world.big_obstacle import set_obstacles as _set_obs
         _pos = [_np.asarray(q, float) for q in obs]
         _rad = float(target.get("obstacle_radius") or 0.05)
         _h = w.harness
