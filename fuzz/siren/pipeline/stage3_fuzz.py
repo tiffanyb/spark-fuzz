@@ -67,7 +67,7 @@ def run_schedule(world, schedule, steps, channel="arm", pin=None, radius=0.05):
     if pin is not None:
         if channel != "arm":
             raise RuntimeError("pinned obstacle targets are only supported for arm-channel runs")
-        from ..constructed.big_obstacle import run_pinned
+        from fuzz.siren.experiment.rq1.big_obstacle import run_pinned
         return run_pinned(world, sched, pin, radius, steps)
     from .stage1_search import run_ch
     return run_ch(world, sched, channel, max_steps=steps)

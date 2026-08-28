@@ -45,7 +45,7 @@ and the prefix rollout [G0, G1', G1] from home is used to CONFIRM (sound). Only
 prefix-confirmed hits are written out.
 
     KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
-    OPENBLAS_NUM_THREADS=1 python -m fuzz.siren.scenario.g0_search \
+    OPENBLAS_NUM_THREADS=1 python -m fuzz.siren.pipeline.stage1_search \
         --algo sss --grid 6
 """
 

@@ -95,7 +95,7 @@ def pick_candidate(res, mode, pick_seed=0):
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--fuzz-result", required=True)
-    p.add_argument("--targets-dir", default="fuzz/siren/scenario/targets")
+    p.add_argument("--targets-dir", default="fuzz/siren/pipeline/targets")
     p.add_argument("--pick", default="random",
                    choices=["random", "farthest", "nearest", "deepest"])
     p.add_argument("--pick-seed", type=int, default=0,

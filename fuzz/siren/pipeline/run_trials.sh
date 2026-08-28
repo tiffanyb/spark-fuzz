@@ -88,7 +88,7 @@ xargs -P "$PAR" -L 1 bash -c '
   T=$0; f=$1; s=$2; ch=$3
   ROOT='"$ROOT"'; PY='"$PY"'
   OUT=$ROOT/fuzz/siren/pipeline/trials_0803_1/$T
-  CONF=$ROOT/fuzz/siren/pipeline/configs/$T.yaml
+  CONF=$ROOT/fuzz/siren/pipeline/configs/$T.yml
   log="$OUT/logs/${f}_${s}_${ch}.log"
   $PY -m fuzz.siren.pipeline.stage1_search \
       --config "$CONF" --algo "$f" --scenes "$s" --goal-channel "$ch" \

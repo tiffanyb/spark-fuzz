@@ -16,7 +16,7 @@ If both hold, the fuzzer can be pointed at this target and scored on whether it
 rediscovers G1' without ever being told it.
 
     KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
-    OPENBLAS_NUM_THREADS=1 python -m fuzz.siren.scenario.make_targets
+    OPENBLAS_NUM_THREADS=1 python -m fuzz.siren.pipeline.stage3_targets
 """
 
 import argparse
@@ -29,8 +29,8 @@ import numpy as np
 
 def main(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--verified", default="fuzz/siren/scenario/verified/*.json")
-    p.add_argument("--out-dir", default="fuzz/siren/scenario/targets")
+    p.add_argument("--verified", default="fuzz/siren/pipeline/verified/*.json")
+    p.add_argument("--out-dir", default="fuzz/siren/pipeline/targets")
     p.add_argument("--settle", type=int, default=0,
                    help="extra steps to hold at G0 before capturing")
     a = p.parse_args(argv)
