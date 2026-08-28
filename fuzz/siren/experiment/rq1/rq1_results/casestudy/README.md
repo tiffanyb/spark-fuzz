@@ -36,20 +36,20 @@ export DYLD_INSERT_LIBRARIES=$CONDA_PREFIX/lib/libomp.dylib
 export KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 PYTHONPATH=.
 
 # eta sweep -> data/eta_sweep.csv -> data/eta_steps_task.pdf
-python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta
-python -m fuzz.siren.constructed.rq1_results.casestudy.plot_eta_steps_task
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.sweep_eta
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.plot_eta_steps_task
 
 # eta=20 authority -> data/eta20_authority.csv -> the two authority figures
-python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta20_authority
-python -m fuzz.siren.constructed.rq1_results.casestudy.plot_eta20
-python -m fuzz.siren.constructed.rq1_results.casestudy.plot_eta20_authority_steps
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.sweep_eta20_authority
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.plot_eta20
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.plot_eta20_authority_steps
 ```
 
 Sweep a different attack:
 
 ```bash
-python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta \
-    --attack fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_5.json
+python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.sweep_eta \
+    --attack fuzz/siren/experiment/rq1/rq1_results/stock_attacks/rssa_0_5.json
 ```
 
 ## What is held fixed

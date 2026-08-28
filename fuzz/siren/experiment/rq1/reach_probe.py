@@ -8,7 +8,7 @@ second -- so the distinction has to be measured before more budget is spent.
 
 Reports, per placement, the minimum clearance reached on each leg.
 
-    python -m fuzz.siren.constructed.reach_probe --seed 3 --algo rcbf --spots 6
+    python -m fuzz.siren.experiment.rq1.reach_probe --seed 3 --algo rcbf --spots 6
 """
 
 import argparse
@@ -33,9 +33,9 @@ def main(argv=None):
     p.add_argument("--k", type=float, default=0.1)
     a = p.parse_args(argv)
 
-    from ..pipeline import trialconf
-    from ..world.run import World
-    from ..world.types import real_filter
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
+    from fuzz.siren.world.types import real_filter
 
     s = json.load(open(f"{SPOTS}_{a.seed}.json"))
     if int(s["seed"]) != a.seed:
@@ -43,7 +43,7 @@ def main(argv=None):
     s["spots"].sort(key=lambda x: abs(x["gap"] - a.gap_target))
     G0, G1 = np.asarray(s["G0"], float), np.asarray(s["G1"], float)
 
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     base = trialconf.spec_for(cfg, a.algo, CASE)
     const = base.demand_shape == "constant"
     spec = real_filter(algo=a.algo, index=base.index, d_min=a.d_min, k=a.k,

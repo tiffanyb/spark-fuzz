@@ -25,8 +25,8 @@ Two corrections over separated_search:
    the attacks land in a narrow band of sep - R, so every qualifying point in
    that band is a candidate placement, not just the argmax.
 
-    python -m fuzz.siren.constructed.run_rq1 --phase spots
-    python -m fuzz.siren.constructed.run_rq1 --phase hunt
+    python -m fuzz.siren.experiment.rq1.run_rq1 --phase spots
+    python -m fuzz.siren.experiment.rq1.run_rq1 --phase hunt
 """
 
 import argparse
@@ -39,8 +39,8 @@ import numpy as np
 from .separated_search import CASE, PARK, goal_grid, park_all
 
 R_STOCK = 0.05
-SPOTS = "fuzz/siren/constructed/rq1_results/stock_spots"
-OUT = "fuzz/siren/constructed/rq1_results/stock_attacks"
+SPOTS = "fuzz/siren/experiment/rq1/rq1_results/stock_spots"
+OUT = "fuzz/siren/experiment/rq1/rq1_results/stock_attacks"
 
 
 def run(world, schedule, pos_w, R, steps):
@@ -92,12 +92,12 @@ def legwise(rec):
 
 def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
     """Every placement whose free room around a 5 cm sphere lands in the band."""
-    from ..pipeline import trialconf
-    from ..world.run import World
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
     from .separated_search import legs_sweep
     from .swept import surface_gap, sweep_points, tile_radii_for
 
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     spec0 = trialconf.spec_for(cfg, "ssa", CASE)
     w = World.build(seed=seed, spec=spec0, test_case=CASE, max_steps=steps)
     sc = w.scene()
@@ -207,9 +207,9 @@ def phase_spots(seed, grid, steps, gap_lo, gap_hi, per_goal):
 
 def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
                seed, gap_target=0.027, ks=None, min_leg1=None):
-    from ..pipeline import trialconf
-    from ..world.run import World
-    from ..world.types import real_filter
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
+    from fuzz.siren.world.types import real_filter
 
     spot_file = f"{SPOTS}_{seed}.json"
     s = json.load(open(spot_file))
@@ -249,7 +249,7 @@ def phase_hunt(algos, steps, ladder, dmins, want, max_spots,
         raise SystemExit(f"--seed {seed} but {spot_file} was generated on seed "
                          f"{s['seed']}; regenerate the corpus or pass --seed "
                          f"{s['seed']}")
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     os.makedirs(OUT, exist_ok=True)
 
     w0 = World.build(seed=seed,

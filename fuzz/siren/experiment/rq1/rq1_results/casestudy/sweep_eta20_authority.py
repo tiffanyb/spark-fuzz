@@ -28,7 +28,7 @@ Data lives in data/: the attack is read from data/pssa_0_1.json and the trace is
 written to data/eta20_authority.csv by default.
 
 Usage (see README.md -- DYLD_INSERT_LIBRARIES is required):
-    python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta20_authority
+    python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.sweep_eta20_authority
 """
 
 import argparse
@@ -57,7 +57,7 @@ def main(argv=None):
     from fuzz.siren.world.sim import probe
     from fuzz.siren.world import derived
     from fuzz.siren.pipeline.stage1_search import set_channel
-    from fuzz.siren.constructed.big_obstacle import set_obstacles
+    from fuzz.siren.experiment.rq1.big_obstacle import set_obstacles
 
     V = json.load(open(a.attack))
     pos_w = [np.asarray(q, float) for q in V["obstacles_world"]]

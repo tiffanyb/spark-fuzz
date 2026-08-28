@@ -5,8 +5,8 @@ off the directory. Reports the matrix, the gaps, and -- for each gap -- whether
 a placement corpus even exists for that seed, since "no corpus" and "corpus but
 no attack" call for different follow-up.
 
-    python -m fuzz.siren.constructed.coverage
-    python -m fuzz.siren.constructed.coverage --seeds 1-10 --gaps-only
+    python -m fuzz.siren.experiment.rq1.coverage
+    python -m fuzz.siren.experiment.rq1.coverage --seeds 1-10 --gaps-only
 """
 
 import argparse
@@ -16,7 +16,7 @@ import os
 import re
 
 FILTERS = ["ssa", "rssa", "pssa", "cbf", "rcbf", "sss", "rsss"]
-RQ1 = "fuzz/siren/constructed/rq1_results"
+RQ1 = "fuzz/siren/experiment/rq1/rq1_results"
 
 
 def main(argv=None):
@@ -70,7 +70,7 @@ def main(argv=None):
             if s in no_corpus:
                 continue
             print(f"   SEED={s} ALLOW_PARALLEL=1 python -m "
-                  f"fuzz.siren.constructed.run_rq1 --phase hunt --want 1 "
+                  f"fuzz.siren.experiment.rq1.run_rq1 --phase hunt --want 1 "
                   f"--seed {s} --algos {','.join(by_seed[s])} ...")
     return 0 if not gaps else 1
 

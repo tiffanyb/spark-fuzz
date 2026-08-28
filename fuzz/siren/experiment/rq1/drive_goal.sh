@@ -13,7 +13,7 @@ cd /Users/tiffanyb/Fun/robot/spark || exit 1
 PY=/Users/tiffanyb/Tools/miniconda3/envs/spark/bin/python
 export KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
        OPENBLAS_NUM_THREADS=1 PYTHONPATH=.
-C=fuzz/siren/constructed
+C=fuzz/siren/experiment/rq1
 RQ1=$C/rq1_results
 LOGS=$C/logs/goal
 # Sized from measurement, not guesswork. One hunt worker holds ~4.7 GB steady
@@ -68,7 +68,7 @@ for s in $SEEDS; do
     fi
     throttle
     echo "  seed $s: building"
-    $PY -m fuzz.siren.constructed.run_rq1 --phase spots --seed "$s" \
+    $PY -m fuzz.siren.experiment.rq1.run_rq1 --phase spots --seed "$s" \
         --grid 5 --gap-lo -0.070 --gap-hi 0.005 --per-goal 10 \
         > "$LOGS/spots_s$s.log" 2>&1 &
 done
@@ -79,7 +79,7 @@ echo "=== phase 2: hunt the gaps ==="
 round=0
 while [ "$round" -lt "${ROUNDS:-5}" ]; do
     round=$((round+1))
-    mapfile -t gaps < <($PY -m fuzz.siren.constructed.coverage --seeds 1-10 --exclude "$EXCLUDE" --gaps-only 2>/dev/null \
+    mapfile -t gaps < <($PY -m fuzz.siren.experiment.rq1.coverage --seeds 1-10 --exclude "$EXCLUDE" --gaps-only 2>/dev/null \
                         | sed -n 's/^   seed \([0-9]*\): \(.*\)$/\1 \2/p')
     [ "${#gaps[@]}" -eq 0 ] && { echo "  no gaps left"; break; }
     echo "  round $round: ${#gaps[@]} seeds with gaps"
@@ -137,14 +137,14 @@ while [ "$round" -lt "${ROUNDS:-5}" ]; do
               cbf)  L="0.05,0.02,0.2,0.01,1"; D="0.015,0.018,0.020"; K="0.3,0.1,1.0" ;;
               *)    L="$LAD"; D="$DM"; K="$KS" ;;
             esac
-            $PY -m fuzz.siren.constructed.run_rq1 --phase hunt --want 1 \
+            $PY -m fuzz.siren.experiment.rq1.run_rq1 --phase hunt --want 1 \
                 --seed "$s" --steps 900 --algos "$one" --max-spots "$MS" \
                 --ladder "$L" --dmins "$D" --ks "$K" --gap-target "$GT" \
                 > "$LOGS/hunt_s${s}_${one}_r${round}.log" 2>&1 &
         done
     done
     wait
-    $PY -m fuzz.siren.constructed.coverage --seeds 1-10 --exclude "$EXCLUDE" 2>&1 | grep -E "^coverage"
+    $PY -m fuzz.siren.experiment.rq1.coverage --seeds 1-10 --exclude "$EXCLUDE" 2>&1 | grep -E "^coverage"
 done
 echo "=== final ==="
-$PY -m fuzz.siren.constructed.coverage --seeds 1-10 --exclude "$EXCLUDE"
+$PY -m fuzz.siren.experiment.rq1.coverage --seeds 1-10 --exclude "$EXCLUDE"

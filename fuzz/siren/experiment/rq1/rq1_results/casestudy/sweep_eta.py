@@ -23,7 +23,7 @@ Data lives in data/: the attack is read from data/pssa_0_1.json and the sweep is
 written to data/eta_sweep.csv + data/eta_sweep_meta.json by default.
 
 Usage (see README.md -- DYLD_INSERT_LIBRARIES is required):
-    python -m fuzz.siren.constructed.rq1_results.casestudy.sweep_eta
+    python -m fuzz.siren.experiment.rq1.rq1_results.casestudy.sweep_eta
     python .../sweep_eta.py --attack <path.json> --out data/eta_sweep.csv
 """
 
@@ -52,7 +52,7 @@ def run_one(V, algo, eta):
     from fuzz.siren.world.sim import probe
     from fuzz.siren.world import derived
     from fuzz.siren.pipeline.stage1_search import set_channel
-    from fuzz.siren.constructed.big_obstacle import set_obstacles
+    from fuzz.siren.experiment.rq1.big_obstacle import set_obstacles
 
     pos_w = [np.asarray(q, float) for q in V["obstacles_world"]]
     R = float(V["obstacle_radius"])

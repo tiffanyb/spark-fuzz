@@ -23,8 +23,8 @@ Plant untouched throughout -- u_lim, kinematics and dt are all stock. The only
 things varied are obstacle position/radius and the goals, which the attacker
 controls.
 
-    python -m fuzz.siren.constructed.separated_search --phase geom
-    python -m fuzz.siren.constructed.separated_search --phase test
+    python -m fuzz.siren.experiment.rq1.separated_search --phase geom
+    python -m fuzz.siren.experiment.rq1.separated_search --phase test
 """
 
 import argparse
@@ -36,8 +36,8 @@ import numpy as np
 CASE = "G1FixedBase_D2_AG_SO_v0"
 SEED = 1
 STEPS = 900
-GEOM = "fuzz/siren/constructed/separation_geom.json"
-OUT = "fuzz/siren/constructed/final_attacks"
+GEOM = "fuzz/siren/experiment/rq1/separation_geom.json"
+OUT = "fuzz/siren/experiment/rq1/final_attacks"
 PARK = np.array([9.0, 9.0, 9.0])
 #: obstacle radius the separation geometry is computed for
 R_STOCK_GEOM = 0.05
@@ -56,8 +56,8 @@ def legs_sweep(world, schedule, steps):
     sweep_points would need a second rollout per leg, and the outbound and
     return legs must come from the same run to be comparable.
     """
-    from ..pipeline.stage1_search import set_channel
-    from ..world.sim import probe
+    from fuzz.siren.pipeline.stage1_search import set_channel
+    from fuzz.siren.world.sim import probe
     h = world.harness
     probe.reset_giveups(h)
     af, ti = h.reset()
@@ -89,12 +89,12 @@ def goal_grid(bounds, n=4):
 
 
 def phase_geom(n_grid, sub):
-    from ..pipeline import trialconf
-    from ..world.run import World
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
     from .swept import (surface_gap, sweep_points, tile_radii_for,
                         volume_radii)  # noqa: F401
 
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     spec = trialconf.spec_for(cfg, "ssa", CASE)
     w = World.build(seed=SEED, spec=spec, test_case=CASE, max_steps=STEPS)
     sc = w.scene()
@@ -164,14 +164,14 @@ def phase_geom(n_grid, sub):
 
 
 def phase_test(top, radii, algos, clear=0.015, offsets=None):
-    from ..pipeline import trialconf
-    from ..world.run import World
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
     from .big_obstacle import evaluate
 
     g = json.load(open(GEOM))
     G0 = np.asarray(g["G0"], float)
     G1 = np.asarray(g["G1"], float)
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     os.makedirs(OUT, exist_ok=True)
 
     total = 0
@@ -259,15 +259,15 @@ def phase_multi(top, R, K, clear, algos, spacing=2.2, offsets=None,
     Every obstacle still has to clear the baseline volume and the outbound leg,
     so the legitimate task stays safe and any contact is an insertion.
     """
-    from ..pipeline import trialconf
-    from ..world.run import World
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
     from .big_obstacle import evaluate
     from .swept import sweep_points
 
     g = json.load(open(GEOM))
     G0 = np.asarray(g["G0"], float)
     G1 = np.asarray(g["G1"], float)
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     spec0 = trialconf.spec_for(cfg, "ssa", CASE)
     os.makedirs(OUT, exist_ok=True)
 
@@ -382,16 +382,16 @@ def phase_demand(top, R, K, clear, algos, spacing, ladder,
     c(x) < d(x) condition directly -- the geometry fixes supply, the ladder
     raises demand until it crosses.
     """
-    from ..pipeline import trialconf
-    from ..world.run import World
-    from ..world.types import real_filter
+    from fuzz.siren.pipeline import trialconf
+    from fuzz.siren.world.run import World
+    from fuzz.siren.world.types import real_filter
     from .big_obstacle import evaluate
     from .swept import sweep_points
 
     g = json.load(open(GEOM))
     G0 = np.asarray(g["G0"], float)
     G1 = np.asarray(g["G1"], float)
-    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yaml")
+    cfg = trialconf.load("fuzz/siren/pipeline/configs/config2.yml")
     spec0 = trialconf.spec_for(cfg, "ssa", CASE)
     os.makedirs(OUT, exist_ok=True)
 
@@ -530,7 +530,7 @@ def main(argv=None):
     if a.seed:
         global SEED, GEOM
         SEED = a.seed
-        GEOM = f"fuzz/siren/constructed/separation_geom_s{a.seed}.json"
+        GEOM = f"fuzz/siren/experiment/rq1/separation_geom_s{a.seed}.json"
     if a.steps:
         global STEPS
         STEPS = a.steps

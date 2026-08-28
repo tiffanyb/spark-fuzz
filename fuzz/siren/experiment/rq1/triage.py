@@ -26,7 +26,7 @@ handed the arm over already inside the keep-out shell.
 Filter parameters are read from each record, never from the config: sss and rsss
 were found at lam=0.5 and do not reproduce at the config default of 10.
 
-    python -m fuzz.siren.constructed.triage
+    python -m fuzz.siren.experiment.rq1.triage
 """
 
 import argparse
@@ -41,7 +41,7 @@ SLACK_EPS = 1e-6
 
 def run_instrumented(world, schedule, pos_w, radius, steps):
     """Pinned-obstacle rollout with the exact feasibility margin computed."""
-    from ..pipeline.stage1_search import set_channel
+    from fuzz.siren.pipeline.stage1_search import set_channel
     from .big_obstacle import set_obstacles
     h = world.harness
     orig = h.reset
@@ -101,14 +101,14 @@ def classify(rec):
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--src",
-                   default="fuzz/siren/constructed/rq1_results/stock_attacks/*.json")
-    p.add_argument("--out", default="fuzz/siren/constructed/TRIAGE.md")
+                   default="fuzz/siren/experiment/rq1/rq1_results/stock_attacks/*.json")
+    p.add_argument("--out", default="fuzz/siren/experiment/rq1/TRIAGE.md")
     a = p.parse_args(argv)
 
     import gc
 
-    from ..world.run import World
-    from ..world.types import real_filter
+    from fuzz.siren.world.run import World
+    from fuzz.siren.world.types import real_filter
 
     rows = []
     for f in sorted(glob.glob(a.src)):

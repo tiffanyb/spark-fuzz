@@ -188,7 +188,7 @@ def plan(rows, meta, include_waist, limit_margin):
                      "ssa_0_1 with viz_dryrun.py, this")
         notes.append("   makes the arm hit the obstacle ~26 mm DEEPER than the "
                      "trace, not miss it. Verify")
-        notes.append("   with: python -m fuzz.siren.constructed.viz_dryrun "
+        notes.append("   with: python -m fuzz.siren.experiment.rq1.viz_dryrun "
                      "--trace <csv> --out <dir> --no-waist")
     else:
         notes.append("waist IS driven (motors 12-14) -- this reproduces the "

@@ -13,7 +13,7 @@ Two videos per attack:
     <tag>_attack.mp4     [G0, G1', G1]   contact on the return leg
     <tag>_baseline.mp4   [G0, G1]        same obstacles, same filter, reaches G1
 
-    python -m fuzz.siren.constructed.render_stock
+    python -m fuzz.siren.experiment.rq1.render_stock
 
 RE-SIMULATION
 -------------
@@ -77,8 +77,8 @@ def rollout(world, schedule, pos_w, radius, steps):
     """
     import numpy as np
 
-    from ..pipeline.stage1_search import set_channel
-    from ..world.sim import probe
+    from fuzz.siren.pipeline.stage1_search import set_channel
+    from fuzz.siren.world.sim import probe
     from .big_obstacle import set_obstacles
 
     h = world.harness
@@ -621,8 +621,8 @@ def suffix_for(changed):
 
 def main(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--src", default="fuzz/siren/constructed/stock_attacks/*.json")
-    p.add_argument("--out", default="fuzz/siren/constructed/stock_visualizations")
+    p.add_argument("--src", default="fuzz/siren/experiment/rq1/rq1_results/stock_attacks/*.json")
+    p.add_argument("--out", default="fuzz/siren/experiment/rq1/stock_visualizations")
     p.add_argument("--stride", type=int, default=2)
     g = p.add_argument_group(
         "re-simulation", "override the filter the attack was found against and "
@@ -702,8 +702,8 @@ def main(argv=None):
         raise SystemExit("--trace-path names ONE file, so it needs exactly one "
                          "--variants (e.g. --variants attack)")
 
-    from ..world.run import World
-    from ..world.types import real_filter
+    from fuzz.siren.world.run import World
+    from fuzz.siren.world.types import real_filter
 
     files = sorted(glob.glob(a.src))
     want = [x.strip() for x in a.variants.split(",") if x.strip()]
