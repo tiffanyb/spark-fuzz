@@ -1,9 +1,0 @@
-# Random sample from fuzz/siren/rq3/pair_hunt/targets/*.json
-# Filter/kind: one INSERTION target each from pssa and sss
-# Exclusion set: fuzz/siren/rq3/balanced32/targets
-# Obstacle constraint: no obstacle equals [9.0, 9.0, 9.0]
-# Seed: 20260825
-# Note: selection is unique because exactly one eligible pSSA and one eligible SSS target exist.
-
-pssa G1MobileBase_D2_WG_SO_v0_pssa_s17_lam1.0_base_INSERTION1.json
-sss G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION90.json

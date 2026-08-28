@@ -47,23 +47,33 @@
         "INSERTION_G1MobileBase_D2_WG_SO_v0_pssa_s17_base_1c95e713.json",
         "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_15e26cce.json"
       ]
+    },
+    "extra3_augmented": {
+      "description": "One SSA, one CBF, and one R-SSA INSERTION target randomly sampled from fuzz/siren/rq3/targets_full, outside the existing balanced32 set, seed 20260825.",
+      "sample_seed": 20260825,
+      "source_dir": "fuzz/siren/rq3/targets_full",
+      "files": [
+        "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_da85d8a8.json",
+        "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s9_arm_000ff541.json",
+        "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_14317d5b.json"
+      ]
     }
   },
   "counts": {
-    "total_targets": 42,
+    "total_targets": 45,
     "by_filter": {
-      "cbf": 6,
+      "cbf": 7,
       "pssa": 5,
       "rcbf": 6,
-      "rssa": 6,
+      "rssa": 7,
       "rsss": 8,
-      "ssa": 6,
+      "ssa": 7,
       "sss": 5
     },
     "by_case": {
       "G1FixedBase_D1_AG_SO_v0": 15,
       "G1FixedBase_D1_AG_SO_v1": 2,
-      "G1FixedBase_D2_AG_SO_v0": 17,
+      "G1FixedBase_D2_AG_SO_v0": 20,
       "G1FixedBase_D2_AG_SO_v1": 3,
       "G1MobileBase_D2_WG_SO_v0": 2,
       "G1MobileBase_D2_WG_SO_v1": 3
@@ -425,6 +435,36 @@
       "kind": "INSERTION",
       "source": "fuzz/siren/rq3/pair_hunt/targets/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION90.json",
       "result_source": "fuzz/siren/rq3/pair_hunt/fuzz2_results/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION90.json"
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_da85d8a8.json",
+      "algo": "cbf",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "kind": "INSERTION",
+      "source": "fuzz/siren/rq3/targets_full/INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_da85d8a8.json",
+      "added_from": "balanced32_extra3"
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s9_arm_000ff541.json",
+      "algo": "rssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 9,
+      "channel": "arm",
+      "kind": "INSERTION",
+      "source": "fuzz/siren/rq3/targets_full/INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s9_arm_000ff541.json",
+      "added_from": "balanced32_extra3"
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_14317d5b.json",
+      "algo": "ssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "kind": "INSERTION",
+      "source": "fuzz/siren/rq3/targets_full/INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_14317d5b.json",
+      "added_from": "balanced32_extra3"
     }
   ]
 }
