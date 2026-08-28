@@ -182,6 +182,9 @@ def main(argv=None):
                         "parameter that reaches SPARK -- demand, d_min, phi_n, "
                         "phi_k, slack weight and the raw safe_algo fields -- so "
                         "a run is reproducible from one file.")
+    p.add_argument("--max-steps", type=int, default=None,
+                   help="override the per-case rollout horizon (default: 900 "
+                        "for _D2_ families, 1500 otherwise)")
     p.add_argument("--out-dir", default="fuzz/siren/experiment/g0_search_state")
     a = p.parse_args(argv)
 
@@ -227,7 +230,12 @@ def main(argv=None):
 
     summary = []
     for case, index in scenes:
-        steps = 900 if "_D2_" in case else 1500
+        # D2 families are acceleration-controlled and converge faster, hence the
+        # shorter default. A MobileBase base move is slow enough that 900 can
+        # expire before [g0, G1] ever reaches -- that shows up as
+        # c1_never_reached_G1 and kills candidates for a horizon reason rather
+        # than a safety one. --max-steps overrides when that is what is biting.
+        steps = a.max_steps or (900 if "_D2_" in case else 1500)
         # Scan seeds until n_worlds of them PASS the gate. A failing gate means
         # this seed's layout has no known collision to relabel, so it is not a
         # world we can build an attack in -- move to the next seed rather than

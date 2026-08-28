@@ -34,11 +34,24 @@ of the three strategies and inventing one would be a lie about the genealogy.
 """
 
 import argparse
+import datetime
 import json
+import os
 import time
 import uuid
 
 import numpy as np
+
+
+def _now():
+    """Absolute wall-clock stamp for one searched location.
+
+    The existing "t" is seconds since the run began, which is what you want for
+    plotting a search curve. It is NOT enough to line a run up against anything
+    outside itself -- another picker's run, a machine-load trace, a second
+    experiment. So both are recorded: "t" relative, "ts" absolute ISO-8601.
+    """
+    return datetime.datetime.now().astimezone().isoformat(timespec="milliseconds")
 
 
 def contact_leg(rec):
@@ -48,8 +61,44 @@ def contact_leg(rec):
     return None
 
 
+def run_schedule(world, schedule, steps, channel="arm", pin=None, radius=0.05):
+    """Run a schedule in either a stock scene or a pinned custom scene."""
+    sched = [np.asarray(x, float) for x in schedule]
+    if pin is not None:
+        if channel != "arm":
+            raise RuntimeError("pinned obstacle targets are only supported for arm-channel runs")
+        from ..constructed.big_obstacle import run_pinned
+        return run_pinned(world, sched, pin, radius, steps)
+    from .stage1_search import run_ch
+    return run_ch(world, sched, channel, max_steps=steps)
+
+
+def obstacle_frames(points):
+    frames = []
+    for q in points:
+        q = np.asarray(q, float)
+        if q.shape == (4, 4):
+            frames.append(q)
+        else:
+            f = np.eye(4)
+            f[:3, 3] = q.reshape(-1)[:3]
+            frames.append(f)
+    return np.asarray(frames, float)
+
+
+def disabled_pickers():
+    disabled = set()
+    env = os.environ.get("SIREN_DISABLED_PICKERS", "")
+    disabled.update(x.strip() for x in env.split(",") if x.strip())
+    rq3_flag = os.path.join(os.path.dirname(__file__), "..", "rq3",
+                            ".disable_bo")
+    if os.path.exists(rq3_flag):
+        disabled.update(("bo", "bo_seeded"))
+    return disabled
+
+
 def evaluate_candidate(world, G0, cand, G1, steps, hit_leg,
-                       channel="arm"):
+                       channel="arm", pin=None, radius=0.05):
     """Run [G0, cand, G1] and decide whether it is an attack of the wanted kind.
 
     Score mirrors pipeline_spec: engaged candidates outrank unengaged ones, and
@@ -58,9 +107,8 @@ def evaluate_candidate(world, G0, cand, G1, steps, hit_leg,
     ANTI-correlated with contact (corr -0.14), so any monotone function of it
     steers the search the wrong way.
     """
-    from .stage1_search import run_ch
-    rec = run_ch(world, [np.asarray(G0, float), np.asarray(cand, float),
-                         np.asarray(G1, float)], channel, max_steps=steps)
+    rec = run_schedule(world, [G0, cand, G1], steps, channel,
+                       pin=pin, radius=radius)
     leg = contact_leg(rec)
     is_attack = ((rec.label == "COLLISION" and leg == hit_leg)
                  or rec.label == "DEADLOCK")
@@ -95,8 +143,16 @@ def main(argv=None):
     from .stage1_search import run_ch
 
     w, tgt = load_target(a.target)
-    sc = w.scene()
     channel = tgt.get("channel", "arm")
+    _pin = tgt.get("obstacles_world") if tgt.get("pinned_scene") else None
+    pin = [np.asarray(q, float) for q in _pin] if _pin else None
+    pin_radius = float(tgt.get("obstacle_radius") or 0.05)
+    if pin is not None:
+        if channel != "arm":
+            raise RuntimeError("custom pinned obstacles are only supported for arm targets")
+    sc = w.scene()
+    if pin is not None:
+        sc = dataclasses.replace(sc, obstacles_world=obstacle_frames(pin))
 
     # A BASE target's coordinates are (x, y, yaw) base poses, not end-effector
     # positions. Two things follow, and both used to be wrong here:
@@ -151,9 +207,11 @@ def main(argv=None):
     print(f"  search space {[tuple(round(float(x), 3) for x in b) for b in sc.bounds]}"
           f"  keepout {sc.keepout}")
 
-    base = run_ch(w, [G0, G1], channel, max_steps=steps)
+    base = run_schedule(w, [G0, G1], steps, channel, pin=pin,
+                        radius=pin_radius)
     base_clear = min((s.clearance for s in base.steps), default=np.inf)
-    known = (run_ch(w, [G0, truth, G1], channel, max_steps=steps)
+    known = (run_schedule(w, [G0, truth, G1], steps, channel, pin=pin,
+                          radius=pin_radius)
              if truth is not None else None)
     print(f"  baseline [G0,G1]         {base.label} "
           f"(min clearance {base_clear:+.6f})")
@@ -175,12 +233,27 @@ def main(argv=None):
 
     rows = []
     t_start = time.time()
-    for pname in [x.strip() for x in a.pickers.split(",") if x.strip()]:
+    _started_at = _now()
+    picker_names = [x.strip() for x in a.pickers.split(",") if x.strip()]
+    disabled = disabled_pickers()
+    dropped = [x for x in picker_names if x in disabled]
+    if dropped:
+        print(f"  disabled pickers: {','.join(dropped)}", flush=True)
+        picker_names = [x for x in picker_names if x not in disabled]
+
+    for pname in picker_names:
         for ss in [int(x) for x in a.search_seeds.split(",") if x.strip()]:
             picker = make_picker(pname, sc, seed=ss)
             n_eval, first_hit, hits, evals, n_inadm = 0, None, [], [], 0
             n_err = 0
             prev_round_ids, rnd, t0 = [], 0, time.time()
+            # The docstring's contract: random draws are INDEPENDENT, so they
+            # have no ancestor and must record []. Writing prev_round_ids for
+            # them claims a descent that does not exist -- the exact "lie about
+            # the genealogy" the parent_ids design set out to avoid. Only the
+            # strategies that actually condition on prior observations (cem on
+            # its elite set, bo on the GP's observation history) get parents.
+            _has_genealogy = not pname.startswith("random")
             while n_eval < a.budget:
                 want = min(a.batch, a.budget - n_eval)
                 cands = picker.ask(want)
@@ -193,7 +266,8 @@ def main(argv=None):
                         evals.append({"id": str(uuid.uuid4()),
                                       "stage": "inadmissible", "round": rnd,
                                       "t": time.time() - t_start,
-                                      "parent_ids": prev_round_ids,
+                                      "ts": _now(),
+                                      "parent_ids": (prev_round_ids if _has_genealogy else []),
                                       "cand": [float(x) for x in
                                                np.asarray(c, float).reshape(-1)]})
                         continue
@@ -206,14 +280,16 @@ def main(argv=None):
                     # hears about it, which is correct since there is no score.
                     try:
                         atk, rec, leg, score, eng = evaluate_candidate(
-                            w, G0, c, G1, steps, hit_leg, channel)
+                            w, G0, c, G1, steps, hit_leg, channel,
+                            pin=pin, radius=pin_radius)
                     except Exception as e:
                         n_eval += 1
                         n_err += 1
                         evals.append({"id": str(uuid.uuid4()), "stage": "error",
                                       "round": rnd, "eval": int(n_eval),
                                       "t": time.time() - t_start,
-                                      "parent_ids": prev_round_ids,
+                                      "ts": _now(),
+                                      "parent_ids": (prev_round_ids if _has_genealogy else []),
                                       "cand": [float(x) for x in
                                                np.asarray(c, float).reshape(-1)],
                                       "error": f"{type(e).__name__}: {e}"[:200]})
@@ -225,7 +301,8 @@ def main(argv=None):
                     evals.append({
                         "id": uid, "stage": "evaluated", "round": rnd,
                         "eval": int(n_eval), "t": time.time() - t_start,
-                        "parent_ids": prev_round_ids,
+                        "ts": _now(),
+                        "parent_ids": (prev_round_ids if _has_genealogy else []),
                         "cand": [float(x) for x in
                                  np.asarray(c, float).reshape(-1)],
                         "score": float(score), "is_attack": bool(atk),
@@ -274,9 +351,17 @@ def main(argv=None):
         cl = f"{r['best_dist_to_truth']:.3f}" if r["best_dist_to_truth"] is not None else "-"
         print(f"{r['picker']:<16}{r['n_attacks']:>9}{rate:>7}"
               f"{str(r['first_hit']):>6}{cl:>10}{r['n_rounds']:>8}")
+    total_s = time.time() - t_start
+    print(f"\ntotal fuzzing time {total_s:.1f}s "
+          f"({total_s/60:.1f} min) across {len(rows)} picker(s)")
     json.dump({"target": tgt["name"], "case": tgt["case"], "algo": tgt["algo"],
                "seed": tgt["seed"], "kind": kind, "hit_leg": hit_leg,
                "budget": a.budget, "batch": a.batch,
+               "pinned_obstacles": bool(pin),
+               "obstacle_radius": (pin_radius if pin is not None else None),
+               # per-picker cost is in results[].elapsed_s; this is the whole run
+               "total_elapsed_s": round(total_s, 2),
+               "started_at": _started_at, "finished_at": _now(),
                "G1_prime_truth": (None if truth is None else truth.tolist()),
                "baseline_label": base.label,
                "baseline_min_clearance": float(base_clear),

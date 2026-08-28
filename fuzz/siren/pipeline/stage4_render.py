@@ -53,6 +53,39 @@ def main(argv=None):
     p.add_argument("--picker", default=None,
                    help="restrict to one strategy; default draws all")
     p.add_argument("--show-inadmissible", action="store_true", default=False)
+    p.add_argument("--parents", choices=("none", "attacks", "all"),
+                   default="none",
+                   help="draw parent->child edges from parent_ids. 'attacks' "
+                        "draws only edges into an attacking child; 'all' draws "
+                        "every edge (dense for CEM/BO)")
+    p.add_argument("--path", type=int, default=None, metavar="SEED_IDX",
+                   help="render ONE search path instead of the whole run: "
+                        "start from initial-design point SEED_IDX (round 0) and "
+                        "step to the nearest point in each later round. NOTE "
+                        "this is a CONSTRUCTED chain, not recorded parentage -- "
+                        "parent_ids is a layered DAG where every child lists the "
+                        "entire previous round, so every round-0 point is an "
+                        "ancestor of every later point and no unique path exists")
+    p.add_argument("--mark-initial", action="store_true", default=False,
+                   help="colour the round-0 initial-design points ORANGE, "
+                        "overriding their attack/miss colour, and draw them "
+                        "last so they sit on top")
+    p.add_argument("--solid-obstacles", action="store_true", default=False,
+                   help="draw obstacles as solid red spheres instead of the "
+                        "translucent default")
+    p.add_argument("--point-radius", type=float, default=0.007,
+                   help="radius of every searched point in --plain mode")
+    p.add_argument("--orbit", action="store_true", default=False,
+                   help="in --plain mode, still render the orbit mp4 "
+                        "(--plain alone writes only the still)")
+    p.add_argument("--plain", action="store_true", default=False,
+                   help="stripped-down still: no text or legend strip, every "
+                        "searched point the same size, attacks RED and misses "
+                        "WHITE, and no orbit video. For figures where the "
+                        "caption carries the explanation instead of the frame")
+    p.add_argument("--max-edges", type=int, default=4000,
+                   help="cap on drawn edges so a dense BO run cannot exhaust "
+                        "the geom budget")
     p.add_argument("--frames", type=int, default=180)
     p.add_argument("--fps", type=int, default=30)
     p.add_argument("--width", type=int, default=1280)
@@ -87,6 +120,8 @@ def main(argv=None):
     truth = None if _t is None else np.asarray(_t, float)
 
     pts = []
+    by_id, edges = {}, []
+    _n_edges = 0
     max_round = 0
     for row in res["results"]:
         if a.picker and row["picker"] != a.picker:
@@ -99,6 +134,38 @@ def main(argv=None):
             pts.append((np.asarray(e["cand"], float), rnd,
                         bool(e.get("is_attack")),
                         e.get("stage") == "inadmissible"))
+            by_id[e.get("id")] = np.asarray(e["cand"], float)
+            edges.append((e.get("id"), list(e.get("parent_ids") or []),
+                          bool(e.get("is_attack"))))
+    if a.path is not None:
+        # One point per round: start at the chosen initial-design point, then at
+        # each round take the nearest candidate to where we currently are. That
+        # is a spatial successor chain, chosen because the recorded genealogy
+        # cannot distinguish one lineage from another (see --path help).
+        byr = {}
+        for c, rnd, atk, inadm in pts:
+            byr.setdefault(rnd, []).append((c, rnd, atk, inadm))
+        rounds = sorted(byr)
+        seeds = byr[rounds[0]]
+        if not 0 <= a.path < len(seeds):
+            raise SystemExit(f"--path {a.path} out of range: round "
+                             f"{rounds[0]} has {len(seeds)} initial points "
+                             f"(0..{len(seeds)-1})")
+        chain = [seeds[a.path]]
+        for rnd in rounds[1:]:
+            cur = chain[-1][0]
+            nxt = min(byr[rnd], key=lambda t: float(np.linalg.norm(t[0] - cur)))
+            chain.append(nxt)
+        pts = chain
+        # edges follow the chain, so the drawing shows the path itself
+        edges = []
+        by_id = {}
+        for i, (c, _r, atk, _i2) in enumerate(chain):
+            by_id[i] = c
+            edges.append((i, [i - 1] if i else [], atk))
+        print(f"  --path {a.path}: chain of {len(chain)} points, one per round "
+              f"({sum(1 for t in chain if t[2])} attacks)", flush=True)
+
     n_atk = sum(1 for _c, _r, atk, _i in pts if atk)
     print(f"{res['target']}: {len(pts)} searched locations, {n_atk} attacks, "
           f"{max_round+1} rounds", flush=True)
@@ -197,7 +264,12 @@ def main(argv=None):
                         (0.15, 0.85, 0.95, 0.75))
 
         for of in obs_w:
-            add(np.asarray(of)[:3, 3], 0.05, (0.85, 0.15, 0.15, 0.25))
+            # Solid obstacles read as physical objects; the translucent default
+            # reads as a region. Both are useful, so it is a flag rather than a
+            # replacement.
+            add(np.asarray(of)[:3, 3], 0.05,
+                (0.90, 0.05, 0.05, 1.0) if a.solid_obstacles
+                else (0.85, 0.15, 0.15, 0.25))
             # the KEEP-OUT shell is a goal-sampling rule, not the obstacle's
             # physical size: no candidate may be sampled within sc.keepout of an
             # obstacle centre. Drawing both shows how much of the box is
@@ -205,15 +277,70 @@ def main(argv=None):
             if a.grid > 0 and sc.keepout > 0.05:
                 add(np.asarray(of)[:3, 3], float(sc.keepout),
                     (0.95, 0.55, 0.10, 0.10))
+        # PARENT EDGES. parent_ids is a LIST because "the parent" is not well
+        # defined for every picker: random draws are independent (so it has no
+        # edges at all), CEM descends from the whole elite set, BO from every
+        # observation the GP was fitted on. Drawing the full fan-in is the
+        # honest picture; picking one arbitrary parent would invent a genealogy
+        # the search does not have.
+        if a.parents != "none":
+            drawn = 0
+            for cid, pars, catk in edges:
+                if a.parents == "attacks" and not catk:
+                    continue
+                child = by_id.get(cid)
+                if child is None:
+                    continue
+                for pid in pars:
+                    par = by_id.get(pid)
+                    if par is None or drawn >= a.max_edges:
+                        continue
+                    # In --path mode the edge IS the subject, so it gets a
+                    # visible width; in whole-run mode thousands of edges
+                    # overlap and anything thicker becomes an orange fog.
+                    _w = 0.0030 if a.path is not None else 0.0006
+                    _al = 0.95 if a.path is not None else 0.30
+                    line(world_of(par), world_of(child), _w,
+                         (1.0, 0.45, 0.0, _al) if catk
+                         else (0.45, 0.45, 0.55,
+                               _al if a.path is not None else 0.16))
+                    drawn += 1
+
+            _n_edges = drawn
+
+        # --plain: ONE radius for every searched point, so the eye reads
+        # position and colour only. Size is the miss radius, not the attack
+        # radius -- enlarging attacks would re-encode the same fact twice and
+        # make the attacked region look denser than it is.
+        _R = a.point_radius
         for c, rnd, atk, inadm in pts:
             if atk:
                 continue
+            if a.mark_initial and rnd == 0:
+                continue                     # drawn last, in orange
+            if a.plain:
+                # grey, not white: white reads as a highlight next to the red
+                # attacks and against the pale floor it loses its edges
+                add(world_of(c), _R, (0.72, 0.72, 0.72, 1.0))
+                continue
             col = ((0.5, 0.5, 0.5, 0.35) if inadm
                    else rainbow(rnd / max(1, max_round)))
-            add(world_of(c), 0.007, col)
+            add(world_of(c), _R, col)
         for c, rnd, atk, _inadm in pts:      # attacks last, so they draw on top
             if atk:
-                add(world_of(c), 0.013, (1.0, 1.0, 1.0, 1.0))
+                if a.mark_initial and rnd == 0:
+                    continue                 # drawn last, in orange
+                add(world_of(c), _R if a.plain else 0.013,
+                    (1.0, 0.10, 0.10, 1.0) if a.plain else (1.0, 1.0, 1.0, 1.0))
+        if a.mark_initial:
+            # The initial design is where the search STARTED, which is a
+            # different fact from whether a point attacked. Drawing it last
+            # keeps it visible inside the later cloud; its attack status is
+            # deliberately overridden, so read the counts from stdout.
+            for c, rnd, atk, _inadm in pts:
+                if rnd == 0:
+                    add(world_of(c), _R if a.plain else 0.013,
+                        (1.0, 0.55, 0.0, 1.0))
         add(world_of(G0), 0.026, (0.20, 0.45, 1.00, 0.95))
         add(world_of(G1), 0.030, (0.10, 0.90, 0.10, 0.97))
         if truth is not None:
@@ -222,6 +349,8 @@ def main(argv=None):
         img = np.ascontiguousarray(renderer.render())
 
         def txt(y, t_, col=(255, 255, 255), sc_=0.55, th=2):
+            if a.plain:                      # figure mode: the caption explains
+                return
             cv2.putText(img, t_, (16, y), F, sc_, (0, 0, 0), th+3, cv2.LINE_AA)
             cv2.putText(img, t_, (16, y), F, sc_, col, th, cv2.LINE_AA)
 
@@ -233,6 +362,10 @@ def main(argv=None):
         txt(108, "WHITE = attack    blue = G0   green = G1"
                  + ("   yellow = planted G1'" if truth is not None
                     else "   (no planted G1' - open search)"))
+        if a.parents != "none":
+            txt(232, f"ORANGE LINES = parent -> child from parent_ids "
+                     f"({a.parents} edges, {_n_edges} drawn)",
+                (1.0, 0.45, 0.0))
         if a.grid > 0:
             _lo = np.array([b[0] for b in sc.bounds], float)
             _hi = np.array([b[1] for b in sc.bounds], float)
@@ -251,7 +384,11 @@ def main(argv=None):
 
         # a rainbow legend strip, so the round order is readable
         x0, y0 = 16, (204 if a.grid > 0 else 128)
-        for k in range(max_round + 1):
+        if a.plain:
+            max_round_strip = -1                 # skip the strip entirely
+        else:
+            max_round_strip = max_round
+        for k in range(max_round_strip + 1):
             c = rainbow(k / max(1, max_round))
             bgr = (int(255*c[2]), int(255*c[1]), int(255*c[0]))
             cv2.rectangle(img, (x0 + k*26, y0), (x0 + k*26 + 22, y0 + 14),
@@ -261,9 +398,14 @@ def main(argv=None):
 
         if i == 0:
             cv2.imwrite(png, cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
+        if a.plain and not a.orbit:
+            break                            # still only; no orbit frames
         vw.write(cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
     vw.release()
-    print(f"wrote {png}\nwrote {mp4}")
+    if a.plain and not a.orbit:
+        os.remove(mp4) if os.path.exists(mp4) else None
+    print(f"wrote {png}" + ("" if (a.plain and not a.orbit)
+                            else f"\nwrote {mp4}"))
     return 0
 
 
