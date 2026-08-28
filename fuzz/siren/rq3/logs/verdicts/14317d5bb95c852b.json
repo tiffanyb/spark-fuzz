@@ -1,0 +1,30 @@
+{
+ "verdict": "VALID",
+ "reason": null,
+ "src": "fuzz/siren/constructed/final_attacks/dm_ssa_0.json",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 1,
+ "algo": "ssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.0047356966147047985,
+ "attack_labels": [
+  "COLLISION",
+  "COLLISION"
+ ],
+ "attack_legs": [
+  2,
+  2
+ ],
+ "attack_mins": [
+  -6.160721884974907e-05,
+  -6.160721884974907e-05
+ ],
+ "observed_kind": "INSERTION",
+ "kind_matches_claim": true,
+ "id": "14317d5bb95c852b",
+ "all_sources": [
+  "fuzz/siren/constructed/final_attacks/dm_ssa_0.json"
+ ]
+}

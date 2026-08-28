@@ -1,0 +1,3010 @@
+{
+  "case": "G1FixedBase_D2_AG_DO_v1",
+  "algo": "rsss",
+  "seed": 13,
+  "index": "velocity",
+  "gate": "COLLISION",
+  "gate_clear": -0.00013365736118824134,
+  "gate_steps": 77,
+  "G1_prime": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+  ],
+  "G1": [
+    0.15402381862540465,
+    -0.36272178692502294,
+    0.06744218217263892
+  ],
+  "bounds": [
+    [
+      0.1,
+      0.4
+    ],
+    [
+      -0.4,
+      -0.1
+    ],
+    [
+      0.0,
+      0.3
+    ]
+  ],
+  "obstacles_world": [
+    [
+      0.4725993584343999,
+      0.3780808911239147,
+      0.8627593979338498
+    ],
+    [
+      0.2776145836135578,
+      -0.37197078071885015,
+      0.7387595767113435
+    ],
+    [
+      -0.12568079269464885,
+      -0.14448690689570834,
+      1.2342179088004699
+    ],
+    [
+      0.399050754623631,
+      -0.3930274141569721,
+      1.09726178959515
+    ],
+    [
+      0.13860807791666024,
+      -0.2896111577933942,
+      0.5790025753639347
+    ],
+    [
+      0.3998292013880356,
+      -0.0007666528792848126,
+      0.5854239951949671
+    ],
+    [
+      0.06259146657887994,
+      -0.29683354033716763,
+      1.108454141413912
+    ],
+    [
+      -0.027791357721749916,
+      0.3738024868484555,
+      0.6144208616700573
+    ],
+    [
+      -0.2293971679765808,
+      0.3731696330219123,
+      0.6554379881704052
+    ],
+    [
+      0.13742179627572848,
+      0.15737987508260076,
+      1.270478462162343
+    ]
+  ],
+  "n_G0_swept": 198,
+  "elapsed_s": 763.6,
+  "g0_stage_counts": {
+    "attack_no_effect": 181,
+    "c1_collided": 17,
+    "inadmissible": 18
+  },
+  "g0_log": [
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.24
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.24
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.24
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.24
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.24
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.3
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0004546934629926641,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.47
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.06
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00014626633516812149,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.07
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0005045613146897748,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.17
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.002616167729282984,
+      "handover_clear": 0.13364407802474082,
+      "attack_label": "REACHED",
+      "attack_clear": 0.019539393463647595,
+      "attack_leg": null,
+      "sec": 8.84
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.005278652426451702,
+      "handover_clear": 0.14575676058517611,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01854419170477986,
+      "attack_leg": null,
+      "sec": 8.87
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0078808663581902,
+      "handover_clear": 0.14289659041477992,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018694031328514618,
+      "attack_leg": null,
+      "sec": 7.87
+    },
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.006005724402446566,
+      "handover_clear": 0.0060177667967254295,
+      "attack_label": "REACHED",
+      "attack_clear": 0.006087312208490153,
+      "attack_leg": null,
+      "sec": 6.85
+    },
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0012176357681644157,
+      "handover_clear": 0.013141939006358419,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0117339238600489,
+      "attack_leg": null,
+      "sec": 5.58
+    },
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0028179671242165305,
+      "handover_clear": 0.03591767984927932,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009736258315841809,
+      "attack_leg": null,
+      "sec": 5.19
+    },
+    {
+      "G0": [
+        0.1,
+        -0.34,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011587236545736956,
+      "handover_clear": 0.06333042558625221,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00979582225102131,
+      "attack_leg": null,
+      "sec": 5.53
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.028639620919100217,
+      "handover_clear": 0.052889215581261334,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007768986285646734,
+      "attack_leg": null,
+      "sec": 5.09
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.035428216600287055,
+      "handover_clear": 0.044331667328525254,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007235571540117919,
+      "attack_leg": null,
+      "sec": 5.12
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.030721718674537796,
+      "handover_clear": 0.030721718674537796,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007940684225169095,
+      "attack_leg": null,
+      "sec": 4.6
+    },
+    {
+      "G0": [
+        0.1,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.028738532291109703,
+      "handover_clear": 0.04492058145077915,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00810629104122268,
+      "attack_leg": null,
+      "sec": 5.13
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.030814024645101523,
+      "handover_clear": 0.08819318486421707,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007389260304057621,
+      "attack_leg": null,
+      "sec": 4.84
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.040055108468680156,
+      "handover_clear": 0.0824922773514643,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007305233618696699,
+      "attack_leg": null,
+      "sec": 4.32
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04432330643513829,
+      "handover_clear": 0.07573638323543588,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007958071848758172,
+      "attack_leg": null,
+      "sec": 3.97
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04057567151199867,
+      "handover_clear": 0.08009759873282979,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008073009146911198,
+      "attack_leg": null,
+      "sec": 4.63
+    },
+    {
+      "G0": [
+        0.1,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03617448677386856,
+      "handover_clear": 0.08965308854632506,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007836859342515531,
+      "attack_leg": null,
+      "sec": 4.75
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.025003580013931548,
+      "handover_clear": 0.08485408144273884,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007303917771070631,
+      "attack_leg": null,
+      "sec": 5.07
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.037620448749880325,
+      "handover_clear": 0.09097697795337992,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00700185799684859,
+      "attack_leg": null,
+      "sec": 4.48
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04888345964377297,
+      "handover_clear": 0.10089459581480426,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00719015648909202,
+      "attack_leg": null,
+      "sec": 3.9
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04928288864841257,
+      "handover_clear": 0.10026794571912603,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007866324919906006,
+      "attack_leg": null,
+      "sec": 3.94
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0430615619392333,
+      "handover_clear": 0.09727717467224992,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008410472640797875,
+      "attack_leg": null,
+      "sec": 3.89
+    },
+    {
+      "G0": [
+        0.1,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.040785607374461824,
+      "handover_clear": 0.11394930704782366,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010655664492222022,
+      "attack_leg": null,
+      "sec": 3.92
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02087711569219533,
+      "handover_clear": 0.08354622092030756,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008376990747498383,
+      "attack_leg": null,
+      "sec": 3.9
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02779864703486068,
+      "handover_clear": 0.0906269158982998,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007150612200800904,
+      "attack_leg": null,
+      "sec": 3.45
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0367791890017895,
+      "handover_clear": 0.10014277582753328,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007417541722758048,
+      "attack_leg": null,
+      "sec": 3.23
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.038189411041851,
+      "handover_clear": 0.10898581176542951,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007665669728750116,
+      "attack_leg": null,
+      "sec": 3.33
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.032348467475543125,
+      "handover_clear": 0.11749718166184603,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008997128107903929,
+      "attack_leg": null,
+      "sec": 3.64
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.027950832105631734,
+      "handover_clear": 0.12135827635601065,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011291769731829632,
+      "attack_leg": null,
+      "sec": 3.42
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.14475000910364e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.94
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.06
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00019820617597016144,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.79
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00015342143040535106,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.76
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0021184757474522614,
+      "handover_clear": 0.10276217860508247,
+      "attack_label": "REACHED",
+      "attack_clear": 0.013617966425224795,
+      "attack_leg": null,
+      "sec": 3.06
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01001407833861849,
+      "handover_clear": 0.09983533696714286,
+      "attack_label": "REACHED",
+      "attack_clear": 0.012664948155889338,
+      "attack_leg": null,
+      "sec": 3.18
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.4,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011840315275625665,
+      "handover_clear": 0.12125336944034065,
+      "attack_label": "REACHED",
+      "attack_clear": 0.015422377801161513,
+      "attack_leg": null,
+      "sec": 3.23
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.008281145264853046,
+      "handover_clear": 0.009405623199866334,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00935643995906435,
+      "attack_leg": null,
+      "sec": 3.37
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.008621198107434946,
+      "handover_clear": 0.021856797177565307,
+      "attack_label": "REACHED",
+      "attack_clear": 0.012398900373094338,
+      "attack_leg": null,
+      "sec": 2.63
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.008355374812853408,
+      "handover_clear": 0.008355374812853408,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008403594838590586,
+      "attack_leg": null,
+      "sec": 2.33
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.019176478092826008,
+      "handover_clear": 0.028912940315723168,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007886666275899623,
+      "attack_leg": null,
+      "sec": 2.59
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02280196734923902,
+      "handover_clear": 0.06376835499803649,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008551966540278427,
+      "attack_leg": null,
+      "sec": 2.83
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.34,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.020823301826976642,
+      "handover_clear": 0.10770581719931002,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010533220898458082,
+      "attack_leg": null,
+      "sec": 3.03
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.015435616745635108,
+      "handover_clear": 0.052153946840191756,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007849587570876768,
+      "attack_leg": null,
+      "sec": 2.7
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.020185613381437997,
+      "handover_clear": 0.05805274679010092,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0132346186190168,
+      "attack_leg": null,
+      "sec": 2.22
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.021165520732132265,
+      "handover_clear": 0.04784865697092727,
+      "attack_label": "REACHED",
+      "attack_clear": 0.03441491110195394,
+      "attack_leg": null,
+      "sec": 1.84
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.029759411101171446,
+      "handover_clear": 0.03971147954696802,
+      "attack_label": "REACHED",
+      "attack_clear": 0.019217278808859872,
+      "attack_leg": null,
+      "sec": 2.02
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02729626140242178,
+      "handover_clear": 0.06250463027191544,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00852355911672846,
+      "attack_leg": null,
+      "sec": 2.64
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.28,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.035925779257306084,
+      "handover_clear": 0.09403393226383058,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009275017612443676,
+      "attack_leg": null,
+      "sec": 2.92
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03001435519241405,
+      "handover_clear": 0.06704480222514492,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007799037478264409,
+      "attack_leg": null,
+      "sec": 2.51
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03318729888523167,
+      "handover_clear": 0.06798280215560162,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018295901219412616,
+      "attack_leg": null,
+      "sec": 2.08
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03386990049513133,
+      "handover_clear": 0.055834738087771174,
+      "attack_label": "REACHED",
+      "attack_clear": 0.03552454660507373,
+      "attack_leg": null,
+      "sec": 1.52
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04310197515773864,
+      "handover_clear": 0.0623681993602635,
+      "attack_label": "REACHED",
+      "attack_clear": 0.023611705717671003,
+      "attack_leg": null,
+      "sec": 2.06
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03885218885969152,
+      "handover_clear": 0.07818443279420442,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008694995364248378,
+      "attack_leg": null,
+      "sec": 2.61
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.041050049799703475,
+      "handover_clear": 0.11022717926427689,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008552059874959453,
+      "attack_leg": null,
+      "sec": 2.93
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02426396855644604,
+      "handover_clear": 0.06891988768362256,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0074609665618989435,
+      "attack_leg": null,
+      "sec": 2.73
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04309583942786002,
+      "handover_clear": 0.06577557087893793,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008638026934648366,
+      "attack_leg": null,
+      "sec": 2.51
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.047885036350107324,
+      "handover_clear": 0.07020508240350384,
+      "attack_label": "REACHED",
+      "attack_clear": 0.012930663792044467,
+      "attack_leg": null,
+      "sec": 2.34
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.051084439676064936,
+      "handover_clear": 0.08094221141450023,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01045313124556857,
+      "attack_leg": null,
+      "sec": 2.47
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04769382850912843,
+      "handover_clear": 0.1006055572587328,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007951576847657627,
+      "attack_leg": null,
+      "sec": 2.75
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03614946490580448,
+      "handover_clear": 0.11173853659960409,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009117683685303302,
+      "attack_leg": null,
+      "sec": 2.93
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01812833876695759,
+      "handover_clear": 0.07078975458557327,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007648782603741536,
+      "attack_leg": null,
+      "sec": 2.9
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.026424970974412765,
+      "handover_clear": 0.07445733126256765,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007480088839782156,
+      "attack_leg": null,
+      "sec": 2.84
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03281245865940852,
+      "handover_clear": 0.08171299815885572,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007665146959316513,
+      "attack_leg": null,
+      "sec": 2.86
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03617942635668725,
+      "handover_clear": 0.09207420530628255,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007734476169807741,
+      "attack_leg": null,
+      "sec": 2.84
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.035186732273738,
+      "handover_clear": 0.10360743816030801,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008143625175600397,
+      "attack_leg": null,
+      "sec": 2.88
+    },
+    {
+      "G0": [
+        0.16000000000000003,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.026017085471621737,
+      "handover_clear": 0.11456590534750469,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010268834770625887,
+      "attack_leg": null,
+      "sec": 3.03
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.06
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00017342804386016875,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.73
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0008950238992807835,
+      "handover_clear": 0.06648065691817712,
+      "attack_label": "REACHED",
+      "attack_clear": 0.013845511740844571,
+      "attack_leg": null,
+      "sec": 3.57
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.002839529506415181,
+      "handover_clear": 0.06804577088594649,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01092079637289975,
+      "attack_leg": null,
+      "sec": 3.1
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.016069457076422947,
+      "handover_clear": 0.07224749121545412,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011093107502287189,
+      "attack_leg": null,
+      "sec": 3.11
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.4,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01265800116412169,
+      "handover_clear": 0.09327855436576105,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01346138556237568,
+      "attack_leg": null,
+      "sec": 3.32
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.014899522326401612,
+      "handover_clear": 0.030165121337928952,
+      "attack_label": "REACHED",
+      "attack_clear": 0.013011450566866742,
+      "attack_leg": null,
+      "sec": 2.48
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.015396007818098578,
+      "handover_clear": 0.026766466707213693,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018712453080236488,
+      "attack_leg": null,
+      "sec": 2.06
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02307485924248011,
+      "handover_clear": 0.023891455030591244,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010422300015635488,
+      "attack_leg": null,
+      "sec": 2.37
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.021391012454325273,
+      "handover_clear": 0.05725781502700869,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008053722363151355,
+      "attack_leg": null,
+      "sec": 2.84
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.34,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0211552733280103,
+      "handover_clear": 0.0842021632865993,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009375233798789323,
+      "attack_leg": null,
+      "sec": 3.05
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.015680868899651243,
+      "handover_clear": 0.04846340785960057,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009348912568215795,
+      "attack_leg": null,
+      "sec": 2.52
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.014855446533149436,
+      "handover_clear": 0.04528831787771179,
+      "attack_label": "REACHED",
+      "attack_clear": 0.015141058628352702,
+      "attack_leg": null,
+      "sec": 1.89
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.000474503382656713,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.77
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.024136318951427288,
+      "handover_clear": 0.0342872149635336,
+      "attack_label": "REACHED",
+      "attack_clear": 0.02518258464107559,
+      "attack_leg": null,
+      "sec": 1.46
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.030027479802759854,
+      "handover_clear": 0.05046410325484116,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009688619502669651,
+      "attack_leg": null,
+      "sec": 2.42
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.28,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.035916906450188774,
+      "handover_clear": 0.08370167360120648,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008318412388049631,
+      "attack_leg": null,
+      "sec": 2.83
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02285498750273994,
+      "handover_clear": 0.053297720931271164,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009315964065032906,
+      "attack_leg": null,
+      "sec": 2.48
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.015543105772860097,
+      "handover_clear": 0.04473323402874893,
+      "attack_label": "REACHED",
+      "attack_clear": 0.017256954561541624,
+      "attack_leg": null,
+      "sec": 1.83
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.145399107105765e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.76
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.022517466460749355,
+      "handover_clear": 0.04393381050362419,
+      "attack_label": "REACHED",
+      "attack_clear": 0.023605712510099353,
+      "attack_leg": null,
+      "sec": 1.6
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03934176045804094,
+      "handover_clear": 0.0668618266913926,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011729645794679153,
+      "attack_leg": null,
+      "sec": 2.33
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03600892738273595,
+      "handover_clear": 0.09944072876201876,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008348812025555485,
+      "attack_leg": null,
+      "sec": 2.8
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02020470043517661,
+      "handover_clear": 0.0657121533566073,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007667770408024896,
+      "attack_leg": null,
+      "sec": 2.65
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04366402083338633,
+      "handover_clear": 0.05053554059154752,
+      "attack_label": "REACHED",
+      "attack_clear": 0.02019159690762136,
+      "attack_leg": null,
+      "sec": 2.02
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04146656453951511,
+      "handover_clear": 0.048442922544341016,
+      "attack_label": "REACHED",
+      "attack_clear": 0.043017556341831964,
+      "attack_leg": null,
+      "sec": 1.64
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.048901046005438986,
+      "handover_clear": 0.06230297588916414,
+      "attack_label": "REACHED",
+      "attack_clear": 0.023264747124686555,
+      "attack_leg": null,
+      "sec": 2.08
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04342320782827985,
+      "handover_clear": 0.08407618645588694,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008383636162713523,
+      "attack_leg": null,
+      "sec": 2.58
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.029528575535119533,
+      "handover_clear": 0.10069032864696476,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00839894942872503,
+      "attack_leg": null,
+      "sec": 2.84
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.014421496335933356,
+      "handover_clear": 0.06720345493143129,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007752973251320197,
+      "attack_leg": null,
+      "sec": 2.99
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.022914290376297552,
+      "handover_clear": 0.06326904640084036,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008079940753676532,
+      "attack_leg": null,
+      "sec": 2.76
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.030412872714416478,
+      "handover_clear": 0.0670342645035839,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008202491759931471,
+      "attack_leg": null,
+      "sec": 2.67
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03252595750663617,
+      "handover_clear": 0.07991984710182257,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007874747753358058,
+      "attack_leg": null,
+      "sec": 2.8
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.029828024118142588,
+      "handover_clear": 0.09664979527004691,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007523465709319915,
+      "attack_leg": null,
+      "sec": 2.93
+    },
+    {
+      "G0": [
+        0.22000000000000003,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.019314297631315633,
+      "handover_clear": 0.11010525184289183,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009413662979566306,
+      "attack_leg": null,
+      "sec": 3.12
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.06
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.000366295808588879,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.69
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.5675056455620737e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.75
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0034544786292439456,
+      "handover_clear": 0.03849397433388879,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010733336971735202,
+      "attack_leg": null,
+      "sec": 3.36
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011422904712733148,
+      "handover_clear": 0.03576102905652953,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011332886705393133,
+      "attack_leg": null,
+      "sec": 3.58
+    },
+    {
+      "G0": [
+        0.28,
+        -0.4,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01397602687075937,
+      "handover_clear": 0.054888898876757186,
+      "attack_label": "REACHED",
+      "attack_clear": 0.013058932192637832,
+      "attack_leg": null,
+      "sec": 3.56
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.013548519009185439,
+      "handover_clear": 0.022958920022938978,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010497404673965427,
+      "attack_leg": null,
+      "sec": 2.88
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02019789103937658,
+      "handover_clear": 0.025796372223406,
+      "attack_label": "REACHED",
+      "attack_clear": 0.014249828857838945,
+      "attack_leg": null,
+      "sec": 2.47
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02021332524080892,
+      "handover_clear": 0.02762543790410993,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008765168669463017,
+      "attack_leg": null,
+      "sec": 2.78
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.018037048028333127,
+      "handover_clear": 0.058055550523352734,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007957882198744326,
+      "attack_leg": null,
+      "sec": 3.22
+    },
+    {
+      "G0": [
+        0.28,
+        -0.34,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01561944555258328,
+      "handover_clear": 0.06950512360226618,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009929004245560757,
+      "attack_leg": null,
+      "sec": 3.36
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.014848542263784056,
+      "handover_clear": 0.038546533742867484,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009023269472953635,
+      "attack_leg": null,
+      "sec": 3.17
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01795747556832386,
+      "handover_clear": 0.044041857937868495,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018771593239638867,
+      "attack_leg": null,
+      "sec": 2.22
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0004922300127684354,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.84
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02608103832916564,
+      "handover_clear": 0.03143737116092388,
+      "attack_label": "REACHED",
+      "attack_clear": 0.027876163154347794,
+      "attack_leg": null,
+      "sec": 1.69
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.026984101111101555,
+      "handover_clear": 0.048098149238982035,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00954654937429919,
+      "attack_leg": null,
+      "sec": 2.77
+    },
+    {
+      "G0": [
+        0.28,
+        -0.28,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.022314987104356393,
+      "handover_clear": 0.09569554209539782,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008232162984232252,
+      "attack_leg": null,
+      "sec": 3.28
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01938607899115391,
+      "handover_clear": 0.03951450745918006,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009126618087455102,
+      "attack_leg": null,
+      "sec": 2.93
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.018764493216217315,
+      "handover_clear": 0.043576893379624726,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018834114717137307,
+      "attack_leg": null,
+      "sec": 2.18
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0001658328758237515,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.9
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.025520864527625725,
+      "handover_clear": 0.04260166240005739,
+      "attack_label": "REACHED",
+      "attack_clear": 0.025965258433849336,
+      "attack_leg": null,
+      "sec": 1.86
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04030497719769563,
+      "handover_clear": 0.06664404146448805,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010382062257280042,
+      "attack_leg": null,
+      "sec": 2.8
+    },
+    {
+      "G0": [
+        0.28,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.025130053349356307,
+      "handover_clear": 0.09434074239843943,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007871912015117,
+      "attack_leg": null,
+      "sec": 3.44
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.016024966289549553,
+      "handover_clear": 0.0447651388935659,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007807852546766789,
+      "attack_leg": null,
+      "sec": 3.47
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03032529925776742,
+      "handover_clear": 0.04594743400333118,
+      "attack_label": "REACHED",
+      "attack_clear": 0.015741112824631975,
+      "attack_leg": null,
+      "sec": 2.76
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.042753866980222294,
+      "handover_clear": 0.045669737319893516,
+      "attack_label": "REACHED",
+      "attack_clear": 0.04534909070549395,
+      "attack_leg": null,
+      "sec": 2.14
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.04535949237439352,
+      "handover_clear": 0.05550849705009059,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01848025766796306,
+      "attack_leg": null,
+      "sec": 2.7
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03056454121705246,
+      "handover_clear": 0.07990252043096496,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00776141589617764,
+      "attack_leg": null,
+      "sec": 3.84
+    },
+    {
+      "G0": [
+        0.28,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02286422278039983,
+      "handover_clear": 0.09155190273906533,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008402740899422723,
+      "attack_leg": null,
+      "sec": 4.02
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.008461104592459495,
+      "handover_clear": 0.050928782933662736,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008173482188752773,
+      "attack_leg": null,
+      "sec": 4.65
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.018860197044093238,
+      "handover_clear": 0.05658037521097875,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007699768267902321,
+      "attack_leg": null,
+      "sec": 4.27
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.024628180815439604,
+      "handover_clear": 0.06118654210735064,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008195933281072362,
+      "attack_leg": null,
+      "sec": 4.06
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.026573568353105065,
+      "handover_clear": 0.0728851033968966,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007886487811285814,
+      "attack_leg": null,
+      "sec": 5.89
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.022388512113118014,
+      "handover_clear": 0.08840413314708248,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007768696493972674,
+      "attack_leg": null,
+      "sec": 5.65
+    },
+    {
+      "G0": [
+        0.28,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.015461583268974538,
+      "handover_clear": 0.09884998281662813,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009768388745626452,
+      "attack_leg": null,
+      "sec": 6.17
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.06
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00017918182063308974,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.51
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0016098872635976341,
+      "handover_clear": 0.009448429913199385,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010639044882253451,
+      "attack_leg": null,
+      "sec": 6.95
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.00543789394950675,
+      "handover_clear": 0.018736923498137256,
+      "attack_label": "REACHED",
+      "attack_clear": 0.019476465788773628,
+      "attack_leg": null,
+      "sec": 9.0
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.010601360358759013,
+      "handover_clear": 0.014093019788582128,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008575153894612608,
+      "attack_leg": null,
+      "sec": 6.41
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.016193205287463347,
+      "handover_clear": 0.016193205287463347,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008200341849193243,
+      "attack_leg": null,
+      "sec": 6.26
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.017759956257296428,
+      "handover_clear": 0.028538679763110225,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008295095053481374,
+      "attack_leg": null,
+      "sec": 6.35
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.34,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01427287743091589,
+      "handover_clear": 0.02296916172157136,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008769814365703552,
+      "attack_leg": null,
+      "sec": 7.14
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.013923266450401345,
+      "handover_clear": 0.026171912452063684,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009170421703941764,
+      "attack_leg": null,
+      "sec": 7.18
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.021470603483349684,
+      "handover_clear": 0.038229951591246925,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010229652511016055,
+      "attack_leg": null,
+      "sec": 5.91
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03434590935941026,
+      "handover_clear": 0.03862200880628924,
+      "attack_label": "REACHED",
+      "attack_clear": 0.014779607256927577,
+      "attack_leg": null,
+      "sec": 4.96
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.02952712542836236,
+      "handover_clear": 0.042201635862468556,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009283433842868075,
+      "attack_leg": null,
+      "sec": 6.7
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.023509808891925568,
+      "handover_clear": 0.06105883707056539,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007936948376284822,
+      "attack_leg": null,
+      "sec": 6.74
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.28,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.012319018793032183,
+      "handover_clear": 0.06548021877878815,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009945823272334217,
+      "attack_leg": null,
+      "sec": 8.04
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.010523151916308038,
+      "handover_clear": 0.02441002068903539,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008097913964848283,
+      "attack_leg": null,
+      "sec": 7.35
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.022149722303637404,
+      "handover_clear": 0.036537262340644305,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011216537209295066,
+      "attack_leg": null,
+      "sec": 5.83
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03883963212260433,
+      "handover_clear": 0.04099670298186722,
+      "attack_label": "REACHED",
+      "attack_clear": 0.03851029819185592,
+      "attack_leg": null,
+      "sec": 3.87
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.03138763496035188,
+      "handover_clear": 0.04957834563625091,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009459601056945044,
+      "attack_leg": null,
+      "sec": 5.51
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.020859491384622036,
+      "handover_clear": 0.06962585136322821,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007323037746581343,
+      "attack_leg": null,
+      "sec": 6.29
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.013861874645379885,
+      "handover_clear": 0.08080512639935564,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008380561687244728,
+      "attack_leg": null,
+      "sec": 6.47
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009898141287473183,
+      "handover_clear": 0.024815833259465153,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00821463924883771,
+      "attack_leg": null,
+      "sec": 6.56
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.016783906833732015,
+      "handover_clear": 0.03854588511737486,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00795643297505673,
+      "attack_leg": null,
+      "sec": 5.29
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.023840977518697612,
+      "handover_clear": 0.046263023372499046,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008713428300338236,
+      "attack_leg": null,
+      "sec": 5.01
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.023942171063527015,
+      "handover_clear": 0.0570417623505696,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007516848394959308,
+      "attack_leg": null,
+      "sec": 5.1
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.017678595918864268,
+      "handover_clear": 0.07220538433656626,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007360821184083405,
+      "attack_leg": null,
+      "sec": 5.43
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.012523794771166288,
+      "handover_clear": 0.08201469007410456,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0075892003897469335,
+      "attack_leg": null,
+      "sec": 5.73
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.005600326241115491,
+      "handover_clear": 0.025693947034739623,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008733690514270531,
+      "attack_leg": null,
+      "sec": 6.22
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.010742770171414881,
+      "handover_clear": 0.04348188284472437,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0075974666421306375,
+      "attack_leg": null,
+      "sec": 5.21
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01505414135643518,
+      "handover_clear": 0.05567224751926683,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007610844659804786,
+      "attack_leg": null,
+      "sec": 4.67
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.013500091306005699,
+      "handover_clear": 0.06855291846317466,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007657905752091937,
+      "attack_leg": null,
+      "sec": 4.84
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011404173238159926,
+      "handover_clear": 0.0756853070616458,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009219535005253077,
+      "attack_leg": null,
+      "sec": 5.34
+    },
+    {
+      "G0": [
+        0.3400000000000001,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009932263328708918,
+      "handover_clear": 0.08395215572645456,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011738683145722129,
+      "attack_leg": null,
+      "sec": 5.48
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00044202499283343966,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.1
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.003044025215803145,
+      "handover_clear": 0.003912985104664146,
+      "attack_label": "REACHED",
+      "attack_clear": 0.004400486021176056,
+      "attack_leg": null,
+      "sec": 5.45
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.12
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00020125459389432054,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.83
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0018369522471057276,
+      "handover_clear": 0.018384194296707235,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01448664741416035,
+      "attack_leg": null,
+      "sec": 7.98
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009185113589373892,
+      "handover_clear": 0.011839650151044587,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011191743784301253,
+      "attack_leg": null,
+      "sec": 5.46
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.014297675826664594,
+      "handover_clear": 0.01899990295068986,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010226765700725601,
+      "attack_leg": null,
+      "sec": 5.29
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.012044305231773522,
+      "handover_clear": 0.025560489218999505,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009544254946455194,
+      "attack_leg": null,
+      "sec": 5.47
+    },
+    {
+      "G0": [
+        0.4,
+        -0.34,
+        0.18
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010962571489836481,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.99
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.002164375716939365,
+      "handover_clear": 0.01451657343427018,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010088047874569184,
+      "attack_leg": null,
+      "sec": 5.96
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.00044193400126479876,
+      "handover_clear": 0.022080737913399956,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008987403527541599,
+      "attack_leg": null,
+      "sec": 5.5
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.008520521065538869,
+      "handover_clear": 0.029693655531204427,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008497920687347171,
+      "attack_leg": null,
+      "sec": 4.83
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.010923388731870431,
+      "handover_clear": 0.03931316036712362,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008680056003827,
+      "attack_leg": null,
+      "sec": 4.6
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01217829628313459,
+      "handover_clear": 0.029499685835305656,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008806459831180904,
+      "attack_leg": null,
+      "sec": 4.62
+    },
+    {
+      "G0": [
+        0.4,
+        -0.28,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.010863754027555253,
+      "handover_clear": 0.04067818902008202,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01178396566309367,
+      "attack_leg": null,
+      "sec": 5.24
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.006103191743843134,
+      "handover_clear": 0.013158199298420575,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00960681306638346,
+      "attack_leg": null,
+      "sec": 4.97
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009471960043034508,
+      "handover_clear": 0.020966207055603425,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008718158551642027,
+      "attack_leg": null,
+      "sec": 4.76
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011870678946600724,
+      "handover_clear": 0.03010624223859215,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008309883085647424,
+      "attack_leg": null,
+      "sec": 5.12
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011942096236586236,
+      "handover_clear": 0.04207883387529976,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008128719568055456,
+      "attack_leg": null,
+      "sec": 5.03
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.011079506538550873,
+      "handover_clear": 0.05676144854057483,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008649234952796597,
+      "attack_leg": null,
+      "sec": 5.68
+    },
+    {
+      "G0": [
+        0.4,
+        -0.21999999999999997,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.00972311781435782,
+      "handover_clear": 0.06114920412005265,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01058342626468868,
+      "attack_leg": null,
+      "sec": 5.84
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.004527588296911106,
+      "handover_clear": 0.011964920402348367,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01007388284534623,
+      "attack_leg": null,
+      "sec": 6.07
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.007448622084963635,
+      "handover_clear": 0.020394050450156215,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008774932603485136,
+      "attack_leg": null,
+      "sec": 5.55
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009910249526522183,
+      "handover_clear": 0.03330854079035786,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007690888561277115,
+      "attack_leg": null,
+      "sec": 5.12
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.01060984518923487,
+      "handover_clear": 0.047532935786115754,
+      "attack_label": "REACHED",
+      "attack_clear": 0.007928745777522811,
+      "attack_leg": null,
+      "sec": 4.95
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.009220427593982422,
+      "handover_clear": 0.0650063179290035,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009033618914183361,
+      "attack_leg": null,
+      "sec": 5.15
+    },
+    {
+      "G0": [
+        0.4,
+        -0.15999999999999998,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.00913238833287594,
+      "handover_clear": 0.0628042482928754,
+      "attack_label": "REACHED",
+      "attack_clear": 0.011536752303360792,
+      "attack_leg": null,
+      "sec": 5.61
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0014906472319108216,
+      "handover_clear": 0.014310216567508999,
+      "attack_label": "REACHED",
+      "attack_clear": 0.010914410261009519,
+      "attack_leg": null,
+      "sec": 5.55
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.06
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.004970572983607757,
+      "handover_clear": 0.02416763989809753,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009881289145292002,
+      "attack_leg": null,
+      "sec": 5.06
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.12
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.006647254375437686,
+      "handover_clear": 0.0410132405764814,
+      "attack_label": "REACHED",
+      "attack_clear": 0.008658695478669251,
+      "attack_leg": null,
+      "sec": 4.96
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.18
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.00846644915641541,
+      "handover_clear": 0.05595085590099791,
+      "attack_label": "REACHED",
+      "attack_clear": 0.009386069951052983,
+      "attack_leg": null,
+      "sec": 4.95
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.24
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.007052019813107491,
+      "handover_clear": 0.0576611736750714,
+      "attack_label": "REACHED",
+      "attack_clear": 0.00977855380129343,
+      "attack_leg": null,
+      "sec": 4.89
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.005254135898518877,
+      "handover_clear": 0.06369420037013021,
+      "attack_label": "REACHED",
+      "attack_clear": 0.012086007218635592,
+      "attack_leg": null,
+      "sec": 5.02
+    }
+  ]
+}

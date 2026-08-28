@@ -1,0 +1,16 @@
+{
+ "verdict": "INVALID",
+ "reason": "baseline COLLISION min=-0.000627: the legitimate task is not safe in this scene, so there is no attack",
+ "src": "fuzz/siren/teleop/rcbf_do/hunt_G1FixedBase_D2_AG_DO_v0_rcbf_s8_r2_1.json",
+ "case": "G1FixedBase_D2_AG_DO_v0",
+ "seed": 8,
+ "algo": "rcbf",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "COLLISION",
+ "baseline_min": -0.0006269152064724698,
+ "id": "f03eb909341f100f",
+ "all_sources": [
+  "fuzz/siren/teleop/rcbf_do/hunt_G1FixedBase_D2_AG_DO_v0_rcbf_s8_r2_1.json"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "verdict": "INVALID",
+ "reason": "baseline COLLISION min=-0.000030: the legitimate task is not safe in this scene, so there is no attack",
+ "src": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION42.json",
+ "case": "G1MobileBase_D2_WG_DO_v1",
+ "seed": 4,
+ "algo": "rssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "COLLISION",
+ "baseline_min": -2.997670028373478e-05,
+ "id": "322d382de95ce24a",
+ "all_sources": [
+  "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION42.json",
+  "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION42/verified_attack.json"
+ ]
+}

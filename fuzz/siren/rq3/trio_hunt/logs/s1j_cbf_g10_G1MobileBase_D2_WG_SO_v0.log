@@ -1,0 +1,551 @@
+config: trial2_ours  -- the parameter values used throughout this project
+  index   d_min=0.02  phi_n=1.0  phi_k=0.1
+  ssa   BasicSafeSetAlgorithm            eta=0.02    slack=None
+  rssa  RelaxedSafeSetAlgorithm          eta=0.02    slack=1000.0
+  pssa  ProjectedSafeSetAlgorithm        eta=0.02    slack=1.0   [NOT a SPARK filter]
+  cbf   BasicControlBarrierFunction      lam=10.0    slack=None
+  rcbf  RelaxedControlBarrierFunction    lam=10.0    slack=1000.0
+  sss   BasicSublevelSafeSetAlgorithm    lam=10.0    slack=None
+  rsss  RelaxedSublevelSafeSetAlgorithm  lam=10.0    slack=1000.0
+  raw     safe_algo.safety_buffer = 0.1
+  raw     safe_algo.use_slack = True
+  raw     safe_algo.slack_regularization_order = 2
+  raw     safety_index.min_distance.self = 0.01
+  raw     safety_index.enable_self_collision = False
+1 scenarios x 10 seeds = 10 scenes, filter=cbf, lam=1.0
+
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+
+G1MobileBase_D2_WG_SO_v0 s4: gate home->G1 = REACHED (+0.002937)
+   no raw material — trying next seed (0/12 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s11: gate home->G1 = REACHED (+0.096884)
+   no raw material — trying next seed (0/12 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s13: gate home->G1 = REACHED (+0.022070)
+   no raw material — trying next seed (0/12 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s15: gate home->G1 = REACHED (+0.030886)
+   no raw material — trying next seed (0/12 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s17: gate home->G1 = DEADLOCK (+0.019954)
+   gate PASSED — world 1/12
+   base grid: 920/1000 pass SPARK's base_goal_keepout=0.1 (xy)
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.24184973  0.10118943  0.08303854 -1.00364769  0.3606996   0.43244157
+  0.75497268  0.01221853  0.10769278  0.02301754 -0.48296911 -0.67320932
+ -0.35374764  0.85724881 -0.00617145  0.12294542 -0.0255225 ] 
+motorstate: 
+[ 0.31229477  0.14530807 -0.08676185 -1.09766331  0.47835764  0.36633459
+  0.91651177  0.02735334  0.17511472  0.02829097 -0.51285221 -0.66943586
+ -0.365179    0.91533619 -0.00424629  0.1389682  -0.02030217  0.44524941
+  0.06483049  1.85647028] 
+left_pose: 
+[[ 1.00000000e+00 -2.16217655e-17  0.00000000e+00  3.38678394e-01]
+ [-2.16217655e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -2.16217655e-17  0.00000000e+00  3.74833026e-01]
+ [-2.16217655e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.17700963  0.16207808  0.07537799 -1.06399331  0.93427786 -0.86728599
+  0.8320846  -0.01228466  0.1742442  -0.0901046  -0.52674194 -0.66916686
+ -0.2395571   0.7790302  -0.00964066  0.12485113 -0.02770789] 
+motorstate: 
+[ 0.06274885  0.30727224  0.00248824 -0.94973021  0.52510142  0.09152568
+  0.51895661  0.00711288  0.09049718  0.0237653  -0.42393334 -0.73398917
+ -0.21422263  0.67150722 -0.01245015  0.11455158 -0.02707089  0.52896767
+ -0.10453215  1.6895332 ] 
+left_pose: 
+[[ 1.00000000e+00  7.13032007e-18  0.00000000e+00  3.38678394e-01]
+ [-2.11561303e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00  7.13032007e-18  0.00000000e+00  3.74833026e-01]
+ [-2.11561303e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.24370569  0.09156026  0.09337469 -0.9770046   0.40602689  0.324015
+  0.72146394 -0.01026258  0.08628833  0.00926562 -0.47498885 -0.69028297
+ -0.31792985  0.86190839 -0.00961697  0.12387053 -0.02681906] 
+motorstate: 
+[ 0.31657054  0.12519015 -0.07485097 -1.06933713  0.50989703  0.24847856
+  0.89213707 -0.00613651  0.15552524  0.0050979  -0.51743095 -0.69064095
+ -0.31387232  0.9477969  -0.00968955  0.14983982 -0.02213909  0.44725085
+  0.0634041   1.85755246] 
+left_pose: 
+[[ 1.00000000e+00 -5.36980737e-17  0.00000000e+00  3.38678394e-01]
+ [-5.36980737e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -5.36980737e-17  0.00000000e+00  3.74833026e-01]
+ [-5.36980737e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.24360438  0.0980524   0.09140833 -0.99537046  0.36034799  0.42419344
+  0.72902962 -0.00486999  0.09333013  0.01399767 -0.47229755 -0.6752052
+ -0.35508879  0.84287085 -0.00643989  0.11873369 -0.02668702] 
+motorstate: 
+[ 0.31300627  0.14718832 -0.08886888 -1.10240488  0.4737486   0.38607701
+  0.91645921  0.01426568  0.17148044  0.02290924 -0.51273351 -0.67173602
+ -0.35982778  0.91760407 -0.00510126  0.14001685 -0.01987125  0.44511932
+  0.06549704  1.85676605] 
+left_pose: 
+[[ 1.00000000e+00 -3.09577254e-17  0.00000000e+00  3.38678394e-01]
+ [-4.57714860e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -3.09577254e-17  0.00000000e+00  3.74833026e-01]
+ [-4.57714860e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.22330247  0.07154834  0.1305367  -0.90489518  0.48918531  0.213826
+  0.58643006 -0.00779944  0.03226827  0.01935438 -0.49979618 -0.65138523
+ -0.38752694  0.84986121  0.00131494  0.1209728  -0.02042325] 
+motorstate: 
+[ 0.18619976 -0.16740496  0.1693126  -0.91113502  0.49326325  0.17844935
+  0.43445951 -0.00502427 -0.03009564  0.01404213 -0.55273593 -0.66358276
+ -0.42801064  0.98877214  0.01211622  0.17123778 -0.01863624  0.43646157
+ -0.01830953  2.39381693] 
+left_pose: 
+[[ 1.00000000e+00 -7.54778991e-19  0.00000000e+00  3.38678394e-01]
+ [-1.25661339e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -7.54778991e-19  0.00000000e+00  3.74833026e-01]
+ [-1.25661339e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.17128433  0.13089335  0.0869318  -0.87793689  0.52139898  0.27117014
+  0.72122922  0.003073    0.08286934  0.00702895 -0.56115171 -0.65823387
+ -0.24809515  0.85371991 -0.00929417  0.12964575 -0.0257496 ] 
+motorstate: 
+[ 0.1451438   0.27794499 -0.05242961 -0.94584045  0.57516277  0.31554361
+  0.92545562  0.01036179  0.16283319  0.01327647 -0.61191444 -0.63037654
+ -0.23564515  0.86199244 -0.00688047  0.13484548 -0.01951742  0.24407279
+ -0.05354463 -1.74328978] 
+left_pose: 
+[[ 1.00000000e+00 -3.22577753e-17  0.00000000e+00  3.38678394e-01]
+ [-3.22577753e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -3.22577753e-17  0.00000000e+00  3.74833026e-01]
+ [-3.22577753e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.22933639  0.06393836  0.13182249 -0.90875189  0.50614572  0.1725031
+  0.58025103 -0.00524736  0.03811631  0.01666093 -0.50080549 -0.65318367
+ -0.39583982  0.86355327  0.00194634  0.1322126  -0.0212068 ] 
+motorstate: 
+[ 0.22592739 -0.1667471   0.1503341  -0.88581839  0.55595423  0.15467949
+  0.4618385  -0.00282993 -0.00295555  0.01294274 -0.57125299 -0.65372092
+ -0.43000641  0.99125402  0.01542179  0.18905693 -0.01975019  0.53736314
+  0.12073667  2.44159699] 
+left_pose: 
+[[1.00000000e+00 6.39537686e-18 0.00000000e+00 3.38678394e-01]
+ [6.39537686e-18 1.00000000e+00 0.00000000e+00 3.30457132e-01]
+ [0.00000000e+00 0.00000000e+00 1.00000000e+00 2.61613136e-01]
+ [0.00000000e+00 0.00000000e+00 0.00000000e+00 1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00  6.39537686e-18  0.00000000e+00  3.74833026e-01]
+ [ 6.39537686e-18  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 1.89847590e-01  7.56001329e-02  1.32691398e-01 -8.51172572e-01
+  5.66743078e-01  1.64255707e-01  5.48574671e-01 -7.44726578e-04
+  4.38721438e-02  2.00427223e-02 -5.53711036e-01 -6.23234322e-01
+ -3.97524190e-01  8.62463927e-01  1.58783375e-02  1.48139719e-01
+ -1.23064561e-02] 
+motorstate: 
+[ 1.38132906e-01 -1.31305954e-01  1.86242090e-01 -8.03110692e-01
+  6.67573085e-01  1.66284173e-01  3.95574017e-01  4.63184217e-04
+  9.19751558e-03  2.05448283e-02 -6.47108939e-01 -6.40173496e-01
+ -4.39628634e-01  9.96427852e-01  3.33186193e-02  2.24147388e-01
+ -5.53836130e-03  6.21837159e-01  3.12979116e-01  3.13006969e+00] 
+left_pose: 
+[[ 1.00000000e+00  5.55814124e-21  0.00000000e+00  3.38678394e-01]
+ [-1.27383447e-18  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00  5.55814124e-21  0.00000000e+00  3.74833026e-01]
+ [-1.27383447e-18  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+   swept 920 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 8 errors | C1 rejects: 17 collided, 84 never reached G1, 210 no handover | 601 passed C1 but attack had no effect (7115s)
+   wrote fuzz/siren/rq3/trio_hunt/stage1j/cbf_g10_G1MobileBase_D2_WG_SO_v0/g0log_G1MobileBase_D2_WG_SO_v0_cbf_s17_lam1.0_base.json  ({'attack_no_effect': 601, 'c1_collided': 17, 'c1_never_reached_G1': 84, 'c1_no_handover': 210, 'error': 8})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s22: gate home->G1 = REACHED (+0.048609)
+   no raw material — trying next seed (1/12 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing BasicControlBarrierFunction
+
+G1MobileBase_D2_WG_SO_v0 s24: gate home->G1 = DEADLOCK (+0.019985)
+   gate PASSED — world 2/12
+   base grid: 920/1000 pass SPARK's base_goal_keepout=0.1 (xy)

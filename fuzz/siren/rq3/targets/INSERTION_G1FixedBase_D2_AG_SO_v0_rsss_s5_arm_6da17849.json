@@ -1,0 +1,70 @@
+{
+  "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s5_arm_6da17849",
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "seed": 5,
+  "algo": "rsss",
+  "index": "velocity",
+  "d_min": 0.018,
+  "eta": null,
+  "lam": 0.5,
+  "k": 0.1,
+  "channel": "arm",
+  "max_steps": 900,
+  "G0_commanded": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+  ],
+  "G1": [
+    0.2408465115272732,
+    -0.10555937871819683,
+    0.11968344117085514
+  ],
+  "G1_prime_truth": [
+    0.315,
+    -0.12000000000000001,
+    0.27999999999999997
+  ],
+  "kind": "INSERTION",
+  "obstacles_world": [
+    [
+      0.2795004138922973,
+      -0.11579063773936395,
+      0.9709848110645816
+    ],
+    [
+      9.0,
+      9.0,
+      9.0
+    ],
+    [
+      9.0,
+      9.0,
+      9.0
+    ],
+    [
+      9.0,
+      9.0,
+      9.0
+    ],
+    [
+      9.0,
+      9.0,
+      9.0
+    ]
+  ],
+  "obstacle_radius": 0.05,
+  "provenance": {
+    "rq3_id": "6da178494437968f",
+    "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_5.json",
+    "revalidated": true,
+    "selected_for_custom_fuzz": true,
+    "baseline_min": 0.004555881794201105,
+    "attack_mins": [
+      -9.243110813370037e-05,
+      -9.243110813370037e-05
+    ],
+    "note": "Constructed custom-scene target. stage3_fuzz replays obstacles_world with run_pinned."
+  },
+  "pinned_scene": true
+}

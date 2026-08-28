@@ -1,0 +1,67 @@
+{
+ "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_46afe7c7",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 1,
+ "algo": "rssa",
+ "index": "velocity",
+ "d_min": 0.02,
+ "eta": 0.004,
+ "lam": 1.0,
+ "k": 0.1,
+ "channel": "arm",
+ "max_steps": 900,
+ "G0_commanded": [
+  0.24979340397519403,
+  -0.24051857988726008,
+  0.12284660236674716
+ ],
+ "G1": [
+  0.3250432944834903,
+  -0.10334167332805157,
+  0.2244496963139518
+ ],
+ "G1_prime_truth": [
+  0.315,
+  -0.38,
+  0.27999999999999997
+ ],
+ "kind": "INSERTION",
+ "obstacles_world": [
+  [
+   0.2764471177043362,
+   -0.23087789153523777,
+   1.0573573641045217
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ]
+ ],
+ "obstacle_radius": 0.05,
+ "provenance": {
+  "rq3_id": "46afe7c7490f7928",
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_1.json",
+  "revalidated": true,
+  "baseline_min": 0.016881711721165746,
+  "attack_mins": [
+   -4.626348686107007e-05,
+   -4.626348686107007e-05
+  ]
+ }
+}

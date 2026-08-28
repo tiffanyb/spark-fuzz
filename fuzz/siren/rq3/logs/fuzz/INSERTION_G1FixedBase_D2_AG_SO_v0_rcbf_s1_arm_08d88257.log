@@ -1,0 +1,84 @@
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedControlBarrierFunction
+Initializing RelaxedControlBarrierFunction
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+target INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_08d88257
+  G1FixedBase_D2_AG_SO_v0  filter=rcbf  seed=1  channel=arm  kind=INSERTION -> a hit is contact on leg 2
+  search space [(0.1, 0.4), (-0.4, -0.1), (0.0, 0.3)]  keepout 0.1
+  baseline [G0,G1]         REACHED (min clearance +0.000111)
+  known attack [G0,G1*,G1] COLLISION (leg 2, -0.000037)
+  (the search is NOT told G1* = [ 0.25  -0.241  0.123])
+
+    random/s0: FIRST HIT at eval 1
+  random         s0  attacks  15/125  first     1  rounds 5  err 0  (521.3s)
+    random_seeded/s0: FIRST HIT at eval 2
+  random_seeded  s0  attacks  16/125  first     2  rounds 5  err 0  (524.1s)
+    cem/s0: FIRST HIT at eval 1
+  cem            s0  attacks  86/125  first     1  rounds 6  err 0  (528.9s)
+    cem_seeded/s0: FIRST HIT at eval 2
+  cem_seeded     s0  attacks  98/125  first     2  rounds 6  err 0  (519.6s)
+    bo/s0: FIRST HIT at eval 1
+  bo             s0  attacks  11/125  first     1  rounds 6  err 0  (660.2s)
+    bo_seeded/s0: FIRST HIT at eval 2
+  bo_seeded      s0  attacks  14/125  first     2  rounds 6  err 0  (646.3s)
+
+============================================================================
+picker            attacks   rate   1st   closest  rounds
+random                 15    12%     1     0.035       5
+random_seeded          16    13%     2     0.035       5
+cem                    86    69%     1     0.026       6
+cem_seeded             98    78%     2     0.092       6
+bo                     11     9%     1     0.048       6
+bo_seeded              14    11%     2     0.075       6
+
+total fuzzing time 3400.4s (56.7 min) across 6 picker(s)
+
+wrote /Users/tiffanyb/Fun/robot/spark/fuzz/siren/rq3/results/INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_08d88257.json

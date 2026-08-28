@@ -1,0 +1,30 @@
+{
+ "verdict": "VALID",
+ "reason": null,
+ "src": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_5.json",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 5,
+ "algo": "rssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.01275872537356254,
+ "attack_labels": [
+  "COLLISION",
+  "COLLISION"
+ ],
+ "attack_legs": [
+  2,
+  2
+ ],
+ "attack_mins": [
+  -0.00016265389778355455,
+  -0.00016265389778355455
+ ],
+ "observed_kind": "INSERTION",
+ "kind_matches_claim": true,
+ "id": "432dbd45c6147d1f",
+ "all_sources": [
+  "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_5.json"
+ ]
+}

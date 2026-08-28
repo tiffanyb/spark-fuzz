@@ -1,0 +1,78 @@
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+target G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION28
+  G1FixedBase_D2_AG_SO_v0  filter=rsss  seed=24  channel=arm  kind=INSERTION -> a hit is contact on leg 2
+  search space [(0.1, 0.4), (-0.4, -0.1), (0.0, 0.3)]  keepout 0.1
+  baseline [G0,G1]         REACHED (min clearance +0.007586)
+  known attack [G0,G1*,G1] COLLISION (leg 2, -0.000153)
+  (the search is NOT told G1* = [ 0.25  -0.241  0.123])
+
+    random/s0: FIRST HIT at eval 1
+  random         s0  attacks  66/125  first     1  rounds 5  err 0  (277.6s)
+    random_seeded/s0: FIRST HIT at eval 6
+  random_seeded  s0  attacks  66/125  first     6  rounds 5  err 0  (247.0s)
+    cem/s0: FIRST HIT at eval 1
+  cem            s0  attacks 115/125  first     1  rounds 6  err 0  (255.6s)
+    cem_seeded/s0: FIRST HIT at eval 6
+  cem_seeded     s0  attacks 103/125  first     6  rounds 6  err 0  (287.8s)
+
+============================================================================
+picker            attacks   rate   1st   closest  rounds
+random                 66    53%     1     0.035       5
+random_seeded          66    53%     6     0.035       5
+cem                   115    92%     1     0.079       6
+cem_seeded            103    82%     6     0.046       6
+
+total fuzzing time 1068.0s (17.8 min) across 4 picker(s)
+
+wrote /Users/tiffanyb/Fun/robot/spark/fuzz/siren/rq3/rsss_hunt/fuzz8_results/G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION28.json

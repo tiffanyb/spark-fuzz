@@ -1,0 +1,6446 @@
+{
+ "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_106b14be.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.0013635505018978478,
+   0.0013635505018978478
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0013635505018978478,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "DEADLOCK",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_0.json"
+  ],
+  "id": "106b14be2d27df5d",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_0.json"
+ },
+ "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_6470ae47.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.0013635505018978478,
+   0.0013635505018978478
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0013635505018978478,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "DEADLOCK",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_1.json"
+  ],
+  "id": "6470ae479896c35a",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_1.json"
+ },
+ "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_7b74286b.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.0013635505018978478,
+   0.0013635505018978478
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0013635505018978478,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "DEADLOCK",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_2.json"
+  ],
+  "id": "7b74286b132ab81f",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_rcbf_s3_2.json"
+ },
+ "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_25d6db92.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.019530732818710733,
+   0.019530732818710733
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.018923050176167827,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION34.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION34/verified_attack.json"
+  ],
+  "id": "25d6db92f8da4115",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": false,
+  "seed": 110,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION34.json"
+ },
+ "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_a08c368b.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.01953239048249665,
+   0.01953239048249665
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.018794699432195666,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION35.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION35/verified_attack.json"
+  ],
+  "id": "a08c368bc1fc66d7",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": false,
+  "seed": 110,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION35.json"
+ },
+ "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_c6d815d3.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.01956206054897275,
+   0.01956206054897275
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.01894184639208911,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION33.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION33/verified_attack.json"
+  ],
+  "id": "c6d815d3def26b19",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": false,
+  "seed": 110,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_ssa_s110_lam1.0_arm_INSERTION33.json"
+ },
+ "DEADLOCK_G1FixedBase_D2_AG_SO_v1_sss_s110_arm_62f8a320.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "DEADLOCK",
+   "DEADLOCK"
+  ],
+  "attack_mins": [
+   0.01926742109145957,
+   0.01926742109145957
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.01846518306500547,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_sss_s110_lam1.0_arm_INSERTION36.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_sss_s110_lam1.0_arm_INSERTION36/verified_attack.json"
+  ],
+  "id": "62f8a320d567564f",
+  "kind": "DEADLOCK",
+  "kind_matches_claim": false,
+  "seed": 110,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_sss_s110_lam1.0_arm_INSERTION36.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_075606e1.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.535435246357967e-05,
+   -5.535435246357967e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION53.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION53/verified_attack.json"
+  ],
+  "id": "075606e158672bf0",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION53.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_615b5d03.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4948170556791651e-05,
+   -1.4948170556791651e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION55.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION55/verified_attack.json"
+  ],
+  "id": "615b5d036ec940dd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION55.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_89b6f986.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00027160567545357617,
+   -0.00027160567545357617
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION54.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION54/verified_attack.json"
+  ],
+  "id": "89b6f9868b8982d0",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_cbf_s1_lam10.0_arm_INSERTION54.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_a914037f.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4948170556791651e-05,
+   -1.4948170556791651e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-2.json"
+  ],
+  "id": "a914037fc1c01a44",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-2.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_c21e9935.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00027160567545357617,
+   -0.00027160567545357617
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-1.json"
+  ],
+  "id": "c21e99357ee2c279",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-1.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_fe5a33b5.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.535435246357967e-05,
+   -5.535435246357967e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-0.json"
+  ],
+  "id": "fe5a33b5ed5a3255",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_cbf_s1_G0-0.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_30174cea.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.208056943184328e-05,
+   -9.208056943184328e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004122508486734705,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION7.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION7/verified_attack.json"
+  ],
+  "id": "30174ceacdcf463f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION7.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_31871ca7.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.137972400241e-05,
+   -7.137972400241e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0005981051803474191,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION5.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION5/verified_attack.json"
+  ],
+  "id": "31871ca7ff37f633",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION5.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_ae95b9aa.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.211609733271453e-05,
+   -9.211609733271453e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.001112673652264709,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION8.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION8/verified_attack.json"
+  ],
+  "id": "ae95b9aad361fca2",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION8.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_daa81ca2.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001600320287095669,
+   -0.0001600320287095669
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0014284811305483869,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION6.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION6/verified_attack.json"
+  ],
+  "id": "daa81ca2d706f66d",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_ssa_s105_lam1.0_arm_INSERTION6.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_2d2e8732.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00027160567545357617,
+   -0.00027160567545357617
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION56.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION56/verified_attack.json"
+  ],
+  "id": "2d2e873264bfaa73",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION56.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_5a7605f5.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00027160567545357617,
+   -0.00027160567545357617
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_sss_s1_G0-0.json"
+  ],
+  "id": "5a7605f5335defff",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_sss_s1_G0-0.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_6efb20f0.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4948170556791651e-05,
+   -1.4948170556791651e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_sss_s1_G0-1.json"
+  ],
+  "id": "6efb20f00b74005b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D1_AG_SO_v0_sss_s1_G0-1.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_fd02aced.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4948170556791651e-05,
+   -1.4948170556791651e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00010162139821812133,
+  "case": "G1FixedBase_D1_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION57.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION57/verified_attack.json"
+  ],
+  "id": "fd02aced50a0d6bd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v0_sss_s1_lam10.0_arm_INSERTION57.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v1_ssa_s102_arm_08d7c55b.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.5495972287393744e-05,
+   -1.5495972287393744e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0022736270710713713,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION9.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION9/verified_attack.json"
+  ],
+  "id": "08d7c55bcdf160b4",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 102,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION9.json"
+ },
+ "INSERTION_G1FixedBase_D1_AG_SO_v1_ssa_s102_arm_dc8d5171.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.8011897873373455e-05,
+   -4.8011897873373455e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00040819445801867915,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION10.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION10/verified_attack.json"
+  ],
+  "id": "dc8d517114d54e2b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 102,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_SO_v1_ssa_s102_lam1.0_arm_INSERTION10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_6c36ccce.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.8052952243455267e-05,
+   -1.8052952243455267e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0079545031326832,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/cbf_0.json"
+  ],
+  "id": "6c36ccce0074c528",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/cbf_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_87d8b010.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.12180097803311e-05,
+   -6.12180097803311e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004874423294209257,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dm_cbf_0.json"
+  ],
+  "id": "87d8b0109e46f419",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dm_cbf_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_da85d8a8.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.000180717811489442,
+   -0.000180717811489442
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.002728780174557313,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/cbf_0_1.json"
+  ],
+  "id": "da85d8a84b311070",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/cbf_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s9_arm_d08a1fc9.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.177428964969592e-05,
+   -9.177428964969592e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.006298121948663429,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/cbf_0_9.json"
+  ],
+  "id": "d08a1fc91eb5f0b9",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 9,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/cbf_0_9.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s10_arm_e2e7804c.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.068130011214034e-05,
+   -5.068130011214034e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0008577042552094655,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_10.json"
+  ],
+  "id": "e2e7804c70a642a5",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_10540a90.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00041987305321659896,
+   -0.00041987305321659896
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004271281553624329,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_pssa_1.json"
+  ],
+  "id": "10540a903dd3a0fe",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_pssa_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_295b3375.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001755947206808911,
+   -0.0001755947206808911
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.008562943515394869,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_pssa_0.json"
+  ],
+  "id": "295b337556b83e0d",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_pssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_35e172a0.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.7813805936204314e-05,
+   -3.7813805936204314e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.02379775044733949,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_1.json"
+  ],
+  "id": "35e172a0190f2a3e",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_83002a9a.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.724216012634951e-05,
+   -3.724216012634951e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam10.0_arm_INSERTION58.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam10.0_arm_INSERTION58/verified_attack.json"
+  ],
+  "id": "83002a9ae35a8070",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam10.0_arm_INSERTION58.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_911c0a03.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0002304560491443869,
+   -0.0002304560491443869
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.006030666784507449,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/pssa_0.json"
+  ],
+  "id": "911c0a03fead4d6b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/pssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ed110ed0.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.000198756666842409,
+   -0.000198756666842409
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0009322902280231582,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/sep_s1_pssa_0.json"
+  ],
+  "id": "ed110ed0221ad859",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/sep_s1_pssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_f426e69b.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.724216012634951e-05,
+   -3.724216012634951e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/scenario/verified/G1FixedBase_D2_AG_SO_v0_pssa_s1_G0-5.json"
+  ],
+  "id": "f426e69b78847bfe",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/scenario/verified/G1FixedBase_D2_AG_SO_v0_pssa_s1_G0-5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s4_arm_adbabdf1.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.328519409291855e-05,
+   -6.328519409291855e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0066118933829665966,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_4.json"
+  ],
+  "id": "adbabdf1bb8db02d",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s5_arm_9085bbb1.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.21576727095896e-05,
+   -6.21576727095896e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004557264212344619,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_5.json"
+  ],
+  "id": "9085bbb1cb29c74e",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s6_arm_636ae5e3.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001259753111832601,
+   -0.0001259753111832601
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0020398770450491127,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_6.json"
+  ],
+  "id": "636ae5e325fbfd27",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 6,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_6.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s7_arm_56cdf6ac.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.71248506787114e-05,
+   -2.71248506787114e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.002924393804482367,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_7.json"
+  ],
+  "id": "56cdf6ac165286cf",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s8_arm_8c510c07.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0004425644089689623,
+   -0.0004425644089689623
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.005486486047766678,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_8.json"
+  ],
+  "id": "8c510c07c615447e",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/pssa_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s10_arm_48e66b9d.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00014611163987365838,
+   -0.00014611163987365838
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.012466885044337322,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_10.json"
+  ],
+  "id": "48e66b9d09d9e715",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_0539427e.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.144468079951395e-06,
+   -8.144468079951395e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION21.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION21/verified_attack.json"
+  ],
+  "id": "0539427e3418072e",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION21.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_08d88257.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.651921470293473e-05,
+   -3.651921470293473e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION27.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION27/verified_attack.json"
+  ],
+  "id": "08d88257a5448e02",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION27.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_109f822b.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.651921470293473e-05,
+   -3.651921470293473e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION16.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION16.json"
+  ],
+  "id": "109f822bbe8ddadb",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION16.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_1108c89f.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.617039968350504e-06,
+   -8.617039968350504e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION12.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION12/verified_attack.json"
+  ],
+  "id": "1108c89f577fff9b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION12.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_159337ea.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.3517532856131016e-06,
+   -3.3517532856131016e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION7.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION7.json"
+  ],
+  "id": "159337eaaddc749f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_18a3b32e.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.0249026320624566e-05,
+   -6.0249026320624566e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.016533548337896012,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/rcbf_0.json"
+  ],
+  "id": "18a3b32eb9dfae58",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/rcbf_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_2c2c319b.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.1619281977905986e-05,
+   -4.1619281977905986e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION25.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION25/verified_attack.json"
+  ],
+  "id": "2c2c319b3e00f763",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION25.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_441c9b1f.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.430200574145342e-06,
+   -9.430200574145342e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION9.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION9.json"
+  ],
+  "id": "441c9b1fd10496ce",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION9.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_44dc432e.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.21218010486724e-05,
+   -9.21218010486724e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.008345154944867289,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_rcbf_1.json"
+  ],
+  "id": "44dc432e2e599c5e",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_rcbf_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_451df1e3.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.5900484255741985e-05,
+   -2.5900484255741985e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION17.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION17/verified_attack.json"
+  ],
+  "id": "451df1e30df0e968",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION17.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_4b9ccef8.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.913361725742636e-05,
+   -2.913361725742636e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION11.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION11/verified_attack.json"
+  ],
+  "id": "4b9ccef8d5eab003",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION11.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5037521b.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.0226570008098346e-05,
+   -1.0226570008098346e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4.json"
+  ],
+  "id": "5037521b19d20899",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_59634041.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.913361725742636e-05,
+   -2.913361725742636e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.json"
+  ],
+  "id": "59634041638fcb46",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_59dab987.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.261698063978141e-06,
+   -9.261698063978141e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION24.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION24/verified_attack.json"
+  ],
+  "id": "59dab987b86ec065",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION24.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5e1a5a67.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.1619281977905986e-05,
+   -4.1619281977905986e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION14.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION14.json"
+  ],
+  "id": "5e1a5a67d2da1cb8",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION14.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5e27dc0b.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.573109484101498e-05,
+   -1.573109484101498e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.json"
+  ],
+  "id": "5e27dc0b6d6e1a58",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_69046bec.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001660616151509392,
+   -0.0001660616151509392
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.011604990478697938,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dem_rcbf_0.json"
+  ],
+  "id": "69046becb4204544",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dem_rcbf_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_716010c2.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.3055460765409865e-05,
+   -1.3055460765409865e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION11.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION11.json"
+  ],
+  "id": "716010c2bab9a357",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION11.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_7541facb.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001913782719871332,
+   -0.0001913782719871332
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.007293316374269526,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_1.json"
+  ],
+  "id": "7541facbc10ead17",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_804fe302.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4988982186242561e-05,
+   -1.4988982186242561e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION12.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION12.json"
+  ],
+  "id": "804fe302cc734210",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION12.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_81e13f38.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.481961409096851e-07,
+   -9.481961409096851e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION8.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION8.json"
+  ],
+  "id": "81e13f38cb2fa726",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_89a6cd01.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.951031136735118e-07,
+   -4.951031136735118e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4.json"
+  ],
+  "id": "89a6cd010943f858",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_8daf11a0.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4988982186242561e-05,
+   -1.4988982186242561e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION23.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION23/verified_attack.json"
+  ],
+  "id": "8daf11a071b6560a",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION23.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_8e3112cc.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.3055460765409865e-05,
+   -1.3055460765409865e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION22.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION22/verified_attack.json"
+  ],
+  "id": "8e3112cc37f17a49",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION22.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_93439381.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.144572559377506e-06,
+   -9.144572559377506e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3.json"
+  ],
+  "id": "93439381182ce90a",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_98dee2ff.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.798443543860051e-05,
+   -1.798443543860051e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION16.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION16/verified_attack.json"
+  ],
+  "id": "98dee2ff70e49b1c",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION16.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_9c9ad413.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.906985348095751e-05,
+   -6.906985348095751e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.005075978333178355,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_rcbf_0.json"
+  ],
+  "id": "9c9ad413f606babb",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_rcbf_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_9eac7ae7.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.291088224586906e-06,
+   -7.291088224586906e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2.json"
+  ],
+  "id": "9eac7ae7beb7e4c5",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_a139cedd.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.144572559377506e-06,
+   -9.144572559377506e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION14.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION14/verified_attack.json"
+  ],
+  "id": "a139cedd969db9fb",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION14.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_a86a7834.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.798443543860051e-05,
+   -1.798443543860051e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION5.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION5.json"
+  ],
+  "id": "a86a7834a2a7463f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_acc03c24.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.5900484255741985e-05,
+   -2.5900484255741985e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION6.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION6.json"
+  ],
+  "id": "acc03c240323e46c",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION6.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad21f955.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.430200574145342e-06,
+   -9.430200574145342e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION20.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION20/verified_attack.json"
+  ],
+  "id": "ad21f9552661ce00",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION20.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad2878ec.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.0226570008098346e-05,
+   -1.0226570008098346e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION15.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION15/verified_attack.json"
+  ],
+  "id": "ad2878ec4295b4ec",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION15.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad3f8f33.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.594659110349289e-06,
+   -7.594659110349289e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1.json"
+  ],
+  "id": "ad3f8f3324dc02f5",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_b3e3a6a5.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.054747587508122e-05,
+   -3.054747587508122e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION26.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION26/verified_attack.json"
+  ],
+  "id": "b3e3a6a5b7c3574f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION26.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_bea08cbd.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.617039968350504e-06,
+   -8.617039968350504e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1.json"
+  ],
+  "id": "bea08cbd49a6b50a",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_d02ecf43.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.438521260144659e-06,
+   -7.438521260144659e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3.json"
+  ],
+  "id": "d02ecf439b8b396a",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/pipeline/example/stage2/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION3.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_e30d7eab.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.481961409096851e-07,
+   -9.481961409096851e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION19.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION19/verified_attack.json"
+  ],
+  "id": "e30d7eab20d8e5ec",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION19.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ea653271.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.144468079951395e-06,
+   -8.144468079951395e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION10.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION10.json"
+  ],
+  "id": "ea6532712ef6c8b8",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ecbfdaab.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.3517532856131016e-06,
+   -3.3517532856131016e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION18.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION18/verified_attack.json"
+  ],
+  "id": "ecbfdaabfcfe546d",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION18.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_f1e578f7.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.261698063978141e-06,
+   -9.261698063978141e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION13.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION13.json"
+  ],
+  "id": "f1e578f746b5c89f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION13.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_f56d7145.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.470154060132181e-06,
+   -4.470154060132181e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION13.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION13/verified_attack.json"
+  ],
+  "id": "f56d7145b34f69a4",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_arm_INSERTION13.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_fdc9c851.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.470154060132181e-06,
+   -4.470154060132181e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2.json"
+  ],
+  "id": "fdc9c851ee745c29",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION2.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_fe134f14.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.054747587508122e-05,
+   -3.054747587508122e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION15.json",
+   "fuzz/siren/experiment/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION15.json"
+  ],
+  "id": "fe134f1482cca0b9",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/benchmark/verified_attacks/G1FixedBase_D2_AG_SO_v0_rcbf_s1_lam0.3_INSERTION15.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s4_arm_1f5b86dc.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001885160973902067,
+   -0.0001885160973902067
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.003783986742299711,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_4.json"
+  ],
+  "id": "1f5b86dc4fade2e5",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s5_arm_1d289b58.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0002725913987797757,
+   -0.0002725913987797757
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.011342546356777894,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_5.json"
+  ],
+  "id": "1d289b588cefa1b7",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s6_arm_f5f17a0e.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.255815818456077e-05,
+   -4.255815818456077e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0009361461478734068,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_6.json"
+  ],
+  "id": "f5f17a0e781eda30",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 6,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_6.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s7_arm_0f640931.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.7346012420710895e-05,
+   -3.7346012420710895e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00084140495144501,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_7.json"
+  ],
+  "id": "0f64093132fa2b52",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s8_arm_f627bb20.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00014357181892020454,
+   -0.00014357181892020454
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00870630260774069,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_8.json"
+  ],
+  "id": "f627bb20742f69c9",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s9_arm_7044286d.json": {
+  "algo": "rcbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.70001941074322e-05,
+   -7.70001941074322e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.005802864726651966,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_9.json"
+  ],
+  "id": "7044286d96c1b1fd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 9,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rcbf_0_9.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s105_arm_4f1960b5.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00014598052381357973,
+   -0.00014598052381357973
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004243452349209115,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION28.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION28/verified_attack.json"
+  ],
+  "id": "4f1960b513d5204f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION28.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s105_arm_be1b2c4c.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00016097498708950164,
+   -0.00016097498708950164
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004390237145856846,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION29.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION29/verified_attack.json"
+  ],
+  "id": "be1b2c4cc49aeeef",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 105,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v0_rssa_s105_lam1.0_arm_INSERTION29.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s10_arm_704d2c5b.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.439636178754422e-06,
+   -1.439636178754422e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.01434569803489913,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_10.json"
+  ],
+  "id": "704d2c5bd332e6c0",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_3467a936.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.937980770180651e-05,
+   -5.937980770180651e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.006030666784507449,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/rssa_0.json"
+  ],
+  "id": "3467a936fbc03acd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/rssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_46afe7c7.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.626348686107007e-05,
+   -4.626348686107007e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.016881711721165746,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_1.json"
+  ],
+  "id": "46afe7c7490f7928",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_5310b1b3.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010645733065420271,
+   -0.00010645733065420271
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0009322902280231582,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/sep_s1_rssa_0.json"
+  ],
+  "id": "5310b1b30b1e2fbe",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/sep_s1_rssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_ea2ee904.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015956103867546811,
+   -0.00015956103867546811
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.016243271987255087,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/sep_s1_rssa_1.json"
+  ],
+  "id": "ea2ee904e6e1e304",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/sep_s1_rssa_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s4_arm_2ff48b9c.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.891684808625845e-05,
+   -9.891684808625845e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004494746131296384,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_4.json"
+  ],
+  "id": "2ff48b9c12d1ca54",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s5_arm_432dbd45.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00016265389778355455,
+   -0.00016265389778355455
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.01275872537356254,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_5.json"
+  ],
+  "id": "432dbd45c6147d1f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s6_arm_778a8fb7.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.911244473422948e-05,
+   -3.911244473422948e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00024097668712941278,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_6.json"
+  ],
+  "id": "778a8fb72dd95f39",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 6,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_6.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s7_arm_1fa3182b.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.298355126633294e-05,
+   -8.298355126633294e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00896801866105075,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_7.json"
+  ],
+  "id": "1fa3182bc8859900",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s8_arm_4e0b39ea.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00029820392541203555,
+   -0.00029820392541203555
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.006926955950284322,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_8.json"
+  ],
+  "id": "4e0b39ea23ced0ef",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s9_arm_000ff541.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00017717199572103715,
+   -0.00017717199572103715
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.001981359372727684,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_9.json"
+  ],
+  "id": "000ff541563c67d6",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 9,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rssa_0_9.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s10_arm_cb60dd85.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.402618497617032e-05,
+   -9.402618497617032e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00484752750841215,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_10.json"
+  ],
+  "id": "cb60dd85c11fbac1",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_328cb272.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013570690518921458,
+   -0.00013570690518921458
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.014473042618558155,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_1.json"
+  ],
+  "id": "328cb272abd32f1f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_79ca658f.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001503321589519241,
+   -0.0001503321589519241
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.011077480861514721,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dem_rsss_1.json"
+  ],
+  "id": "79ca658f726015c8",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dem_rsss_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_de8a71d3.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.965123718338407e-05,
+   -7.965123718338407e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.011430129610311882,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dem_rsss_0.json"
+  ],
+  "id": "de8a71d35088c725",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dem_rsss_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_f2e11cd3.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.046347166607566e-05,
+   -3.046347166607566e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.006030666784507449,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/rsss_0.json"
+  ],
+  "id": "f2e11cd33bfb2918",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/rsss_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s4_arm_fddfa01f.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.806581714118245e-05,
+   -9.806581714118245e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0026403852180900134,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_4.json"
+  ],
+  "id": "fddfa01f6980c1ac",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s5_arm_6da17849.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.243110813370037e-05,
+   -9.243110813370037e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004555881794201105,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_5.json"
+  ],
+  "id": "6da178494437968f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s6_arm_b654d94f.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.523466086485243e-06,
+   -8.523466086485243e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0008917852891694444,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_6.json"
+  ],
+  "id": "b654d94f9131f2e2",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 6,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_6.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s7_arm_e37332c2.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.668617609728589e-05,
+   -6.668617609728589e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.007701321815012041,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_7.json"
+  ],
+  "id": "e37332c2942e53cb",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s8_arm_0e012075.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0004579119543704352,
+   -0.0004579119543704352
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0019999651198247814,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_8.json"
+  ],
+  "id": "0e012075cbc26c0f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s9_arm_5b37e5a5.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.477108313530708e-05,
+   -3.477108313530708e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0006248743722065964,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_9.json"
+  ],
+  "id": "5b37e5a5f6d6ed6b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 9,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/rsss_0_9.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s10_arm_5189a91c.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.5306177263746434e-06,
+   -6.5306177263746434e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0014827590475542246,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_10.json"
+  ],
+  "id": "5189a91ce4d3939c",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_14317d5b.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.160721884974907e-05,
+   -6.160721884974907e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0047356966147047985,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dm_ssa_0.json"
+  ],
+  "id": "14317d5bb95c852b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dm_ssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_6c9978f7.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00021774955737886847,
+   -0.00021774955737886847
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.017210506455402702,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/ssa_0.json"
+  ],
+  "id": "6c9978f72818ddcd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/ssa_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_9b121e9e.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.873042527762776e-05,
+   -8.873042527762776e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.02374386049644933,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_1.json"
+  ],
+  "id": "9b121e9e39830b79",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_ab89dfd4.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.5926254150339103e-05,
+   -1.5926254150339103e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.003456756080971554,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dm_ssa_1.json"
+  ],
+  "id": "ab89dfd49ea0ba10",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dm_ssa_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s4_arm_2a0c32b3.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.7952994307064993e-05,
+   -2.7952994307064993e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00018655107697636286,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_4.json"
+  ],
+  "id": "2a0c32b37b60d0e0",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s5_arm_da7b4d08.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.652375065150818e-05,
+   -7.652375065150818e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00861797248185596,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_5.json"
+  ],
+  "id": "da7b4d08018b170f",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s7_arm_feca50f9.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015183946572094875,
+   -0.00015183946572094875
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.003153754912337367,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_7.json"
+  ],
+  "id": "feca50f902cd69ab",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s8_arm_33e747ef.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.162004486359341e-05,
+   -7.162004486359341e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.015905913279461753,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_8.json"
+  ],
+  "id": "33e747efb61a6e2c",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/ssa_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s10_arm_4e6912b4.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.975179806844307e-05,
+   -1.975179806844307e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.001114849408564031,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_10.json"
+  ],
+  "id": "4e6912b435c4962b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_10.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_2328825a.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0002563355198297729,
+   -0.0002563355198297729
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.016756914021355693,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/stock_attacks/sss_0.json"
+  ],
+  "id": "2328825abde11d6d",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/stock_attacks/sss_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_346da6ca.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010242679152083767,
+   -0.00010242679152083767
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.021879375745501056,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_1.json"
+  ],
+  "id": "346da6ca5f6bacc1",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_41ffb7eb.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.599919476478865e-05,
+   -5.599919476478865e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004907030555838757,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_sss_0.json"
+  ],
+  "id": "41ffb7eb66f5b25a",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_sss_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_56dd74ba.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.715572685108413e-05,
+   -1.715572685108413e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004532182296537554,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dm_sss_0.json"
+  ],
+  "id": "56dd74ba1928ac9b",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dm_sss_0.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_d57e8e16.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.391163562004866e-05,
+   -8.391163562004866e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0032809895248430004,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/dm_sss_1.json"
+  ],
+  "id": "d57e8e1685c16405",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/dm_sss_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_ea87a44e.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.2470709413875403e-05,
+   -1.2470709413875403e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004897290909275376,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/final_attacks/fill_sss_1.json"
+  ],
+  "id": "ea87a44e5af401f2",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/constructed/final_attacks/fill_sss_1.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s4_arm_5cb963e4.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.1248634157755575e-08,
+   -2.1248634157755575e-08
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00018655107697636286,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_4.json"
+  ],
+  "id": "5cb963e4e48930e2",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_4.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s5_arm_3f3fb3e7.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.1520079300763624e-05,
+   -4.1520079300763624e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.009050558236457673,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_5.json"
+  ],
+  "id": "3f3fb3e7c80b26fe",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 5,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_5.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s7_arm_1d49c905.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.530600034186814e-05,
+   -2.530600034186814e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.003153754912337367,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_7.json"
+  ],
+  "id": "1d49c905e4976773",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 7,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_7.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s8_arm_d86ef9ab.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.1763137735638676e-05,
+   -5.1763137735638676e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.015868417304636756,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_8.json"
+  ],
+  "id": "d86ef9ab09f53acd",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/constructed/rq1_results/stock_attacks/sss_0_8.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v1_pssa_s10_arm_9c1bb07b.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0003183877667104207,
+   -0.0003183877667104207
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.009749727857745402,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION30.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION30/verified_attack.json"
+  ],
+  "id": "9c1bb07b9e186425",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION30.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v1_pssa_s10_arm_a56b97f9.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00016199561437273136,
+   -0.00016199561437273136
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.004291822760374625,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION31.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION31/verified_attack.json"
+  ],
+  "id": "a56b97f9d929e396",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 10,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_pssa_s10_lam1.0_arm_INSERTION31.json"
+ },
+ "INSERTION_G1FixedBase_D2_AG_SO_v1_rssa_s8_arm_69b41459.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015007607905488662,
+   -0.00015007607905488662
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.003780757653394487,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32.json",
+   "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32/verified_attack.json"
+  ],
+  "id": "69b41459148279a5",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 8,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32.json"
+ },
+ "INSERTION_G1MobileBase_D2_WG_SO_v0_rssa_s17_arm_20a9fd62.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.464150755197459e-05,
+   -3.464150755197459e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0017708132341159727,
+  "case": "G1MobileBase_D2_WG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v0_rssa_s17_lam1.0_arm_INSERTION49.json",
+   "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_SO_v0_rssa_s17_lam1.0_arm_INSERTION49/verified_attack.json"
+  ],
+  "id": "20a9fd6269999668",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 17,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v0_rssa_s17_lam1.0_arm_INSERTION49.json"
+ },
+ "INSERTION_G1MobileBase_D2_WG_SO_v1_rssa_s4_arm_1f392b19.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.0801005727488775e-05,
+   -2.0801005727488775e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.001076166398105205,
+  "case": "G1MobileBase_D2_WG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION52.json",
+   "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION52/verified_attack.json"
+  ],
+  "id": "1f392b193eb47521",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION52.json"
+ },
+ "INSERTION_G1MobileBase_D2_WG_SO_v1_rssa_s4_arm_4e9b1071.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.508403952112165e-06,
+   -8.508403952112165e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0029372922446532362,
+  "case": "G1MobileBase_D2_WG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION51.json",
+   "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION51/verified_attack.json"
+  ],
+  "id": "4e9b10717a6a33cb",
+  "kind": "INSERTION",
+  "kind_matches_claim": true,
+  "seed": 4,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_SO_v1_rssa_s4_lam1.0_arm_INSERTION51.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_0f2a2305.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.129433810633024e-05,
+   -8.129433810633024e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_30.json"
+  ],
+  "id": "0f2a2305c4ffb66a",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_30.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_103fdeb7.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.998146637486765e-05,
+   -2.998146637486765e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_23.json"
+  ],
+  "id": "103fdeb780662b91",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_23.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_1dcaa048.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.451719746033979e-05,
+   -6.451719746033979e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_19.json"
+  ],
+  "id": "1dcaa0481fb1cf03",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_19.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_1e084d1a.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001344539856955873,
+   -0.0001344539856955873
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_21.json"
+  ],
+  "id": "1e084d1ab61becd1",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_21.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2a9b27e3.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.826184174244741e-07,
+   -4.826184174244741e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION6.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_11.json"
+  ],
+  "id": "2a9b27e3f7aeca97",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION6.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2cb58eed.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.611946578595097e-05,
+   -7.611946578595097e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_25.json"
+  ],
+  "id": "2cb58eede8a9c211",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_25.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2f44456b.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010752154237786415,
+   -0.00010752154237786415
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_1.json"
+  ],
+  "id": "2f44456be36968c5",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_1.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_350eaf10.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015415627867439163,
+   -0.00015415627867439163
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_37.json"
+  ],
+  "id": "350eaf10909b3f09",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_37.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_38e8a390.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.826184174244741e-07,
+   -4.826184174244741e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_11.json"
+  ],
+  "id": "38e8a390790a20c6",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_11.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_406cf37c.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023276036265926225,
+   -0.00023276036265926225
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_16.json"
+  ],
+  "id": "406cf37cc0985716",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_16.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_40cd3a9f.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00026950844987647105,
+   -0.00026950844987647105
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_31.json"
+  ],
+  "id": "40cd3a9f1ae02043",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_31.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_4451aae2.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013177172445463792,
+   -0.00013177172445463792
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_14.json"
+  ],
+  "id": "4451aae2e26a87ba",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_14.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_47e32ae6.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.6585755732694283e-05,
+   -2.6585755732694283e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_15.json"
+  ],
+  "id": "47e32ae6c51e052c",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_15.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_4f02aa80.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.56328494291558e-06,
+   -4.56328494291558e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_12.json"
+  ],
+  "id": "4f02aa80443d9506",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_12.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_53994857.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.121599896388719e-05,
+   -6.121599896388719e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_3.json"
+  ],
+  "id": "539948572d68db28",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_3.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_579b247d.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023902570178516158,
+   -0.00023902570178516158
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_36.json"
+  ],
+  "id": "579b247de673ac81",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_36.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_5b394020.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.56328494291558e-06,
+   -4.56328494291558e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION7.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_12.json"
+  ],
+  "id": "5b39402070e0e292",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION7.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_5c446c73.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.4627205740537255e-05,
+   -5.4627205740537255e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION5.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_10.json"
+  ],
+  "id": "5c446c73a221d9eb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION5.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_665856d9.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.4627205740537255e-05,
+   -5.4627205740537255e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_10.json"
+  ],
+  "id": "665856d989eb3cb6",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_10.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_6e4823fa.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.872753013269616e-05,
+   -5.872753013269616e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_38.json"
+  ],
+  "id": "6e4823fad5e291c0",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_38.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_6e9e3679.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010752154237786415,
+   -0.00010752154237786415
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION4.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_1.json"
+  ],
+  "id": "6e9e36799b93f9db",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION4.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_706095a7.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00011486560297066517,
+   -0.00011486560297066517
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_28.json"
+  ],
+  "id": "706095a70003ec14",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_28.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7878a693.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015990716145070083,
+   -0.00015990716145070083
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_27.json"
+  ],
+  "id": "7878a6936b12b4a4",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_27.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_78cb1d23.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.7283651293970026e-05,
+   -1.7283651293970026e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_2.json"
+  ],
+  "id": "78cb1d23191f9ec8",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_2.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7c8c2801.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.661904426997657e-05,
+   -7.661904426997657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_18.json"
+  ],
+  "id": "7c8c28016bc59794",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_18.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7d94c842.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.6066849524081226e-05,
+   -2.6066849524081226e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_3.json"
+  ],
+  "id": "7d94c842848f004a",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_3.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_8210c810.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.174533862681521e-05,
+   -8.174533862681521e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_9.json"
+  ],
+  "id": "8210c810c78fc2b6",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_9.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_8c8b64fd.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.4233582703249148e-05,
+   -1.4233582703249148e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_2.json"
+  ],
+  "id": "8c8b64fd99c2dd91",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_2.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_9f10c913.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.730039847537169e-05,
+   -2.730039847537169e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_26.json"
+  ],
+  "id": "9f10c9133a1c1e4b",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_26.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_9fe9166e.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013245221974772514,
+   -0.00013245221974772514
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_22.json"
+  ],
+  "id": "9fe9166e7a3d303a",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_22.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a359d259.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.201397529714825e-06,
+   -6.201397529714825e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_41.json"
+  ],
+  "id": "a359d259011009a0",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_41.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a398ee7a.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.914711158719557e-05,
+   -8.914711158719557e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_29.json"
+  ],
+  "id": "a398ee7ae2dd570d",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_29.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a4a0b35c.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.8921006414707175e-05,
+   -1.8921006414707175e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_1.json"
+  ],
+  "id": "a4a0b35c44d51eeb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_1.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a985916a.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.077439990069156e-05,
+   -7.077439990069156e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_40.json"
+  ],
+  "id": "a985916ac076ab4b",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_40.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_bb857487.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001686591924484615,
+   -0.0001686591924484615
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_8.json"
+  ],
+  "id": "bb857487b169c0ef",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_8.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_c8c1a932.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.0590858163471726e-05,
+   -2.0590858163471726e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_24.json"
+  ],
+  "id": "c8c1a932ec2ec0c8",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_24.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_cb49a27e.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.104422358308657e-05,
+   -4.104422358308657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_7.json"
+  ],
+  "id": "cb49a27eca0d0a39",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_7.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d537453c.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013440643218420867,
+   -0.00013440643218420867
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_20.json"
+  ],
+  "id": "d537453ca4bd2c58",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_20.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d75c3180.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023902570178516158,
+   -0.00023902570178516158
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_35.json"
+  ],
+  "id": "d75c318034c23d76",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_35.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d9089453.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.244384628279921e-05,
+   -7.244384628279921e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_4.json"
+  ],
+  "id": "d90894537483ef2e",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_4.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_db4688ba.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.765926619985315e-05,
+   -2.765926619985315e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_6.json"
+  ],
+  "id": "db4688ba2244c027",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_6.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_dfea5f71.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.768514239112843e-06,
+   -5.768514239112843e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_17.json"
+  ],
+  "id": "dfea5f71c97d7ca1",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_17.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_e72fa238.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.733436211531443e-05,
+   -9.733436211531443e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_32.json"
+  ],
+  "id": "e72fa238a010b66e",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_32.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_e8ca1c5d.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.661904426997657e-05,
+   -7.661904426997657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_39.json"
+  ],
+  "id": "e8ca1c5d1f39da77",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_39.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_ecbb6237.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.312253996093362e-05,
+   -3.312253996093362e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_0.json"
+  ],
+  "id": "ecbb62376a726867",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/targeted/tgt_G1FixedBase_D1_AG_SO_v1_cbf_s1_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_ef5d94ec.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00012665846774256861,
+   -0.00012665846774256861
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_5.json"
+  ],
+  "id": "ef5d94ec44eb395b",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_5.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_efeaad16.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.956112034349645e-05,
+   -2.956112034349645e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_34.json"
+  ],
+  "id": "efeaad163938dbe5",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_34.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f0dfab14.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.810131097121359e-05,
+   -1.810131097121359e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION8.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_13.json"
+  ],
+  "id": "f0dfab14b3e87f16",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION8.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f55b5431.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.403900701249741e-06,
+   -4.403900701249741e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_42.json"
+  ],
+  "id": "f55b54312c187d82",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_42.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f6841906.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.451351061260378e-05,
+   -4.451351061260378e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_0.json"
+  ],
+  "id": "f68419067ee06541",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f811b6fa.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.451351061260378e-05,
+   -4.451351061260378e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION3.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_0.json"
+  ],
+  "id": "f811b6fa56b71fa7",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_cbf_s1_lam10.0_arm_MODIFICATION3.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f8814e70.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.810131097121359e-05,
+   -1.810131097121359e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_13.json"
+  ],
+  "id": "f8814e709665dd0f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_13.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_fb54f201.json": {
+  "algo": "cbf",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0002620223774061903,
+   -0.0002620223774061903
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_33.json"
+  ],
+  "id": "fb54f20193e87aeb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_cbf_s1_33.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_07ab1b33.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015415627867439163,
+   -0.00015415627867439163
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_37.json"
+  ],
+  "id": "07ab1b336d1e8881",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_37.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_0d4f8390.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.826184174244741e-07,
+   -4.826184174244741e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION12.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_11.json"
+  ],
+  "id": "0d4f839048f4e979",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION12.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_0e720269.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.914711158719557e-05,
+   -8.914711158719557e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_29.json"
+  ],
+  "id": "0e720269f0e708b1",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_29.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_116c37b5.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.6585755732694283e-05,
+   -2.6585755732694283e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_15.json"
+  ],
+  "id": "116c37b5bf0effc5",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_15.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1501f2df.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.56328494291558e-06,
+   -4.56328494291558e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION13.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_12.json"
+  ],
+  "id": "1501f2df86b192c3",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION13.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_17c3dbbb.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.201397529714825e-06,
+   -6.201397529714825e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_41.json"
+  ],
+  "id": "17c3dbbb48a63826",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_41.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1a229f5c.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.451719746033979e-05,
+   -6.451719746033979e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_19.json"
+  ],
+  "id": "1a229f5c370e5004",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_19.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1fb86e39.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013245221974772514,
+   -0.00013245221974772514
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_22.json"
+  ],
+  "id": "1fb86e39838c5641",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_22.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_215d0b4f.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.104422358308657e-05,
+   -4.104422358308657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_7.json"
+  ],
+  "id": "215d0b4f5e192a05",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_7.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_26caf5b1.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001344539856955873,
+   -0.0001344539856955873
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_21.json"
+  ],
+  "id": "26caf5b1a0c36435",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_21.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_28726270.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.872753013269616e-05,
+   -5.872753013269616e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_38.json"
+  ],
+  "id": "2872627093f7270f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_38.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_315bdbc3.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023276036265926225,
+   -0.00023276036265926225
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_16.json"
+  ],
+  "id": "315bdbc3a298ff9c",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_16.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_318170b2.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.4627205740537255e-05,
+   -5.4627205740537255e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION11.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_10.json"
+  ],
+  "id": "318170b2446e408c",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION11.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_325ccee9.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00012665846774256861,
+   -0.00012665846774256861
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_5.json"
+  ],
+  "id": "325ccee971e6678b",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_5.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_3b51bc9d.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.451351061260378e-05,
+   -4.451351061260378e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_0.json"
+  ],
+  "id": "3b51bc9dedae8a0a",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_3c8fb017.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.403900701249741e-06,
+   -4.403900701249741e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_42.json"
+  ],
+  "id": "3c8fb017b2a81c5f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_42.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_4107de16.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.810131097121359e-05,
+   -1.810131097121359e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION14.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_13.json"
+  ],
+  "id": "4107de16edcd01de",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION14.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_41364ee5.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.451351061260378e-05,
+   -4.451351061260378e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION9.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_0.json"
+  ],
+  "id": "41364ee58aec59aa",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION9.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_41bdb82f.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.129433810633024e-05,
+   -8.129433810633024e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_30.json"
+  ],
+  "id": "41bdb82f0545762c",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_30.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_4ffa1a4c.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010752154237786415,
+   -0.00010752154237786415
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_1.json"
+  ],
+  "id": "4ffa1a4c178c2300",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_1.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_52b739d9.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.0590858163471726e-05,
+   -2.0590858163471726e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_24.json"
+  ],
+  "id": "52b739d9342a614d",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_24.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_576213b0.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.611946578595097e-05,
+   -7.611946578595097e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_25.json"
+  ],
+  "id": "576213b068b4409e",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_25.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_57d38603.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.810131097121359e-05,
+   -1.810131097121359e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_13.json"
+  ],
+  "id": "57d38603e768ffdc",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_13.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_6e9c54f5.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -8.174533862681521e-05,
+   -8.174533862681521e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_9.json"
+  ],
+  "id": "6e9c54f527eb412d",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_9.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_76c6379c.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -6.121599896388719e-05,
+   -6.121599896388719e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_3.json"
+  ],
+  "id": "76c6379cfe2d216e",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_3.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_79eb11b1.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.661904426997657e-05,
+   -7.661904426997657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_39.json"
+  ],
+  "id": "79eb11b1e391df31",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_39.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9221cb8d.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.244384628279921e-05,
+   -7.244384628279921e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_4.json"
+  ],
+  "id": "9221cb8d263ff838",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_4.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_926d0c75.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013440643218420867,
+   -0.00013440643218420867
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_20.json"
+  ],
+  "id": "926d0c75ff95de9e",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_20.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9969da85.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00026950844987647105,
+   -0.00026950844987647105
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_31.json"
+  ],
+  "id": "9969da85df208025",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_31.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9aae99b1.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00011486560297066517,
+   -0.00011486560297066517
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_28.json"
+  ],
+  "id": "9aae99b1b37c8e81",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_28.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9c20e6ca.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00010752154237786415,
+   -0.00010752154237786415
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION10.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_1.json"
+  ],
+  "id": "9c20e6ca04bd907a",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D1_AG_SO_v1_sss_s1_lam10.0_arm_MODIFICATION10.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a03392bd.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.730039847537169e-05,
+   -2.730039847537169e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_26.json"
+  ],
+  "id": "a03392bdb757bdae",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_26.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a426ab91.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00013177172445463792,
+   -0.00013177172445463792
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_14.json"
+  ],
+  "id": "a426ab91176450de",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_14.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a83d555a.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.733436211531443e-05,
+   -9.733436211531443e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_32.json"
+  ],
+  "id": "a83d555ad4621039",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_32.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a905993e.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.077439990069156e-05,
+   -7.077439990069156e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_40.json"
+  ],
+  "id": "a905993e7bc020b6",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_40.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_ad07cb60.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001686591924484615,
+   -0.0001686591924484615
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_8.json"
+  ],
+  "id": "ad07cb60d1ed280f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_8.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_b7e2eef7.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023902570178516158,
+   -0.00023902570178516158
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_35.json"
+  ],
+  "id": "b7e2eef7a154a499",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_35.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_ca192c11.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.56328494291558e-06,
+   -4.56328494291558e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_12.json"
+  ],
+  "id": "ca192c11953e571f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_12.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_cdc5b76a.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.956112034349645e-05,
+   -2.956112034349645e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_34.json"
+  ],
+  "id": "cdc5b76a11e8d9a1",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_34.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_d8661ead.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.765926619985315e-05,
+   -2.765926619985315e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_6.json"
+  ],
+  "id": "d8661eada8dbe4d2",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_6.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_d96d73f0.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.661904426997657e-05,
+   -7.661904426997657e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_18.json"
+  ],
+  "id": "d96d73f013548be3",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_18.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e2a6e3a2.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.768514239112843e-06,
+   -5.768514239112843e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_17.json"
+  ],
+  "id": "e2a6e3a2f540c59c",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_17.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e3db82e6.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00023902570178516158,
+   -0.00023902570178516158
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_36.json"
+  ],
+  "id": "e3db82e606f1adf9",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_36.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e81ab52e.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.998146637486765e-05,
+   -2.998146637486765e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_23.json"
+  ],
+  "id": "e81ab52e1d120c05",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_23.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f15852b6.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.4627205740537255e-05,
+   -5.4627205740537255e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_10.json"
+  ],
+  "id": "f15852b694402b05",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_10.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f5419956.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -1.7283651293970026e-05,
+   -1.7283651293970026e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_2.json"
+  ],
+  "id": "f5419956e68ff8dd",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_2.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f89bb90d.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0002620223774061903,
+   -0.0002620223774061903
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_33.json"
+  ],
+  "id": "f89bb90db9d0c572",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_33.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_fca59b6b.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00015990716145070083,
+   -0.00015990716145070083
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_27.json"
+  ],
+  "id": "fca59b6b2f9542f0",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_27.json"
+ },
+ "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_fdff0f49.json": {
+  "algo": "sss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -4.826184174244741e-07,
+   -4.826184174244741e-07
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0002678193688544772,
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_11.json"
+  ],
+  "id": "fdff0f498787fb17",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_11.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_48db3d64.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00021897664819273133,
+   -0.00021897664819273133
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00012788727113399734,
+  "case": "G1FixedBase_D2_AG_DO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_1.json"
+  ],
+  "id": "48db3d64b9341309",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_1.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_9c986220.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00020753575019449855,
+   -0.00020753575019449855
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00012788727113399734,
+  "case": "G1FixedBase_D2_AG_DO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_3.json"
+  ],
+  "id": "9c986220bf6ea9bb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_3.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_db8d5c64.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001993390952721441,
+   -0.0001993390952721441
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00012788727113399734,
+  "case": "G1FixedBase_D2_AG_DO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_2.json"
+  ],
+  "id": "db8d5c64f793303f",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_2.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_f7abc1df.json": {
+  "algo": "ssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0001939178724145174,
+   -0.0001939178724145174
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00012788727113399734,
+  "case": "G1FixedBase_D2_AG_DO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_0.json"
+  ],
+  "id": "f7abc1df6e69c723",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 3,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_260a54b8.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0005228827724541446,
+   -0.0005228827724541446
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r4_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam1.0_arm_MODIFICATION201.json"
+  ],
+  "id": "260a54b8e46eb5f5",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r4_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_3fa1b0a3.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.282395981692003e-05,
+   -7.282395981692003e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r7_0.json"
+  ],
+  "id": "3fa1b0a36b787766",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_8f920f50.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00033448361542462446,
+   -0.00033448361542462446
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r3_0.json"
+  ],
+  "id": "8f920f502fd550fb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r3_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_d4153a11.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.0005228827724541446,
+   -0.0005228827724541446
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r4_0.json"
+  ],
+  "id": "d4153a116cf5d8a6",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r4_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ecec3fc7.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -7.282395981692003e-05,
+   -7.282395981692003e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r7_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam1.0_arm_MODIFICATION202.json"
+  ],
+  "id": "ecec3fc70dd060f9",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_f205facd.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00033448361542462446,
+   -0.00033448361542462446
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r3_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v0_pssa_s1_lam1.0_arm_MODIFICATION200.json"
+  ],
+  "id": "f205facd6a48a491",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_pssa_s1_r3_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_139fbb5a.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.355718271612739e-05,
+   -2.355718271612739e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r6_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v0_rssa_s1_lam1.0_arm_MODIFICATION203.json"
+  ],
+  "id": "139fbb5ab94314ad",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r6_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_238740da.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -2.355718271612739e-05,
+   -2.355718271612739e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r6_0.json"
+  ],
+  "id": "238740da3c2e0f42",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r6_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_599d194c.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00014627807612216381,
+   -0.00014627807612216381
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_0.json"
+  ],
+  "id": "599d194cfdb99534",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_96ace3d9.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.4642531248629815e-06,
+   -3.4642531248629815e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r7_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v0_rssa_s1_lam1.0_arm_MODIFICATION204.json"
+  ],
+  "id": "96ace3d96f4f7a7d",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_db8e0ca2.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.00014627807612216381,
+   -0.00014627807612216381
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v0_rssa_s1_lam1.0_arm_MODIFICATION16.json",
+   "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v0_rssa_s1_lam1.0_arm_MODIFICATION104.json",
+   "fuzz/siren/teleop/to_verify2/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_0.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_0.json"
+  ],
+  "id": "db8e0ca232116c45",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v0_rssa_s1_lam1.0_arm_MODIFICATION16.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_ec3f104e.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -3.4642531248629815e-06,
+   -3.4642531248629815e-06
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v0",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r7_0.json"
+  ],
+  "id": "ec3f104eecf5a578",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v0_rssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_bf38ae67.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.697091171530225e-05,
+   -9.697091171530225e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_r7_0.json",
+   "fuzz/siren/teleop/verified_extra/G1FixedBase_D2_AG_SO_v1_pssa_s1_lam1.0_arm_MODIFICATION205.json"
+  ],
+  "id": "bf38ae673ea088e0",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow_dedup/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d127d277.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.000698031789896969,
+   -0.000698031789896969
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_0.json"
+  ],
+  "id": "d127d2774ffe1c53",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_0.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d38efabc.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -0.000698031789896969,
+   -0.000698031789896969
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v1_pssa_s1_lam1.0_arm_MODIFICATION17.json",
+   "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v1_pssa_s1_lam1.0_arm_MODIFICATION105.json",
+   "fuzz/siren/teleop/to_verify2/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_0.json",
+   "fuzz/siren/teleop/to_verify/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_0.json"
+  ],
+  "id": "d38efabc6d9f78ba",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_SO_v1_pssa_s1_lam1.0_arm_MODIFICATION17.json"
+ },
+ "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d5c51f7f.json": {
+  "algo": "pssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.697091171530225e-05,
+   -9.697091171530225e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.00011112828158188481,
+  "case": "G1FixedBase_D2_AG_SO_v1",
+  "channel": "arm",
+  "claimed_kind": "MODIFICATION",
+  "duplicate_sources": [
+   "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_r7_0.json"
+  ],
+  "id": "d5c51f7f2cec985b",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": true,
+  "seed": 1,
+  "source": "fuzz/siren/teleop/hipow/hunt_G1FixedBase_D2_AG_SO_v1_pssa_s1_r7_0.json"
+ },
+ "MODIFICATION_G1MobileBase_D2_WG_DO_v1_rssa_s4_arm_98bd4e5c.json": {
+  "algo": "rssa",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -5.653483363590728e-05,
+   -5.653483363590728e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0029372922446532362,
+  "case": "G1MobileBase_D2_WG_DO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION41.json",
+   "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION41/verified_attack.json"
+  ],
+  "id": "98bd4e5c0a0366bb",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": false,
+  "seed": 4,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rssa_s4_lam1.0_arm_INSERTION41.json"
+ },
+ "MODIFICATION_G1MobileBase_D2_WG_DO_v1_rsss_s4_arm_490477d8.json": {
+  "algo": "rsss",
+  "attack_labels": [
+   "COLLISION",
+   "COLLISION"
+  ],
+  "attack_mins": [
+   -9.486383676315935e-05,
+   -9.486383676315935e-05
+  ],
+  "baseline_label": "REACHED",
+  "baseline_min": 0.0010123942852863776,
+  "case": "G1MobileBase_D2_WG_DO_v1",
+  "channel": "arm",
+  "claimed_kind": "INSERTION",
+  "duplicate_sources": [
+   "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rsss_s4_lam1.0_arm_INSERTION44.json",
+   "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_DO_v1_rsss_s4_lam1.0_arm_INSERTION44/verified_attack.json"
+  ],
+  "id": "490477d82726b773",
+  "kind": "MODIFICATION",
+  "kind_matches_claim": false,
+  "seed": 4,
+  "source": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_rsss_s4_lam1.0_arm_INSERTION44.json"
+ }
+}

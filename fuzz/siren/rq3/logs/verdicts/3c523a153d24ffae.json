@@ -1,0 +1,28 @@
+{
+ "verdict": "INVALID",
+ "reason": "attack did not reproduce: labels=['REACHED', 'REACHED']",
+ "src": "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_DO_v0_rsss_s8_lam10.0_arm_INSERTION1.json",
+ "case": "G1FixedBase_D2_AG_DO_v0",
+ "seed": 8,
+ "algo": "rsss",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.03898698931041805,
+ "attack_labels": [
+  "REACHED",
+  "REACHED"
+ ],
+ "attack_legs": [
+  null,
+  null
+ ],
+ "attack_mins": [
+  0.03486893362543228,
+  0.03486893362543228
+ ],
+ "id": "3c523a153d24ffae",
+ "all_sources": [
+  "fuzz/siren/teleop/verified/G1FixedBase_D2_AG_DO_v0_rsss_s8_lam10.0_arm_INSERTION1.json"
+ ]
+}

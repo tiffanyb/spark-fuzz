@@ -1,0 +1,30 @@
+{
+ "verdict": "VALID",
+ "reason": null,
+ "src": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_3.json",
+ "case": "G1FixedBase_D2_AG_DO_v0",
+ "seed": 3,
+ "algo": "ssa",
+ "channel": "arm",
+ "claimed_kind": "MODIFICATION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.00012788727113399734,
+ "attack_labels": [
+  "COLLISION",
+  "COLLISION"
+ ],
+ "attack_legs": [
+  1,
+  1
+ ],
+ "attack_mins": [
+  -0.00020753575019449855,
+  -0.00020753575019449855
+ ],
+ "observed_kind": "MODIFICATION",
+ "kind_matches_claim": true,
+ "id": "9c986220bf6ea9bb",
+ "all_sources": [
+  "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D2_AG_DO_v0_ssa_s3_3.json"
+ ]
+}

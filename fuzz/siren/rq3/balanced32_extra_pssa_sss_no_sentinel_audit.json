@@ -1,0 +1,245 @@
+{
+  "created_at": "2026-08-25T15:44:55-04:00",
+  "source": "/Users/tiffanyb/Fun/robot/spark/fuzz/siren/rq3/targets_full",
+  "exclusion": "/Users/tiffanyb/Fun/robot/spark/fuzz/siren/rq3/balanced32/targets",
+  "constraint": "INSERTION target, algo in {pssa, sss}, not in balanced32, and no obstacle equals [9.0, 9.0, 9.0]",
+  "summary": {
+    "pssa": {
+      "targets_full_insertions": 15,
+      "excluded_in_balanced32": 4,
+      "extra_not_in_balanced32": 11,
+      "eligible_no_sentinel": 0,
+      "rejected_extra_with_sentinel": 11
+    },
+    "sss": {
+      "targets_full_insertions": 15,
+      "excluded_in_balanced32": 4,
+      "extra_not_in_balanced32": 11,
+      "eligible_no_sentinel": 0,
+      "rejected_extra_with_sentinel": 11
+    }
+  },
+  "eligible": [],
+  "rejected_extra": [
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s10_arm_e2e7804c.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s10_arm_e2e7804c",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 10,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_10540a90.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_10540a90",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_295b3375.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_295b3375",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_35e172a0.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_35e172a0",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_911c0a03.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_911c0a03",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ed110ed0.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ed110ed0",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s4_arm_adbabdf1.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s4_arm_adbabdf1",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 4,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s5_arm_9085bbb1.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s5_arm_9085bbb1",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 5,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s6_arm_636ae5e3.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s6_arm_636ae5e3",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 6,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s7_arm_56cdf6ac.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s7_arm_56cdf6ac",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 7,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s8_arm_8c510c07.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s8_arm_8c510c07",
+      "algo": "pssa",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 8,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s10_arm_4e6912b4.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s10_arm_4e6912b4",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 10,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_2328825a.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_2328825a",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_346da6ca.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_346da6ca",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_41ffb7eb.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_41ffb7eb",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_56dd74ba.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_56dd74ba",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_d57e8e16.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_d57e8e16",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_ea87a44e.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_ea87a44e",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 1,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s4_arm_5cb963e4.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s4_arm_5cb963e4",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 4,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s5_arm_3f3fb3e7.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s5_arm_3f3fb3e7",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 5,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s7_arm_1d49c905.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s7_arm_1d49c905",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 7,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    },
+    {
+      "file": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s8_arm_d86ef9ab.json",
+      "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s8_arm_d86ef9ab",
+      "algo": "sss",
+      "case": "G1FixedBase_D2_AG_SO_v0",
+      "seed": 8,
+      "channel": "arm",
+      "n_obstacles": 5,
+      "n_sentinel_obstacles": 4
+    }
+  ]
+}

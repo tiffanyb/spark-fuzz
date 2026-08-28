@@ -1,0 +1,31 @@
+{
+ "verdict": "VALID",
+ "reason": null,
+ "src": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32.json",
+ "case": "G1FixedBase_D2_AG_SO_v1",
+ "seed": 8,
+ "algo": "rssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.003780757653394487,
+ "attack_labels": [
+  "COLLISION",
+  "COLLISION"
+ ],
+ "attack_legs": [
+  2,
+  2
+ ],
+ "attack_mins": [
+  -0.00015007607905488662,
+  -0.00015007607905488662
+ ],
+ "observed_kind": "INSERTION",
+ "kind_matches_claim": true,
+ "id": "69b41459148279a5",
+ "all_sources": [
+  "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32.json",
+  "fuzz/siren/benchmark/cases/G1FixedBase_D2_AG_SO_v1_rssa_s8_lam1.0_arm_INSERTION32/verified_attack.json"
+ ]
+}

@@ -1,0 +1,941 @@
+1 scenarios x 14 seeds = 14 scenes, filter=rsss, lam=1.0
+
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+
+G1FixedBase_D2_AG_DO_v1 s13: gate home->G1 = COLLISION (-0.000134)
+   gate PASSED — world 1/6
+   swept 198 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 17 collided, 0 never reached G1, 0 no handover | 181 passed C1 but attack had no effect (764s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s13_lam1.0_arm.json  ({'attack_no_effect': 181, 'c1_collided': 17, 'inadmissible': 18})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s14: gate home->G1 = REACHED (+0.007284)
+   no raw material — trying next seed (1/6 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s15: gate home->G1 = COLLISION (-0.000640)
+   gate PASSED — world 2/6
+   swept 216 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 216 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (131s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s15_lam1.0_arm.json  ({'c1_collided': 216})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s16: gate home->G1 = REACHED (+0.004843)
+   no raw material — trying next seed (2/6 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s17: gate home->G1 = REACHED (+0.051188)
+   no raw material — trying next seed (2/6 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s18: gate home->G1 = COLLISION (-0.001563)
+   gate PASSED — world 3/6
+   swept 210 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 210 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (59s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s18_lam1.0_arm.json  ({'c1_collided': 210, 'inadmissible': 6})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+
+G1FixedBase_D2_AG_DO_v1 s19: gate home->G1 = COLLISION (-0.000321)
+   gate PASSED — world 4/6
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+Dis to R: 0.09238383895633893
+goal pos: [ 0.38775979 -0.19901683  1.06088849]
+   swept 200 G0 -> 0 insertion, 0 prefix-CONFIRMED, 1 modification, 0 bad handover, 0 errors | C1 rejects: 150 collided, 0 never reached G1, 14 no handover | 35 passed C1 but attack had no effect (176s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s19_lam1.0_arm.json  ({'attack_no_effect': 35, 'c1_collided': 150, 'c1_no_handover': 14, 'inadmissible': 16, 'modification': 1})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s20: gate home->G1 = COLLISION (-0.000069)
+   gate PASSED — world 5/6
+   swept 195 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 195 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (110s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s20_lam1.0_arm.json  ({'c1_collided': 195, 'inadmissible': 21})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v1 s21: gate home->G1 = COLLISION (-0.000100)
+   gate PASSED — world 6/6
+   swept 203 G0 -> 0 insertion, 0 prefix-CONFIRMED, 3 modification, 0 bad handover, 0 errors | C1 rejects: 61 collided, 0 never reached G1, 8 no handover | 131 passed C1 but attack had no effect (401s)
+   wrote fuzz/siren/rq3/rsss_hunt/stage1b/G1FixedBase_D2_AG_DO_v1/g0log_G1FixedBase_D2_AG_DO_v1_rsss_s21_lam1.0_arm.json  ({'attack_no_effect': 131, 'c1_collided': 61, 'c1_no_handover': 8, 'inadmissible': 13, 'modification': 3})
+   world cap 6 reached with 0 controls — giving up on this pair
+
+==============================================================================================
+scene                        seed       gate  insertion  confirmed   modif
+G1FixedBase_D2_AG_DO_v1        13  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v1        15  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v1        18  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v1        19  COLLISION          0          0       1
+G1FixedBase_D2_AG_DO_v1        20  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v1        21  COLLISION          0          0       3
+
+0 prefix-confirmed controls across 6 scenes

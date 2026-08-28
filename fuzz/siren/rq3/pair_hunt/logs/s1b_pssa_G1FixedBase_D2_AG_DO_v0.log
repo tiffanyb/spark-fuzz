@@ -1,0 +1,761 @@
+config: trial2_ours  -- the parameter values used throughout this project
+  index   d_min=0.02  phi_n=1.0  phi_k=0.1
+  ssa   BasicSafeSetAlgorithm            eta=0.02    slack=None
+  rssa  RelaxedSafeSetAlgorithm          eta=0.02    slack=1000.0
+  pssa  ProjectedSafeSetAlgorithm        eta=0.02    slack=1.0   [NOT a SPARK filter]
+  cbf   BasicControlBarrierFunction      lam=10.0    slack=None
+  rcbf  RelaxedControlBarrierFunction    lam=10.0    slack=1000.0
+  sss   BasicSublevelSafeSetAlgorithm    lam=10.0    slack=None
+  rsss  RelaxedSublevelSafeSetAlgorithm  lam=10.0    slack=1000.0
+  raw     safe_algo.safety_buffer = 0.1
+  raw     safe_algo.use_slack = True
+  raw     safe_algo.slack_regularization_order = 2
+  raw     safety_index.min_distance.self = 0.01
+  raw     safety_index.enable_self_collision = False
+1 scenarios x 13 seeds = 13 scenes, filter=pssa, lam=1.0
+
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+
+G1FixedBase_D2_AG_DO_v0 s1: gate home->G1 = COLLISION (-0.000775)
+   gate PASSED — world 1/8
+   swept 112 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 112 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (12s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s1_lam1.0_arm.json  ({'c1_collided': 112, 'inadmissible': 13})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s2: gate home->G1 = REACHED (+0.034764)
+   no raw material — trying next seed (1/8 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s3: gate home->G1 = COLLISION (-0.000976)
+   gate PASSED — world 2/8
+   swept 112 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 111 collided, 0 never reached G1, 0 no handover | 1 passed C1 but attack had no effect (26s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s3_lam1.0_arm.json  ({'attack_no_effect': 1, 'c1_collided': 111, 'inadmissible': 13})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s4: gate home->G1 = COLLISION (-0.001155)
+   gate PASSED — world 3/8
+   swept 117 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 81 collided, 0 never reached G1, 36 no handover | 0 passed C1 but attack had no effect (83s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s4_lam1.0_arm.json  ({'c1_collided': 81, 'c1_no_handover': 36, 'inadmissible': 8})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s5: gate home->G1 = REACHED (+0.065687)
+   no raw material — trying next seed (3/8 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s6: gate home->G1 = REACHED (+0.017876)
+   no raw material — trying next seed (3/8 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+
+G1FixedBase_D2_AG_DO_v0 s7: gate home->G1 = COLLISION (-0.000374)
+   gate PASSED — world 4/8
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+Dis to L: 0.09468270393506024
+   swept 118 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 118 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (21s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s7_lam1.0_arm.json  ({'c1_collided': 118, 'inadmissible': 7})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s8: gate home->G1 = COLLISION (-0.001456)
+   gate PASSED — world 5/8
+   swept 124 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 110 collided, 0 never reached G1, 0 no handover | 14 passed C1 but attack had no effect (91s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s8_lam1.0_arm.json  ({'attack_no_effect': 14, 'c1_collided': 110, 'inadmissible': 1})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s20: gate home->G1 = REACHED (+0.041112)
+   no raw material — trying next seed (5/8 worlds so far)
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s23: gate home->G1 = COLLISION (-0.000736)
+   gate PASSED — world 6/8
+   swept 125 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 125 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (17s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s23_lam1.0_arm.json  ({'c1_collided': 125})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s24: gate home->G1 = COLLISION (-0.001930)
+   gate PASSED — world 7/8
+   swept 125 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 125 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (21s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s24_lam1.0_arm.json  ({'c1_collided': 125})
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+G1FixedBase_D2_AG_DO_v0 s26: gate home->G1 = COLLISION (-0.002316)
+   gate PASSED — world 8/8
+   swept 115 G0 -> 0 insertion, 0 prefix-CONFIRMED, 0 modification, 0 bad handover, 0 errors | C1 rejects: 115 collided, 0 never reached G1, 0 no handover | 0 passed C1 but attack had no effect (58s)
+   wrote fuzz/siren/rq3/pair_hunt/stage1b/pssa_G1FixedBase_D2_AG_DO_v0/g0log_G1FixedBase_D2_AG_DO_v0_pssa_s26_lam1.0_arm.json  ({'c1_collided': 115, 'inadmissible': 10})
+   world cap 8 reached with 0 controls — giving up on this pair
+
+==============================================================================================
+scene                        seed       gate  insertion  confirmed   modif
+G1FixedBase_D2_AG_DO_v0         1  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0         3  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0         4  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0         7  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0         8  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0        23  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0        24  COLLISION          0          0       0
+G1FixedBase_D2_AG_DO_v0        26  COLLISION          0          0       0
+
+0 prefix-confirmed controls across 8 scenes

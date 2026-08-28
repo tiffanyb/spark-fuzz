@@ -1,0 +1,103 @@
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1MobileBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+Initializing ProjectedSafeSetAlgorithm
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+target G1MobileBase_D2_WG_SO_v0_pssa_s17_lam1.0_base_INSERTION1
+  G1MobileBase_D2_WG_SO_v0  filter=pssa  seed=17  channel=base  kind=INSERTION -> a hit is contact on leg 2
+  search space [(-0.8, 0.8), (-0.8, 0.8), (-3.142, 3.142)]  keepout 0.1
+  baseline [G0,G1]         REACHED (min clearance +0.020670)
+  known attack [G0,G1*,G1] DEADLOCK (leg None, +0.016260)
+  (the search is NOT told G1* = [0. 0. 0.])
+
+    random/s0: FIRST HIT at eval 26
+  random         s0  attacks   5/125  first    26  rounds 6  err 0  (685.8s)
+    random_seeded/s0: FIRST HIT at eval 29
+  random_seeded  s0  attacks   5/125  first    29  rounds 6  err 0  (689.3s)
+ERROR in convergence, plotting debug info.Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+sol_q:[ 0.15718732  0.12965508  0.09674666 -0.83938149  0.57916237  0.19702543
+  0.68523336  0.00917956  0.06456604  0.01265275 -0.57644846 -0.64374963
+ -0.2569461   0.85124709 -0.00927264  0.12604907 -0.02861729] 
+motorstate: 
+[ 0.04946116  0.28445186 -0.03212006 -0.8646729   0.58315705  0.24494911
+  0.85463678  0.00674063  0.12829258  0.01698763 -0.61542548 -0.61729063
+ -0.23963738  0.8524422  -0.00846015  0.12531411 -0.0231346  -0.04714251
+  0.02306299  0.45613938] 
+left_pose: 
+[[ 1.00000000e+00 -4.28650948e-17  0.00000000e+00  3.38678394e-01]
+ [ 1.17140930e-17  1.00000000e+00  0.00000000e+00  3.30457132e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  2.61613136e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+right_pose: 
+[[ 1.00000000e+00 -4.28650948e-17  0.00000000e+00  3.74833026e-01]
+ [ 1.17140930e-17  1.00000000e+00  0.00000000e+00 -3.17856042e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  7.09143379e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+inverse_kinematics error Error in Opti::solve [OptiNode] at .../casadi/core/optistack.cpp:165:
+.../casadi/core/optistack_internal.cpp:1032: Assertion "return_success(accept_limit)" failed:
+Solver failed. You may use opti.debug.value to investigate the latest values of variables. return_status is 'Maximum_Iterations_Exceeded'
+    cem/s0: FIRST HIT at eval 23
+  cem            s0  attacks   2/125  first    23  rounds 7  err 1  (677.1s)
+    cem_seeded/s0: FIRST HIT at eval 10
+  cem_seeded     s0  attacks  14/125  first    10  rounds 6  err 0  (641.8s)
+
+============================================================================
+picker            attacks   rate   1st   closest  rounds
+random                  5     4%    26     0.493       6
+random_seeded           5     4%    29     0.493       6
+cem                     2     2%    23     0.316       7
+cem_seeded             14    11%    10     0.095       6
+
+total fuzzing time 2694.0s (44.9 min) across 4 picker(s)
+
+wrote /Users/tiffanyb/Fun/robot/spark/fuzz/siren/rq3/pair_hunt/fuzz2_results/G1MobileBase_D2_WG_SO_v0_pssa_s17_lam1.0_base_INSERTION1.json

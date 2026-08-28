@@ -1,0 +1,67 @@
+{
+ "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ed110ed0",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 1,
+ "algo": "pssa",
+ "index": "velocity",
+ "d_min": 0.02,
+ "eta": 0.02,
+ "lam": 1.0,
+ "k": 0.1,
+ "channel": "arm",
+ "max_steps": 1200,
+ "G0_commanded": [
+  0.24979340397519403,
+  -0.24051857988726008,
+  0.12284660236674716
+ ],
+ "G1": [
+  0.3250432944834903,
+  -0.10334167332805157,
+  0.2244496963139518
+ ],
+ "G1_prime_truth": [
+  0.12000000000000001,
+  -0.38,
+  0.27999999999999997
+ ],
+ "kind": "INSERTION",
+ "obstacles_world": [
+  [
+   0.2588475894997298,
+   -0.25634432547990693,
+   1.0315821118777586
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ]
+ ],
+ "obstacle_radius": 0.06623059067224024,
+ "provenance": {
+  "rq3_id": "ed110ed0221ad859",
+  "source": "fuzz/siren/constructed/final_attacks/sep_s1_pssa_0.json",
+  "revalidated": true,
+  "baseline_min": 0.0009322902280231582,
+  "attack_mins": [
+   -0.000198756666842409,
+   -0.000198756666842409
+  ]
+ }
+}

@@ -1,0 +1,4651 @@
+{
+  "case": "G1FixedBase_D1_AG_SO_v1",
+  "algo": "cbf",
+  "seed": 3,
+  "index": "distance",
+  "gate": "COLLISION",
+  "gate_clear": -6.669566093853163e-07,
+  "gate_steps": 18,
+  "G1_prime": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+  ],
+  "G1": [
+    0.2659833195422961,
+    -0.3436555525228365,
+    0.28563037290936244
+  ],
+  "bounds": [
+    [
+      0.1,
+      0.4
+    ],
+    [
+      -0.4,
+      -0.1
+    ],
+    [
+      0.0,
+      0.3
+    ]
+  ],
+  "obstacles_world": [
+    [
+      0.10866208415813045,
+      0.31435756347812377,
+      1.2170344711467505
+    ],
+    [
+      0.05264787492050921,
+      -0.37609903129714645,
+      0.8654665795157689
+    ],
+    [
+      0.2545103346503971,
+      -0.047637025863408414,
+      0.6254941907799706
+    ],
+    [
+      -0.12243369285425484,
+      -0.089622993955481,
+      1.2491069198883444
+    ],
+    [
+      -0.11995639612813444,
+      -0.0747840668990011,
+      0.8751521989593353
+    ],
+    [
+      0.38842713035754123,
+      0.06900232357425713,
+      0.7267902899457679
+    ],
+    [
+      -0.13889703116554147,
+      0.011228047853953527,
+      0.5697834950246438
+    ],
+    [
+      0.2973969784816037,
+      0.15287433748461146,
+      1.0513443310039314
+    ],
+    [
+      0.15823509589510007,
+      -0.13935427354810043,
+      0.8561160394108257
+    ],
+    [
+      -0.11553263651594078,
+      0.1531820087578642,
+      1.0203814865709917
+    ]
+  ],
+  "n_G0_swept": 302,
+  "elapsed_s": 319.1,
+  "g0_stage_counts": {
+    "attack_no_effect": 7,
+    "c1_collided": 294,
+    "c1_no_handover": 1,
+    "inadmissible": 41
+  },
+  "g0_log": [
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.15
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.15
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.0
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "inadmissible"
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.589066157073001e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.4970233336696346e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.1,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7726825466440888e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1351280081922654e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.5218839143054117e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.3110648604190986e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.5
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.180565421590729e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.35
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.579722335403379e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.32
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.525083469895778e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.1,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010745847282550569,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.598736604692458e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.53
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.4257306159847225e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.64
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.184512846128972e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.36
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.030346198574675e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.860896526296619e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.506526137625701e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0005602772929288874,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.55
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.61558008340524e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.861560939594222e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.584616637349884e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.1,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.113934916543664e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.092774635129249e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.1,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.1800653623459407e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.65
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7275116979964533e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1796160663019029e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.51
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.8187672486839075e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.47
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.426315518322622e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.31
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.005781455466596e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.698639216078494e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.566773611439315e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.58
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9975617751771813e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.69
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.4033423474151272e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.58
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.4298745111072115e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.4
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.660496730781282e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.13333588018516e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3757708766631849e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.197023617037333e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.65
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7926917566579714e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.81
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.083933143939067e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.3036877589626146e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.32
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.379821708135444e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.31
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.7050665675184575e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3994329599975597e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.71
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0668746076025748e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.73
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.471798241587055e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.35
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.587519774198247e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.293864537156412e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2897085239022e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.24
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.285362744166579e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.364418672251016e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.1736786037767084e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.277720225232209e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.23
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.461698261945535e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.493412490813036e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.886249501272037e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.6782296619908283e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.97873205589816e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.15000000000000002,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.123302275706563e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.74
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.424855008206997e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.55
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.77988838804411e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.47
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.569198125627504e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.47
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.3827704243881715e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.37
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.1053155647720043e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.2,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.249122566637458e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.221961911731297e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.6
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.190612386854701e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.132554006071708e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.54
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.227715797666676e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.683416119740988e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.32
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.420151717734021e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.6683420201178976e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.870660286096731e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.61
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.65061892650853e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.58
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.0994835471503945e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.57
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.733165352286626e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.35
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.4766596840901665e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1154525897782985e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.2,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.041137321169623e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.8169091950146505e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.62
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.649913830054084e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.294436414556402e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.914117063570031e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.44115282882962e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.620871880675839e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.2167188147941284e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2607695933475327e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.94994329414711e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.5689395801942183e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.2,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.69892190288779e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3067256311172226e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.587109574440977e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.2,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.277793495048424e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.747855694166915e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.49002663122344e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.60637868715785e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.2,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.003713903144028e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.036117410651351e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.68
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8247117359936347e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.59
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.2429249789873706e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.47
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.5181992575544774e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.43
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.73715873608149e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.4
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.768559764220301e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.39
+    },
+    {
+      "G0": [
+        0.25,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.033476723787956e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.37
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.409603983121288e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.78
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8729060094628833e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.59
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9597135573035107e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.54
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.6847085351184843e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.48
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.688525380635908e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.41
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.132860333299406e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.38
+    },
+    {
+      "G0": [
+        0.25,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.15163928366513e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.31
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.2831943175899427e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.78
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8422679300144083e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.7
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.203970930881986e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.54
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8693541662960786e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.5
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.9603766929342523e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.42
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.345266014916694e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.34
+    },
+    {
+      "G0": [
+        0.25,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2754842909107333e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.29
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.268465331708991e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.67
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.855420878313363e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.63
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.88121395748231e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.39
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.352558326670142e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.39
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.981533900248584e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.34
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.490631674325396e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.25,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0008934508476397e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.042357928000449e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.75
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.331364837238059e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.1758213729259364e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.38
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.166325161903851e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.38
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1275096010288088e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.256268868854887e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.25,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.6395590138884586e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0005376002904314975,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.43
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.898656948284063e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.31
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7033431759932993e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.952190175600002e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.27
+    },
+    {
+      "G0": [
+        0.25,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.133297738849299e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.23
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.000821471030448162,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.34
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0006123116056869216,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.33
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.794542340465449e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.33
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.98017298409204e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.3
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.847049710387074e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.28
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.867488231677375e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.26
+    },
+    {
+      "G0": [
+        0.25,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.38075311996644e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.25
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.053163356293853e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.34
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.178115307675422e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9881310188901713e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.33
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.839204477856795e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.62
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1626573843126486e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.48
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.893932685680723e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.45
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3522932227116868e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.59
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.069243741000207e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.18
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.8827380011717825e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.76
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8426128857811372e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.63
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0219962010032946e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.55
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.985126845749363e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.49
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.617049391774983e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.45
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7659961444427275e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.39
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.2177064003844364e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.79
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.830371245487017e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.73
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.08780570912926e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.71
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.006172191415523e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.6
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2350661643928396e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.49
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2169672844591917e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.4247194097261051e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.41
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3144910991358394e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.68
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.6803427989486863e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.83
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8135039784160654e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.45
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.375299985521664e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.47
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.679411114163034e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.46
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.549700190276118e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.4
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.641645865864467e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.38
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.372030859818189e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.99
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9021828117360418e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.94
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9079818492084843e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.66
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.146479295537685e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.56
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.257180867721203e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.8923098459671115e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.39
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.1223369609554315e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.34
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00014016246011303024,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.75
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0003345284674784593,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.6
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.12696733698648e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.61
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.5437339935541203e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.45
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.9095363891274975e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.36
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.7776827183356723e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.32
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0203857062685007e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.32
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0002683271279014382,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.61
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00023342176226540112,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.51
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010477405590852973,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.48
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.1031727422952136e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.48
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.907554062499875e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.37
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.112257731316628e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.31
+    },
+    {
+      "G0": [
+        0.30000000000000004,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.435539389228808e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.44
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.43693115784144e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.8
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010669815237604463,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.53
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.0285217241816644e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.46
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.47967664815985e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.45
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.222304187979532e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.29
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.0178915128040735e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.22
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.4,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00017665736322942938,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.2
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00011883977703422421,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.78
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.1600923668251863e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.44
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.1327034257962998e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.83
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.926122182863368e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.8
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.0275830911492543e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.94
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7959514454490844e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.02
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00012538604319273228,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.62
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.911039452235033e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.65
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.550329944762014e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.28
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0029795344035364e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.06
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.060047970711912e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.16
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.0466046413998287e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.05
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.5601521046154643e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.94
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.3,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00023117058021752956,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.21
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.3712056486404074e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.55
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.2859142008408986e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.36
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00018858120348448637,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.39
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0002890367185351267,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.35
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.4699715501230735e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.0
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.1138837288668952e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.97
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.25,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.8774146215538856e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.14
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00016696493205251017,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.54
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.866190268347891e-07,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.53
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00011930860129016896,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.57
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00017876980896908146,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.28
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.601119235365548e-07,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.01
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.57412753968545e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.82
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00025406404735683896,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.33
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.242704361613839e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.57
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.556742983318542e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.43
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.978691877821078e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.45
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.3577702437483907e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.08
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.7290915068952675e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.78
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.7800369898984814e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.64
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.6457853778600873e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.73
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0003610519686597924,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.93
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00017002473164966225,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.96
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.559436873123989e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.75
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0003034792960569799,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.75
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.3085948063245043e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.52
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.392136732671691e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.33
+    },
+    {
+      "G0": [
+        0.3500000000000001,
+        -0.1,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.583707336973223e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 0.76
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.0
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": 0.02022975154566853,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018984690059702672,
+      "attack_leg": null,
+      "sec": 22.41
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.049999999999999996
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": 0.020295452268249053,
+      "attack_label": "REACHED",
+      "attack_clear": 0.018841792468422047,
+      "attack_leg": null,
+      "sec": 19.25
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.875731469387693e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.71
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0001361533991704328,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.49
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00012831842906568802,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.47
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.000156320249905334,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.5
+    },
+    {
+      "G0": [
+        0.4,
+        -0.4,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0011446650299706262,
+      "handover_clear": 0.022205384865886524,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01980821213722439,
+      "attack_leg": null,
+      "sec": 14.08
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.0
+      ],
+      "stage": "c1_no_handover",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 14.31
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010388110294470843,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.74
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.652686566108342e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.46
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -4.6019238761838e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.39
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00011842138896267507,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.28
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00013442375911171256,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.34
+    },
+    {
+      "G0": [
+        0.4,
+        -0.35000000000000003,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.0011505604726652352,
+      "handover_clear": 0.021738874391392757,
+      "attack_label": "REACHED",
+      "attack_clear": 0.019795375975942886,
+      "attack_leg": null,
+      "sec": 11.33
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.3359261621752614e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 2.19
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.1851386855816806e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.66
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00018068247378486002,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.46
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00014473577487701672,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.34
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -1.8035066726956872e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.35
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00019786217588160793,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.42
+    },
+    {
+      "G0": [
+        0.4,
+        -0.3,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": 0.02103202857108452,
+      "attack_label": "REACHED",
+      "attack_clear": 0.019791271284787332,
+      "attack_leg": null,
+      "sec": 10.4
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.110976878500376e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.93
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -8.382811549051405e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.58
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0001401149260900486,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.35
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -6.251136231504029e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.31
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -2.2246045033452733e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.56
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00010478081293144315,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.7
+    },
+    {
+      "G0": [
+        0.4,
+        -0.25,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": 0.02043497343109721,
+      "attack_label": "REACHED",
+      "attack_clear": 0.0197359608209908,
+      "attack_leg": null,
+      "sec": 9.01
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0001262391374103472,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.84
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.632576663288589e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.45
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -3.1598237701213616e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.31
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00016555798448450454,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.44
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00012935925071501375,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.64
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.75462153459827e-06,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.41
+    },
+    {
+      "G0": [
+        0.4,
+        -0.19999999999999998,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.000158670614265638,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.94
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.853824753976946e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.98
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00011683804519498076,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.55
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00014352049547625145,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.51
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.456586131322773e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.6
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00022127772113834931,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.4
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0002292237849703671,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.25
+    },
+    {
+      "G0": [
+        0.4,
+        -0.14999999999999997,
+        0.3
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0002567843710069573,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.33
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.0
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -7.821205646196816e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.43
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.049999999999999996
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -5.184826655647845e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.38
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.09999999999999999
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -9.207690990806205e-05,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.63
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.15
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00019254779716512682,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.63
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.19999999999999998
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.00022987397988009917,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.23
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.24999999999999997
+      ],
+      "stage": "c1_collided",
+      "base_min_clear": -0.0002362158097355127,
+      "handover_clear": null,
+      "attack_label": null,
+      "attack_clear": null,
+      "attack_leg": null,
+      "sec": 1.21
+    },
+    {
+      "G0": [
+        0.4,
+        -0.1,
+        0.3
+      ],
+      "stage": "attack_no_effect",
+      "base_min_clear": 0.001157166271214316,
+      "handover_clear": 0.019467824527260896,
+      "attack_label": "REACHED",
+      "attack_clear": 0.01940985018283195,
+      "attack_leg": null,
+      "sec": 9.2
+    }
+  ]
+}

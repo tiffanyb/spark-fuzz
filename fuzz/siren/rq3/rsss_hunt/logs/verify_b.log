@@ -1,0 +1,102 @@
+1 control files
+
+Initializing G1BenchmarkPipelineConfig
+Initializing algo
+Initializing policy
+Initializing safe_controller
+Initializing safe_algo
+Initializing safety_index
+Initializing algo
+Initializing env
+Initializing agent
+Initializing task
+Initializing env
+Initializing metric_selection
+Initializing robot
+Initializing cfg
+Initializing kinematics
+Initializing G1FixedBaseKinematics
+Frame waist_yaw_joint has ID 27
+Frame waist_roll_joint has ID 29
+Frame waist_pitch_joint has ID 31
+Frame left_shoulder_pitch_joint has ID 34
+Frame left_shoulder_roll_joint has ID 36
+Frame left_shoulder_yaw_joint has ID 38
+Frame left_elbow_joint has ID 40
+Frame left_wrist_roll_joint has ID 42
+Frame left_wrist_pitch_joint has ID 44
+Frame left_wrist_yaw_joint has ID 46
+Frame right_shoulder_pitch_joint has ID 48
+Frame right_shoulder_roll_joint has ID 50
+Frame right_shoulder_yaw_joint has ID 52
+Frame right_elbow_joint has ID 54
+Frame right_wrist_roll_joint has ID 56
+Frame right_wrist_pitch_joint has ID 58
+Frame right_wrist_yaw_joint has ID 60
+Frame L_ee has ID 62
+Frame R_ee has ID 63
+Frame torso_link_1 has ID 64
+Frame torso_link_2 has ID 65
+Frame torso_link_3 has ID 66
+Frame pelvis_link_1 has ID 67
+Frame pelvis_link_2 has ID 68
+Frame pelvis_link_3 has ID 69
+BaseSafeController: using provided robot_cfg
+BaseSafeController: using provided robot_kinematics
+Initializing RelaxedSublevelSafeSetAlgorithm
+Initializing RelaxedSublevelSafeSetAlgorithm
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.16 -0.1   0.  ] clear=-0.000072  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION0
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.22 -0.4   0.  ] clear=-0.000141  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION1
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.4   0.  ] clear=-0.000099  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION2
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.4   0.06] clear=-0.000177  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION3
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.4   0.3 ] clear=-0.000072  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION4
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.34  0.  ] clear=-0.000036  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION5
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.28  0.  ] clear=-0.000225  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION6
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.22  0.  ] clear=-0.000248  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION7
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.28 -0.1   0.  ] clear=-0.000103  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION8
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.4   0.06] clear=-0.000036  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION9
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.4   0.12] clear=-0.000116  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION10
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.4   0.18] clear=-0.000141  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION11
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.4   0.24] clear=-0.000092  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION12
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.4   0.3 ] clear=-0.000171  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION13
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.34  0.12] clear=-0.000070  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION14
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.34  0.3 ] clear=-0.000216  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION15
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.28  0.  ] clear=-0.000174  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION16
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.22  0.  ] clear=-0.000132  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION17
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.16  0.  ] clear=-0.000219  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION18
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.1   0.  ] clear=-0.000203  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION19
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.34 -0.1   0.06] clear=-0.000188  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION20
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.4   0.06] clear=-0.000046  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION21
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.4   0.18] clear=-0.000047  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION22
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.4   0.24] clear=-0.000110  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION23
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4 -0.4  0.3] clear=-0.000032  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION24
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.34  0.  ] clear=-0.000000  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION25
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.34  0.06] clear=-0.000089  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION26
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.34  0.18] clear=-0.000103  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION27
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.34  0.24] clear=-0.000153  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION28
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.34  0.3 ] clear=-0.000072  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION29
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.28  0.  ] clear=-0.000115  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION30
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.28  0.12] clear=-0.000146  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION31
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.28  0.18] clear=-0.000158  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION32
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.28  0.24] clear=-0.000189  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION33
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.28  0.3 ] clear=-0.000160  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION34
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.22  0.  ] clear=-0.000051  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION35
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.22  0.06] clear=-0.000153  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION36
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.22  0.12] clear=-0.000018  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION37
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.22  0.18] clear=-0.000179  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION38
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.22  0.3 ] clear=-0.000085  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION39
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.16  0.  ] clear=-0.000200  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION40
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.16  0.06] clear=-0.000242  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION41
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4 -0.1  0. ] clear=-0.000168  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION42
+  INSERTION    rsss  G1FixedBase_D2_AG_SO_v0    s24 G0=[ 0.4  -0.1   0.06] clear=-0.000198  -> G1FixedBase_D2_AG_SO_v0_rsss_s24_lam1.0_arm_INSERTION43
+
+============================================================================
+44 verified -> fuzz/siren/rq3/rsss_hunt/verified_b
+0 rejected

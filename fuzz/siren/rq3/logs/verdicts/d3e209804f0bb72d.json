@@ -1,0 +1,17 @@
+{
+ "verdict": "INVALID",
+ "reason": "baseline DEADLOCK min=+0.017186: the legitimate task is not safe in this scene, so there is no attack",
+ "src": "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_pssa_s6_lam1.0_base_INSERTION40.json",
+ "case": "G1MobileBase_D2_WG_DO_v1",
+ "seed": 6,
+ "algo": "pssa",
+ "channel": "base",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "DEADLOCK",
+ "baseline_min": 0.01718628502280288,
+ "id": "d3e209804f0bb72d",
+ "all_sources": [
+  "fuzz/siren/benchmark/verified_dedup/G1MobileBase_D2_WG_DO_v1_pssa_s6_lam1.0_base_INSERTION40.json",
+  "fuzz/siren/benchmark/cases/G1MobileBase_D2_WG_DO_v1_pssa_s6_lam1.0_base_INSERTION40/verified_attack.json"
+ ]
+}

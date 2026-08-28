@@ -1,0 +1,30 @@
+{
+ "verdict": "VALID",
+ "reason": null,
+ "src": "fuzz/siren/constructed/final_attacks/dem_rcbf_0.json",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 1,
+ "algo": "rcbf",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.011604990478697938,
+ "attack_labels": [
+  "COLLISION",
+  "COLLISION"
+ ],
+ "attack_legs": [
+  2,
+  2
+ ],
+ "attack_mins": [
+  -0.0001660616151509392,
+  -0.0001660616151509392
+ ],
+ "observed_kind": "INSERTION",
+ "kind_matches_claim": true,
+ "id": "69046becb4204544",
+ "all_sources": [
+  "fuzz/siren/constructed/final_attacks/dem_rcbf_0.json"
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "verdict": "INVALID",
+ "reason": "attack did not reproduce: labels=['REACHED', 'REACHED']",
+ "src": "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_DO_v0_ssa_s11_lam1.0_arm_INSERTION2.json",
+ "case": "G1FixedBase_D1_AG_DO_v0",
+ "seed": 11,
+ "algo": "ssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.019501293969158895,
+ "attack_labels": [
+  "REACHED",
+  "REACHED"
+ ],
+ "attack_legs": [
+  null,
+  null
+ ],
+ "attack_mins": [
+  0.01904782130058237,
+  0.01904782130058237
+ ],
+ "id": "376812a2efdc0c4b",
+ "all_sources": [
+  "fuzz/siren/benchmark/verified_dedup/G1FixedBase_D1_AG_DO_v0_ssa_s11_lam1.0_arm_INSERTION2.json",
+  "fuzz/siren/benchmark/cases/G1FixedBase_D1_AG_DO_v0_ssa_s11_lam1.0_arm_INSERTION2/verified_attack.json"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "verdict": "INVALID",
+ "reason": "attack did not reproduce: labels=['REACHED', 'REACHED']",
+ "src": "fuzz/siren/scenario/verified/G1FixedBase_D2_AG_SO_v0_pssa_s1_G0-14.json",
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "seed": 1,
+ "algo": "pssa",
+ "channel": "arm",
+ "claimed_kind": "INSERTION",
+ "baseline_label": "REACHED",
+ "baseline_min": 0.00011112828158188481,
+ "attack_labels": [
+  "REACHED",
+  "REACHED"
+ ],
+ "attack_legs": [
+  null,
+  null
+ ],
+ "attack_mins": [
+  0.00011112828158188481,
+  0.00011112828158188481
+ ],
+ "id": "dfa68e950b8be2e4",
+ "all_sources": [
+  "fuzz/siren/scenario/verified/G1FixedBase_D2_AG_SO_v0_pssa_s1_G0-14.json"
+ ]
+}

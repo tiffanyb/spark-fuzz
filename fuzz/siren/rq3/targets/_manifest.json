@@ -1,0 +1,499 @@
+{
+ "written": [
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_075606e1.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_615b5d03.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_89b6f986.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_a914037f.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_c21e9935.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_cbf_s1_arm_fe5a33b5.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_30174cea.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_31871ca7.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_ae95b9aa.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_ssa_s105_arm_daa81ca2.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_2d2e8732.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_5a7605f5.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_6efb20f0.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v0_sss_s1_arm_fd02aced.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v1_ssa_s102_arm_08d7c55b.json",
+  "INSERTION_G1FixedBase_D1_AG_SO_v1_ssa_s102_arm_dc8d5171.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_83002a9a.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_f426e69b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_0539427e.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_08d88257.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_109f822b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_1108c89f.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_159337ea.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_2c2c319b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_441c9b1f.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_451df1e3.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_4b9ccef8.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5037521b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_59634041.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_59dab987.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5e1a5a67.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_5e27dc0b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_716010c2.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_804fe302.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_81e13f38.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_89a6cd01.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_8daf11a0.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_8e3112cc.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_93439381.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_98dee2ff.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_9eac7ae7.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_a139cedd.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_a86a7834.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_acc03c24.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad21f955.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad2878ec.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ad3f8f33.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_b3e3a6a5.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_bea08cbd.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_d02ecf43.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_e30d7eab.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ea653271.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_ecbfdaab.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_f1e578f7.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_f56d7145.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_fdc9c851.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_fe134f14.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s105_arm_4f1960b5.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s105_arm_be1b2c4c.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v1_pssa_s10_arm_9c1bb07b.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v1_pssa_s10_arm_a56b97f9.json",
+  "INSERTION_G1FixedBase_D2_AG_SO_v1_rssa_s8_arm_69b41459.json",
+  "INSERTION_G1MobileBase_D2_WG_SO_v0_rssa_s17_arm_20a9fd62.json",
+  "INSERTION_G1MobileBase_D2_WG_SO_v1_rssa_s4_arm_1f392b19.json",
+  "INSERTION_G1MobileBase_D2_WG_SO_v1_rssa_s4_arm_4e9b1071.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_0f2a2305.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_103fdeb7.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_1dcaa048.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_1e084d1a.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2a9b27e3.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2cb58eed.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_2f44456b.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_350eaf10.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_38e8a390.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_406cf37c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_40cd3a9f.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_4451aae2.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_47e32ae6.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_4f02aa80.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_53994857.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_579b247d.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_5b394020.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_5c446c73.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_665856d9.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_6e4823fa.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_6e9e3679.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_706095a7.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7878a693.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_78cb1d23.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7c8c2801.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_7d94c842.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_8210c810.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_8c8b64fd.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_9f10c913.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_9fe9166e.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a359d259.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a398ee7a.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a4a0b35c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_a985916a.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_bb857487.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_c8c1a932.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_cb49a27e.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d537453c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d75c3180.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_d9089453.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_db4688ba.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_dfea5f71.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_e72fa238.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_e8ca1c5d.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_ecbb6237.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_ef5d94ec.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_efeaad16.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f0dfab14.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f55b5431.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f6841906.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f811b6fa.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_f8814e70.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_cbf_s1_arm_fb54f201.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_07ab1b33.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_0d4f8390.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_0e720269.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_116c37b5.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1501f2df.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_17c3dbbb.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1a229f5c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_1fb86e39.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_215d0b4f.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_26caf5b1.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_28726270.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_315bdbc3.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_318170b2.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_325ccee9.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_3b51bc9d.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_3c8fb017.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_4107de16.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_41364ee5.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_41bdb82f.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_4ffa1a4c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_52b739d9.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_576213b0.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_57d38603.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_6e9c54f5.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_76c6379c.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_79eb11b1.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9221cb8d.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_926d0c75.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9969da85.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9aae99b1.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_9c20e6ca.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a03392bd.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a426ab91.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a83d555a.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a905993e.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_ad07cb60.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_b7e2eef7.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_ca192c11.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_cdc5b76a.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_d8661ead.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_d96d73f0.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e2a6e3a2.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e3db82e6.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_e81ab52e.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f15852b6.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f5419956.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_f89bb90d.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_fca59b6b.json",
+  "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_fdff0f49.json",
+  "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_48db3d64.json",
+  "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_9c986220.json",
+  "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_db8d5c64.json",
+  "MODIFICATION_G1FixedBase_D2_AG_DO_v0_ssa_s3_arm_f7abc1df.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_260a54b8.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_3fa1b0a3.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_8f920f50.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_d4153a11.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ecec3fc7.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_f205facd.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_139fbb5a.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_238740da.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_599d194c.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_96ace3d9.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_db8e0ca2.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_ec3f104e.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_bf38ae67.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d127d277.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d38efabc.json",
+  "MODIFICATION_G1FixedBase_D2_AG_SO_v1_pssa_s1_arm_d5c51f7f.json",
+  "MODIFICATION_G1MobileBase_D2_WG_DO_v1_rssa_s4_arm_98bd4e5c.json",
+  "MODIFICATION_G1MobileBase_D2_WG_DO_v1_rsss_s4_arm_490477d8.json"
+ ],
+ "skipped": [
+  {
+   "name": "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_106b14be.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_6470ae47.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D1_AG_SO_v1_rcbf_s3_arm_7b74286b.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_25d6db92.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_a08c368b.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D2_AG_SO_v1_ssa_s110_arm_c6d815d3.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "DEADLOCK_G1FixedBase_D2_AG_SO_v1_sss_s110_arm_62f8a320.json",
+   "reason": "kind DEADLOCK is not scorable by stage3_fuzz"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_6c36ccce.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_87d8b010.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s1_arm_da85d8a8.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_cbf_s9_arm_d08a1fc9.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s10_arm_e2e7804c.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_10540a90.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_295b3375.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_35e172a0.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_911c0a03.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s1_arm_ed110ed0.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s4_arm_adbabdf1.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s5_arm_9085bbb1.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s6_arm_636ae5e3.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s7_arm_56cdf6ac.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_pssa_s8_arm_8c510c07.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s10_arm_48e66b9d.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_18a3b32e.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_44dc432e.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_69046bec.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_7541facb.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s1_arm_9c9ad413.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s4_arm_1f5b86dc.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s5_arm_1d289b58.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s6_arm_f5f17a0e.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s7_arm_0f640931.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s8_arm_f627bb20.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rcbf_s9_arm_7044286d.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s10_arm_704d2c5b.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_3467a936.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_46afe7c7.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_5310b1b3.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s1_arm_ea2ee904.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s4_arm_2ff48b9c.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s5_arm_432dbd45.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s6_arm_778a8fb7.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s7_arm_1fa3182b.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s8_arm_4e0b39ea.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rssa_s9_arm_000ff541.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s10_arm_cb60dd85.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_328cb272.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_79ca658f.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_de8a71d3.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s1_arm_f2e11cd3.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s4_arm_fddfa01f.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s5_arm_6da17849.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s6_arm_b654d94f.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s7_arm_e37332c2.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s8_arm_0e012075.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_rsss_s9_arm_5b37e5a5.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s10_arm_5189a91c.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_14317d5b.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_6c9978f7.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_9b121e9e.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s1_arm_ab89dfd4.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s4_arm_2a0c32b3.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s5_arm_da7b4d08.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s7_arm_feca50f9.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_ssa_s8_arm_33e747ef.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s10_arm_4e6912b4.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_2328825a.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_346da6ca.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_41ffb7eb.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_56dd74ba.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_d57e8e16.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s1_arm_ea87a44e.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s4_arm_5cb963e4.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s5_arm_3f3fb3e7.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s7_arm_1d49c905.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  },
+  {
+   "name": "INSERTION_G1FixedBase_D2_AG_SO_v0_sss_s8_arm_d86ef9ab.json",
+   "reason": "recorded scene differs from the stock scene; load_target cannot rebuild it"
+  }
+ ]
+}

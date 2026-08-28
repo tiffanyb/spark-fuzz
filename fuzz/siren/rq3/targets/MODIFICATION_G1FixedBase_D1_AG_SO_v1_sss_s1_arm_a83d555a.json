@@ -1,0 +1,40 @@
+{
+ "name": "MODIFICATION_G1FixedBase_D1_AG_SO_v1_sss_s1_arm_a83d555a",
+ "case": "G1FixedBase_D1_AG_SO_v1",
+ "seed": 1,
+ "algo": "sss",
+ "index": "distance",
+ "d_min": 0.02,
+ "eta": null,
+ "lam": 10.0,
+ "k": 0.1,
+ "channel": "arm",
+ "max_steps": 1500,
+ "G0_commanded": [
+  0.24979340397519403,
+  -0.24051857988726008,
+  0.12284660236674716
+ ],
+ "G1": [
+  0.18097836752950783,
+  -0.13123413454117994,
+  0.12842735696138846
+ ],
+ "G1_prime_truth": [
+  0.3965848463237347,
+  -0.22607643422626092,
+  0.11404235178706512
+ ],
+ "kind": "MODIFICATION",
+ "obstacles_world": null,
+ "provenance": {
+  "rq3_id": "a83d555ad4621039",
+  "source": "fuzz/siren/teleop/hunt/hunt_G1FixedBase_D1_AG_SO_v1_sss_s1_32.json",
+  "revalidated": true,
+  "baseline_min": 0.0002678193688544772,
+  "attack_mins": [
+   -9.733436211531443e-05,
+   -9.733436211531443e-05
+  ]
+ }
+}
