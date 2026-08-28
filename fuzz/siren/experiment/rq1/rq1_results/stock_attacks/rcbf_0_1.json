@@ -1,0 +1,88 @@
+{
+ "case": "G1FixedBase_D2_AG_SO_v0",
+ "algo": "rcbf",
+ "seed": 1,
+ "index": "velocity",
+ "d_min": 0.02,
+ "eta": null,
+ "lam": 0.5,
+ "k": 0.1,
+ "demand_multiplier": 0.05,
+ "stock_config": false,
+ "max_steps": 900,
+ "channel": "arm",
+ "bounds": [
+  [
+   0.1,
+   0.4
+  ],
+  [
+   -0.4,
+   -0.1
+  ],
+  [
+   0.0,
+   0.3
+  ]
+ ],
+ "keepout": 0.0,
+ "obstacles_world": [
+  [
+   0.18109572014284336,
+   -0.24247790384297402,
+   1.0234644516987834
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ],
+  [
+   9.0,
+   9.0,
+   9.0
+  ]
+ ],
+ "obstacle_radius": 0.05,
+ "n_obstacles": 1,
+ "u_lim_scale": 1.0,
+ "plant_modified": false,
+ "static": true,
+ "env_only": false,
+ "gap": -0.024518537010338,
+ "G1": [
+  0.3250432944834903,
+  -0.10334167332805157,
+  0.2244496963139518
+ ],
+ "G1_prime": [
+  0.185,
+  -0.38,
+  0.27999999999999997
+ ],
+ "controls": [
+  {
+   "G0": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+   ]
+  }
+ ],
+ "baseline_label": "REACHED",
+ "baseline_min": 0.007293316374269526,
+ "baseline_steps": 101,
+ "leg1_min": 0.004540434326849779,
+ "leg2_min": -0.0001913782719871332,
+ "hit_leg": "INSERTION"
+}

@@ -1,0 +1,419 @@
+{
+ "source_attack": "pssa_0_1.json",
+ "schema": "siren.render_stock.trace/1",
+ "robot": {
+  "class_name": "G1FixedBaseDynamic2Config",
+  "test_case": "G1FixedBase_D2_AG_SO_v0",
+  "seed": 1,
+  "n_dof": 17,
+  "num_total_motors": 35,
+  "control_mode": "acceleration (Dynamic2)",
+  "joints": [
+   {
+    "order": 0,
+    "dof": "WaistYaw",
+    "control": "aWaistYaw",
+    "real_dof": "WaistYaw",
+    "sim_index": 0,
+    "real_index": 12,
+    "pos_limit": [
+     -2.618,
+     2.618
+    ],
+    "control_limit": 10.0,
+    "kp": 1000.0,
+    "kd": 3.0
+   },
+   {
+    "order": 1,
+    "dof": "WaistRoll",
+    "control": "aWaistRoll",
+    "real_dof": "WaistRoll",
+    "sim_index": 1,
+    "real_index": 13,
+    "pos_limit": [
+     -0.52,
+     0.52
+    ],
+    "control_limit": 10.0,
+    "kp": 1000.0,
+    "kd": 3.0
+   },
+   {
+    "order": 2,
+    "dof": "WaistPitch",
+    "control": "aWaistPitch",
+    "real_dof": "WaistPitch",
+    "sim_index": 2,
+    "real_index": 14,
+    "pos_limit": [
+     -0.52,
+     0.52
+    ],
+    "control_limit": 10.0,
+    "kp": 1000.0,
+    "kd": 3.0
+   },
+   {
+    "order": 3,
+    "dof": "LeftShoulderPitch",
+    "control": "aLeftShoulderPitch",
+    "real_dof": "LeftShoulderPitch",
+    "sim_index": 3,
+    "real_index": 15,
+    "pos_limit": [
+     -3.0892,
+     2.6704
+    ],
+    "control_limit": 150.0,
+    "kp": 100.0,
+    "kd": 2.0
+   },
+   {
+    "order": 4,
+    "dof": "LeftShoulderRoll",
+    "control": "aLeftShoulderRoll",
+    "real_dof": "LeftShoulderRoll",
+    "sim_index": 4,
+    "real_index": 16,
+    "pos_limit": [
+     -1.5882,
+     2.2515
+    ],
+    "control_limit": 150.0,
+    "kp": 100.0,
+    "kd": 2.0
+   },
+   {
+    "order": 5,
+    "dof": "LeftShoulderYaw",
+    "control": "aLeftShoulderYaw",
+    "real_dof": "LeftShoulderYaw",
+    "sim_index": 5,
+    "real_index": 17,
+    "pos_limit": [
+     -2.618,
+     2.618
+    ],
+    "control_limit": 150.0,
+    "kp": 50.0,
+    "kd": 2.0
+   },
+   {
+    "order": 6,
+    "dof": "LeftElbow",
+    "control": "aLeftElbow",
+    "real_dof": "LeftElbow",
+    "sim_index": 6,
+    "real_index": 18,
+    "pos_limit": [
+     -1.0472,
+     2.0944
+    ],
+    "control_limit": 150.0,
+    "kp": 50.0,
+    "kd": 2.0
+   },
+   {
+    "order": 7,
+    "dof": "LeftWristRoll",
+    "control": "aLeftWristRoll",
+    "real_dof": "LeftWristRoll",
+    "sim_index": 7,
+    "real_index": 19,
+    "pos_limit": [
+     -1.972222054,
+     1.972222054
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   },
+   {
+    "order": 8,
+    "dof": "LeftWristPitch",
+    "control": "aLeftWristPitch",
+    "real_dof": "LeftWristPitch",
+    "sim_index": 8,
+    "real_index": 20,
+    "pos_limit": [
+     -1.614429558,
+     1.614429558
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   },
+   {
+    "order": 9,
+    "dof": "LeftWristYaw",
+    "control": "aLeftWristYaw",
+    "real_dof": "LeftWristYaw",
+    "sim_index": 9,
+    "real_index": 21,
+    "pos_limit": [
+     -1.614429558,
+     1.614429558
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   },
+   {
+    "order": 10,
+    "dof": "RightShoulderPitch",
+    "control": "aRightShoulderPitch",
+    "real_dof": "RightShoulderPitch",
+    "sim_index": 10,
+    "real_index": 22,
+    "pos_limit": [
+     -3.0892,
+     2.6704
+    ],
+    "control_limit": 150.0,
+    "kp": 100.0,
+    "kd": 2.0
+   },
+   {
+    "order": 11,
+    "dof": "RightShoulderRoll",
+    "control": "aRightShoulderRoll",
+    "real_dof": "RightShoulderRoll",
+    "sim_index": 11,
+    "real_index": 23,
+    "pos_limit": [
+     -2.2515,
+     1.5882
+    ],
+    "control_limit": 150.0,
+    "kp": 100.0,
+    "kd": 2.0
+   },
+   {
+    "order": 12,
+    "dof": "RightShoulderYaw",
+    "control": "aRightShoulderYaw",
+    "real_dof": "RightShoulderYaw",
+    "sim_index": 12,
+    "real_index": 24,
+    "pos_limit": [
+     -2.618,
+     2.618
+    ],
+    "control_limit": 150.0,
+    "kp": 50.0,
+    "kd": 2.0
+   },
+   {
+    "order": 13,
+    "dof": "RightElbow",
+    "control": "aRightElbow",
+    "real_dof": "RightElbow",
+    "sim_index": 13,
+    "real_index": 25,
+    "pos_limit": [
+     -1.0472,
+     2.0944
+    ],
+    "control_limit": 150.0,
+    "kp": 50.0,
+    "kd": 2.0
+   },
+   {
+    "order": 14,
+    "dof": "RightWristRoll",
+    "control": "aRightWristRoll",
+    "real_dof": "RightWristRoll",
+    "sim_index": 14,
+    "real_index": 26,
+    "pos_limit": [
+     -1.972222054,
+     1.972222054
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   },
+   {
+    "order": 15,
+    "dof": "RightWristPitch",
+    "control": "aRightWristPitch",
+    "real_dof": "RightWristPitch",
+    "sim_index": 15,
+    "real_index": 27,
+    "pos_limit": [
+     -1.614429558,
+     1.614429558
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   },
+   {
+    "order": 16,
+    "dof": "RightWristYaw",
+    "control": "aRightWristYaw",
+    "real_dof": "RightWristYaw",
+    "sim_index": 16,
+    "real_index": 28,
+    "pos_limit": [
+     -1.614429558,
+     1.614429558
+    ],
+    "control_limit": 150.0,
+    "kp": 20.0,
+    "kd": 1.0
+   }
+  ]
+ },
+ "timing": {
+  "dt_s": 0.01,
+  "rate_hz": 100.0,
+  "mujoco_timestep_s": 0.002,
+  "control_decimation": 5,
+  "n_steps": 85,
+  "contact_step": -1,
+  "note": "dt_s = mujoco_timestep_s * control_decimation"
+ },
+ "columns": {
+  "q_*": "joint position, rad, DoFs order above",
+  "u_*": "FILTERED command actually applied, Control order above; units follow control_mode",
+  "*_x/_y/_z": "collision-volume centre, metres, WORLD frame",
+  "*_d[xyz]": "change since the previous sample",
+  "clearance": "SPARK surface-to-surface distance, m; < 0 is contact",
+  "leg": "task waypoint index; 1 = outbound, 2 = return"
+ },
+ "traced_frames": [
+  "L_ee",
+  "R_ee"
+ ],
+ "all_collision_volumes": [
+  "waist_yaw_joint",
+  "waist_roll_joint",
+  "waist_pitch_joint",
+  "left_shoulder_pitch_joint",
+  "left_shoulder_roll_joint",
+  "left_shoulder_yaw_joint",
+  "left_elbow_joint",
+  "left_wrist_roll_joint",
+  "left_wrist_pitch_joint",
+  "left_wrist_yaw_joint",
+  "right_shoulder_pitch_joint",
+  "right_shoulder_roll_joint",
+  "right_shoulder_yaw_joint",
+  "right_elbow_joint",
+  "right_wrist_roll_joint",
+  "right_wrist_pitch_joint",
+  "right_wrist_yaw_joint",
+  "L_ee",
+  "R_ee",
+  "torso_link_1",
+  "torso_link_2",
+  "torso_link_3",
+  "pelvis_link_1",
+  "pelvis_link_2",
+  "pelvis_link_3"
+ ],
+ "scene": {
+  "obstacle_radius_m": 0.05,
+  "n_obstacles": 1,
+  "obstacles_world": [
+   [
+    0.2764471177043362,
+    -0.23087789153523777,
+    1.0573573641045217
+   ],
+   [
+    9.0,
+    9.0,
+    9.0
+   ],
+   [
+    9.0,
+    9.0,
+    9.0
+   ],
+   [
+    9.0,
+    9.0,
+    9.0
+   ],
+   [
+    9.0,
+    9.0,
+    9.0
+   ]
+  ],
+  "base_frame": [
+   [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0,
+    0.793
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "goals_base": {
+   "G0": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.12284660236674716
+   ],
+   "G1_prime": [
+    0.315,
+    -0.38,
+    0.27999999999999997
+   ],
+   "G1": [
+    0.3250432944834903,
+    -0.10334167332805157,
+    0.2244496963139518
+   ]
+  },
+  "goals_world": {
+   "G0": [
+    0.24979340397519403,
+    -0.24051857988726008,
+    0.9158466023667472
+   ],
+   "G1_prime": [
+    0.315,
+    -0.38,
+    1.073
+   ],
+   "G1": [
+    0.3250432944834903,
+    -0.10334167332805157,
+    1.0174496963139519
+   ]
+  }
+ },
+ "filter": {
+  "algo": "pssa",
+  "index": "velocity",
+  "d_min": 0.018,
+  "eta": 0.004,
+  "lam": 1.0,
+  "k": 0.3,
+  "demand_multiplier": 0.2,
+  "stock_config": false
+ },
+ "safety": "Replaying this on hardware reproduces a trajectory that was SEARCHED FOR because it collides: contact_step is where the arm intersects the obstacle. Only replay with the obstacle absent, or with the run stopped before contact_step."
+}
