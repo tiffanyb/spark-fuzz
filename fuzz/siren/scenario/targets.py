@@ -135,6 +135,33 @@ def load_target(path, max_steps=None):
                     test_case=target["case"], max_steps=steps)
     # deliberately NOT apply_target(): G0 is replayed as a prefix waypoint, so
     # the world is the stock scene and every schedule begins from home.
+
+    # ...EXCEPT when the target carries its own obstacles. Some attacks were
+    # found in a scene the search built rather than the one the seed generates
+    # -- the constructed searches park unused obstacles metres away and place
+    # one deliberately. Rebuilding the stock scene for such a target searches a
+    # DIFFERENT world than the attack lives in: it does not error, it just never
+    # finds anything, which is a false negative and exactly the ambiguity a
+    # target is supposed to remove.
+    #
+    # Pinning has to survive reset(), because every rollout resets first, so the
+    # harness reset is wrapped rather than the obstacles being set once.
+    obs = target.get("obstacles_world")
+    if obs:
+        import numpy as _np
+        from ..constructed.big_obstacle import set_obstacles as _set_obs
+        _pos = [_np.asarray(q, float) for q in obs]
+        _rad = float(target.get("obstacle_radius") or 0.05)
+        _h = w.harness
+        _orig = _h.reset
+
+        def _pinned_reset(*aa, **kk):
+            af, _ = _orig(*aa, **kk)
+            _set_obs(w, _pos, _rad)
+            return af, _h.env.task.get_info(af)
+
+        _h.reset = _pinned_reset
+        target = dict(target, _obstacles_pinned=True)
     return w, target
 
 
