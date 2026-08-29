@@ -678,6 +678,13 @@ class G1RealAgent(BaseAgent):
         # ------------------------------ Dynamics State ------------------------------ #
         ret["state"] = self.compose_cmd_state() # NOTE: Not sure if this is all we need.
 
+        # ------------------------------- Teleop Goals ------------------------------- #
+        # Without ROS, TeleopTask reads goal offsets from agent feedback (sim agents
+        # supply keyboard-driven frames). The real robot has no local goal input, so
+        # identity keeps the goals fixed at goal_*_init.
+        ret["robot_goal_left_offset"] = np.eye(4)
+        ret["robot_goal_right_offset"] = np.eye(4)
+
         # # ------------------------ Retrieve Unitree state data ----------------------- #
         # imu_rpy = self.get_imu_rpy()
         # imu_quaternion = self.get_imu_quaternion()
